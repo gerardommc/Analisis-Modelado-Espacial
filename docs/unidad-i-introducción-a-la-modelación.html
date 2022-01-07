@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 Unidad I: Introducción a la modelación | Modelos Matemáticos en Ecología I</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 Unidad I: Introducción a la modelación | Modelos Matemáticos en Ecología I" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 Unidad I: Introducción a la modelación | Modelos Matemáticos en Ecología I" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2021-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="encuadre-de-la-materia.html"/>
+<link rel="next" href="unidad-ii-introducción-a-los-modelos-determinísticos.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modelos Matemáticos en Ecología I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción a la modelación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#introducción-al-concepto-de-modelo-matemático"><i class="fa fa-check"></i><b>3.1</b> Introducción al concepto de modelo matemático</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#qué-es-un-modelo"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué es un modelo?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#cómo-construir-un-modelo"><i class="fa fa-check"></i><b>3.2</b> Cómo construir un modelo</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos"><i class="fa fa-check"></i><b>3.2.1</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#discusión-sobre-las-distintas-herramientas-matemáticas-empleadas-en-la-modelación-matemática"><i class="fa fa-check"></i><b>3.3</b> Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#relación-entre-las-herramientas-matemáticas-y-los-sistemas-ecológicos"><i class="fa fa-check"></i><b>3.3.1</b> Relación entre las herramientas matemáticas y los sistemas ecológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#uso-de-los-modelos-matemáticos-en-ecología"><i class="fa fa-check"></i><b>3.4</b> Uso de los modelos matemáticos en ecología</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#analíticos-dinámicas-depredador-presa"><i class="fa fa-check"></i><b>3.4.1</b> Analíticos: Dinámicas depredador-presa</a></li>
+<li class="chapter" data-level="3.4.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#simulaciones-dinámica-de-enfermedades-infecciosas"><i class="fa fa-check"></i><b>3.4.2</b> Simulaciones: Dinámica de enfermedades infecciosas</a></li>
+<li class="chapter" data-level="3.4.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#mal-uso-de-los-modelos"><i class="fa fa-check"></i><b>3.4.3</b> Mal uso de los modelos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#tipos-de-modelos"><i class="fa fa-check"></i><b>3.5</b> Tipos de modelos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos-1"><i class="fa fa-check"></i><b>3.5.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="3.5.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#modelos-determinísticos-y-estocásticos"><i class="fa fa-check"></i><b>3.5.2</b> Modelos determinísticos y estocásticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html"><i class="fa fa-check"></i><b>4</b> Unidad II: Introducción a los modelos determinísticos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-línea-recta"><i class="fa fa-check"></i><b>4.1</b> La línea recta</a></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-parábola"><i class="fa fa-check"></i><b>4.2</b> La parábola</a></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#cónicas"><i class="fa fa-check"></i><b>4.3</b> Cónicas</a></li>
+<li class="chapter" data-level="4.4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-curva-normal"><i class="fa fa-check"></i><b>4.4</b> La curva normal</a></li>
+<li class="chapter" data-level="4.5" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#funciones-trigonométricas"><i class="fa fa-check"></i><b>4.5</b> Funciones trigonométricas</a></li>
+<li class="chapter" data-level="4.6" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-recta-como-modelo-universal-y-sus-transformaciones"><i class="fa fa-check"></i><b>4.6</b> La recta como modelo “universal” y sus transformaciones</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#el-logaritmo"><i class="fa fa-check"></i><b>4.6.1</b> El logaritmo</a></li>
+<li class="chapter" data-level="4.6.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-función-exponencial"><i class="fa fa-check"></i><b>4.6.2</b> La función exponencial</a></li>
+<li class="chapter" data-level="4.6.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#relevancia-de-la-recta"><i class="fa fa-check"></i><b>4.6.3</b> Relevancia de la recta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#representación-de-las-funciones-en-3-dimensiones"><i class="fa fa-check"></i><b>4.7</b> Representación de las funciones en 3 dimensiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><i class="fa fa-check"></i><b>5</b> Unidad III: Introducción al cálculo diferencial e integral</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#sucesiones"><i class="fa fa-check"></i><b>5.1</b> Sucesiones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación-de-sucesiones"><i class="fa fa-check"></i><b>5.1.1</b> Notación de sucesiones</a></li>
+<li class="chapter" data-level="5.1.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#tipos-de-sucesiones"><i class="fa fa-check"></i><b>5.1.2</b> Tipos de sucesiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#continuidad-y-límites"><i class="fa fa-check"></i><b>5.2</b> Continuidad y límites</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-límite"><i class="fa fa-check"></i><b>5.2.1</b> El límite</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#derivación"><i class="fa fa-check"></i><b>5.3</b> Derivación</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#ejemplos-2"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación"><i class="fa fa-check"></i><b>5.3.2</b> Notación</a></li>
+<li class="chapter" data-level="5.3.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#reglas-de-derivación"><i class="fa fa-check"></i><b>5.3.3</b> Reglas de derivación</a></li>
+<li class="chapter" data-level="5.3.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#representación-geométrica-de-la-derivada"><i class="fa fa-check"></i><b>5.3.4</b> Representación geométrica de la derivada</a></li>
+<li class="chapter" data-level="5.3.5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones"><i class="fa fa-check"></i><b>5.3.5</b> Aplicaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#integración"><i class="fa fa-check"></i><b>5.4</b> Integración</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#área-bajo-una-recta"><i class="fa fa-check"></i><b>5.4.1</b> Área bajo una recta</a></li>
+<li class="chapter" data-level="5.4.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-teorema-funamental-del-cálculo"><i class="fa fa-check"></i><b>5.4.2</b> El teorema funamental del cálculo</a></li>
+<li class="chapter" data-level="5.4.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones-de-la-integración"><i class="fa fa-check"></i><b>5.4.3</b> Aplicaciones de la integración</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><i class="fa fa-check"></i><b>6</b> Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-lineales-crecimiento-exponencial-malthusiano"><i class="fa fa-check"></i><b>6.1</b> Modelos lineales: Crecimiento exponencial (Malthusiano)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#interpretación-de-r"><i class="fa fa-check"></i><b>6.1.1</b> Interpretación de <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-del-modelo"><i class="fa fa-check"></i><b>6.1.2</b> Análisis del modelo</a></li>
+<li class="chapter" data-level="6.1.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-de-estabilidad"><i class="fa fa-check"></i><b>6.1.3</b> Análisis de estabilidad</a></li>
+<li class="chapter" data-level="6.1.4" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#períodos-de-duplicación"><i class="fa fa-check"></i><b>6.1.4</b> Períodos de duplicación</a></li>
+<li class="chapter" data-level="6.1.5" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#estimación-de-la-tasa-de-cambio-r"><i class="fa fa-check"></i><b>6.1.5</b> Estimación de la tasa de cambio <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#implicaciones-del-crecimiento-exponencial"><i class="fa fa-check"></i><b>6.1.6</b> Implicaciones del crecimiento exponencial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-no-lineales-crecimiento-logístico-de-una-población"><i class="fa fa-check"></i><b>6.2</b> Modelos no lineales: Crecimiento logístico de una población</a></li>
+<li class="chapter" data-level="6.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-en-tiempo-contínuo-vs-discreto"><i class="fa fa-check"></i><b>6.3</b> Modelos en tiempo contínuo vs discreto</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-exponencial-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.1</b> Crecimiento exponencial en tiempo discreto</a></li>
+<li class="chapter" data-level="6.3.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-logístico-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.2</b> Crecimiento logístico en tiempo discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html"><i class="fa fa-check"></i><b>7</b> Unidad V: Introducción al álgebra de matrices</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales"><i class="fa fa-check"></i><b>7.1</b> Sistemas lineales</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-gráfica"><i class="fa fa-check"></i><b>7.1.1</b> Solución gráfica</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-algebráica"><i class="fa fa-check"></i><b>7.1.2</b> Solución algebráica</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales-sin-solución"><i class="fa fa-check"></i><b>7.1.3</b> Sistemas lineales sin solución</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#resolviendo-sistemas-lineales-más-complejos"><i class="fa fa-check"></i><b>7.1.4</b> Resolviendo sistemas lineales más complejos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#ejemplo"><i class="fa fa-check"></i><b>7.1.5</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1.6" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-indeterminados"><i class="fa fa-check"></i><b>7.1.6</b> Sistemas indeterminados</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#operaciones-elementales-con-matrices"><i class="fa fa-check"></i><b>7.2</b> Operaciones elementales con matrices</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#suma-de-matrices"><i class="fa fa-check"></i><b>7.2.1</b> Suma de matrices</a></li>
+<li class="chapter" data-level="7.2.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-por-un-escalar"><i class="fa fa-check"></i><b>7.2.2</b> Multiplicación por un escalar</a></li>
+<li class="chapter" data-level="7.2.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#transposición"><i class="fa fa-check"></i><b>7.2.3</b> Transposición</a></li>
+<li class="chapter" data-level="7.2.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-de-matrices"><i class="fa fa-check"></i><b>7.2.4</b> Multiplicación de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinantes-y-matrices-inversas"><i class="fa fa-check"></i><b>7.3</b> Determinantes y matrices inversas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-identidad"><i class="fa fa-check"></i><b>7.3.1</b> Matriz identidad</a></li>
+<li class="chapter" data-level="7.3.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-inversa"><i class="fa fa-check"></i><b>7.3.2</b> Matriz inversa</a></li>
+<li class="chapter" data-level="7.3.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinante-de-una-matriz"><i class="fa fa-check"></i><b>7.3.3</b> Determinante de una matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#valores-propios"><i class="fa fa-check"></i><b>7.4</b> Valores propios</a></li>
+<li class="chapter" data-level="7.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#vectores-propios"><i class="fa fa-check"></i><b>7.5</b> Vectores propios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><i class="fa fa-check"></i><b>8</b> Unidad VI: Modelos lineales de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#proyección-de-matrices-para-modelos-estructurados-la-matriz-de-leslie"><i class="fa fa-check"></i><b>8.1</b> Proyección de matrices para modelos estructurados: la matriz de Leslie</a></li>
+<li class="chapter" data-level="8.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#análisis-de-los-modelos-de-poblaciones-estructuradas"><i class="fa fa-check"></i><b>8.2</b> Análisis de los modelos de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#tablas-de-vida"><i class="fa fa-check"></i><b>8.2.1</b> Tablas de vida</a></li>
+<li class="chapter" data-level="8.2.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#la-ecuación-de-euler"><i class="fa fa-check"></i><b>8.2.2</b> La ecuación de Euler</a></li>
+<li class="chapter" data-level="8.2.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#valor-reproductivo-y-autovectores"><i class="fa fa-check"></i><b>8.2.3</b> Valor reproductivo y autovectores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#aplicaciones-de-lo-modelo-de-matrices"><i class="fa fa-check"></i><b>8.3</b> Aplicaciones de lo modelo de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/gerardommc" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos Matemáticos en Ecología I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-i-introducción-a-la-modelación" class="section level1" number="3">
+<h1><span class="header-section-number"> 3</span> Unidad I: Introducción a la modelación</h1>
+<div id="introducción-al-concepto-de-modelo-matemático" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introducción al concepto de modelo matemático</h2>
+<p>Para comenzar a hablar de modelos matemáticos es preciso tener una idea de por qué las matemáticas forman parte de un grado en ciencias naturales. Los autores <span class="citation"><a href="#ref-otto2011biologist" role="doc-biblioref">Otto and Day</a> (<a href="#ref-otto2011biologist" role="doc-biblioref">2011</a>)</span>, dan cuenta de qué tan comunes son las matemáticas en la labor del biólogo/ecólogo. Hacia el año 2006, una búsqueda sistemática del material publicado en revistas científicas contentiendo la palabra clave “math” sugiere que había ~900 mil artículos, la mayoría concentrados en revistas especializadas como <em>Bulletin of Mathematical Biology</em>, otros en las más prestigiosas <em>Nature</em> o <em>Science</em>. Una mirada más cercana a las revistas especializadas <em>Ecology and Evolution</em> y <em>American Naturalist</em> que el 35 y 60% respectivametne de las publicaciones utilizaron algún modelo matemático para mostrar predicciones. En resumen, la labor de un ecólogo requiere del uso frecuente de matemáticas, si no es mediante el desarrollo de algún modelo, requiere de su entendimiento.</p>
+<div id="qué-es-un-modelo" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> ¿Qué es un modelo?</h3>
+<p>Imaginemos a seis personas invidentes, con la tarea de encontrar qué es el objeto que está frente a ellas usando únicamente el tacto. En la parábola de los seis hombres ciegos, el objeto es un elefante, de modo que la imágen que cada uno de ellos se forma del objeto depende enteramente de la parte del elefante que están tocando.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="Unidad-I/elefante.png" alt="La parábola de los seis hombres ciegos inspeccionando un elefante." width="582" />
+<p class="caption">
+Figura 3.1: La parábola de los seis hombres ciegos inspeccionando un elefante.
+</p>
+</div>
+<p>Quien toque los colmillos podrá pensar que se trata de una lanza, la trompa podría tratarse de una serpiente, la cola de una cuerda, las patas troncos de árbol y el cuerpo una pared. Es evidente que todas las hipótesis presentadas después de la inspección fueron erróneas, y que cuando estudiamos al mundo lo haremos igual, con la descripción de tan sólo una fracción de éste. Un séptimo hombre que pregunte a los otros seis qué fue lo que vieron podría formarse una imágen más completa del <em>sistema</em> para proponer otra hipótesis: se trata de un objeto grande reposando sobre cuatro columnas con apéndices adelante y atrás.</p>
+<p>Al estudiar los sistemas ecológicos, al igual que los ciegos, no sabremos que estamos frente a un elefante. Los sistemas ecológicos, al igual que los elefantes, también tienen componentes interconectados, y nosotros los ecólogos somos como los hombres ciegos, sólo podemos observar ciertas partes de los ecosistemas. En nuestro trabajo entonces, aprender a identificar y proponer hipótesis sobre cómo funcionan los sistemas ecológicos.</p>
+<p>Las hipótesis propuestas por los seis hombres representan modelos, es decir simplificaciones del mundo que nos ayudan a entenderlo. Los modelos matemáticos son simplificaciones formales del mundo utilizando otro lenguaje, las matemáticas <span class="citation">(<a href="#ref-haefner1998modeling" role="doc-biblioref">Haefner 1998</a>)</span>.</p>
+</div>
+</div>
+<div id="cómo-construir-un-modelo" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Cómo construir un modelo</h2>
+<p>¿Cómo se construye un modelo? Es una pregunta difícil de responder, pues difícilmente existe un sólo modo de hacerlo que funcione para <a href="mailto:tod@s" class="email">tod@s</a>. Aquí voy a hablar de mi propia experiencia, y cómo aprendí a utilizar las matemáticas y estadística para entender los sistemas ecológicos. Los pasos generales que sigo son:</p>
+<ol style="list-style-type: decimal">
+<li>Identificar el sistema y sus componentes</li>
+<li>Crear un modelo conceptual, haciendo dibujos</li>
+<li>Identificar las herramientas matemáticas disponibles para representar el modelo conceptual</li>
+<li>Establecer objetivos claros y alcanzables</li>
+<li>Proponer una serie de modelos alternativos</li>
+<li>Determinar una estrategia para seleccionar uno solo de los modelos que propuse para logar el objetivo</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="Unidad-I/Diagrama-dearrollo.png" alt=" Diagrama de mi estrategia para desarrollar modelos." width="306" />
+<p class="caption">
+Figura 3.2:  Diagrama de mi estrategia para desarrollar modelos.
+</p>
+</div>
+<p>La estrategia general que les doy puede, por el momento, sonar un tanto abstracta, pero la iremos poniendo en práctica conforme avanza el curso para que al final, esperemos, tenga más sentido que ahorita.</p>
+<div id="ejemplos" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Ejemplos</h3>
+<p>La presente pandemia ha puesto en boca de todxs muchos aspectos de la modelación matemática y estadística. Como es de esperarse, los modelos son distintos dependiendo del objetido que se quiera conseguir con ellos:</p>
+<ol style="list-style-type: decimal">
+<li>Determinar el número reproductivo básico (<span class="math inline">\(R_0\)</span>) de COVID-19</li>
+<li>Predecir la ocupación hospitalaria ante ciertas medidas de restricción de movilidad</li>
+<li>Estimar cómo cambiaría el número reproductivo básico ante ciertas medidas de restricción</li>
+<li>Predecir localidades geográficas donde surgirán nuevas cepas</li>
+<li>Predecir las cualidades infecciosas o virulentas de las nuevas cepas</li>
+</ol>
+<p>Todos estos objetivos puede de cierta manera conseguirse por medio de modelos matemáticos, todos ellos con modelos muy distintos, algunos con herramientas muy diferentes unos de otros.</p>
+</div>
+</div>
+<div id="discusión-sobre-las-distintas-herramientas-matemáticas-empleadas-en-la-modelación-matemática" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática</h2>
+<p>Las matemáticas son un área de conocimiento muy extenso, por lo que hablar de todas las herramientas disponibles ¡nos podría llevar años! En este curso nos vamos a enfocar en un tipo general de modelo y de sistema ecológico: aquellos que cambian rápidamente con el tiempo, también llamados dinámicos.</p>
+<p>Las herramientas matemáticas más comunmente utilizadas para estudiar estos sistemas son las ecuaciones diferenciales ordinarias, ecuaciones por diferencias finitas y el álgebra de matrices. Las ecuaciones diferenciales y por diferencias finitas son muy parecidas entre sí, porque nos representar y medir los cambios que sufre un sistema ecológico a través del tiempo en cada uno de sus componentes. Además es fácil representar las ideas plasmadas diagramáticamente en ellas. El álgebra de matrices, por otro lado, nos sirve para <em>conectar</em> los cambios de los diferentes componentes del sistema de estudio, y así hacer cálculos sobre sus cambios <em>como un todo</em>. Por supuesto que para poder utilizar las matrices de este modo, tenemos que echar mano de una serie de supuestos de <em>linealidad</em>, de modo que el álgebra lineal también es una herramienta básica.</p>
+<p>Como podemos ver, gran parte de este curso estará enfocado en <em>entender y medir los cambios</em>. Te preguntarás entonces ¿cambios de qué? En ecología, estos son algunos de los cambios que nos interesa observar:</p>
+<ol style="list-style-type: decimal">
+<li>Número de individuos de una especie</li>
+<li>Cantidad de materia orgánica almacenada en la vegetación</li>
+<li>Calorías consumidas por una población de aves</li>
+<li>Probabilidad de extinción de una especie</li>
+</ol>
+<p>Cuando medimos cambios entonces, es necesario observar el estado del mundo natural en diferentes puntos a lo largo del tiempo. Por lo tanto, la modelación matemática también requiere desarrollar buenas habilidades estadísticas. Estas últimas nos permitirán entender probabilísticamente a los sistemas ecológicos a partir de los mecanismos que representamos en los modelos matemáticos. Más adelante veremos a qué nos referimos con <em>probabilísticamente</em>.</p>
+<p>Antes de entrar en estos temas más filosóficos, sin embargo, debemos que conocer algunas expresiones algebráicas y geométricas que utilizaremos rutinariamente para representar fenómenos. Algunas de las expresiones y herramientas geométricas más comunes son:</p>
+<ol style="list-style-type: decimal">
+<li>La recta, descrita por expresiones como <span class="math inline">\(y = a + bx\)</span></li>
+<li>La parábola, <span class="math inline">\(y = x^2\)</span></li>
+<li>Las Cónicas, <span class="math inline">\(y = 1/x\)</span>, o <span class="math inline">\(y^2 - x^2 = 1\)</span> y muchas otras</li>
+<li>Las funciones trigonométricas, <span class="math inline">\(\sin \theta = \frac{O}{H}\)</span></li>
+</ol>
+<p>Estas expresiones pueden ser combinadas dentro de un sistema de ecuaciones. Con sistema de ecuaciones nos referimos a ecuaciones separadas que están conectadas por términos en común y que representan <em>flujos</em>. Veamos un sencillo sistema de ecuaciones estructuradas por edad con crecimiento logístico:</p>
+<p><span class="math display" id="eq:juv">\[\begin{equation}
+    \dot{J} = rA - \gamma A^2 - \kappa J \tag{3.1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:ad">\[\begin{equation}
+    \dot{A} = \kappa J \tag{3.2}
+\end{equation}\]</span></p>
+<p>La expresión <span class="math inline">\(rA - \gamma A^2\)</span> es claramente una parábola, y representa el crecimiento logístico. Por otra parte <span class="math inline">\(- \kappa J\)</span> es un término lineal que, debido a su signo negativo representa un flujo de salida del compartimento <span class="math inline">\(J\)</span> y es una entrada al compartimento <span class="math inline">\(A\)</span>. Este modelo relativamente sencillo representa la dinámica poblacional de un bicho con estados de desarrollo juvenil <span class="math inline">\(J\)</span> y adulto <span class="math inline">\(A\)</span>, donde el nacimiento de individuos juveniles depende el número de adultos, y el crecimiento de los adultos ocurre a medida que los juveniles maduran y entran al compartimento de adultos a una tasa <span class="math inline">\(\kappa\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:juve-ad"></span>
+<img src="Unidad-I/juve-adult.png" alt="Representación gráfica del modelo de crecimiento poblacional con estados de desarrollo." width="262" />
+<p class="caption">
+Figura 3.3: Representación gráfica del modelo de crecimiento poblacional con estados de desarrollo.
+</p>
+</div>
+<div id="relación-entre-las-herramientas-matemáticas-y-los-sistemas-ecológicos" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Relación entre las herramientas matemáticas y los sistemas ecológicos</h3>
+<p>Los sistemas ecológicos son muy variados, de modo que las herramientas matemáticas disponibles o que conocemos no siempre reflejan ciertos aspectos importantes de los sistemas ecológicos. Un ejemplo notable de ello es la variación de atributos entre individuos de una población. Supongamos que estamos modelando el crecimiento de una población (como en las ecuaciones <a href="unidad-i-introducción-a-la-modelación.html#eq:juv">(3.1)</a> y <a href="unidad-i-introducción-a-la-modelación.html#eq:ad">(3.2)</a>), y la tasa neta de crecimiento depende de la cantidad de adultos reproductores y del crecimiento exponencial de los gametos fértiles en cada adulto reproductor, lo cual ocurre en corales y algunas plantas.</p>
+<p>El crecimiento poblacional como tal, puede modelarse con ecuaciones diferenciales ordinarias, mientras que representar el crecimiento de los gametos fértiles dentro de cada adulto en un sistema de ecuaciones ordinarias requiere de otras herramientas mucho más avanzadas.</p>
+</div>
+</div>
+<div id="uso-de-los-modelos-matemáticos-en-ecología" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Uso de los modelos matemáticos en ecología</h2>
+<p>Como ya mencionamos anteriormente, una alta proporción de las publicaciones académicas en ecología utiliza modelos matemáticos para predecir. Existen sin embargo otros usos de los modelos matemáticos que se pueden describir en términos generales como analíticos, es decir para analizar y entender cómo los diferentes componentes de un sistema afectan su coportamiento. Otras veces, los modelos se utilizan para medir las respuestas del sistema de interés ante perturbaciones, haciendo muchas simulaciones. Veamos una serie de ejemplos de estos diferentes usos de los modelos.</p>
+<div id="analíticos-dinámicas-depredador-presa" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Analíticos: Dinámicas depredador-presa</h3>
+<p>En 1928, Vito Volterra <span class="citation">(<a href="#ref-volterra1928variations" role="doc-biblioref">Volterra 1928</a>)</span> desarrolló un modelo matemático para describir cómo varía el número de individuos de una especie de depredador y una presa. Como ya es conocido, este modelo replica muy bien el comportamiento oscilatorio de ambas poblaciones (Figura <a href="unidad-i-introducción-a-la-modelación.html#fig:volterra">3.4</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:volterra"></span>
+<img src="Unidad-I/volterra.png" alt="Simulación del modelo [Lotka-Volterra](https://scipy-cookbook.readthedocs.io/items/LoktaVolterraTutorial.html)." width="400" />
+<p class="caption">
+Figura 3.4: Simulación del modelo <a href="https://scipy-cookbook.readthedocs.io/items/LoktaVolterraTutorial.html">Lotka-Volterra</a>.
+</p>
+</div>
+<p>El comportamiento oscilatorio resulta <em>obvio</em> desde una perspectiva biológica: los depredadores no se pueden reproducir a menos que se alimenten de sus presas, pero cuando hay muchos depredadores, estos consumen las presas disminuyendo sus números, resultando en menor potencial reproductivo para el depredador. Pero matemáticamente, ¿qué hace posible estas oscilaciones? Para responder esta pregunta se necesita entender bajo qué condiciones el sistema de ecuaciones que describe el sistema es estable, es decir cuándo los cambios de ambas poblaciones son cero, es decir bajo qué situaciones el sistema como un todo no experimenta cambio alguno. Este análisis matemático tiene un resultado un tanto sorprendente, pues las condiciones bajo las que dicha condición ocurre son un número imaginario, lo que indica que el sistema como tal es inestable, y por lo tanto <strong>siempre</strong> tiende a oscilar. El análisis de matemático de los modelos es en su mayoría netamente simbólico y requiere de buenas bases matemáticas.</p>
+</div>
+<div id="simulaciones-dinámica-de-enfermedades-infecciosas" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Simulaciones: Dinámica de enfermedades infecciosas</h3>
+<p>Los sistemas ecológicos pueden ser muy complejos, lo que resulta en sistemas de ecuaciones igualmente complejos con muchas variables de estado y parámetros, y a la vez hace que el análisis sea muy complicado o imposible. En vista de ello se puede entonces <em>resolver</em> el modelo utilizando herramientas computacionales. Un ejemplo que me gusta mucho es el estudio de la leptospirosis (infección por bacteria del género <em>Leptospira</em>) en ratones <em>Mastomys</em> de <span class="citation"><a href="#ref-holt2006model" role="doc-biblioref">Holt, Davis, and Leirs</a> (<a href="#ref-holt2006model" role="doc-biblioref">2006</a>)</span>. Los autores formularon un modelo relativamente simple de ecuaciones diferenciales para ver cómo las constantes de su modelo afectan el número de ratones <em>Mastomys</em> y de bacterias <em>Leptospira</em> en el ambiente. Ello lo consiguieron aumentando en 10% los valores de cada una de las constantes y midiendo el cambio tras cada simulación.</p>
+<div class="figure" style="text-align: center"><span id="fig:lepto"></span>
+<img src="Unidad-I/lepto.png" alt="Las barras (eje $y$) indican el cambio proporcional de las diferentes cantidades de interés (color de las barras), ante el aumento del valor de cada parámetro (eje $x$), [@holt2006model]." width="820" />
+<p class="caption">
+Figura 3.5: Las barras (eje <span class="math inline">\(y\)</span>) indican el cambio proporcional de las diferentes cantidades de interés (color de las barras), ante el aumento del valor de cada parámetro (eje <span class="math inline">\(x\)</span>), <span class="citation">(<a href="#ref-holt2006model" role="doc-biblioref">Holt, Davis, and Leirs 2006</a>)</span>.
+</p>
+</div>
+<p>Los análisis de sensibilidad mostrados en la Figura <a href="unidad-i-introducción-a-la-modelación.html#fig:lepto">3.5</a> son en realidad una serie de predicciones del sistema. De hecho la predicción generalmente echa mano de modelos matemáticos, así que nos centraremos en resumir: la predicción requiere de la planeación de una serie de escenarios para identificar áreas de intervención (alteración del hábitat por ejemplo) para obtener un resultado favorable de acuerdo con el modelo.</p>
+</div>
+<div id="mal-uso-de-los-modelos" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Mal uso de los modelos</h3>
+<p>Así como existe un uso adecuado de los modelos, es muy fácil darles un mal uso, generalmente relacionado con la calidad de los datos que los respaldan, el grado de entendimiento del sistema en cuestión, y con la relación entre las herramientas matemáticas utilizadas y la naturaleza del problema. <span class="citation"><a href="#ref-holling1978adaptive" role="doc-biblioref">Holling</a> (<a href="#ref-holling1978adaptive" role="doc-biblioref">1978</a>)</span> y <span class="citation"><a href="#ref-karplus1975place" role="doc-biblioref">Karplus</a> (<a href="#ref-karplus1975place" role="doc-biblioref">1975</a>)</span>, sumarizan los siguientes usos potenciales de los modelos en relación a la calidad de los datos (1-baja calidad, 6-alta calidad):</p>
+<ol style="list-style-type: decimal">
+<li>Atención del público</li>
+<li>Aprendizaje sobre el sistema</li>
+<li>Prueba de teorías</li>
+<li>Juegos “qué pasaría si…”</li>
+<li>Recomendación de acciones</li>
+<li>Diseño de productos</li>
+</ol>
+<p><span class="citation"><a href="#ref-haefner1998modeling" role="doc-biblioref">Haefner</a> (<a href="#ref-haefner1998modeling" role="doc-biblioref">1998</a>)</span> sumariza estos usos potenciales de los modelos de acuerdo con el nivel de entendimiento y calidad de datos en distintas áreas del conocimieto.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="Unidad-I/uso-modelos.png" alt="Relación entre el entendimiento y calidad de los datos, y los potenciales usos de los modelos en las diferentes disciplinas científicas [@haefner1998modeling]." width="648" />
+<p class="caption">
+Figura 3.6: Relación entre el entendimiento y calidad de los datos, y los potenciales usos de los modelos en las diferentes disciplinas científicas <span class="citation">(<a href="#ref-haefner1998modeling" role="doc-biblioref">Haefner 1998</a>)</span>.
+</p>
+</div>
+</div>
+</div>
+<div id="tipos-de-modelos" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Tipos de modelos</h2>
+<p>La clasificación de los modelos depende de la herramienta que se utiliza para desarrollarlos. En la sección “Cómo construir un modelo,” mencioné brevemente que uno de los pasos es la formulación de un modelo “conceptual,” en forma de un esquema o diagrama. Esta clasificación la podemos ampliar un poco:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Modelo conceptual o verbal</strong>. Descripciones en lenguaje natural.</li>
+<li><strong>Diagramático</strong>. Representación gráfica (diagramas de flujo o cajas).</li>
+<li><strong>Físico</strong>. Representación a escala de sistema (sistemas hidráulicos).</li>
+<li><strong>Formal</strong>. Matemático (algebráico o sistemas de ecuaciones).</li>
+</ol>
+<p>Aquí nos centraremos en ver a mayor profundidad los modelos formales, en clasificar los modelos matemáticos. <span class="citation"><a href="#ref-haefner1998modeling" role="doc-biblioref">Haefner</a> (<a href="#ref-haefner1998modeling" role="doc-biblioref">1998</a>)</span> sugiere la siguiente clave dicotómica de clasificación:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>¿Las matemáticas representan de manera explícita el proceso de interés?</strong></p>
+<p>1.1. <strong>Sí</strong>: Modelo mecanístico</p>
+<p>1.2. <strong>No</strong>: Modelo descriptivo, fenomenológico</p></li>
+<li><p><strong>¿Las matemáticas representan de manera explícita las condiciones del estado futuro del sistema?</strong></p>
+<p>2.1. <strong>Sí</strong>: Modelo dinámico</p>
+<p>2.2. <strong>No</strong>: Modelo estático</p></li>
+<li><p><strong>¿Las matemáticas representan el tiempo de manera contínua?</strong></p>
+<p>3.1. <strong>Sí</strong>: Modelo conínuo</p>
+<p>3.2. <strong>No</strong>: Modelo discreto (el tiempo sólo toma valores enteros, un día, un año)</p></li>
+<li><p><strong>¿Las matemáticas representan explícitamente el espacio?</strong></p>
+<p>4.1. <strong>Sí</strong>: Modelo espacialmente heterogéneo</p>
+<p>4.2. <strong>No</strong>: Modelo espacialmente homogéneo</p></li>
+<li><p><strong>¿Las matemáticas permiten la ocurrencia de eventos aleatorios?</strong></p>
+<p>5.1. <strong>Sí</strong>: Modelo estocástico</p>
+<p>5.2. <strong>No</strong>: Modelo determinístico</p></li>
+</ol>
+<div id="ejemplos-1" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Ejemplos</h3>
+<div id="modelo-de-presa-depredador-de-lotka-volterra--volterra1928variations" class="section level4" number="3.5.1.1">
+<h4><span class="header-section-number">3.5.1.1</span> Modelo de presa-depredador de Lotka-Volterra <span class="citation">(<a href="#ref-volterra1928variations" role="doc-biblioref">1928</a>)</span></h4>
+<div class="figure" style="text-align: center"><span id="fig:volterra-diag"></span>
+<img src="Unidad-I/Volterra/Volterra.png" alt="Modelo diagramático basado en el modelo matemático depredador-presa de Lotka-Volterra" width="438" />
+<p class="caption">
+Figura 3.7: Modelo diagramático basado en el modelo matemático depredador-presa de Lotka-Volterra
+</p>
+</div>
+<p>Este modelo representa cómo cambia el número de liebres y linces a través del tiempo con un sistema de ecuaciones diferenciales. El cambio en los números de individuos depdende de</p>
+<ol style="list-style-type: decimal">
+<li>Crecimiento poblacional del depredador en relación a las presas disponibles para que el depredador se alimente</li>
+<li>Crecimiento poblacional innato de las presas</li>
+<li>Mortalidad de presas en relación a la cantidad de depredadores</li>
+<li>Mortalidad innata del depredador</li>
+</ol>
+<p>El modelo entonces representa el mecanismo del sistema, por lo que es un modelo <strong>mecanístico</strong>. Debido a que representa el cambio del número de individuos en el tiempo, es un modelo <strong>dinámico</strong>. Por el momento no contamos con información suficiente para decir si es contínuo o discreto, pero no hay mención del componente espacial, por lo que podemos suponer que se trata de un modelo <strong>espacialmente homogéneo</strong>. La solución al modelo clásico de la figura <a href="unidad-i-introducción-a-la-modelación.html#fig:volterra-diag">3.7</a>, muestra un patrón regular, lo cual se debe a que todos los parámetros son constantes, y por lo tanto es un modelo <strong>determinista</strong>.</p>
+</div>
+<div id="modelo-del-panal-de-abejas" class="section level4" number="3.5.1.2">
+<h4><span class="header-section-number">3.5.1.2</span> Modelo del panal de abejas</h4>
+<p><span class="citation"><a href="#ref-wilenski2003honey" role="doc-biblioref">Wilenski</a> (<a href="#ref-wilenski2003honey" role="doc-biblioref">2003</a>)</span> desarrolló un modelo para representar cómo las abejas construyen un panal, por medio de una serie de reglas que rigen el comportamiento de abejas individuales. Debido a que el mecanismo está representado en el comportamiento colectivo de las abejas, es un modelo <strong>mecanístico</strong>. El modelo también muestra la progresión de la construcción del panal, por lo que es un modelo <strong>dinámico</strong>, y debido a que cualquiera de los eventos posibles pueden ocurrir en cualquier momento es en tiempo <strong>contínuo</strong>. También representa la estructura del panal en unidades espaciales, por lo que es <strong>espacialmente heterogéneo</strong>. Finalmente, los eventos que ocurren son aleatorios, o sea que el resultado de una realización del modelo será diferente de otra, por lo que es un modelo <strong>estocástico</strong>. Te invito a explorar este modelo por medio de la aplicación en línea de <a href="https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Biology/Honeycomb.nlogo">NetLogo</a>.</p>
+<p>A continuación veremos a mayor profundidad los modelos deterministicos y estocásticos.</p>
+</div>
+</div>
+<div id="modelos-determinísticos-y-estocásticos" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Modelos determinísticos y estocásticos</h3>
+<p>Imaginemos que necesitamos un librero, y para ello necesitamos medir las dimensiones del espacio donde lo colocaremos. Solamente contamos con una cinta en pulgadas, pero el carpintero, para hacer el presupuesto, necesita las medidas en centímetros. Entonces para hacer la conversión de pulgadas a centímetros utilizamos el siguiente modelo:</p>
+<p><span class="math display" id="eq:pulgadas">\[\begin{equation}
+    cm = 2.54 \times in  \tag{3.3}
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(in\)</span> son las pulgadas, <span class="math inline">\(cm\)</span> los centímetros, y <span class="math inline">\(2.54\)</span> es la constante de conversión. Entonces ya tenemos así un modelo que siempre nos dará la misma respuesta para cada valor de entrada:</p>
+<ul>
+<li><span class="math inline">\(2in \rightarrow 2 \times 2.54cm = 5.08cm\)</span></li>
+<li><span class="math inline">\(11in \rightarrow 11 \times 2.54cm = 27.94cm\)</span></li>
+</ul>
+<p>Imaginemos ahora que la constante de conversión no fuera una sola, <span class="math inline">\(2.54\)</span>, sino cientos, o miles de posibles valores cercanos a <span class="math inline">\(2.54\)</span>, y cada vez que resolvemos el modelo <a href="unidad-i-introducción-a-la-modelación.html#eq:pulgadas">(3.3)</a> obtenemos un valor distinto. El primero es un modelo deterministico, siempre da la misma respuesta. El segundo, es un modelo estocástico. Te preguntarás entonces ¿para qué querríamos un modelo que de respuestas inconsistentes? La principal razón es que en ecología, como en otras áreas del conocimiento, los sistemas de estudio son muy variables, y los modelos estocásticos nos sirven para representar esa variabilidad y conocer algunos de los posibles resultados. En pocas palabras, si un sistema es determinista, siempre podemos conocer su comportamiento con alta precisión, mientras que en los estocáticos, no.</p>
+<div id="deterministicos" class="section level4" number="3.5.2.1">
+<h4><span class="header-section-number">3.5.2.1</span> Deterministicos</h4>
+<p>En vista de mi comentario “… los sistemas de estudio son muy variables…” tal vez te surja otra pregunta, ¿entonces por qué estudiamos los modelos deterministas? Y no hay una pregunta mmuy sencilla, pero la principal es que son más sencillos. Por otra parte, si pensamos en los modelos desde un punto de vista estadístico, se podría también sugerir que podemos utilizar los modelos determinísticos para estudiar el comportamiento “promedio,” o para caracterizar ese componente, el determinista, de nuestro sistema de estudio. En este sentido, se considera entonces que la mayoría de los sistemas y procesos ecológicos tienen un componente determinístico y uno estocástico. La mejor manera de modelar los sistemas ecológicos, entonces, es utilizando ambos. Por lo tanto, para modelar los sistemas ecológicos con ambos métodos, necesitamos aprender a utilizarlos por separado.</p>
+<p>Una de las grandes bondades de los modelos determinísticos es que nos permiten analizar el comportamiento del sistema de estudio. Los modelos de cambio temporal, por ejemplo, han sido muy importantes en el desarrollo de la teoría del caos, la cual sirve para explicar por qué ciertos procesos del mundo natural nunca alcanzan un nivel de estabilidad (¡dinámicas depredaror-presa!).</p>
+</div>
+<div id="estocásticos" class="section level4" number="3.5.2.2">
+<h4><span class="header-section-number">3.5.2.2</span> Estocásticos</h4>
+<p>A diferencia de los modelos deterministas, los estocásticos nunca dan el mismo resultado. Existe un gran variedad de herramientas computacionales y formulaciones matemáticas para conseguir este tipo de comportamiento. En la mayoría de los casos, los modelos deterministas constan de dos componentes, uno determinista, relacionado con los mecanismos propios del sistema de estudio, y uno aleatorio, encargado de generar los eventos posibles o de simular la variación en el componente determinista. Esto lo podemos ilustrar con el modelo de conversión de pulgadas a centímetros:</p>
+<p><span class="math display">\[
+cm = 2.54 \times in
+\]</span>
+el cual es determinista. Sin embargo, podemos formular una versión estocástica, que añada una pequeña cantidad a la conversión determinística cada vez que la calculamos:</p>
+<p><span class="math display">\[
+cm = 2.54 \times in + \varepsilon
+\]</span></p>
+<p>donde <span class="math inline">\(\varepsilon\)</span> es el <em>error</em> que hemos introducido. Técnicamente para hacer esto utilizamos un generador de números aleatorios en el lenguaje de programación <strong>R</strong>. Veamos una serie de conversiones:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-35">Tabla 3.1: </span>Cinco realizaciones para la conversión de dos pulgadas a centímetros con el modelo determinista y estocástico.</caption>
+<thead>
+<tr class="header">
+<th align="center">Determinista</th>
+<th align="center">Estocástico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">5.08</td>
+<td align="center">5.144820</td>
+</tr>
+<tr class="even">
+<td align="center">5.08</td>
+<td align="center">4.596896</td>
+</tr>
+<tr class="odd">
+<td align="center">5.08</td>
+<td align="center">4.891275</td>
+</tr>
+<tr class="even">
+<td align="center">5.08</td>
+<td align="center">5.206100</td>
+</tr>
+<tr class="odd">
+<td align="center">5.08</td>
+<td align="center">5.183908</td>
+</tr>
+</tbody>
+</table>
+<p>Este tipo de <em>inconsistencias</em> de los modelos estocásticos tienen implicaciones muy importantes para el comportamiento de modelos como el de Lotka-Volterra, que veremos más adelante.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-haefner1998modeling" class="csl-entry">
+Haefner, James W. 1998. <span>“Modeling Biological Systems.”</span> <em>Bulletin of Mathematical Biology</em> 60 (3): 597.
+</div>
+<div id="ref-holling1978adaptive" class="csl-entry">
+Holling, Crawford S. 1978. <em>Adaptive Environmental Assessment and Management</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-holt2006model" class="csl-entry">
+Holt, John, Stephen Davis, and Herwig Leirs. 2006. <span>“A Model of Leptospirosis Infection in an African Rodent to Determine Risk to Humans: Seasonal Fluctuations and the Impact of Rodent Control.”</span> <em>Acta Tropica</em> 99 (2-3): 218–25.
+</div>
+<div id="ref-karplus1975place" class="csl-entry">
+Karplus, Walter J. 1975. <span>“The Place of Systems Ecology Models in the Spectrum of Mathematical Models.”</span> <em>IN: New Direction in the Analysis of Ecological Systems, Edited by GS Innis. Simulation Council Proceedings Series</em> 5 (2): 225–28.
+</div>
+<div id="ref-otto2011biologist" class="csl-entry">
+Otto, Sarah P, and Troy Day. 2011. <em>A Biologist’s Guide to Mathematical Modeling in Ecology and Evolution</em>. Princeton University Press.
+</div>
+<div id="ref-volterra1928variations" class="csl-entry">
+Volterra, Vito. 1928. <span>“Variations and Fluctuations of the Number of Individuals in Animal Species Living Together.”</span> <em>ICES Journal of Marine Science</em> 3 (1): 3–51.
+</div>
+<div id="ref-wilenski2003honey" class="csl-entry">
+Wilenski, Ulrich. 2003. <span>“NetLogo Honeycomb Model.”</span> <a href="http://ccl.northwestern.edu/netlogo/models/Honeycomb">http://ccl.northwestern.edu/netlogo/models/Honeycomb</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="encuadre-de-la-materia.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-ii-introducción-a-los-modelos-determinísticos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

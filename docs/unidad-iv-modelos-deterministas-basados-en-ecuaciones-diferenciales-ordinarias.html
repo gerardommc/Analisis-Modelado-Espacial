@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 6 Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias | Modelos Matemáticos en Ecología I</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 6 Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias | Modelos Matemáticos en Ecología I" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 6 Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias | Modelos Matemáticos en Ecología I" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2021-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"/>
+<link rel="next" href="unidad-v-introducción-al-álgebra-de-matrices.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modelos Matemáticos en Ecología I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción a la modelación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#introducción-al-concepto-de-modelo-matemático"><i class="fa fa-check"></i><b>3.1</b> Introducción al concepto de modelo matemático</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#qué-es-un-modelo"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué es un modelo?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#cómo-construir-un-modelo"><i class="fa fa-check"></i><b>3.2</b> Cómo construir un modelo</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos"><i class="fa fa-check"></i><b>3.2.1</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#discusión-sobre-las-distintas-herramientas-matemáticas-empleadas-en-la-modelación-matemática"><i class="fa fa-check"></i><b>3.3</b> Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#relación-entre-las-herramientas-matemáticas-y-los-sistemas-ecológicos"><i class="fa fa-check"></i><b>3.3.1</b> Relación entre las herramientas matemáticas y los sistemas ecológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#uso-de-los-modelos-matemáticos-en-ecología"><i class="fa fa-check"></i><b>3.4</b> Uso de los modelos matemáticos en ecología</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#analíticos-dinámicas-depredador-presa"><i class="fa fa-check"></i><b>3.4.1</b> Analíticos: Dinámicas depredador-presa</a></li>
+<li class="chapter" data-level="3.4.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#simulaciones-dinámica-de-enfermedades-infecciosas"><i class="fa fa-check"></i><b>3.4.2</b> Simulaciones: Dinámica de enfermedades infecciosas</a></li>
+<li class="chapter" data-level="3.4.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#mal-uso-de-los-modelos"><i class="fa fa-check"></i><b>3.4.3</b> Mal uso de los modelos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#tipos-de-modelos"><i class="fa fa-check"></i><b>3.5</b> Tipos de modelos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos-1"><i class="fa fa-check"></i><b>3.5.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="3.5.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#modelos-determinísticos-y-estocásticos"><i class="fa fa-check"></i><b>3.5.2</b> Modelos determinísticos y estocásticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html"><i class="fa fa-check"></i><b>4</b> Unidad II: Introducción a los modelos determinísticos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-línea-recta"><i class="fa fa-check"></i><b>4.1</b> La línea recta</a></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-parábola"><i class="fa fa-check"></i><b>4.2</b> La parábola</a></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#cónicas"><i class="fa fa-check"></i><b>4.3</b> Cónicas</a></li>
+<li class="chapter" data-level="4.4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-curva-normal"><i class="fa fa-check"></i><b>4.4</b> La curva normal</a></li>
+<li class="chapter" data-level="4.5" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#funciones-trigonométricas"><i class="fa fa-check"></i><b>4.5</b> Funciones trigonométricas</a></li>
+<li class="chapter" data-level="4.6" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-recta-como-modelo-universal-y-sus-transformaciones"><i class="fa fa-check"></i><b>4.6</b> La recta como modelo “universal” y sus transformaciones</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#el-logaritmo"><i class="fa fa-check"></i><b>4.6.1</b> El logaritmo</a></li>
+<li class="chapter" data-level="4.6.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-función-exponencial"><i class="fa fa-check"></i><b>4.6.2</b> La función exponencial</a></li>
+<li class="chapter" data-level="4.6.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#relevancia-de-la-recta"><i class="fa fa-check"></i><b>4.6.3</b> Relevancia de la recta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#representación-de-las-funciones-en-3-dimensiones"><i class="fa fa-check"></i><b>4.7</b> Representación de las funciones en 3 dimensiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><i class="fa fa-check"></i><b>5</b> Unidad III: Introducción al cálculo diferencial e integral</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#sucesiones"><i class="fa fa-check"></i><b>5.1</b> Sucesiones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación-de-sucesiones"><i class="fa fa-check"></i><b>5.1.1</b> Notación de sucesiones</a></li>
+<li class="chapter" data-level="5.1.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#tipos-de-sucesiones"><i class="fa fa-check"></i><b>5.1.2</b> Tipos de sucesiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#continuidad-y-límites"><i class="fa fa-check"></i><b>5.2</b> Continuidad y límites</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-límite"><i class="fa fa-check"></i><b>5.2.1</b> El límite</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#derivación"><i class="fa fa-check"></i><b>5.3</b> Derivación</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#ejemplos-2"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación"><i class="fa fa-check"></i><b>5.3.2</b> Notación</a></li>
+<li class="chapter" data-level="5.3.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#reglas-de-derivación"><i class="fa fa-check"></i><b>5.3.3</b> Reglas de derivación</a></li>
+<li class="chapter" data-level="5.3.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#representación-geométrica-de-la-derivada"><i class="fa fa-check"></i><b>5.3.4</b> Representación geométrica de la derivada</a></li>
+<li class="chapter" data-level="5.3.5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones"><i class="fa fa-check"></i><b>5.3.5</b> Aplicaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#integración"><i class="fa fa-check"></i><b>5.4</b> Integración</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#área-bajo-una-recta"><i class="fa fa-check"></i><b>5.4.1</b> Área bajo una recta</a></li>
+<li class="chapter" data-level="5.4.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-teorema-funamental-del-cálculo"><i class="fa fa-check"></i><b>5.4.2</b> El teorema funamental del cálculo</a></li>
+<li class="chapter" data-level="5.4.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones-de-la-integración"><i class="fa fa-check"></i><b>5.4.3</b> Aplicaciones de la integración</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><i class="fa fa-check"></i><b>6</b> Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-lineales-crecimiento-exponencial-malthusiano"><i class="fa fa-check"></i><b>6.1</b> Modelos lineales: Crecimiento exponencial (Malthusiano)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#interpretación-de-r"><i class="fa fa-check"></i><b>6.1.1</b> Interpretación de <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-del-modelo"><i class="fa fa-check"></i><b>6.1.2</b> Análisis del modelo</a></li>
+<li class="chapter" data-level="6.1.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-de-estabilidad"><i class="fa fa-check"></i><b>6.1.3</b> Análisis de estabilidad</a></li>
+<li class="chapter" data-level="6.1.4" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#períodos-de-duplicación"><i class="fa fa-check"></i><b>6.1.4</b> Períodos de duplicación</a></li>
+<li class="chapter" data-level="6.1.5" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#estimación-de-la-tasa-de-cambio-r"><i class="fa fa-check"></i><b>6.1.5</b> Estimación de la tasa de cambio <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#implicaciones-del-crecimiento-exponencial"><i class="fa fa-check"></i><b>6.1.6</b> Implicaciones del crecimiento exponencial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-no-lineales-crecimiento-logístico-de-una-población"><i class="fa fa-check"></i><b>6.2</b> Modelos no lineales: Crecimiento logístico de una población</a></li>
+<li class="chapter" data-level="6.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-en-tiempo-contínuo-vs-discreto"><i class="fa fa-check"></i><b>6.3</b> Modelos en tiempo contínuo vs discreto</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-exponencial-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.1</b> Crecimiento exponencial en tiempo discreto</a></li>
+<li class="chapter" data-level="6.3.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-logístico-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.2</b> Crecimiento logístico en tiempo discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html"><i class="fa fa-check"></i><b>7</b> Unidad V: Introducción al álgebra de matrices</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales"><i class="fa fa-check"></i><b>7.1</b> Sistemas lineales</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-gráfica"><i class="fa fa-check"></i><b>7.1.1</b> Solución gráfica</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-algebráica"><i class="fa fa-check"></i><b>7.1.2</b> Solución algebráica</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales-sin-solución"><i class="fa fa-check"></i><b>7.1.3</b> Sistemas lineales sin solución</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#resolviendo-sistemas-lineales-más-complejos"><i class="fa fa-check"></i><b>7.1.4</b> Resolviendo sistemas lineales más complejos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#ejemplo"><i class="fa fa-check"></i><b>7.1.5</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1.6" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-indeterminados"><i class="fa fa-check"></i><b>7.1.6</b> Sistemas indeterminados</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#operaciones-elementales-con-matrices"><i class="fa fa-check"></i><b>7.2</b> Operaciones elementales con matrices</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#suma-de-matrices"><i class="fa fa-check"></i><b>7.2.1</b> Suma de matrices</a></li>
+<li class="chapter" data-level="7.2.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-por-un-escalar"><i class="fa fa-check"></i><b>7.2.2</b> Multiplicación por un escalar</a></li>
+<li class="chapter" data-level="7.2.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#transposición"><i class="fa fa-check"></i><b>7.2.3</b> Transposición</a></li>
+<li class="chapter" data-level="7.2.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-de-matrices"><i class="fa fa-check"></i><b>7.2.4</b> Multiplicación de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinantes-y-matrices-inversas"><i class="fa fa-check"></i><b>7.3</b> Determinantes y matrices inversas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-identidad"><i class="fa fa-check"></i><b>7.3.1</b> Matriz identidad</a></li>
+<li class="chapter" data-level="7.3.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-inversa"><i class="fa fa-check"></i><b>7.3.2</b> Matriz inversa</a></li>
+<li class="chapter" data-level="7.3.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinante-de-una-matriz"><i class="fa fa-check"></i><b>7.3.3</b> Determinante de una matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#valores-propios"><i class="fa fa-check"></i><b>7.4</b> Valores propios</a></li>
+<li class="chapter" data-level="7.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#vectores-propios"><i class="fa fa-check"></i><b>7.5</b> Vectores propios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><i class="fa fa-check"></i><b>8</b> Unidad VI: Modelos lineales de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#proyección-de-matrices-para-modelos-estructurados-la-matriz-de-leslie"><i class="fa fa-check"></i><b>8.1</b> Proyección de matrices para modelos estructurados: la matriz de Leslie</a></li>
+<li class="chapter" data-level="8.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#análisis-de-los-modelos-de-poblaciones-estructuradas"><i class="fa fa-check"></i><b>8.2</b> Análisis de los modelos de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#tablas-de-vida"><i class="fa fa-check"></i><b>8.2.1</b> Tablas de vida</a></li>
+<li class="chapter" data-level="8.2.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#la-ecuación-de-euler"><i class="fa fa-check"></i><b>8.2.2</b> La ecuación de Euler</a></li>
+<li class="chapter" data-level="8.2.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#valor-reproductivo-y-autovectores"><i class="fa fa-check"></i><b>8.2.3</b> Valor reproductivo y autovectores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#aplicaciones-de-lo-modelo-de-matrices"><i class="fa fa-check"></i><b>8.3</b> Aplicaciones de lo modelo de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/gerardommc" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos Matemáticos en Ecología I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias" class="section level1" number="6">
+<h1><span class="header-section-number"> 6</span> Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias</h1>
+<div id="modelos-lineales-crecimiento-exponencial-malthusiano" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Modelos lineales: Crecimiento exponencial (Malthusiano)</h2>
+<p>El modelo de crecimiento exponencial también recibe el nombre de “Malthusiano,” en honor al matemático inglés Thomas Malthus, quien acuñó la teoría demográfica subyacente en la publicación anónima de 1798 <em>Ensayo sobre el principio de la población</em>. Este libro trata, no de ecología, sino de las raíces de la pobreza en las sociedades capitalistas, según Malthus, ocasionada por la escasez de recursos. Muchas de las ideas de Malthus, son típicas del pensamiento colonial inglés del período en que vivió, sin embargo, son ecológicamente significativas.</p>
+<p>El modelo malthusiano sugiere que, en ausencia de limitaciones, las poblaciones de humanos tenderían a crecer exponencialmente, de ahí que al modelo:</p>
+<p><span class="math display" id="eq:Malthus">\[\begin{equation}
+ \frac{dN}{dt} = rN \tag{6.1}
+\end{equation}\]</span></p>
+<p>se le llame modelo de crecimiento malthusiano. La intepretación de <span class="math inline">\(r\)</span> como la tasa de crecimiento sin limitación de alimento, espacio y en ausencia de competencia entre individuos o especies, es la principal aportación de Malthus, y ha servido de base para la formulación de teorías como la evolución.</p>
+<div id="interpretación-de-r" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Interpretación de <span class="math inline">\(r\)</span></h3>
+<p>Más que tasa de crecimiento, <span class="math inline">\(r\)</span> representa la tasa de cambio del proceso que estamos observando. Estrictamente hablando una población cambia en razón a dos procesos, nacimientos y muertes. De manera relativamente obvia, los nacimientos representan el crecimiento de la población y las muertes del decrecimiento. Por lo tanto, es frecuente considerar que <span class="math inline">\(r = n - m\)</span>, con <span class="math inline">\(n=\)</span> nacimientos y <span class="math inline">\(m=\)</span> muertes. Si sustiuimos esta re-interpretación de <span class="math inline">\(r\)</span>, en la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus">(6.1)</a> tenemos:</p>
+<p><span class="math display">\[\begin{equation}
+    \frac{dN}{dt} = (n - m)N = nN - mN
+\end{equation}\]</span></p>
+<p>esta re-parametrización del modelo es buena para ejemplificar que si <span class="math inline">\(n &gt; m \rightarrow r&gt;0\)</span>, si <span class="math inline">\(n &lt; m \rightarrow r &lt; 0\)</span> y que si <span class="math inline">\(n = m \rightarrow r = 0\)</span>. El balance entre nacimientos y muertes entonces es la clave para que una población permanezca constante, crezca o disminuya.</p>
+<p>Este balance entre nacimientos y muertes puede también ser concebido como flujos de entrada y salida de un compartimento (figura <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#fig:nacim-muert">6.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:nacim-muert"></span>
+<img src="Unidad-IV/Malthus-nacim-muert.png" alt="Esquema representativo del modelo de crecimiento malthusiano como flujo de nacimientos y muertes." width="447" />
+<p class="caption">
+Figura 6.1: Esquema representativo del modelo de crecimiento malthusiano como flujo de nacimientos y muertes.
+</p>
+</div>
+</div>
+<div id="análisis-del-modelo" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Análisis del modelo</h3>
+<p>Hasta el momento hemos visto ya muchas de las propiedades el modelo exponencial:</p>
+<ol style="list-style-type: decimal">
+<li>Su derivada es equivalente al valor de la función misma</li>
+<li>Su antiderivada es por lo tanto, igualmente equivalente al valor de la función</li>
+<li>Puede ser representado, como ecuación diferencial, de manera implícita, sin que la variable independiente <span class="math inline">\(t\)</span> aparezca en el lado derecho de la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus">(6.1)</a></li>
+<li>Al ser representado de manera implícita, el modelo exponencial es lineal con respecto de la variable dependiente del tiempo</li>
+</ol>
+<p>Estas propiedades hacen que analizar el modelo de crecimiento malthusiano sea relativamente sencillo.</p>
+</div>
+<div id="análisis-de-estabilidad" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Análisis de estabilidad</h3>
+<p>Este análisis surge de la pregunta ¿bajo qué condiciones una población <span class="math inline">\(N\)</span> con tasa de crecimiento <span class="math inline">\(r\)</span> permanece constante? Dada la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus">(6.1)</a> sabemos que si <span class="math inline">\(\frac{dN}{dt} &gt; 0\)</span>, <span class="math inline">\(N \rightarrow \infty\)</span>, por el contrario si <span class="math inline">\(\frac{dN}{dt} &lt; 0\)</span>, <span class="math inline">\(N \rightarrow 0\)</span>. Entonces, para que no haya cambios en <span class="math inline">\(N\)</span>, necesitamos que <span class="math inline">\(\frac{dN}{dt} = 0\)</span>. De esta equivalencia tenemos que si:</p>
+<p><span class="math display">\[rN = 0\]</span>
+Es debido a que, <span class="math inline">\(r=0\)</span> si <span class="math inline">\(N \neq 0\)</span>, ó <span class="math inline">\(N=0\)</span> si <span class="math inline">\(r \neq 0\)</span>. Es decir que el número de individuos <span class="math inline">\(N\)</span> en una población permanecerá constante sólo bajo dos condiciones, si su tasa de crecimiento es cero, ó no tiene individuos.</p>
+</div>
+<div id="períodos-de-duplicación" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Períodos de duplicación</h3>
+<p>Otra pregunta frecuente en el análisis de poblaciones es ¿cuánto tiempo tardará en duplicarse el tamaño de una población? Para responder esta pregunta, necesitamos la forma cerrada de
+la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus">(6.1)</a>:</p>
+<p><span class="math display" id="eq:Malthus-c">\[\begin{equation}
+N(t) = N_0 e^{rt} \tag{6.2}
+\end{equation}\]</span></p>
+<p>En el análisis de estabilidad encontramos los casos en que <span class="math inline">\(\frac{dN}{dt} = 0\)</span>, por el contrario aquí nos interesa encontrar, con base en la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus-c">(6.2)</a> cuánto tiempo transcurrirá para que <span class="math inline">\(N(t) = 2N_0\)</span>, lo cual podemos conocer resolviendo:</p>
+<p><span class="math display">\[2N_0 = N_0 e^{rt}\]</span>
+para <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+e^{rt} &amp;= 2\\ \notag
+rt &amp;= \ln 2\\ \notag
+t &amp;= \frac{\ln 2}{r}
+\end{align}\]</span></p>
+<p>Es así que podemos representar el período de duplicación de una población cualquiera como una función de su tasa de cambio (figura <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#fig:periodo-dupl">6.2</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:periodo-dupl"></span>
+<img src="Mod-mat-ECO_files/figure-html/periodo-dupl-1.png" alt="Período de duplicación en función de la tasa de crecimiento de una población." width="480" />
+<p class="caption">
+Figura 6.2: Período de duplicación en función de la tasa de crecimiento de una población.
+</p>
+</div>
+</div>
+<div id="estimación-de-la-tasa-de-cambio-r" class="section level3" number="6.1.5">
+<h3><span class="header-section-number">6.1.5</span> Estimación de la tasa de cambio <span class="math inline">\(r\)</span></h3>
+<p>Para un ecólogo es de suma utilidad conocer la variación de <span class="math inline">\(r\)</span> para poder medir los efectos del medio ambiente u otras especies sobre los cambios demográficos de una o varias poblaciones. En principio es posible obtener los posibles valores de <span class="math inline">\(r\)</span> a partir de la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Malthus-c">(6.2)</a>, resolviéndola para <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\frac{N}{N_0} &amp;= e^{rt}\\
+\ln \left(\frac{N}{N_0} \right) &amp;= rt\\
+r &amp;= \frac{\ln N - \ln N_0}{t}
+\end{align}\]</span></p>
+<p>En caso de que tengamos observaciones puntuales de <span class="math inline">\(N\)</span> y <span class="math inline">\(N_0\)</span> a lo largo del tiempo.</p>
+</div>
+<div id="implicaciones-del-crecimiento-exponencial" class="section level3" number="6.1.6">
+<h3><span class="header-section-number">6.1.6</span> Implicaciones del crecimiento exponencial</h3>
+<p>Una manera de visualizar las repercusiones el crecimiento exponencial y los períodos de duplicación queda de manifiesto con el acertijo:</p>
+<p><em>Tenemos una población de bacterias que se duplica cada minuto, y tenemos cuatro frascos para albergarla. El primer frasco tardó una hora en llenarse, ¿cuánto tiempo pasará para que se llenen los tres frascos restantes?</em></p>
+</div>
+</div>
+<div id="modelos-no-lineales-crecimiento-logístico-de-una-población" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Modelos no lineales: Crecimiento logístico de una población</h2>
+<p>Gracias a Thomas Malthus comprendimos qué sucede con una población cuando llega a estar libre de limitantes externas, sin embargo ¿cómo podemos representar lo que sucede con una población cuando existen dichas limitaciones? La respuesta es el modelo logístico. Este modelo es una variación del modelo malthusiano, pero para regular la tasa neta de crecimiento incorpora una segunda función de <span class="math inline">\(N\)</span> que al multiplicar a <span class="math inline">\(r\)</span> se vuelve cero cuando <span class="math inline">\(N\)</span> alcanza un nivel definido como capacidad de carga (<span class="math inline">\(K\)</span>).</p>
+<p>El crecimiento logístico ocurre en el mundo real más frecuentemente que el malthusiano, pues todos los organismos vivientes crecen a expensas de otros, lo cual también se conoce como denso-dependencia, es decir, que el crecimiento neto de una población disminuye en relación a la cantidad de individuos.</p>
+<p>La ecuación del modelo logístico es:</p>
+<p><span class="math display" id="eq:logis">\[\begin{equation}
+    \frac{dN}{dt} = rN \left(1 - \frac{N}{K} \right) \tag{6.3}
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(K\)</span> es la capacidad de carga del área donde la población con <span class="math inline">\(N\)</span> individuos vive. Como es evidente la expresión <span class="math inline">\((1-N/K) \rightarrow 0\)</span> cuando <span class="math inline">\(N \rightarrow K\)</span>. De modo que una población con <span class="math inline">\(N &lt; K\)</span> tenderá a a crecer. Si expandimos <span class="math inline">\(rN(1 - N/K) = rN-rN^2/K\)</span> podemos ver que se trata de una parábola. A diferencia del modelo de crecimiento exponencial, donde la tasa de cambio <span class="math inline">\(r\)</span> es constante, en el modelo logístico, la tasa neta cambia con el tamaño de la población.</p>
+<div class="figure" style="text-align: center"><span id="fig:logis"></span>
+<img src="Mod-mat-ECO_files/figure-html/logis-1.png" alt="Tasa de cambio de N en relación a N en el modelo logístico, con K = 50 y r = 1" width="480" />
+<p class="caption">
+Figura 6.3: Tasa de cambio de N en relación a N en el modelo logístico, con K = 50 y r = 1
+</p>
+</div>
+<p>Algunas propiedades importantes del modelo logístico es que tiene una serie de puntos críticos. Por ejemplo, el tamaño de la población en que ingresa el número máximo de individuos nuevos, el cual corresponde a:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{d\left( \frac{dN}{dt} \right)}{dN} = r - 2rN/K = 0
+\end{equation}\]</span></p>
+<p>con lo que tenemos que:</p>
+<p><span class="math display">\[ N= \frac{K}{2}\]</span></p>
+<p>El crecimiento máximo se da cuando la población se encuentra al 50% de la capacidad de carga.</p>
+<div id="análisis-de-estabilidad-1" class="section level4" number="6.2.0.1">
+<h4><span class="header-section-number">6.2.0.1</span> Análisis de estabilidad</h4>
+<p>Al igual que con el crecimiento malthusiano, nos interesa encontrar en qué situaciones la población será constante, por lo que tenemos que resolver:</p>
+<p><span class="math display">\[\frac{dN}{dt} = 0\]</span>
+para encontrar que hay dos puntos de equilibrio, <span class="math inline">\(N = 0\)</span> y <span class="math inline">\(N = K\)</span>. Estos puntos tienen propiedades diferentes. Por ejemplo, ¿qué sucede con el <span class="math inline">\(N\)</span> si a <span class="math inline">\(N=0\)</span> le sumamos una cantidad muy pequeña <span class="math inline">\(\varepsilon\)</span>? ¿<span class="math inline">\(N\)</span> tenderá a regresar a <span class="math inline">\(0\)</span>? Un ejemplo de este tipo de dinámicas en el mundo real se presenta con un péndulo, el cual tiene dos puntos de equilibrio, uno estable (donde el péndulo descansa en ausencia de una fuerza lateral), y otro inestable</p>
+<div class="figure" style="text-align: center"><span id="fig:equilibrio"></span>
+<img src="Unidad-IV/Puntos-equilibrio.png" alt="Puntos de equilibrio de un péndulo." width="368" />
+<p class="caption">
+Figura 6.4: Puntos de equilibrio de un péndulo.
+</p>
+</div>
+<p>Las mismas preguntas aplican para <span class="math inline">\(N=K\)</span>. Para responderlas tenemos que hacer un paréntesis y echar un vistazo a la integración numérica.</p>
+<div id="integración-numérica" class="section level5" number="6.2.0.1.1">
+<h5><span class="header-section-number">6.2.0.1.1</span> Integración numérica</h5>
+<p>Esta técnica de integración está basada en la definición de la derivada como límite:</p>
+<p><span class="math display" id="eq:deriv-Euler">\[\begin{equation}
+f&#39;(x) = \lim \limits_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h} \tag{6.4}
+\end{equation}\]</span></p>
+<p>donde se asume que <span class="math inline">\(h = dx\)</span>, con <span class="math inline">\(dx \approx 0\)</span>, es decir, que <span class="math inline">\(dx\)</span> es una cantidad arbitrariamente pequeña. De modo que sustituimos <span class="math inline">\(dx\)</span> por <span class="math inline">\(h\)</span> en <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:deriv-Euler">(6.4)</a> y resolvemos para <span class="math inline">\(f(x + dx)\)</span> para obtener:</p>
+<p><span class="math display" id="eq:Euler">\[\begin{equation}
+f(x + dx) = f(x) + f&#39;(x) \cdot dx \tag{6.5}
+\end{equation}\]</span></p>
+<p>Este método es el más sencillo de los métodos numéricos de integración, y ha servido de punto de partida para el desarrollo de métodos más complejos y precisos.</p>
+<p>Para integrar numéricamente el modelo logístico, utilizando la técnica de Euler <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:Euler">(6.5)</a>, para lo que necesitamos conocer:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(r = 0.5\)</span>: la tasa neta de crecimiento poblacional</li>
+<li><span class="math inline">\(K = 50\)</span>: la capacidad de carga poblacional</li>
+<li><span class="math inline">\(N_0 = 1\)</span>: El tamaño inicial de la población</li>
+<li><span class="math inline">\(dt = 1\)</span>: El tamaño de los incrementos de la variable independiente <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(t_{max}\)</span>: El tiempo máximo de simulación</li>
+</ol>
+<p>Estos valores lo utilizaremos para conocer <span class="math inline">\(dN/dt\)</span>:</p>
+<p><span class="math display">\[\frac{dN_0}{dt} = 0.5 \times N_0 \times \left (1 - \frac{N_0}{50} \right)=0.49\]</span></p>
+<p>Por lo tanto <span class="math inline">\(N_1\)</span> es:</p>
+<p><span class="math display">\[N(1) = N_0 + \frac{dN_0}{dt} \times dt = 1 + 0.49 \times 1 = 1.49\]</span>
+Este proceso se repite hasta que <span class="math inline">\(t = t_{max}\)</span>, y obtengamos <span class="math inline">\(N(t_{max})\)</span>. El código para integrar esta ecuación en <strong>R</strong> es:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Parámetros</span></span>
+<span id="cb1-2"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb1-4"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-4" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-5"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
+<span id="cb1-7"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-7" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb1-8"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-8" aria-hidden="true" tabindex="-1"></a>dN <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb1-9"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores iniciales</span></span>
+<span id="cb1-11"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-11" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-12"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-12" aria-hidden="true" tabindex="-1"></a>dN[<span class="dv">1</span>] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[<span class="dv">1</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[<span class="dv">1</span>]<span class="sc">/</span>K)</span>
+<span id="cb1-13"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Integración</span></span>
+<span id="cb1-15"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">25</span>){</span>
+<span id="cb1-16"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-16" aria-hidden="true" tabindex="-1"></a>    N[t] <span class="ot">&lt;-</span> N[t<span class="dv">-1</span>] <span class="sc">+</span> dN[t<span class="dv">-1</span>] <span class="sc">*</span> dt</span>
+<span id="cb1-17"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-17" aria-hidden="true" tabindex="-1"></a>    dN[t] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[t] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[t]<span class="sc">/</span>K)</span>
+<span id="cb1-18"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:logis-Euler"></span>
+<img src="Mod-mat-ECO_files/figure-html/logis-Euler-1.png" alt="Simulación del modelo logístico con el método de Euler, con el código descrito aquí." width="480" />
+<p class="caption">
+Figura 6.5: Simulación del modelo logístico con el método de Euler, con el código descrito aquí.
+</p>
+</div>
+</div>
+<div id="análisis-de-estabilidad-2" class="section level5" number="6.2.0.1.2">
+<h5><span class="header-section-number">6.2.0.1.2</span> Análisis de estabilidad</h5>
+<p>Aquí veremos si los puntos de equilibrio <span class="math inline">\(N=0\)</span> y <span class="math inline">\(N=K\)</span> son estables o inestables. Para ello simularemos la ecuación con ambas condiciones iniciales, y les sumaremos una cantidad pequeña <span class="math inline">\(\varepsilon = 0.01\)</span> para ver qué sucede con <span class="math inline">\(N\)</span> en el resto de la simulación. En analogía con el péndulo, esperaríamos que <span class="math inline">\(N \rightarrow N^*\)</span>, el punto de equilibrio estable (<span class="math inline">\(0\)</span> ó <span class="math inline">\(K\)</span>) al aplicar la pertubación <span class="math inline">\(\varepsilon\)</span> con ambas condiciones de inicio.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-2"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb2-3"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-3" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb2-4"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
+<span id="cb2-6"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-6" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb2-7"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-7" aria-hidden="true" tabindex="-1"></a>dN <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb2-8"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-9" aria-hidden="true" tabindex="-1"></a>E <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb2-10"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores iniciales</span></span>
+<span id="cb2-12"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-12" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="sc">+</span> <span class="fl">0.01</span></span>
+<span id="cb2-13"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-13" aria-hidden="true" tabindex="-1"></a>dN[<span class="dv">1</span>] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[<span class="dv">1</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[<span class="dv">1</span>]<span class="sc">/</span>K)</span>
+<span id="cb2-14"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Integración</span></span>
+<span id="cb2-16"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">25</span>){</span>
+<span id="cb2-17"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-17" aria-hidden="true" tabindex="-1"></a>    N[t] <span class="ot">&lt;-</span> N[t<span class="dv">-1</span>] <span class="sc">+</span> dN[t<span class="dv">-1</span>] <span class="sc">*</span> dt</span>
+<span id="cb2-18"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-18" aria-hidden="true" tabindex="-1"></a>    dN[t] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[t] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[t]<span class="sc">/</span>K)</span>
+<span id="cb2-19"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-20"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Almacenamos el resultado con la condición inicial N=0+E en otro objeto N0</span></span>
+<span id="cb2-22"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-22" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> N</span>
+<span id="cb2-23"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Repetimos para N=K+E</span></span>
+<span id="cb2-25"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-25" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb2-26"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-26" aria-hidden="true" tabindex="-1"></a>dN <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">25</span>)</span>
+<span id="cb2-27"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-28" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> K <span class="sc">+</span> <span class="fl">0.01</span></span>
+<span id="cb2-29"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-29" aria-hidden="true" tabindex="-1"></a>dN[<span class="dv">1</span>] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[<span class="dv">1</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[<span class="dv">1</span>]<span class="sc">/</span>K)</span>
+<span id="cb2-30"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Integración</span></span>
+<span id="cb2-32"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">25</span>){</span>
+<span id="cb2-33"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-33" aria-hidden="true" tabindex="-1"></a>    N[t] <span class="ot">&lt;-</span> N[t<span class="dv">-1</span>] <span class="sc">+</span> dN[t<span class="dv">-1</span>] <span class="sc">*</span> dt</span>
+<span id="cb2-34"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-34" aria-hidden="true" tabindex="-1"></a>    dN[t] <span class="ot">&lt;-</span> r<span class="sc">*</span>N[t] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> N[t]<span class="sc">/</span>K)</span>
+<span id="cb2-35"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-36"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#cb2-37" aria-hidden="true" tabindex="-1"></a>NK <span class="ot">&lt;-</span> N</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Estabilidad"></span>
+<img src="Mod-mat-ECO_files/figure-html/Estabilidad-1.png" alt="Simulaciones para verificar tipo de puntos de equilibrio" width="960" />
+<p class="caption">
+Figura 6.6: Simulaciones para verificar tipo de puntos de equilibrio
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="modelos-en-tiempo-contínuo-vs-discreto" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Modelos en tiempo contínuo vs discreto</h2>
+<p>Todos los modelos que hemos visto en la presente unidad son dinámicos, representan procesos que cambian con el tiempo y su principal insumo son la condiciones presentes del sistema, las cuales determinan el estado futuro. Aprendimos a integrar ecuaciones diferenciales utilizando la definición de la derivada, y revirtiéndola asumiendo que <span class="math inline">\(h \approx dt\)</span>. Este proceso, es en esencia una discretización del tiempo, es decir, en lugar de evaluar <span class="math inline">\(f(t)\)</span> para todos los puntos <span class="math inline">\(t\)</span> posibles, lo aproximamos para intervalos separados por <span class="math inline">\(dt\)</span>. Por lo tanto las ecuaciones diferenciales integradas con métodos numéricos tienen algunas similitudes con los modelos en tiempo discreto:</p>
+<p>Los modelos en tiempo discreto se conocen como ecuaciones en diferencias finitas, en comparación con las ecuaciones diferenciales que representan el tiempo de manera contínua.</p>
+<p>La difefencia entre estos modelos consiste en los tiempos en que ocurren los eventos que representan. En los modelos de crecimiento poblacional los eventos representan la incorporación de invidiuos nuevos a la población. Por lo tanto, en un modelo de crecimiento contínuo los individuos nuevos entrar a la población “todo el tiempo.”</p>
+<div id="crecimiento-exponencial-en-tiempo-discreto" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Crecimiento exponencial en tiempo discreto</h3>
+<p>Las ecuaciones de los modelos contínuo y discreto corresponden a:</p>
+<p><span class="math display" id="eq:exp-disc" id="eq:exp-cont">\[\begin{align}
+\frac{dN}{dt} &amp; = rN \tag{6.6} \\
+N_{t+1} &amp; = \lambda N \tag{6.7} 
+\end{align}\]</span></p>
+<p>donde las tasas de cambio son <span class="math inline">\(r\)</span> y <span class="math inline">\(\lambda\)</span>. En el caso del modelo en tiempo discreto <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:exp-disc">(6.7)</a>, se utiliza el parámetro <span class="math inline">\(\lambda\)</span>, puesto que <span class="math inline">\(\lambda = e^r\)</span></p>
+<p>El crecimiento discreto tiene sentido biológico cuando los nacimientos de las poblaciones de algún organismo se sincronizan en un período de tiempo muy corto. El crecimiento exponencial contínuo, en contraste, representa las dinámicas de organismos que pueden reproducirse en cualquier momento. En un modelo de crecimiento discreto, los individuos nuevos entran a la población solamente en un momento preciso. La cantidad de individuos que ingresa a la pobalación al final de cada intervalo es la misma que en un modelo en tiempo contínuo (Figura <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#fig:disc-cont">6.7</a>). Por lo tanto, la selección de modelo tiene que estar informada por la biología del problema.</p>
+<div class="figure" style="text-align: center"><span id="fig:disc-cont"></span>
+<img src="Mod-mat-ECO_files/figure-html/disc-cont-1.png" alt="Diferencia entre modelos en tiempo contínuo (línea discontínua roja) y discreto (escalones en azul)." width="480" />
+<p class="caption">
+Figura 6.7: Diferencia entre modelos en tiempo contínuo (línea discontínua roja) y discreto (escalones en azul).
+</p>
+</div>
+<p>La escala exponencial del parámetro <span class="math inline">\(\lambda\)</span> hace que la solución sea exacta, en comparación con la aproximación numérica con la ecuación de Euler del modelo en tiempo contínuo.</p>
+</div>
+<div id="crecimiento-logístico-en-tiempo-discreto" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Crecimiento logístico en tiempo discreto</h3>
+<p>El modelo discreto es:</p>
+<p><span class="math display">\[\begin{equation}
+N_{t+1} = \lambda N \left (1 - \frac{N}{K} \right)
+\end{equation}\]</span></p>
+<p>en este caso <span class="math inline">\(\lamda\)</span> está en la misma escala que en la ecuación <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#eq:exp-disc">(6.7)</a>. Como ya vimos anteriormente, esta versión del modelo de crecimiento logístico, tiene una serie de propiedades distintas al modelo contínuo, por lo que nos enfocaremos en este aspecto. Para ello, transformaremos sustuiremos <span class="math inline">\(N\)</span> por <span class="math inline">\(x_t = N_t/K\)</span>, para analizar el tamaño de <span class="math inline">\(N\)</span> en relación a la capacidad de carga:</p>
+<p><span class="math display" id="eq:logis-disc">\[\begin{equation}
+x_{t+1} = b(1-x_t)x_t \tag{6.8}
+\end{equation}\]</span></p>
+<p>El análisis del comportamiento del modelo logístico es más fácil si se hace gráficamente, en especial porque puede ser complejo, porque puede ser caótico (Figura <a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#fig:caos-logis">6.8</a>)</p>
+<div class="figure" style="text-align: center"><span id="fig:caos-logis"></span>
+<img src="Mod-mat-ECO_files/figure-html/caos-logis-1.png" alt="Ejemplos del comportamiento dinámico del modelo de crecimiento logístico, para tres valores de la tasa de crecimiento. En las figuras de la izquiera se muestra la correspondencia entre el tamaño de la población en t y el tamaño en t+1." width="960" />
+<p class="caption">
+Figura 6.8: Ejemplos del comportamiento dinámico del modelo de crecimiento logístico, para tres valores de la tasa de crecimiento. En las figuras de la izquiera se muestra la correspondencia entre el tamaño de la población en t y el tamaño en t+1.
+</p>
+</div>
+<div id="implicaciones-para-sistemas-ecológicos" class="section level4" number="6.3.2.1">
+<h4><span class="header-section-number">6.3.2.1</span> Implicaciones para sistemas ecológicos</h4>
+<p>Las dinámicas producidas por el sencillísimo modelo logístico en tiempo discreto sugieren que un sistema ecológico con esas características bien podría tener un comportamiento caótico. Como ecólogos es preciso preguntarnos si sólo se trata de artefactos matemáticos producto de la simplificación, o si en posible su ocurrencia. Modelos más complejos que toman en cuenta la existencia de diferentes sexos, por ejemplo, tienen un comportamiento más estable que los modelos sin esas estructuras <span class="citation"><a href="#ref-Scheuring2002IsCD" role="doc-biblioref">Scheuring</a> (<a href="#ref-Scheuring2002IsCD" role="doc-biblioref">2002</a>)</span>.</p>
+<p>La diferencia esencial entre el caos producido por el modelo logístico y el comportamiento errático de muchos sistemas ecológicos está en que el caos forma parte del funcionamiento del sistema, es determinístico, mientras que las variaciones de un sistema ecológico generalmente se consideran como fuerzas externas que cambian con el tiempo y que afectan al sistema.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Scheuring2002IsCD" class="csl-entry">
+Scheuring, István. 2002. <span>“Is Chaos Due to over-Simplification in Models of Population Dynamics?”</span> <em>Selection</em> 2: 179–91.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-v-introducción-al-álgebra-de-matrices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

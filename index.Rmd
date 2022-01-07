@@ -1,0 +1,29 @@
+--- 
+title: "Modelos Matemáticos en Ecología I"
+author: "Gerardo Martín"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib, citas.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida"
+---
+
+# Preámbulo
+
+```{r echo=FALSE, fig.align="center", fig.dim="50%"}
+# automatically create a bib database for R packages
+knitr::include_graphics("logo.png")
+```
+
+En el curso **Modelos matemáticos en ecología** aprenderemos a utilizar algunas herramientas matemáticas para entender procesos en ecología. Los contenidos del índice se apegan al [programa completo del curso](Programa-curso.pdf), el cual se impartirá en los [horarios normales establecidos](Horario.pdf). Para conocer cuándo, cómo y qué temas se se impartirán puedes consultar la [estrategia docente](Estrategia-docente.pdf).
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+

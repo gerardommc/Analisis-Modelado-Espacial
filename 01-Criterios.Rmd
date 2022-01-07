@@ -1,0 +1,35 @@
+# Encuadre de la materia
+
+## Criterios de evaluación
+
+Las constribuciones a cada calificación parcial serán:
+
+- Asistencia (25%)
+- Trabajos de clase cumplidos (50%)
+- Examen (25%)
+- Participación (2 puntos extra máximo) 
+
+Cabe señalar, que la asistencia no corresponderá con su presencia en las sesiones sincrónicas, sino con el cumplimiento de los trabajos de clase. La participación se medirá tanto por participación directa en las sesiones sincrónicas como por el seguimiento que uds den a la clase por correo electrónico.
+
+## ¿Cómo se darán las clases?
+
+Trataré de apegarnos a los tiempos de actividades sincrónicas y asincrónicas establecidos en la [estrategia docente](Estrategia-docente.pdf), pero éstos son completamente flexibles. Una estrategia que me ha funcionado en cursos anteriores ha sido la de dedicar la última actividad sicrónica de la semana a resolver dudas, es en estas sesiones en las que hay muchas posibilidades de conseguir puntos de participación.
+
+Todos los contenidos del curso, lecturas y presentaciones, se irán añadiendo a este sitio web conforme avanza el semestre. En el Google Classroom de la materia se irán anunciando las diferentes actividades y sesiones sincrónicas con anticipación suficiente. Igualmente, los examenes y resultados serán publicados a través de esta plataforma. A petición de uds, también se publicarán aquí los videos de las sesiones sincrónicas que tengamos, en especial para aquellos temas que sean mayor interés/dificultad/importancia. Los trabajos de práctica también se publicarán en Classroom.
+
+Para finalizar, las clases sincrónicas estarán almacenadas en la <a href="https://www.youtube.com/playlist?list=PLmZRvJXMG43-YjcSbCbpmzL5MP7AUJfwM" target="_blank">playlist de la clase</a> contenida en mi canal de youtube.
+
+## Reglas del salón
+
+Estas, obviamente, son particulares del modelo en línea, por lo tanto aquí van las reglas de zoom:
+
+1. Micrófonos apagados
+2. Cámaras prendidas, exceptuando:
+        2.1. Si su velocidad de internet lo dificulta
+        2.2. Si tienen datos limitados
+3. Hacer muchas preguntas
+4. Decirme si paso algo por alto
+
+## Contacto
+
+Para reportar fallos, resolver dudas y peticiones especiales grupales o individuales por favor enviar correo electrónico a [gerardo.mmc@enesmerida.unam.mx](mailto:gerardo.mmc@enesmerida.unam.mx).

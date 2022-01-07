@@ -1,0 +1,32 @@
+# Unidad I: Introducción a la modelación
+
+## Introducción al concepto de modelo matemático
+
+```{r echo = F, child ="Unidad-I/El-modelo.Rmd"}
+
+```
+
+## Cómo construir un modelo
+
+```{r echo = F, child = "Unidad-I/Construir-modelo.Rmd"}
+
+```
+
+## Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática
+
+```{r echo = F, child = "Unidad-I/Herramientas.Rmd"}
+
+```
+
+## Uso de los modelos matemáticos en ecología
+
+```{r echo = F, child = "Unidad-I/Usos.Rmd"}
+
+```
+
+## Tipos de modelos
+
+```{r echo = F, child = "Unidad-I/Tipos.Rmd"}
+
+```
+

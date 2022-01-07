@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 Encuadre de la materia | Modelos Matemáticos en Ecología I</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 Encuadre de la materia | Modelos Matemáticos en Ecología I" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 Encuadre de la materia | Modelos Matemáticos en Ecología I" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2021-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="unidad-i-introducción-a-la-modelación.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modelos Matemáticos en Ecología I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción a la modelación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#introducción-al-concepto-de-modelo-matemático"><i class="fa fa-check"></i><b>3.1</b> Introducción al concepto de modelo matemático</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#qué-es-un-modelo"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué es un modelo?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#cómo-construir-un-modelo"><i class="fa fa-check"></i><b>3.2</b> Cómo construir un modelo</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos"><i class="fa fa-check"></i><b>3.2.1</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#discusión-sobre-las-distintas-herramientas-matemáticas-empleadas-en-la-modelación-matemática"><i class="fa fa-check"></i><b>3.3</b> Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#relación-entre-las-herramientas-matemáticas-y-los-sistemas-ecológicos"><i class="fa fa-check"></i><b>3.3.1</b> Relación entre las herramientas matemáticas y los sistemas ecológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#uso-de-los-modelos-matemáticos-en-ecología"><i class="fa fa-check"></i><b>3.4</b> Uso de los modelos matemáticos en ecología</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#analíticos-dinámicas-depredador-presa"><i class="fa fa-check"></i><b>3.4.1</b> Analíticos: Dinámicas depredador-presa</a></li>
+<li class="chapter" data-level="3.4.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#simulaciones-dinámica-de-enfermedades-infecciosas"><i class="fa fa-check"></i><b>3.4.2</b> Simulaciones: Dinámica de enfermedades infecciosas</a></li>
+<li class="chapter" data-level="3.4.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#mal-uso-de-los-modelos"><i class="fa fa-check"></i><b>3.4.3</b> Mal uso de los modelos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#tipos-de-modelos"><i class="fa fa-check"></i><b>3.5</b> Tipos de modelos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos-1"><i class="fa fa-check"></i><b>3.5.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="3.5.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#modelos-determinísticos-y-estocásticos"><i class="fa fa-check"></i><b>3.5.2</b> Modelos determinísticos y estocásticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html"><i class="fa fa-check"></i><b>4</b> Unidad II: Introducción a los modelos determinísticos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-línea-recta"><i class="fa fa-check"></i><b>4.1</b> La línea recta</a></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-parábola"><i class="fa fa-check"></i><b>4.2</b> La parábola</a></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#cónicas"><i class="fa fa-check"></i><b>4.3</b> Cónicas</a></li>
+<li class="chapter" data-level="4.4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-curva-normal"><i class="fa fa-check"></i><b>4.4</b> La curva normal</a></li>
+<li class="chapter" data-level="4.5" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#funciones-trigonométricas"><i class="fa fa-check"></i><b>4.5</b> Funciones trigonométricas</a></li>
+<li class="chapter" data-level="4.6" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-recta-como-modelo-universal-y-sus-transformaciones"><i class="fa fa-check"></i><b>4.6</b> La recta como modelo “universal” y sus transformaciones</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#el-logaritmo"><i class="fa fa-check"></i><b>4.6.1</b> El logaritmo</a></li>
+<li class="chapter" data-level="4.6.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-función-exponencial"><i class="fa fa-check"></i><b>4.6.2</b> La función exponencial</a></li>
+<li class="chapter" data-level="4.6.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#relevancia-de-la-recta"><i class="fa fa-check"></i><b>4.6.3</b> Relevancia de la recta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#representación-de-las-funciones-en-3-dimensiones"><i class="fa fa-check"></i><b>4.7</b> Representación de las funciones en 3 dimensiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><i class="fa fa-check"></i><b>5</b> Unidad III: Introducción al cálculo diferencial e integral</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#sucesiones"><i class="fa fa-check"></i><b>5.1</b> Sucesiones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación-de-sucesiones"><i class="fa fa-check"></i><b>5.1.1</b> Notación de sucesiones</a></li>
+<li class="chapter" data-level="5.1.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#tipos-de-sucesiones"><i class="fa fa-check"></i><b>5.1.2</b> Tipos de sucesiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#continuidad-y-límites"><i class="fa fa-check"></i><b>5.2</b> Continuidad y límites</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-límite"><i class="fa fa-check"></i><b>5.2.1</b> El límite</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#derivación"><i class="fa fa-check"></i><b>5.3</b> Derivación</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#ejemplos-2"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación"><i class="fa fa-check"></i><b>5.3.2</b> Notación</a></li>
+<li class="chapter" data-level="5.3.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#reglas-de-derivación"><i class="fa fa-check"></i><b>5.3.3</b> Reglas de derivación</a></li>
+<li class="chapter" data-level="5.3.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#representación-geométrica-de-la-derivada"><i class="fa fa-check"></i><b>5.3.4</b> Representación geométrica de la derivada</a></li>
+<li class="chapter" data-level="5.3.5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones"><i class="fa fa-check"></i><b>5.3.5</b> Aplicaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#integración"><i class="fa fa-check"></i><b>5.4</b> Integración</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#área-bajo-una-recta"><i class="fa fa-check"></i><b>5.4.1</b> Área bajo una recta</a></li>
+<li class="chapter" data-level="5.4.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-teorema-funamental-del-cálculo"><i class="fa fa-check"></i><b>5.4.2</b> El teorema funamental del cálculo</a></li>
+<li class="chapter" data-level="5.4.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones-de-la-integración"><i class="fa fa-check"></i><b>5.4.3</b> Aplicaciones de la integración</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><i class="fa fa-check"></i><b>6</b> Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-lineales-crecimiento-exponencial-malthusiano"><i class="fa fa-check"></i><b>6.1</b> Modelos lineales: Crecimiento exponencial (Malthusiano)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#interpretación-de-r"><i class="fa fa-check"></i><b>6.1.1</b> Interpretación de <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-del-modelo"><i class="fa fa-check"></i><b>6.1.2</b> Análisis del modelo</a></li>
+<li class="chapter" data-level="6.1.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-de-estabilidad"><i class="fa fa-check"></i><b>6.1.3</b> Análisis de estabilidad</a></li>
+<li class="chapter" data-level="6.1.4" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#períodos-de-duplicación"><i class="fa fa-check"></i><b>6.1.4</b> Períodos de duplicación</a></li>
+<li class="chapter" data-level="6.1.5" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#estimación-de-la-tasa-de-cambio-r"><i class="fa fa-check"></i><b>6.1.5</b> Estimación de la tasa de cambio <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#implicaciones-del-crecimiento-exponencial"><i class="fa fa-check"></i><b>6.1.6</b> Implicaciones del crecimiento exponencial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-no-lineales-crecimiento-logístico-de-una-población"><i class="fa fa-check"></i><b>6.2</b> Modelos no lineales: Crecimiento logístico de una población</a></li>
+<li class="chapter" data-level="6.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-en-tiempo-contínuo-vs-discreto"><i class="fa fa-check"></i><b>6.3</b> Modelos en tiempo contínuo vs discreto</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-exponencial-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.1</b> Crecimiento exponencial en tiempo discreto</a></li>
+<li class="chapter" data-level="6.3.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-logístico-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.2</b> Crecimiento logístico en tiempo discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html"><i class="fa fa-check"></i><b>7</b> Unidad V: Introducción al álgebra de matrices</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales"><i class="fa fa-check"></i><b>7.1</b> Sistemas lineales</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-gráfica"><i class="fa fa-check"></i><b>7.1.1</b> Solución gráfica</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-algebráica"><i class="fa fa-check"></i><b>7.1.2</b> Solución algebráica</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales-sin-solución"><i class="fa fa-check"></i><b>7.1.3</b> Sistemas lineales sin solución</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#resolviendo-sistemas-lineales-más-complejos"><i class="fa fa-check"></i><b>7.1.4</b> Resolviendo sistemas lineales más complejos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#ejemplo"><i class="fa fa-check"></i><b>7.1.5</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1.6" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-indeterminados"><i class="fa fa-check"></i><b>7.1.6</b> Sistemas indeterminados</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#operaciones-elementales-con-matrices"><i class="fa fa-check"></i><b>7.2</b> Operaciones elementales con matrices</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#suma-de-matrices"><i class="fa fa-check"></i><b>7.2.1</b> Suma de matrices</a></li>
+<li class="chapter" data-level="7.2.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-por-un-escalar"><i class="fa fa-check"></i><b>7.2.2</b> Multiplicación por un escalar</a></li>
+<li class="chapter" data-level="7.2.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#transposición"><i class="fa fa-check"></i><b>7.2.3</b> Transposición</a></li>
+<li class="chapter" data-level="7.2.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-de-matrices"><i class="fa fa-check"></i><b>7.2.4</b> Multiplicación de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinantes-y-matrices-inversas"><i class="fa fa-check"></i><b>7.3</b> Determinantes y matrices inversas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-identidad"><i class="fa fa-check"></i><b>7.3.1</b> Matriz identidad</a></li>
+<li class="chapter" data-level="7.3.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-inversa"><i class="fa fa-check"></i><b>7.3.2</b> Matriz inversa</a></li>
+<li class="chapter" data-level="7.3.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinante-de-una-matriz"><i class="fa fa-check"></i><b>7.3.3</b> Determinante de una matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#valores-propios"><i class="fa fa-check"></i><b>7.4</b> Valores propios</a></li>
+<li class="chapter" data-level="7.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#vectores-propios"><i class="fa fa-check"></i><b>7.5</b> Vectores propios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><i class="fa fa-check"></i><b>8</b> Unidad VI: Modelos lineales de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#proyección-de-matrices-para-modelos-estructurados-la-matriz-de-leslie"><i class="fa fa-check"></i><b>8.1</b> Proyección de matrices para modelos estructurados: la matriz de Leslie</a></li>
+<li class="chapter" data-level="8.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#análisis-de-los-modelos-de-poblaciones-estructuradas"><i class="fa fa-check"></i><b>8.2</b> Análisis de los modelos de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#tablas-de-vida"><i class="fa fa-check"></i><b>8.2.1</b> Tablas de vida</a></li>
+<li class="chapter" data-level="8.2.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#la-ecuación-de-euler"><i class="fa fa-check"></i><b>8.2.2</b> La ecuación de Euler</a></li>
+<li class="chapter" data-level="8.2.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#valor-reproductivo-y-autovectores"><i class="fa fa-check"></i><b>8.2.3</b> Valor reproductivo y autovectores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#aplicaciones-de-lo-modelo-de-matrices"><i class="fa fa-check"></i><b>8.3</b> Aplicaciones de lo modelo de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/gerardommc" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos Matemáticos en Ecología I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="encuadre-de-la-materia" class="section level1" number="2">
+<h1><span class="header-section-number"> 2</span> Encuadre de la materia</h1>
+<div id="criterios-de-evaluación" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Criterios de evaluación</h2>
+<p>Las constribuciones a cada calificación parcial serán:</p>
+<ul>
+<li>Asistencia (25%)</li>
+<li>Trabajos de clase cumplidos (50%)</li>
+<li>Examen (25%)</li>
+<li>Participación (2 puntos extra máximo)</li>
+</ul>
+<p>Cabe señalar, que la asistencia no corresponderá con su presencia en las sesiones sincrónicas, sino con el cumplimiento de los trabajos de clase. La participación se medirá tanto por participación directa en las sesiones sincrónicas como por el seguimiento que uds den a la clase por correo electrónico.</p>
+</div>
+<div id="cómo-se-darán-las-clases" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> ¿Cómo se darán las clases?</h2>
+<p>Trataré de apegarnos a los tiempos de actividades sincrónicas y asincrónicas establecidos en la <a href="Estrategia-docente.pdf">estrategia docente</a>, pero éstos son completamente flexibles. Una estrategia que me ha funcionado en cursos anteriores ha sido la de dedicar la última actividad sicrónica de la semana a resolver dudas, es en estas sesiones en las que hay muchas posibilidades de conseguir puntos de participación.</p>
+<p>Todos los contenidos del curso, lecturas y presentaciones, se irán añadiendo a este sitio web conforme avanza el semestre. En el Google Classroom de la materia se irán anunciando las diferentes actividades y sesiones sincrónicas con anticipación suficiente. Igualmente, los examenes y resultados serán publicados a través de esta plataforma. A petición de uds, también se publicarán aquí los videos de las sesiones sincrónicas que tengamos, en especial para aquellos temas que sean mayor interés/dificultad/importancia. Los trabajos de práctica también se publicarán en Classroom.</p>
+<p>Para finalizar, las clases sincrónicas estarán almacenadas en la <a href="https://www.youtube.com/playlist?list=PLmZRvJXMG43-YjcSbCbpmzL5MP7AUJfwM" target="_blank">playlist de la clase</a> contenida en mi canal de youtube.</p>
+</div>
+<div id="reglas-del-salón" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Reglas del salón</h2>
+<p>Estas, obviamente, son particulares del modelo en línea, por lo tanto aquí van las reglas de zoom:</p>
+<ol style="list-style-type: decimal">
+<li>Micrófonos apagados</li>
+<li>Cámaras prendidas, exceptuando:
+2.1. Si su velocidad de internet lo dificulta
+2.2. Si tienen datos limitados</li>
+<li>Hacer muchas preguntas</li>
+<li>Decirme si paso algo por alto</li>
+</ol>
+</div>
+<div id="contacto" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Contacto</h2>
+<p>Para reportar fallos, resolver dudas y peticiones especiales grupales o individuales por favor enviar correo electrónico a <a href="mailto:gerardo.mmc@enesmerida.unam.mx">gerardo.mmc@enesmerida.unam.mx</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-i-introducción-a-la-modelación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# Unidad III: Introducción al cálculo diferencial e integral
+
+## Sucesiones
+
+```{r echo = F, child="Unidad-III/Sucesiones.Rmd"}
+
+```
+
+## Continuidad y límites
+
+```{r echo = F, child="Unidad-III/Continuidad-limites.Rmd"}
+
+```
+
+## Derivación
+```{r echo = F, child = "Unidad-III/Derivacion.Rmd"}
+
+```
+
+## Integración
+```{r echo = F, child="Unidad-III/Integracion.Rmd"}
+
+```
+
+
+

@@ -1,0 +1,19 @@
+# Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias
+
+## Modelos lineales: Crecimiento exponencial (Malthusiano)
+```{r echo = F, child="Unidad-IV/Modelos-lineales.Rmd"}
+
+```
+
+## Modelos no lineales: Crecimiento logístico de una población
+
+```{r echo = F, child="Unidad-IV/Modelo-logistico.Rmd"}
+
+```
+
+## Modelos en tiempo contínuo vs discreto
+
+```{r echo = F, child = "Unidad-IV/Continuo-discreto.Rmd"}
+
+```
+

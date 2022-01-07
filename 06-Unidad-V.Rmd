@@ -1,0 +1,32 @@
+# Unidad V: Introducción al álgebra de matrices
+
+## Sistemas lineales
+
+```{r echo = F, child = "Unidad-V/Sistemas-lineales.Rmd"}
+
+```
+
+## Operaciones elementales con matrices
+
+```{r echo = F, child="Unidad-V/Operaciones-elementales.Rmd"}
+
+```
+
+## Determinantes y matrices inversas
+
+```{r echo = F, child = "Unidad-V/Determinantes-inversas.Rmd"}
+
+```
+
+## Valores propios
+
+```{r echo = FALSE, child= "Unidad-V/Valores-propios.Rmd"}
+
+```
+
+## Vectores propios
+
+```{r echo = FALSE, child = "Unidad-V/Vectores-propios.Rmd"}
+
+```
+

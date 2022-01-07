@@ -1,0 +1,11 @@
+book_filename: "Mod-mat-ECO"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: " "
+    bibliography_name: "Referencias"
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Equación '
+output_dir: "docs"

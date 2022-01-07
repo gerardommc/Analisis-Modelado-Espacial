@@ -1,0 +1,1140 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Modelos Matemáticos en Ecología I},
+  pdfauthor={Gerardo Martín},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Modelos Matemáticos en Ecología I}
+\author{Gerardo Martín}
+\date{2021-08-23}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{preuxe1mbulo}{%
+\chapter{Preámbulo}\label{preuxe1mbulo}}
+
+\begin{center}\includegraphics[width=20.83in]{logo} \end{center}
+
+En el curso \textbf{Modelos matemáticos en ecología} aprenderemos a utilizar algunas herramientas matemáticas para entender procesos en ecología. Los contenidos del índice se apegan al \href{Programa-curso.pdf}{programa completo del curso}, el cual se impartirá en los \href{Horario.pdf}{horarios normales establecidos}. Para conocer cuándo, cómo y qué temas se se impartirán puedes consultar la \href{Estrategia-docente.pdf}{estrategia docente}.
+
+\hypertarget{encuadre-de-la-materia}{%
+\chapter{Encuadre de la materia}\label{encuadre-de-la-materia}}
+
+\hypertarget{criterios-de-evaluaciuxf3n}{%
+\section{Criterios de evaluación}\label{criterios-de-evaluaciuxf3n}}
+
+Las constribuciones a cada calificación parcial serán:
+
+\begin{itemize}
+\tightlist
+\item
+  Asistencia (25\%)
+\item
+  Trabajos de clase cumplidos (50\%)
+\item
+  Examen (25\%)
+\item
+  Participación (2 puntos extra máximo)
+\end{itemize}
+
+Cabe señalar, que la asistencia no corresponderá con su presencia en las sesiones sincrónicas, sino con el cumplimiento de los trabajos de clase. La participación se medirá tanto por participación directa en las sesiones sincrónicas como por el seguimiento que uds den a la clase por correo electrónico.
+
+\hypertarget{cuxf3mo-se-daruxe1n-las-clases}{%
+\section{¿Cómo se darán las clases?}\label{cuxf3mo-se-daruxe1n-las-clases}}
+
+Trataré de apegarnos a los tiempos de actividades sincrónicas y asincrónicas establecidos en la \href{Estrategia-docente.pdf}{estrategia docente}, pero éstos son completamente flexibles. Una estrategia que me ha funcionado en cursos anteriores ha sido la de dedicar la última actividad sicrónica de la semana a resolver dudas, es en estas sesiones en las que hay muchas posibilidades de conseguir puntos de participación.
+
+Todos los contenidos del curso, lecturas y presentaciones, se irán añadiendo a este sitio web conforme avanza el semestre. En el Google Classroom de la materia se irán anunciando las diferentes actividades y sesiones sincrónicas con anticipación suficiente. Igualmente, los examenes y resultados serán publicados a través de esta plataforma. A petición de uds, también se publicarán aquí los videos de las sesiones sincrónicas que tengamos, en especial para aquellos temas que sean mayor interés/dificultad/importancia. Los trabajos de práctica también se publicarán en Classroom.
+
+Para finalizar, las clases sincrónicas estarán almacenadas en la playlist de la clase contenida en mi canal de youtube.
+
+\hypertarget{reglas-del-saluxf3n}{%
+\section{Reglas del salón}\label{reglas-del-saluxf3n}}
+
+Estas, obviamente, son particulares del modelo en línea, por lo tanto aquí van las reglas de zoom:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Micrófonos apagados
+\item
+  Cámaras prendidas, exceptuando:
+  2.1. Si su velocidad de internet lo dificulta
+  2.2. Si tienen datos limitados
+\item
+  Hacer muchas preguntas
+\item
+  Decirme si paso algo por alto
+\end{enumerate}
+
+\hypertarget{contacto}{%
+\section{Contacto}\label{contacto}}
+
+Para reportar fallos, resolver dudas y peticiones especiales grupales o individuales por favor enviar correo electrónico a \href{mailto:gerardo.mmc@enesmerida.unam.mx}{\nolinkurl{gerardo.mmc@enesmerida.unam.mx}}.
+
+\hypertarget{unidad-i-introducciuxf3n-a-la-modelaciuxf3n}{%
+\chapter{Unidad I: Introducción a la modelación}\label{unidad-i-introducciuxf3n-a-la-modelaciuxf3n}}
+
+\hypertarget{introducciuxf3n-al-concepto-de-modelo-matemuxe1tico}{%
+\section{Introducción al concepto de modelo matemático}\label{introducciuxf3n-al-concepto-de-modelo-matemuxe1tico}}
+
+Para comenzar a hablar de modelos matemáticos es preciso tener una idea de por qué las matemáticas forman parte de un grado en ciencias naturales. Los autores \citet{otto2011biologist}, dan cuenta de qué tan comunes son las matemáticas en la labor del biólogo/ecólogo. Hacia el año 2006, una búsqueda sistemática del material publicado en revistas científicas contentiendo la palabra clave ``math'' sugiere que había \textasciitilde900 mil artículos, la mayoría concentrados en revistas especializadas como \emph{Bulletin of Mathematical Biology}, otros en las más prestigiosas \emph{Nature} o \emph{Science}. Una mirada más cercana a las revistas especializadas \emph{Ecology and Evolution} y \emph{American Naturalist} que el 35 y 60\% respectivametne de las publicaciones utilizaron algún modelo matemático para mostrar predicciones. En resumen, la labor de un ecólogo requiere del uso frecuente de matemáticas, si no es mediante el desarrollo de algún modelo, requiere de su entendimiento.
+
+\hypertarget{quuxe9-es-un-modelo}{%
+\subsection{¿Qué es un modelo?}\label{quuxe9-es-un-modelo}}
+
+Imaginemos a seis personas invidentes, con la tarea de encontrar qué es el objeto que está frente a ellas usando únicamente el tacto. En la parábola de los seis hombres ciegos, el objeto es un elefante, de modo que la imágen que cada uno de ellos se forma del objeto depende enteramente de la parte del elefante que están tocando.
+
+\begin{figure}
+
+{\centering \includegraphics[width=16.17in]{Unidad-I/elefante} 
+
+}
+
+\caption{La parábola de los seis hombres ciegos inspeccionando un elefante.}\label{fig:unnamed-chunk-15}
+\end{figure}
+
+Quien toque los colmillos podrá pensar que se trata de una lanza, la trompa podría tratarse de una serpiente, la cola de una cuerda, las patas troncos de árbol y el cuerpo una pared. Es evidente que todas las hipótesis presentadas después de la inspección fueron erróneas, y que cuando estudiamos al mundo lo haremos igual, con la descripción de tan sólo una fracción de éste. Un séptimo hombre que pregunte a los otros seis qué fue lo que vieron podría formarse una imágen más completa del \emph{sistema} para proponer otra hipótesis: se trata de un objeto grande reposando sobre cuatro columnas con apéndices adelante y atrás.
+
+Al estudiar los sistemas ecológicos, al igual que los ciegos, no sabremos que estamos frente a un elefante. Los sistemas ecológicos, al igual que los elefantes, también tienen componentes interconectados, y nosotros los ecólogos somos como los hombres ciegos, sólo podemos observar ciertas partes de los ecosistemas. En nuestro trabajo entonces, aprender a identificar y proponer hipótesis sobre cómo funcionan los sistemas ecológicos.
+
+Las hipótesis propuestas por los seis hombres representan modelos, es decir simplificaciones del mundo que nos ayudan a entenderlo. Los modelos matemáticos son simplificaciones formales del mundo utilizando otro lenguaje, las matemáticas \citep{haefner1998modeling}.
+
+\hypertarget{cuxf3mo-construir-un-modelo}{%
+\section{Cómo construir un modelo}\label{cuxf3mo-construir-un-modelo}}
+
+¿Cómo se construye un modelo? Es una pregunta difícil de responder, pues difícilmente existe un sólo modo de hacerlo que funcione para \href{mailto:tod@s}{\nolinkurl{tod@s}}. Aquí voy a hablar de mi propia experiencia, y cómo aprendí a utilizar las matemáticas y estadística para entender los sistemas ecológicos. Los pasos generales que sigo son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identificar el sistema y sus componentes
+\item
+  Crear un modelo conceptual, haciendo dibujos
+\item
+  Identificar las herramientas matemáticas disponibles para representar el modelo conceptual
+\item
+  Establecer objetivos claros y alcanzables
+\item
+  Proponer una serie de modelos alternativos
+\item
+  Determinar una estrategia para seleccionar uno solo de los modelos que propuse para logar el objetivo
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=8.5in]{Unidad-I/Diagrama-dearrollo} 
+
+}
+
+\caption{ Diagrama de mi estrategia para desarrollar modelos.}\label{fig:unnamed-chunk-16}
+\end{figure}
+
+La estrategia general que les doy puede, por el momento, sonar un tanto abstracta, pero la iremos poniendo en práctica conforme avanza el curso para que al final, esperemos, tenga más sentido que ahorita.
+
+\hypertarget{ejemplos}{%
+\subsection{Ejemplos}\label{ejemplos}}
+
+La presente pandemia ha puesto en boca de todxs muchos aspectos de la modelación matemática y estadística. Como es de esperarse, los modelos son distintos dependiendo del objetido que se quiera conseguir con ellos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Determinar el número reproductivo básico (\(R_0\)) de COVID-19
+\item
+  Predecir la ocupación hospitalaria ante ciertas medidas de restricción de movilidad
+\item
+  Estimar cómo cambiaría el número reproductivo básico ante ciertas medidas de restricción
+\item
+  Predecir localidades geográficas donde surgirán nuevas cepas
+\item
+  Predecir las cualidades infecciosas o virulentas de las nuevas cepas
+\end{enumerate}
+
+Todos estos objetivos puede de cierta manera conseguirse por medio de modelos matemáticos, todos ellos con modelos muy distintos, algunos con herramientas muy diferentes unos de otros.
+
+\hypertarget{discusiuxf3n-sobre-las-distintas-herramientas-matemuxe1ticas-empleadas-en-la-modelaciuxf3n-matemuxe1tica}{%
+\section{Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática}\label{discusiuxf3n-sobre-las-distintas-herramientas-matemuxe1ticas-empleadas-en-la-modelaciuxf3n-matemuxe1tica}}
+
+Las matemáticas son un área de conocimiento muy extenso, por lo que hablar de todas las herramientas disponibles ¡nos podría llevar años! En este curso nos vamos a enfocar en un tipo general de modelo y de sistema ecológico: aquellos que cambian rápidamente con el tiempo, también llamados dinámicos.
+
+Las herramientas matemáticas más comunmente utilizadas para estudiar estos sistemas son las ecuaciones diferenciales ordinarias, ecuaciones por diferencias finitas y el álgebra de matrices. Las ecuaciones diferenciales y por diferencias finitas son muy parecidas entre sí, porque nos representar y medir los cambios que sufre un sistema ecológico a través del tiempo en cada uno de sus componentes. Además es fácil representar las ideas plasmadas diagramáticamente en ellas. El álgebra de matrices, por otro lado, nos sirve para \emph{conectar} los cambios de los diferentes componentes del sistema de estudio, y así hacer cálculos sobre sus cambios \emph{como un todo}. Por supuesto que para poder utilizar las matrices de este modo, tenemos que echar mano de una serie de supuestos de \emph{linealidad}, de modo que el álgebra lineal también es una herramienta básica.
+
+Como podemos ver, gran parte de este curso estará enfocado en \emph{entender y medir los cambios}. Te preguntarás entonces ¿cambios de qué? En ecología, estos son algunos de los cambios que nos interesa observar:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Número de individuos de una especie
+\item
+  Cantidad de materia orgánica almacenada en la vegetación
+\item
+  Calorías consumidas por una población de aves
+\item
+  Probabilidad de extinción de una especie
+\end{enumerate}
+
+Cuando medimos cambios entonces, es necesario observar el estado del mundo natural en diferentes puntos a lo largo del tiempo. Por lo tanto, la modelación matemática también requiere desarrollar buenas habilidades estadísticas. Estas últimas nos permitirán entender probabilísticamente a los sistemas ecológicos a partir de los mecanismos que representamos en los modelos matemáticos. Más adelante veremos a qué nos referimos con \emph{probabilísticamente}.
+
+Antes de entrar en estos temas más filosóficos, sin embargo, debemos que conocer algunas expresiones algebráicas y geométricas que utilizaremos rutinariamente para representar fenómenos. Algunas de las expresiones y herramientas geométricas más comunes son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La recta, descrita por expresiones como \(y = a + bx\)
+\item
+  La parábola, \(y = x^2\)
+\item
+  Las Cónicas, \(y = 1/x\), o \(y^2 - x^2 = 1\) y muchas otras
+\item
+  Las funciones trigonométricas, \(\sin \theta = \frac{O}{H}\)
+\end{enumerate}
+
+Estas expresiones pueden ser combinadas dentro de un sistema de ecuaciones. Con sistema de ecuaciones nos referimos a ecuaciones separadas que están conectadas por términos en común y que representan \emph{flujos}. Veamos un sencillo sistema de ecuaciones estructuradas por edad con crecimiento logístico:
+
+\begin{equation}
+    \dot{J} = rA - \gamma A^2 - \kappa J \label{eq:juv}
+\end{equation}
+
+\begin{equation}
+    \dot{A} = \kappa J \label{eq:ad}
+\end{equation}
+
+La expresión \(rA - \gamma A^2\) es claramente una parábola, y representa el crecimiento logístico. Por otra parte \(- \kappa J\) es un término lineal que, debido a su signo negativo representa un flujo de salida del compartimento \(J\) y es una entrada al compartimento \(A\). Este modelo relativamente sencillo representa la dinámica poblacional de un bicho con estados de desarrollo juvenil \(J\) y adulto \(A\), donde el nacimiento de individuos juveniles depende el número de adultos, y el crecimiento de los adultos ocurre a medida que los juveniles maduran y entran al compartimento de adultos a una tasa \(\kappa\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=7.29in]{Unidad-I/juve-adult} 
+
+}
+
+\caption{Representación gráfica del modelo de crecimiento poblacional con estados de desarrollo.}\label{fig:juve-ad}
+\end{figure}
+
+\hypertarget{relaciuxf3n-entre-las-herramientas-matemuxe1ticas-y-los-sistemas-ecoluxf3gicos}{%
+\subsection{Relación entre las herramientas matemáticas y los sistemas ecológicos}\label{relaciuxf3n-entre-las-herramientas-matemuxe1ticas-y-los-sistemas-ecoluxf3gicos}}
+
+Los sistemas ecológicos son muy variados, de modo que las herramientas matemáticas disponibles o que conocemos no siempre reflejan ciertos aspectos importantes de los sistemas ecológicos. Un ejemplo notable de ello es la variación de atributos entre individuos de una población. Supongamos que estamos modelando el crecimiento de una población (como en las ecuaciones \eqref{eq:juv} y \eqref{eq:ad}), y la tasa neta de crecimiento depende de la cantidad de adultos reproductores y del crecimiento exponencial de los gametos fértiles en cada adulto reproductor, lo cual ocurre en corales y algunas plantas.
+
+El crecimiento poblacional como tal, puede modelarse con ecuaciones diferenciales ordinarias, mientras que representar el crecimiento de los gametos fértiles dentro de cada adulto en un sistema de ecuaciones ordinarias requiere de otras herramientas mucho más avanzadas.
+
+\hypertarget{uso-de-los-modelos-matemuxe1ticos-en-ecologuxeda}{%
+\section{Uso de los modelos matemáticos en ecología}\label{uso-de-los-modelos-matemuxe1ticos-en-ecologuxeda}}
+
+Como ya mencionamos anteriormente, una alta proporción de las publicaciones académicas en ecología utiliza modelos matemáticos para predecir. Existen sin embargo otros usos de los modelos matemáticos que se pueden describir en términos generales como analíticos, es decir para analizar y entender cómo los diferentes componentes de un sistema afectan su coportamiento. Otras veces, los modelos se utilizan para medir las respuestas del sistema de interés ante perturbaciones, haciendo muchas simulaciones. Veamos una serie de ejemplos de estos diferentes usos de los modelos.
+
+\hypertarget{analuxedticos-dinuxe1micas-depredador-presa}{%
+\subsection{Analíticos: Dinámicas depredador-presa}\label{analuxedticos-dinuxe1micas-depredador-presa}}
+
+En 1928, Vito Volterra \citep{volterra1928variations} desarrolló un modelo matemático para describir cómo varía el número de individuos de una especie de depredador y una presa. Como ya es conocido, este modelo replica muy bien el comportamiento oscilatorio de ambas poblaciones (Figura \ref{fig:volterra}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=11.11in]{Unidad-I/volterra} 
+
+}
+
+\caption{Simulación del modelo [Lotka-Volterra](https://scipy-cookbook.readthedocs.io/items/LoktaVolterraTutorial.html).}\label{fig:volterra}
+\end{figure}
+
+El comportamiento oscilatorio resulta \emph{obvio} desde una perspectiva biológica: los depredadores no se pueden reproducir a menos que se alimenten de sus presas, pero cuando hay muchos depredadores, estos consumen las presas disminuyendo sus números, resultando en menor potencial reproductivo para el depredador. Pero matemáticamente, ¿qué hace posible estas oscilaciones? Para responder esta pregunta se necesita entender bajo qué condiciones el sistema de ecuaciones que describe el sistema es estable, es decir cuándo los cambios de ambas poblaciones son cero, es decir bajo qué situaciones el sistema como un todo no experimenta cambio alguno. Este análisis matemático tiene un resultado un tanto sorprendente, pues las condiciones bajo las que dicha condición ocurre son un número imaginario, lo que indica que el sistema como tal es inestable, y por lo tanto \textbf{siempre} tiende a oscilar. El análisis de matemático de los modelos es en su mayoría netamente simbólico y requiere de buenas bases matemáticas.
+
+\hypertarget{simulaciones-dinuxe1mica-de-enfermedades-infecciosas}{%
+\subsection{Simulaciones: Dinámica de enfermedades infecciosas}\label{simulaciones-dinuxe1mica-de-enfermedades-infecciosas}}
+
+Los sistemas ecológicos pueden ser muy complejos, lo que resulta en sistemas de ecuaciones igualmente complejos con muchas variables de estado y parámetros, y a la vez hace que el análisis sea muy complicado o imposible. En vista de ello se puede entonces \emph{resolver} el modelo utilizando herramientas computacionales. Un ejemplo que me gusta mucho es el estudio de la leptospirosis (infección por bacteria del género \emph{Leptospira}) en ratones \emph{Mastomys} de \citet{holt2006model}. Los autores formularon un modelo relativamente simple de ecuaciones diferenciales para ver cómo las constantes de su modelo afectan el número de ratones \emph{Mastomys} y de bacterias \emph{Leptospira} en el ambiente. Ello lo consiguieron aumentando en 10\% los valores de cada una de las constantes y midiendo el cambio tras cada simulación.
+
+\begin{figure}
+
+{\centering \includegraphics[width=22.76in]{Unidad-I/lepto} 
+
+}
+
+\caption{Las barras (eje $y$) indican el cambio proporcional de las diferentes cantidades de interés (color de las barras), ante el aumento del valor de cada parámetro (eje $x$), [@holt2006model].}\label{fig:lepto}
+\end{figure}
+
+Los análisis de sensibilidad mostrados en la Figura \ref{fig:lepto} son en realidad una serie de predicciones del sistema. De hecho la predicción generalmente echa mano de modelos matemáticos, así que nos centraremos en resumir: la predicción requiere de la planeación de una serie de escenarios para identificar áreas de intervención (alteración del hábitat por ejemplo) para obtener un resultado favorable de acuerdo con el modelo.
+
+\hypertarget{mal-uso-de-los-modelos}{%
+\subsection{Mal uso de los modelos}\label{mal-uso-de-los-modelos}}
+
+Así como existe un uso adecuado de los modelos, es muy fácil darles un mal uso, generalmente relacionado con la calidad de los datos que los respaldan, el grado de entendimiento del sistema en cuestión, y con la relación entre las herramientas matemáticas utilizadas y la naturaleza del problema. \citet{holling1978adaptive} y \citet{karplus1975place}, sumarizan los siguientes usos potenciales de los modelos en relación a la calidad de los datos (1-baja calidad, 6-alta calidad):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Atención del público
+\item
+  Aprendizaje sobre el sistema
+\item
+  Prueba de teorías
+\item
+  Juegos ``qué pasaría si\ldots{}''
+\item
+  Recomendación de acciones
+\item
+  Diseño de productos
+\end{enumerate}
+
+\citet{haefner1998modeling} sumariza estos usos potenciales de los modelos de acuerdo con el nivel de entendimiento y calidad de datos en distintas áreas del conocimieto.
+
+\begin{figure}
+
+{\centering \includegraphics[width=17.99in]{Unidad-I/uso-modelos} 
+
+}
+
+\caption{Relación entre el entendimiento y calidad de los datos, y los potenciales usos de los modelos en las diferentes disciplinas científicas [@haefner1998modeling].}\label{fig:unnamed-chunk-17}
+\end{figure}
+
+\hypertarget{tipos-de-modelos}{%
+\section{Tipos de modelos}\label{tipos-de-modelos}}
+
+La clasificación de los modelos depende de la herramienta que se utiliza para desarrollarlos. En la sección ``Cómo construir un modelo'', mencioné brevemente que uno de los pasos es la formulación de un modelo ``conceptual'', en forma de un esquema o diagrama. Esta clasificación la podemos ampliar un poco:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Modelo conceptual o verbal}. Descripciones en lenguaje natural.
+\item
+  \textbf{Diagramático}. Representación gráfica (diagramas de flujo o cajas).
+\item
+  \textbf{Físico}. Representación a escala de sistema (sistemas hidráulicos).
+\item
+  \textbf{Formal}. Matemático (algebráico o sistemas de ecuaciones).
+\end{enumerate}
+
+Aquí nos centraremos en ver a mayor profundidad los modelos formales, en clasificar los modelos matemáticos. \citet{haefner1998modeling} sugiere la siguiente clave dicotómica de clasificación:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{¿Las matemáticas representan de manera explícita el proceso de interés?}
+
+  1.1. \textbf{Sí}: Modelo mecanístico
+
+  1.2. \textbf{No}: Modelo descriptivo, fenomenológico
+\item
+  \textbf{¿Las matemáticas representan de manera explícita las condiciones del estado futuro del sistema?}
+
+  2.1. \textbf{Sí}: Modelo dinámico
+
+  2.2. \textbf{No}: Modelo estático
+\item
+  \textbf{¿Las matemáticas representan el tiempo de manera contínua?}
+
+  3.1. \textbf{Sí}: Modelo conínuo
+
+  3.2. \textbf{No}: Modelo discreto (el tiempo sólo toma valores enteros, un día, un año)
+\item
+  \textbf{¿Las matemáticas representan explícitamente el espacio?}
+
+  4.1. \textbf{Sí}: Modelo espacialmente heterogéneo
+
+  4.2. \textbf{No}: Modelo espacialmente homogéneo
+\item
+  \textbf{¿Las matemáticas permiten la ocurrencia de eventos aleatorios?}
+
+  5.1. \textbf{Sí}: Modelo estocástico
+
+  5.2. \textbf{No}: Modelo determinístico
+\end{enumerate}
+
+\hypertarget{ejemplos-1}{%
+\subsection{Ejemplos}\label{ejemplos-1}}
+
+\hypertarget{modelo-de-presa-depredador-de-lotka-volterra--volterra1928variations}{%
+\subsubsection{\texorpdfstring{Modelo de presa-depredador de Lotka-Volterra \citeyearpar{volterra1928variations}}{Modelo de presa-depredador de Lotka-Volterra {[}-@volterra1928variations{]}}}\label{modelo-de-presa-depredador-de-lotka-volterra--volterra1928variations}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.18in]{Unidad-I/Volterra/Volterra} 
+
+}
+
+\caption{Modelo diagramático basado en el modelo matemático depredador-presa de Lotka-Volterra}\label{fig:volterra-diag}
+\end{figure}
+
+Este modelo representa cómo cambia el número de liebres y linces a través del tiempo con un sistema de ecuaciones diferenciales. El cambio en los números de individuos depdende de
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Crecimiento poblacional del depredador en relación a las presas disponibles para que el depredador se alimente
+\item
+  Crecimiento poblacional innato de las presas
+\item
+  Mortalidad de presas en relación a la cantidad de depredadores
+\item
+  Mortalidad innata del depredador
+\end{enumerate}
+
+El modelo entonces representa el mecanismo del sistema, por lo que es un modelo \textbf{mecanístico}. Debido a que representa el cambio del número de individuos en el tiempo, es un modelo \textbf{dinámico}. Por el momento no contamos con información suficiente para decir si es contínuo o discreto, pero no hay mención del componente espacial, por lo que podemos suponer que se trata de un modelo \textbf{espacialmente homogéneo}. La solución al modelo clásico de la figura \ref{fig:volterra-diag}, muestra un patrón regular, lo cual se debe a que todos los parámetros son constantes, y por lo tanto es un modelo \textbf{determinista}.
+
+\hypertarget{modelo-del-panal-de-abejas}{%
+\subsubsection{Modelo del panal de abejas}\label{modelo-del-panal-de-abejas}}
+
+\citet{wilenski2003honey} desarrolló un modelo para representar cómo las abejas construyen un panal, por medio de una serie de reglas que rigen el comportamiento de abejas individuales. Debido a que el mecanismo está representado en el comportamiento colectivo de las abejas, es un modelo \textbf{mecanístico}. El modelo también muestra la progresión de la construcción del panal, por lo que es un modelo \textbf{dinámico}, y debido a que cualquiera de los eventos posibles pueden ocurrir en cualquier momento es en tiempo \textbf{contínuo}. También representa la estructura del panal en unidades espaciales, por lo que es \textbf{espacialmente heterogéneo}. Finalmente, los eventos que ocurren son aleatorios, o sea que el resultado de una realización del modelo será diferente de otra, por lo que es un modelo \textbf{estocástico}. Te invito a explorar este modelo por medio de la aplicación en línea de \href{https://www.netlogoweb.org/launch\#https://www.netlogoweb.org/assets/modelslib/Sample\%20Models/Biology/Honeycomb.nlogo}{NetLogo}.
+
+A continuación veremos a mayor profundidad los modelos deterministicos y estocásticos.
+
+\hypertarget{modelos-determinuxedsticos-y-estocuxe1sticos}{%
+\subsection{Modelos determinísticos y estocásticos}\label{modelos-determinuxedsticos-y-estocuxe1sticos}}
+
+Imaginemos que necesitamos un librero, y para ello necesitamos medir las dimensiones del espacio donde lo colocaremos. Solamente contamos con una cinta en pulgadas, pero el carpintero, para hacer el presupuesto, necesita las medidas en centímetros. Entonces para hacer la conversión de pulgadas a centímetros utilizamos el siguiente modelo:
+
+\begin{equation}
+    cm = 2.54 \times in  \label{eq:pulgadas}
+\end{equation}
+
+donde \(in\) son las pulgadas, \(cm\) los centímetros, y \(2.54\) es la constante de conversión. Entonces ya tenemos así un modelo que siempre nos dará la misma respuesta para cada valor de entrada:
+
+\begin{itemize}
+\tightlist
+\item
+  \(2in \rightarrow 2 \times 2.54cm = 5.08cm\)
+\item
+  \(11in \rightarrow 11 \times 2.54cm = 27.94cm\)
+\end{itemize}
+
+Imaginemos ahora que la constante de conversión no fuera una sola, \(2.54\), sino cientos, o miles de posibles valores cercanos a \(2.54\), y cada vez que resolvemos el modelo \eqref{eq:pulgadas} obtenemos un valor distinto. El primero es un modelo deterministico, siempre da la misma respuesta. El segundo, es un modelo estocástico. Te preguntarás entonces ¿para qué querríamos un modelo que de respuestas inconsistentes? La principal razón es que en ecología, como en otras áreas del conocimiento, los sistemas de estudio son muy variables, y los modelos estocásticos nos sirven para representar esa variabilidad y conocer algunos de los posibles resultados. En pocas palabras, si un sistema es determinista, siempre podemos conocer su comportamiento con alta precisión, mientras que en los estocáticos, no.
+
+\hypertarget{deterministicos}{%
+\subsubsection{Deterministicos}\label{deterministicos}}
+
+En vista de mi comentario ``\ldots{} los sistemas de estudio son muy variables\ldots{}'' tal vez te surja otra pregunta, ¿entonces por qué estudiamos los modelos deterministas? Y no hay una pregunta mmuy sencilla, pero la principal es que son más sencillos. Por otra parte, si pensamos en los modelos desde un punto de vista estadístico, se podría también sugerir que podemos utilizar los modelos determinísticos para estudiar el comportamiento ``promedio'', o para caracterizar ese componente, el determinista, de nuestro sistema de estudio. En este sentido, se considera entonces que la mayoría de los sistemas y procesos ecológicos tienen un componente determinístico y uno estocástico. La mejor manera de modelar los sistemas ecológicos, entonces, es utilizando ambos. Por lo tanto, para modelar los sistemas ecológicos con ambos métodos, necesitamos aprender a utilizarlos por separado.
+
+Una de las grandes bondades de los modelos determinísticos es que nos permiten analizar el comportamiento del sistema de estudio. Los modelos de cambio temporal, por ejemplo, han sido muy importantes en el desarrollo de la teoría del caos, la cual sirve para explicar por qué ciertos procesos del mundo natural nunca alcanzan un nivel de estabilidad (¡dinámicas depredaror-presa!).
+
+\hypertarget{estocuxe1sticos}{%
+\subsubsection{Estocásticos}\label{estocuxe1sticos}}
+
+A diferencia de los modelos deterministas, los estocásticos nunca dan el mismo resultado. Existe un gran variedad de herramientas computacionales y formulaciones matemáticas para conseguir este tipo de comportamiento. En la mayoría de los casos, los modelos deterministas constan de dos componentes, uno determinista, relacionado con los mecanismos propios del sistema de estudio, y uno aleatorio, encargado de generar los eventos posibles o de simular la variación en el componente determinista. Esto lo podemos ilustrar con el modelo de conversión de pulgadas a centímetros:
+
+\[
+cm = 2.54 \times in
+\]
+el cual es determinista. Sin embargo, podemos formular una versión estocástica, que añada una pequeña cantidad a la conversión determinística cada vez que la calculamos:
+
+\[
+cm = 2.54 \times in + \varepsilon
+\]
+
+donde \(\varepsilon\) es el \emph{error} que hemos introducido. Técnicamente para hacer esto utilizamos un generador de números aleatorios en el lenguaje de programación \textbf{R}. Veamos una serie de conversiones:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-20}Cinco realizaciones para la conversión de dos pulgadas a centímetros con el modelo determinista y estocástico.}
+\centering
+\begin{tabular}[t]{c|c}
+\hline
+Determinista & Estocástico\\
+\hline
+5.08 & 5.240588\\
+\hline
+5.08 & 4.849426\\
+\hline
+5.08 & 4.904563\\
+\hline
+5.08 & 5.243678\\
+\hline
+5.08 & 4.959686\\
+\hline
+\end{tabular}
+\end{table}
+
+Este tipo de \emph{inconsistencias} de los modelos estocásticos tienen implicaciones muy importantes para el comportamiento de modelos como el de Lotka-Volterra, que veremos más adelante.
+
+\hypertarget{unidad-ii-introducciuxf3n-a-los-modelos-determinuxedsticos}{%
+\chapter{Unidad II: Introducción a los modelos determinísticos}\label{unidad-ii-introducciuxf3n-a-los-modelos-determinuxedsticos}}
+
+\hypertarget{la-luxednea-recta}{%
+\section{La línea recta}\label{la-luxednea-recta}}
+
+Una línea recta se puede representar matemáticamente de varias maneras, la más común de ellas es por medio de una función. Una función, en cambio es una expresión matemática que indica una serie de operaciones (aritméticas por ejemplo), que serán aplicadas a un conjunto de números en sucesión (los números reales, p.~ej.) para producir otro conjunto. Así la, función lineal más sencilla puede ser:
+
+\begin{equation}
+    y(x) = x
+\end{equation}
+
+Lo que quiere decir que \(y\) es una función de \(x\), y cada valor de \(y\) será igual a cada valor de \(x\). En lenguaje matemático, el conjunto de números de \(x\) se llama el dominio, y \(y(x)\) el codominio. Algunas funciones lineales más complejas son:
+
+\begin{equation}
+    y(x) = ax
+\end{equation}
+
+donde \(a\) es una constante, lo que quiere decir que cada valor de \(y(x)\) será producido por el producto \(a \times x\). Finalmente, la expresión más común de una ecuación lineal es:
+
+\begin{equation}
+    y(x) = b + ax
+\end{equation}
+
+donde \(b\) también es una constante que se llama intercepto, y \(a\) es la pendiente, pues esta última determina la inclinación de la línea recta representada en el plano cartesiano.
+
+\hypertarget{representaciones-gruxe1ficas-de-la-recta}{%
+\subsubsection{Representaciones gráficas de la recta}\label{representaciones-gruxe1ficas-de-la-recta}}
+
+Comencemos por dar un repaso del plano cartesiano. Este consiste de la representación de dos conjuntos de números reales en los que representamos una función, como una regla de correspondencia entre los valores de cada conjunto, de modo que a cada valor de \(x\) corresponde uno y sólo uno de los valores de \(y\). Cada conjunto se puede representar como una recta, y cuando éstas se disponen perperdiculares dan origen al plano.
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/unnamed-chunk-21-1} 
+
+}
+
+\caption{Ejemplo del plano cartesiado mostrando en rojo la correspondencia de valores para $y(x) = x$, donde los puntos corresponden a los pares de valores $(x = -1, y = -1), (-0.5, -0.5), (0, 0), (0.5, 0.5), (1, 1)$.}\label{fig:unnamed-chunk-21}
+\end{figure}
+
+Ahora veamos, con un ejemplo gráfico por qué la constante \(a\) recibe el nombre de \emph{pendiente}.
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/unnamed-chunk-22-1} 
+
+}
+
+\caption{Gráficas de las funciones $y(x) = 0.5 x$ (en rojo) y $y(x) = 0.5 + 0.5 x$ (azul). Las líneas punteadas en colores indican el efecto de las constantes $a$ y $b$, mientas que Δ$x$ denota el cambio de una unidad de $x$.}\label{fig:unnamed-chunk-22}
+\end{figure}
+
+Como podemos ver, de manera más general, la línea recta es generada por una regla de correspondencia muy sencilla, un conjunto de valores \(X\) son multiplicados por un escalar \(a\), a los que se les puede añadir un \emph{intercepto} \(b\). El intercepto siempre es el valor de \(y(x)\) cuando \(x = 0\).
+
+Ya se podrán imaginar que puede existir un sinnúmero de modelos lineales distintos, por ejemplo si \(y\) es una función de un gran número de conjuntos \(X\):
+
+\begin{equation}
+y(x_1, x_2, \dots, x_{n-1}, x_n) = b + a_1 x_1 + a_2 x_2 + \dots + a_{n-1} x_{n-1} + a_n x_n
+\end{equation}
+
+Gráficamente, estamos prácticamente limitados a explorar \(y(x_1, x_2)\), pero existen muchas herramientas matemáticas para entender modelos lineales más complejos que veremos más adelante. Estas herramientas y las implicaciones generales de la simplicidad del modelo lineal lo hacen uno de los modelos más útiles con que contamos para estudiar matemáticamente fenómenos dinámicos (que cambian de estado a lo largo del tiempo), como para estudiarlos de manera probabilística (con estadística). De hecho, el modelo lineal nos puede servir para entender modelos, como la parábola y el exponencial, que geométricamente no se parecen a la línea recta.
+
+\hypertarget{la-paruxe1bola}{%
+\section{La parábola}\label{la-paruxe1bola}}
+
+Geométricamente, la parábola es muy distinta de la recta:
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/parabola-1} 
+
+}
+
+\caption{Ejemplo del plano cartesiado mostrando en rojo la correspondencia de valores para $y(x) = x^2$, donde los puntos corresponden a los pares de valores $(x = -1, y = 1), (-0.5, 0.25), (0, 0), (0.5, 0.25), (1, 1)$.}\label{fig:parabola}
+\end{figure}
+
+La función matemática más sencilla que puede describir esta forma en el plano cartesiano es:
+
+\begin{equation}
+    y(x) = x^2
+\end{equation}
+
+Al igual que con los modelos lineales, las parábolas pueden representarse matemáticamente de otras formas más complejas:
+
+\begin{itemize}
+\tightlist
+\item
+  \(y(x) = a + bx + cx^2\)
+\item
+  \(y(x) = a + cx^2\)
+\item
+  \(y(x) = -x^2\)
+\end{itemize}
+
+Si uno es observador, se dará cuenta de que estas ecuaciones son muy similares a la recta, y es que es posible considerar que \(x^2\) se puede considerar como otro conjunto tal que \(x' = x^2\), resultando así en funciones perferctamente lineales:
+
+\begin{itemize}
+\tightlist
+\item
+  \(y(x) = a + bx + cx'\)
+\item
+  \(y(x) = a + cx'\)
+\item
+  \(y(x) = -x'\)
+\end{itemize}
+
+Entonce, lo que realmente distingue matemáticamente a una parábola de una recta, es la doble ocurrencia de cada valor de \(y\) para los distintos valores de \(x\):
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/parabola-2-1} 
+
+}
+
+\caption{Correspondencia de dos valores distintos de $x$ para el mismo valor de $y$}\label{fig:parabola-2}
+\end{figure}
+
+Cuando esto ocurre, las funciones tiene un solo punto a lo largo de todos los valores de \(x\), donde sólo va a ocurrir un valor único de \(y\). A estos puntos se les conocen como mínimos (par de valores con coordenadas \((0, 0)\) en la figura \ref{fig:parabola-2}). Los máximos, en cambio están ilustrados en la figura \ref{fig:parabola-3}, e igual corresponde al punto con coordenadas \((0, 0)\).
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/parabola-3-1} 
+
+}
+
+\caption{Correspondencia de valores para $y = -x^2$.}\label{fig:parabola-3}
+\end{figure}
+
+En los modelos parabólicos más sencillos (\(y(x) = x^2, y(x) = -x^2\)), los puntos mínimos y máximos siempre estarán en las coordenadas \((x = 0, y = 0)\), pero es posible alterarlos. Por ejemplo en \(y(x) = 2 + x^2\), el mínimo estará en \((x = 0, y = 2)\). Para verificarlo resuelve \(y(x) = 2 + x^2\) para \(y(0)\), sustituyendo \(x\) por \(0\).
+
+\hypertarget{ejercicio}{%
+\subsubsection{Ejercicio}\label{ejercicio}}
+
+A estas alturas, ya te podrás haber dado cuenta de ciertas propiedades de las parábolas, contesta las siguientes preguntas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  ¿Qué tipo de punto único (mínimo o máximo) habrá en las siguientes parábolas?
+
+  1.1. \(y(x) = 2 - x^2\)
+  1.2. \(y(x) = 2x - 2x^2\)
+  1.3. \(y(x) = 1 - x + 3x^2\)
+  1.4. \(y(x) = x/2 - 4x^2/x\)
+  1.5. \(y(x) = (5x)^2 - 3x + 1\)
+\end{enumerate}
+
+\hypertarget{cuxf3nicas}{%
+\section{Cónicas}\label{cuxf3nicas}}
+
+De manera muy general, una cónica es el conjunto de soluciones para una ecuación cuadrática cuando menos en dos variables. En este sentido, las parábolas, vistas en la sección anterior, son un tipo de cónica. Ejemplos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(x^2 + y^2 = -1\)
+\item
+  \(x^2 + y^2 = 0\)
+\item
+  \(x^2 - y^2 = 0\)
+\item
+  \(xy - 1 = 0\)
+\item
+  \(x^2 - y = 0\)
+\end{enumerate}
+
+Debido a la generalidad de la definición de \emph{cónicas}, las ecuaciones 1-5 tienen una variedad de formas muy distintas, en comparación con las secciones de rectas y parábolas (Figura \ref{fig:conicas}). La mayoría de estas forman surgen como solución a la intersección de un plano bidimensional con una línea rotando sobre un eje definido dentro de ella en un espacio tridimencional (\href{https://www.mathplanet.com/Oldsite/media/28029/conic.png}{ver ejemplo})
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.93in]{Unidad-II/conicas} 
+
+}
+
+\caption{Representación gráfica de las ecuaciones 1-5.}\label{fig:conicas}
+\end{figure}
+
+\hypertarget{la-curva-normal}{%
+\section{La curva normal}\label{la-curva-normal}}
+
+En el curso de probabilidad y estadística, se acordarán, se mencionó repetidamente a la distribución normal. En cuestión de matemáticas, la distribución normal puede ser representada como una ecuación:
+
+\begin{equation}
+    y(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \label{eq:normal}
+\end{equation}
+
+donde \(\mu\) es la media aritmética, \(\sigma^2\) es la varianza y \(x\) son todos los valores de la variable que observamos. Cuando tenemos datos de un experimento y los analizamos haciendo el cálculo del promedio estimamos justamente a \(\mu\) de la ecuación \eqref{eq:normal}, y al estimar la varianza obtenemos a \(\sigma^2\) de la misma ecuación. Como es importante notar, al hacer estos cálculos estamos asumiendo que nuestros datos tienen una distribución (un histograma) que puede ser descrita por la ecuación \eqref{eq:normal}.
+
+Como vimos en la sección de parábolas, las funciones que no son monótonas (los valores de \(y\) no aumentan o disminuyen a lo largo de \(x\)), tienen un punto máximo o mínimo. La curva normal, tiene propiedades similares, aunque debido a la presencia de la función exponencial (\(e^{\dots}\)), los valores de \(y(x)\) \textbf{siempre serán positivos}. Por lo tanto, la curva normal tiene un punto máximo que corresponde a \(y(\mu)\), o sea, \(y\) alcanza su punto máximo cuando \(x=\mu\) (Figura \ref{fig:normal}).
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/normal-1} 
+
+}
+
+\caption{Representación gráfica de la curva normal.}\label{fig:normal}
+\end{figure}
+
+En estadística, esta función representa en el eje de las \(y\) la \emph{densidad} de la variable \(x\). Densidad se refiere a la proporción de observaciones de \(x\) dentro de un intervalo definido de \(x\). Por lo tanto, la curva normal, representa la probabilidad de observar ese valor de \(x\), de ahí que \(\mu\) sea el valor teórico más probable. En lo que respecta a \(\sigma^2\), éste representa qué tan concentrados estarán los valores de \(x\) alrededor de \(\mu\). Altos valores de \(\sigma\) se traducirán en baja concentración alrededor de \(\mu\) (Figura \ref{fig:vari}).
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/vari-1} 
+
+}
+
+\caption{Efecto de  la varianza sobre la la dispersión alrededor de la media.}\label{fig:vari}
+\end{figure}
+
+\hypertarget{funciones-trigonomuxe9tricas}{%
+\section{Funciones trigonométricas}\label{funciones-trigonomuxe9tricas}}
+
+En esta sección revisaremos algunas de las funciones trigonométricas y cómo se representan en el plano cartesiano.
+
+La trigonometría es una rama de las matemáticas que se comenzó a desarrollar a partir de la necesidad de medir distancias de manera indirecta. Por ejemplo, la distancia entre la luna y la tierra y la tierra y el sol, la distancia entre dos barcos, la distancia entre un barco y el puero más cercano. Las herramientas trigonométricas entonces se comenzaron a desarrollar utilizando la geometría de triángulos rectángulos. Aquí es preciso describir el teorema de los triángulos proporcionales, dados dos triángulos con ángulos internos idénticos y longitudes de lados diferentes, los cocientes de las longitudes de sus lados serán iguales (Figura \ref{fig:trian-prop}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=8.97in]{Unidad-II/Trian-prop} 
+
+}
+
+\caption{El teorema de los ángulos proporcionales es la base para las fórmulas geométricas de las funciones trigonométricas.}\label{fig:trian-prop}
+\end{figure}
+
+De modo que sin importar las longitudes de los lados, los cocientes de las longitudes siempre serán iguales, lo cual se puede extender a todos los triángulos rectángulos, la base geométrica para la trigonometría. Aquí veremos entonces las funciones trognométricas básicas seno, coseno y tangente.
+
+\hypertarget{nomenclatura-de-triuxe1ngulos-para-trigonometruxeda-buxe1sica}{%
+\subsubsection{Nomenclatura de triángulos para trigonometría básica}\label{nomenclatura-de-triuxe1ngulos-para-trigonometruxeda-buxe1sica}}
+
+Hay una serie de términos tradicionales que se emplean en trigonometría, los cuales utilizaremos a lo largo del curso. Se trata de los nombres que se dan a los lados y ángulos internos de un triángulo rectángulo. Por lo general, el triángulo rectángulo lo interpretaremos como una representación del plano cartesiano, de modo que los \textbf{catetos} corresponden a los ejes de las \(x\) y \(y\), y son los lados que forman un ángulo recto al cruzarse. El lado que los une en secante, es la \textbf{hipotenusa}. El ángulo que forma la hipotenusa con el eje de las \(x\) tradicionalmente recibe el nombre con la letra griega \(\theta\) (teta).
+
+\begin{figure}
+
+{\centering \includegraphics[width=7.86in]{Unidad-II/nomenclatura} 
+
+}
+
+\caption{Representación gráfica de las partes del triángulo y los nombres que reciben tradicionalmente en trigonometría plana.}\label{fig:nomen-trig}
+\end{figure}
+
+\hypertarget{las-funciones-trigonomuxe9tricas-buxe1sicas}{%
+\subsubsection{Las funciones trigonométricas básicas}\label{las-funciones-trigonomuxe9tricas-buxe1sicas}}
+
+Todas las funciones trigonométricas representan una descripción del ángulo \(\theta\) como el cociente de la longitud de dos lados del triángulo rectángulo de modo que:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Seno}: \(\sin(\theta) = \frac{\mathrm{Opuesto}}{\mathrm{Hipotenusa}}\)
+\item
+  \textbf{Coseno}: \(\cos(\theta) = \frac{\mathrm{Adyacente}}{\mathrm{Hipotenusa}}\)
+\item
+  \textbf{Tangente}: \(\tan(\theta) = \frac{\mathrm{Opuesto}}{\mathrm{Adyacente}}\)
+\end{enumerate}
+
+Para recordar las fórmulas de cada función podemos utilizar la mnemotecnia:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Seno}: SOH (Seno, Opuesto, Hipotenusa)
+\item
+  \textbf{Coseno}: CAH (Coseno, Adyacente, Hipotenusa)
+\item
+  \textbf{Tangente}: TOA (Tangente, Opuesto, Adyacente)
+\end{itemize}
+
+\hypertarget{representaciuxf3n-gruxe1fica-de-las-funciones-trigonomuxe9tricas}{%
+\subsubsection{Representación gráfica de las funciones trigonométricas}\label{representaciuxf3n-gruxe1fica-de-las-funciones-trigonomuxe9tricas}}
+
+Para entender por qué las funciones trigonométricas se comportan como lo hacen es útil tener en cuenta que representan el cociente de dos números que cambian uno en relación del otro. Esto queda de manifiesto en la Figura \ref{fig:catetos}. Como se puede apreciar, la hipotenusa (\(H\) en la misma figura) se mantiene constante, pues representa el radio de la circunferencia, mientras que los catetos se alargan o encojen conforme la hipotenusa se acerca a los ejes \(x\) o \(y\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=9.53in]{Unidad-II/Func-trigo} 
+
+}
+
+\caption{Representación gráfica del efecto del ángulo sobre la longitud de los catetos.}\label{fig:catetos}
+\end{figure}
+
+Como es de esperarse, los valores del seno y coseno están limitados por 1 y -1 cuando la longitud del cateto es igual a la hipotenusa. La tangente, por otro lado, puede tomar valores que van de \(-\infty, +\infty\) cuando el cateto adyacente tiene longitud cero \(0\). Aquí, mediremos los ángulos en radianes, o unidades de \(\pi\), donde \(\pi = 180°\)
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/graf-trig-1} 
+
+}
+
+\caption{Gráfica de las funciones trigonométricas básicas.}\label{fig:graf-trig}
+\end{figure}
+
+Las funciones seno, coseno y tangente son las básicas en trigonometría. Otras funciones comunes, pasadas en la inversión de las mecionadas son la secante, cosecante y cotangente respectivamente. Al igual que otras operaciones aritméticas, para las funciones trigonométricas, existen inversiones. La inversión de una multiplicación es una divisón, de la suma es la resta, del exponente es la raíz. Las inversiones de las funciones trigonométricas reciben el nombre de Arco-\(f(\theta)\), de modo que al aplicarlas al resultado de la función obtenemos el valor del ángulo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\theta = \arcsin \left(\frac{0}{H}\right)\)
+\item
+  \(\theta = \arccos \left(\frac{A}{H}\right)\)
+\item
+  \(\theta = \arctan \left(\frac{O}{A} \right)\)
+\end{enumerate}
+
+\hypertarget{aplicaciones-de-las-funciones-trigonomuxe9tricas}{%
+\subsubsection{Aplicaciones de las funciones trigonométricas}\label{aplicaciones-de-las-funciones-trigonomuxe9tricas}}
+
+En mi experiencia, las dos funciones con más aplicaciones en modelación de sistemas ambientales son la tangente y el coseno. Para comenzar, la tangente de un ángulo tiene una relación directa con la pendiente de una recta. Si recordamos la recta está descrita por la ecuación:
+
+\begin{equation}
+    y = a + bx \label{eq:lin-2}
+\end{equation}
+
+donde \(b\) es la pendiente de la recta que se forma al graficar \(x\) y \(y\) en el plano cartesiano. En realidad \(b\) es la tangente del ánguo que se forma entre la recta y el eje de las \(x\). Por lo tanto, cuando nos encontramos ante un modelo formulado por medio de ecuaciones diferenciales, por ejemplo, lo valores que obtenemos al hacer los cálculos de ese sistema es una pendiente o tangente.
+
+El coseno, por otro lado, nos es muy útil para forzar la oscilación de algún parámetro. Ello es necesario cuando estamos interesados en representar fenómenos cíclicos como la temperatura diaria o anual. En la práctica, podemos reemplazar la pendiente \(b\) de la ecuación \eqref{eq:lin-2} por una función coseno.
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/coseno-forz-1} 
+
+}
+
+\caption{Gráfica de la función $y = 2 cos(x)^2 + 0.1  x$.}\label{fig:coseno-forz}
+\end{figure}
+
+\hypertarget{representaciuxf3n-en-3d}{%
+\subsubsection{Representación en 3D}\label{representaciuxf3n-en-3d}}
+
+Hasta ahora sólo hemos visto representaciones de las funciones en dos dimensiones. Las representaciones de las funciones en 3d, sin embargo pueden ser confusas. Veamos por ejemplo la representación 3d de un plano:
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/3d-1-1} 
+
+}
+
+\caption{Representación gráfica de la función $z(x, y) = x + y$.}\label{fig:3d-1}
+\end{figure}
+
+Para poder hacer esta gráfica, es necesario hacer los cáculos para todas las combinaciones posibles de \(x\) y \(y\), de modo que conocemos todos los valores posibles de \(z\) para cada par de valores del dominio. Si en la representación en dos dimensiones, necesitamos \(n\) valores, en la representación 3d necesitamos \(2 \times n^2\), lo cual produce \(n^2\) diferentes valores de \(z\).
+
+Las funciones trigonométricas pueden representarse
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/trig-3d-1} 
+
+}
+
+\caption{Representación en 3d de la función trigonométrica z = cos(x) sen(y).}\label{fig:trig-3d}
+\end{figure}
+
+\hypertarget{la-recta-como-modelo-universal-y-sus-transformaciones}{%
+\section{La recta como modelo ``universal'' y sus transformaciones}\label{la-recta-como-modelo-universal-y-sus-transformaciones}}
+
+De los modelos vistos anteriormente, la línea recta es el más flexible y común de todos. Por su simplicidad, puede ser utilizado para representar muchos fenómenos de la naturaleza, incluso aquellos cuyo comportamiento es\ldots{} !no lineal¡
+
+Cuando decimos no lineal, nos referimos generalmente a los casos en que cuando una relación de correspondencia es representada en el plano cartesiano los puntos que la forman no dibujan una línea recta. Como vimos anteriormente, matemáticamente es posible concebir como lineales reglas de corresondencia que no son lineales en el plano cartesiano, de ahí que la función de la línea recta pueda ser tan flexible. Para que una ecuación sea considerada como lineal, debe cumplir con las siguientes características:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Las variables sólo pueden ser añadidas unas con otras
+\item
+  La multiplicación sólo puede ocurrir con constantes
+\item
+  Las variables están elevadas a la potencia 1
+\end{enumerate}
+
+Con base en estas definiciones, las siguientes ecuaciones no son lineales
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(xy = 1\)
+\item
+  \(y = a + b x^2\)
+\item
+  \(y = e^x\)
+\end{enumerate}
+
+Aún cuando estas expresiones no son lineales, es posible transformar algunas de ellas para que adquieran propiedades lineales. Para comenzar, el caso 1, no puede ser linealizado. Para el caso 2, ya vimos un transformación posible, si asumimos que existe una \(x'\) tal que \(x' = x^2\). Para el caso 3 hay que usar un poco más de conocimiento de dos funciones matemáticas, el logaritmo y la exponencial.
+
+\hypertarget{el-logaritmo}{%
+\subsection{El logaritmo}\label{el-logaritmo}}
+
+Para entender cómo funciona la transformación logaritmica, revisemos el significado del logaritmo. Supongamos que queremos encontrar el valor de la incógnita \(x\) en la siguiente ecuación:
+
+\[10^x = 20\]
+La operación necesaria para invertir el radical \(10^x\) y encontrar el valor de \(x\) es precisamente el logaritmo base 10, de modo que:
+
+\[\log_{10} 10^x = \log_{10} 20\]
+\[x \log_{10} 10 = \log_{10} 20\]
+sabemos que \(\log_{10} 10 = 1\) pues \(10^1 = 10\) por lo que:
+
+\[x = \log_{10} 20 \approx 1.3\]
+Así como en esta ocasión utilizamos \(\log_{10}\) (logaritmo base 10), se puede utilizar como base cualquier número \(b > 0\) positivo que esté en el conjunto de los números reales. El logaritmo más común recibe el nombre de natural, que utiliza de base la constante \(e = 2.718282 ...\) de Euler. La convención en escritura de logaritmos es:
+
+\begin{itemize}
+\tightlist
+\item
+  Logaritmo natural: \(\ln\)
+\item
+  Logaritmo base 10: \(\log\)
+\item
+  Logaritmo base \(b > 0, b \in \mathbb{R}\)
+\end{itemize}
+
+Aún cuando esta es la convención más común, en la modelación, la mayoría de las veces que se utiliza \(\log\) se refiere a \(\ln\), de modo que a menos que se especifique la base, \(\log\) y \(\ln\) significan \(\log_e\).
+
+\hypertarget{la-funciuxf3n-exponencial}{%
+\subsection{La función exponencial}\label{la-funciuxf3n-exponencial}}
+
+Una de las funciones más comunes en aplicaciones matemáticas es la exponencial que se denota por \(\exp(x)\), que significa \(e^x\). De este modo cuando \(y\) es una función exponencial de \(x\), tenemos que:
+
+\[y(x) = \exp(x) = e^x\]
+La función exponencial puede tomar formas más complejas, por ejemplo, conteniendo una ecuación lineal:
+
+\[y(x) = \exp(a + bx) = e^{a + bx}\]
+
+\hypertarget{linealizado-la-funciuxf3n-exponencial}{%
+\subsection{Linealizado la función exponencial}\label{linealizado-la-funciuxf3n-exponencial}}
+
+Como se ha mostrado en esta sección, transformar una función exponencial en lineal es relativamente sencillo. En sentido literal, las transformaciones logaritmicas no son lineales sino log-lineales pues:
+
+\begin{equation}
+    y(x) = e^{a + bx} \label{eq:expon}
+\end{equation}
+
+se convierte en:
+
+\begin{equation}
+    \log y(x) = a + bx \label{eq:log-lin}
+\end{equation}
+
+donde el lado izquierdo es una función logarítmica y el derecho es estrictamente lineal. Matemáticamente entonces, la transformación es lineal \(\forall x \in \mathbb{R}\), puesto que \(\log y\) puede tomar cualquier valor entre \(-\infty\) y \(+\infty\). Entonces, la ecuación número 3 de la lista de ecuaciones no-lineales al principio de esta sección es:
+
+\[\log y(x) = \ln y(x) = x\]
+
+Esta equivalencia, como veremos más adelante y como verán en modelación estadística, es súper útil en la modelación de sistemas que cambian con el tiempo.
+
+\hypertarget{representaciuxf3n-gruxe1fica-de-la-funciuxf3n-exponencial}{%
+\subsubsection{Representación gráfica de la función exponencial}\label{representaciuxf3n-gruxe1fica-de-la-funciuxf3n-exponencial}}
+
+En la función exponencial, la variable \(y\) crece muy rápido. De hecho, su crecimiento en cualquier punto es proporcional al valor que tiene en ese punto. Es decir que si tomamos un punto cualquiera en \(y\) y dibujamos una tangente a ese punto, la pendiente de esa recta tendrá el mismo valor que \(y\).
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/expon-1} 
+
+}
+
+\caption{Representación gráfica de la función exponencial. El punto rojo representa y = exp(1.5), de modo que la pendiente de la recta tangente a la curva (en rojo) en ese punto es precisamente exp(1.5).}\label{fig:expon}
+\end{figure}
+
+Esta relación entre el valor de la curva y la pendiente tiene implicaciones importantísimas en modelación de poblaciones, pues expone las razones por las cuales el crecimiento demográfico puede ser descrito como \emph{exponencial}: el crecimiento neto de una población, el total de individuos nuevos que se incorporarán a la población, en ese instante es proporcional al número de individuos repoductivos de esa población. Es por esta razón que el número total de individuos que nacen en una población es más grande cuantos más individuos haya, a pesar de que la tasa reproductiva por unidad de tiempo sea la misma.
+
+Veamos como ejemplo, que el crecimiento de la humanidad, desde que se pueden obtener estimaciones, es aproximadamente exponencial \ref{fig:popn-wd}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=38.22in]{Unidad-II/popn} 
+
+}
+
+\caption{Población humana a lo largo del tiempo, según estimaciones de [Our world in data](https://ourworldindata.org/world-population-growth).}\label{fig:popn-wd}
+\end{figure}
+
+A diferencia del ejemplo de la figura \ref{fig:expon}, donde \(y = \exp(x)\), para representar el crecimiento de la población humana tenemos que medir la tasa reproductiva, de modo que podamos representar a la pobación como una función del tiempo:
+
+\begin{equation}
+N(t) = \exp(r \cdot t) \label{eq:poblac}
+\end{equation}
+
+Donde \(r\) es la tasa reproductiva de la población y utilizamos \(N\) en lugar de \(y\) para representar al número de individuos, y \(t\) en lugar de \(x\) para dejar claro que las unidades de \(x\) representan al tiempo. Si utilizamos el conocimiento de la subsección anterior, veremos que al aplicar el logaritmo a ambos lados de la ecuación \eqref{eq:poblac} obtenemos ¡una ecuación lineal!
+
+\begin{equation}
+    \log N = r \cdot t
+\end{equation}
+
+\hypertarget{representaciuxf3n-gruxe1fica-del-logaritmo}{%
+\subsubsection{Representación gráfica del logaritmo}\label{representaciuxf3n-gruxe1fica-del-logaritmo}}
+
+A diferencia de la función exponencial, donde el crecimiento de \(y\) es cada vez más \emph{rápido}, en el logaritmo es más lento (figura \ref{fig:log}).
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/log-1} 
+
+}
+
+\caption{Representación gráfica del logaritmo con y = log x.}\label{fig:log}
+\end{figure}
+
+\hypertarget{relevancia-de-la-recta}{%
+\subsection{Relevancia de la recta}\label{relevancia-de-la-recta}}
+
+Una vez cubiertas las funciones logarítmicas y exponenciales, hemos comenzado a vislumbrar la relevancia más amplia de la recta para fenómenos que no son lineales. En el cálculi diferencial, la recta nos da los elementos para entender el significado de la derivada, y también es el bloque que utilizaremos para implementar métodos para integrar de manera relativamente sencilla ecuaciones que no se pueden integrar a mano.
+
+\hypertarget{unidad-iii-introducciuxf3n-al-cuxe1lculo-diferencial-e-integral}{%
+\chapter{Unidad III: Introducción al cálculo diferencial e integral}\label{unidad-iii-introducciuxf3n-al-cuxe1lculo-diferencial-e-integral}}
+
+\hypertarget{sucesiones}{%
+\section{Sucesiones}\label{sucesiones}}
+
+En matemáticas, de manera muy general, las sucesiones pueden ser entendidas como una función cuyo dominio \textbf{siempre} es el conjunto o un subconjunto de los números naturales, mientras que el codominio puede pertenecer a cualquier otro conjunto. En notación tradicional de funciones tenemos entonces que \(x \in \mathbb{N}\), mientras que:
+
+\begin{equation}
+y(x) \in \begin{cases}\mathbb{R}\\ \mathbb{Z}\\ \mathbb{N} \end{cases}
+\end{equation}
+
+Otra característica de las sucesiones es que sus elementos están ordenados, es decir, cada elemento en el dominio y codominio tiene un sitio particular, de modo que si los conjuntos \(a_n = \{A, B, C\}\) y \(a_m = \{C, A, B\}\), \(a_n \neq a_m\), puesto que, aunque contengan los mismos elementos \(A, B\) y \(C\), estos tienen posiciones diferentes dentro de \(a_n\) y \(a_m\).
+
+\hypertarget{notaciuxf3n-de-sucesiones}{%
+\section{Notación de sucesiones}\label{notaciuxf3n-de-sucesiones}}
+
+Una sucesión de los números naturales suele nombrarse como \(\{a_n\}\), seguida de la regla de correspondencia entre el conjunto \(n\) y \(a\). Así por ejemplo:
+
+\[ \{a_n\} = 2n\]
+
+es una sucesión de los números naturales pares, tal que:
+
+\[a_1 = 1, a_2 = 4, a_3 = 6, a_4 = 8 \dots\]
+Esta notación, sin embargo no es universal, por ejemplo:
+
+-\((a_n) = a_1, a_2, a_3, \dots\)
+
+-\((a_k)_{k=1}^m = a_1, a_2, a_3, \dots, a_m\)
+
+-\(\{a_n\}_{n \in \mathbb{N}} = a_1, a_2, a_3, \dots\)
+
+\hypertarget{tipos-de-sucesiones}{%
+\section{Tipos de sucesiones}\label{tipos-de-sucesiones}}
+
+La sucesión anterior es un ejemplo muy sencillo y poco útil en la modelación ecológica, pero es un punto de partida para entender la notación y el concepto. Existen sucesiones, sin embargo, que tienen implicaciones importantes para el desarrollo de modelos dinámicos, como las \textbf{sucesiones por recurrencia}. En estas sucesiones, la regla de correspondencia indica algún tipo de operación con elementos de \(n\) en posiciones previas. Así por ejemplo, la sucesión:
+
+\begin{equation}
+\{a_n\} = a_{n_1} + a_{n-2} \label{eq:fibonacci}
+\end{equation}
+
+se conoce como sucesión de Fibonacci, en la que, el elemento \(n\) se obtiene sumando los elementos \(n-1\) y \(n-2\) de la secuencia \(\{a_n\}\).
+
+\begin{table}
+
+\caption{\label{tab:fibo-tabla}Secuencia de Fibonacci para los diez primeros números naturales.}
+\centering
+\begin{tabular}[t]{r|r}
+\hline
+n & a\\
+\hline
+1 & 1\\
+\hline
+2 & 1\\
+\hline
+3 & 2\\
+\hline
+4 & 3\\
+\hline
+5 & 5\\
+\hline
+6 & 8\\
+\hline
+7 & 13\\
+\hline
+8 & 21\\
+\hline
+9 & 34\\
+\hline
+10 & 55\\
+\hline
+\end{tabular}
+\end{table}
+
+La secuencia de finonacci, tiene un comportamiento parecido a la función exponencial, en el sentido de que el crecimiento de \(a\) es más rápido conforme los valores de \(a\) son mayores.
+
+\begin{figure}
+
+{\centering \includegraphics{Mod-mat-ECO_files/figure-latex/fibo-fig-1} 
+
+}
+
+\caption{Representación gráfica de la secuencia de Fibonacci.}\label{fig:fibo-fig}
+\end{figure}
+
+\hypertarget{continuidad-y-luxedmites}{%
+\section{Continuidad y límites}\label{continuidad-y-luxedmites}}
+
+\hypertarget{derivaciuxf3n}{%
+\section{Derivación}\label{derivaciuxf3n}}
+
+\hypertarget{integraciuxf3n}{%
+\section{Integración}\label{integraciuxf3n}}
+
+\hypertarget{funciones-trigonomuxe9tricas-1}{%
+\section{Funciones trigonométricas}\label{funciones-trigonomuxe9tricas-1}}
+
+\hypertarget{la-recta-como-modelo-universal-y-sus-transformaciones-1}{%
+\section{La recta como modelo ``universal'' y sus transformaciones}\label{la-recta-como-modelo-universal-y-sus-transformaciones-1}}
+
+  \bibliography{book.bib,packages.bib,citas.bib}
+
+\end{document}

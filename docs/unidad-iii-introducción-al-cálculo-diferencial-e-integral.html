@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 5 Unidad III: Introducción al cálculo diferencial e integral | Modelos Matemáticos en Ecología I</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 5 Unidad III: Introducción al cálculo diferencial e integral | Modelos Matemáticos en Ecología I" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 5 Unidad III: Introducción al cálculo diferencial e integral | Modelos Matemáticos en Ecología I" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ecología de la ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2021-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unidad-ii-introducción-a-los-modelos-determinísticos.html"/>
+<link rel="next" href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Modelos Matemáticos en Ecología I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción a la modelación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#introducción-al-concepto-de-modelo-matemático"><i class="fa fa-check"></i><b>3.1</b> Introducción al concepto de modelo matemático</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#qué-es-un-modelo"><i class="fa fa-check"></i><b>3.1.1</b> ¿Qué es un modelo?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#cómo-construir-un-modelo"><i class="fa fa-check"></i><b>3.2</b> Cómo construir un modelo</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos"><i class="fa fa-check"></i><b>3.2.1</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#discusión-sobre-las-distintas-herramientas-matemáticas-empleadas-en-la-modelación-matemática"><i class="fa fa-check"></i><b>3.3</b> Discusión sobre las distintas herramientas matemáticas empleadas en la modelación matemática</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#relación-entre-las-herramientas-matemáticas-y-los-sistemas-ecológicos"><i class="fa fa-check"></i><b>3.3.1</b> Relación entre las herramientas matemáticas y los sistemas ecológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#uso-de-los-modelos-matemáticos-en-ecología"><i class="fa fa-check"></i><b>3.4</b> Uso de los modelos matemáticos en ecología</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#analíticos-dinámicas-depredador-presa"><i class="fa fa-check"></i><b>3.4.1</b> Analíticos: Dinámicas depredador-presa</a></li>
+<li class="chapter" data-level="3.4.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#simulaciones-dinámica-de-enfermedades-infecciosas"><i class="fa fa-check"></i><b>3.4.2</b> Simulaciones: Dinámica de enfermedades infecciosas</a></li>
+<li class="chapter" data-level="3.4.3" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#mal-uso-de-los-modelos"><i class="fa fa-check"></i><b>3.4.3</b> Mal uso de los modelos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#tipos-de-modelos"><i class="fa fa-check"></i><b>3.5</b> Tipos de modelos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#ejemplos-1"><i class="fa fa-check"></i><b>3.5.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="3.5.2" data-path="unidad-i-introducción-a-la-modelación.html"><a href="unidad-i-introducción-a-la-modelación.html#modelos-determinísticos-y-estocásticos"><i class="fa fa-check"></i><b>3.5.2</b> Modelos determinísticos y estocásticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html"><i class="fa fa-check"></i><b>4</b> Unidad II: Introducción a los modelos determinísticos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-línea-recta"><i class="fa fa-check"></i><b>4.1</b> La línea recta</a></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-parábola"><i class="fa fa-check"></i><b>4.2</b> La parábola</a></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#cónicas"><i class="fa fa-check"></i><b>4.3</b> Cónicas</a></li>
+<li class="chapter" data-level="4.4" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-curva-normal"><i class="fa fa-check"></i><b>4.4</b> La curva normal</a></li>
+<li class="chapter" data-level="4.5" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#funciones-trigonométricas"><i class="fa fa-check"></i><b>4.5</b> Funciones trigonométricas</a></li>
+<li class="chapter" data-level="4.6" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-recta-como-modelo-universal-y-sus-transformaciones"><i class="fa fa-check"></i><b>4.6</b> La recta como modelo “universal” y sus transformaciones</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#el-logaritmo"><i class="fa fa-check"></i><b>4.6.1</b> El logaritmo</a></li>
+<li class="chapter" data-level="4.6.2" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#la-función-exponencial"><i class="fa fa-check"></i><b>4.6.2</b> La función exponencial</a></li>
+<li class="chapter" data-level="4.6.3" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#relevancia-de-la-recta"><i class="fa fa-check"></i><b>4.6.3</b> Relevancia de la recta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="unidad-ii-introducción-a-los-modelos-determinísticos.html"><a href="unidad-ii-introducción-a-los-modelos-determinísticos.html#representación-de-las-funciones-en-3-dimensiones"><i class="fa fa-check"></i><b>4.7</b> Representación de las funciones en 3 dimensiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><i class="fa fa-check"></i><b>5</b> Unidad III: Introducción al cálculo diferencial e integral</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#sucesiones"><i class="fa fa-check"></i><b>5.1</b> Sucesiones</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación-de-sucesiones"><i class="fa fa-check"></i><b>5.1.1</b> Notación de sucesiones</a></li>
+<li class="chapter" data-level="5.1.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#tipos-de-sucesiones"><i class="fa fa-check"></i><b>5.1.2</b> Tipos de sucesiones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#continuidad-y-límites"><i class="fa fa-check"></i><b>5.2</b> Continuidad y límites</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-límite"><i class="fa fa-check"></i><b>5.2.1</b> El límite</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#derivación"><i class="fa fa-check"></i><b>5.3</b> Derivación</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#ejemplos-2"><i class="fa fa-check"></i><b>5.3.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="5.3.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#notación"><i class="fa fa-check"></i><b>5.3.2</b> Notación</a></li>
+<li class="chapter" data-level="5.3.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#reglas-de-derivación"><i class="fa fa-check"></i><b>5.3.3</b> Reglas de derivación</a></li>
+<li class="chapter" data-level="5.3.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#representación-geométrica-de-la-derivada"><i class="fa fa-check"></i><b>5.3.4</b> Representación geométrica de la derivada</a></li>
+<li class="chapter" data-level="5.3.5" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones"><i class="fa fa-check"></i><b>5.3.5</b> Aplicaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#integración"><i class="fa fa-check"></i><b>5.4</b> Integración</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#área-bajo-una-recta"><i class="fa fa-check"></i><b>5.4.1</b> Área bajo una recta</a></li>
+<li class="chapter" data-level="5.4.2" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#el-teorema-funamental-del-cálculo"><i class="fa fa-check"></i><b>5.4.2</b> El teorema funamental del cálculo</a></li>
+<li class="chapter" data-level="5.4.3" data-path="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html"><a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#aplicaciones-de-la-integración"><i class="fa fa-check"></i><b>5.4.3</b> Aplicaciones de la integración</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><i class="fa fa-check"></i><b>6</b> Unidad IV: Modelos deterministas basados en ecuaciones diferenciales ordinarias</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-lineales-crecimiento-exponencial-malthusiano"><i class="fa fa-check"></i><b>6.1</b> Modelos lineales: Crecimiento exponencial (Malthusiano)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#interpretación-de-r"><i class="fa fa-check"></i><b>6.1.1</b> Interpretación de <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-del-modelo"><i class="fa fa-check"></i><b>6.1.2</b> Análisis del modelo</a></li>
+<li class="chapter" data-level="6.1.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#análisis-de-estabilidad"><i class="fa fa-check"></i><b>6.1.3</b> Análisis de estabilidad</a></li>
+<li class="chapter" data-level="6.1.4" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#períodos-de-duplicación"><i class="fa fa-check"></i><b>6.1.4</b> Períodos de duplicación</a></li>
+<li class="chapter" data-level="6.1.5" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#estimación-de-la-tasa-de-cambio-r"><i class="fa fa-check"></i><b>6.1.5</b> Estimación de la tasa de cambio <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="6.1.6" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#implicaciones-del-crecimiento-exponencial"><i class="fa fa-check"></i><b>6.1.6</b> Implicaciones del crecimiento exponencial</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-no-lineales-crecimiento-logístico-de-una-población"><i class="fa fa-check"></i><b>6.2</b> Modelos no lineales: Crecimiento logístico de una población</a></li>
+<li class="chapter" data-level="6.3" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#modelos-en-tiempo-contínuo-vs-discreto"><i class="fa fa-check"></i><b>6.3</b> Modelos en tiempo contínuo vs discreto</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-exponencial-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.1</b> Crecimiento exponencial en tiempo discreto</a></li>
+<li class="chapter" data-level="6.3.2" data-path="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html"><a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html#crecimiento-logístico-en-tiempo-discreto"><i class="fa fa-check"></i><b>6.3.2</b> Crecimiento logístico en tiempo discreto</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html"><i class="fa fa-check"></i><b>7</b> Unidad V: Introducción al álgebra de matrices</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales"><i class="fa fa-check"></i><b>7.1</b> Sistemas lineales</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-gráfica"><i class="fa fa-check"></i><b>7.1.1</b> Solución gráfica</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#solución-algebráica"><i class="fa fa-check"></i><b>7.1.2</b> Solución algebráica</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-lineales-sin-solución"><i class="fa fa-check"></i><b>7.1.3</b> Sistemas lineales sin solución</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#resolviendo-sistemas-lineales-más-complejos"><i class="fa fa-check"></i><b>7.1.4</b> Resolviendo sistemas lineales más complejos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#ejemplo"><i class="fa fa-check"></i><b>7.1.5</b> Ejemplo</a></li>
+<li class="chapter" data-level="7.1.6" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#sistemas-indeterminados"><i class="fa fa-check"></i><b>7.1.6</b> Sistemas indeterminados</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#operaciones-elementales-con-matrices"><i class="fa fa-check"></i><b>7.2</b> Operaciones elementales con matrices</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#suma-de-matrices"><i class="fa fa-check"></i><b>7.2.1</b> Suma de matrices</a></li>
+<li class="chapter" data-level="7.2.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-por-un-escalar"><i class="fa fa-check"></i><b>7.2.2</b> Multiplicación por un escalar</a></li>
+<li class="chapter" data-level="7.2.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#transposición"><i class="fa fa-check"></i><b>7.2.3</b> Transposición</a></li>
+<li class="chapter" data-level="7.2.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#multiplicación-de-matrices"><i class="fa fa-check"></i><b>7.2.4</b> Multiplicación de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinantes-y-matrices-inversas"><i class="fa fa-check"></i><b>7.3</b> Determinantes y matrices inversas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-identidad"><i class="fa fa-check"></i><b>7.3.1</b> Matriz identidad</a></li>
+<li class="chapter" data-level="7.3.2" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#matriz-inversa"><i class="fa fa-check"></i><b>7.3.2</b> Matriz inversa</a></li>
+<li class="chapter" data-level="7.3.3" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#determinante-de-una-matriz"><i class="fa fa-check"></i><b>7.3.3</b> Determinante de una matriz</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#valores-propios"><i class="fa fa-check"></i><b>7.4</b> Valores propios</a></li>
+<li class="chapter" data-level="7.5" data-path="unidad-v-introducción-al-álgebra-de-matrices.html"><a href="unidad-v-introducción-al-álgebra-de-matrices.html#vectores-propios"><i class="fa fa-check"></i><b>7.5</b> Vectores propios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><i class="fa fa-check"></i><b>8</b> Unidad VI: Modelos lineales de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#proyección-de-matrices-para-modelos-estructurados-la-matriz-de-leslie"><i class="fa fa-check"></i><b>8.1</b> Proyección de matrices para modelos estructurados: la matriz de Leslie</a></li>
+<li class="chapter" data-level="8.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#análisis-de-los-modelos-de-poblaciones-estructuradas"><i class="fa fa-check"></i><b>8.2</b> Análisis de los modelos de poblaciones estructuradas</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#tablas-de-vida"><i class="fa fa-check"></i><b>8.2.1</b> Tablas de vida</a></li>
+<li class="chapter" data-level="8.2.2" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#la-ecuación-de-euler"><i class="fa fa-check"></i><b>8.2.2</b> La ecuación de Euler</a></li>
+<li class="chapter" data-level="8.2.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#valor-reproductivo-y-autovectores"><i class="fa fa-check"></i><b>8.2.3</b> Valor reproductivo y autovectores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html"><a href="unidad-vi-modelos-lineales-de-poblaciones-estructuradas.html#aplicaciones-de-lo-modelo-de-matrices"><i class="fa fa-check"></i><b>8.3</b> Aplicaciones de lo modelo de matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/gerardommc" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Modelos Matemáticos en Ecología I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-iii-introducción-al-cálculo-diferencial-e-integral" class="section level1" number="5">
+<h1><span class="header-section-number"> 5</span> Unidad III: Introducción al cálculo diferencial e integral</h1>
+<div id="sucesiones" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Sucesiones</h2>
+<p>En matemáticas, de manera muy general, las sucesiones pueden ser entendidas como una función cuyo dominio <strong>siempre</strong> es el conjunto o un subconjunto de los números naturales, mientras que el codominio puede pertenecer a cualquier otro conjunto. En notación tradicional de funciones tenemos entonces que <span class="math inline">\(x \in \mathbb{N}\)</span>, mientras que:</p>
+<p><span class="math display">\[\begin{equation}
+y(x) \in \begin{cases}\mathbb{R}\\ \mathbb{Z}\\ \mathbb{N} \end{cases}
+\end{equation}\]</span></p>
+<p>La mayoría de las sucesiones, sin embargo que se utilizan en ecología, corresponden a:</p>
+<p><span class="math display">\[\begin{equation}
+    f: 
+    \begin{aligned}[t] 
+            \mathbb{N}_0 \rightarrow \mathbb{R} \\
+            n \rightarrow f(n)
+    \end{aligned}
+\end{equation}\]</span></p>
+<p>una función <span class="math inline">\(f\)</span> de los números naturales, incluido el cero (<span class="math inline">\(\mathbb{N}_0\)</span>) que produce números reales (<span class="math inline">\(\mathbb{R}\)</span>), cuyo dominio es <span class="math inline">\(n\)</span>, y codominio es <span class="math inline">\(f(n)\)</span>.</p>
+<p>Otra característica de las sucesiones es que sus elementos están ordenados, es decir, cada elemento en el dominio y codominio tiene un sitio particular, de modo que si los conjuntos <span class="math inline">\(a_n = \{A, B, C\}\)</span> y <span class="math inline">\(a_m = \{C, A, B\}\)</span>, <span class="math inline">\(a_n \neq a_m\)</span>, puesto que, aunque contengan los mismos elementos <span class="math inline">\(A, B\)</span> y <span class="math inline">\(C\)</span>, estos tienen posiciones diferentes dentro de <span class="math inline">\(a_n\)</span> y <span class="math inline">\(a_m\)</span>.</p>
+<div id="notación-de-sucesiones" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Notación de sucesiones</h3>
+<p>Una sucesión de los números naturales suele nombrarse como <span class="math inline">\(\{a_n\}\)</span>, seguida de la regla de correspondencia entre el conjunto <span class="math inline">\(n\)</span> y <span class="math inline">\(a\)</span>. Así por ejemplo:</p>
+<p><span class="math display" id="eq:a2n">\[\begin{equation} 
+    \{a_n\} = 2n \tag{5.1}
+\end{equation}\]</span></p>
+<p>es una sucesión de los números naturales pares, tal que:</p>
+<p><span class="math display">\[a_1 = 1, a_2 = 4, a_3 = 6, a_4 = 8 \dots\]</span>
+Esta notación, sin embargo no es universal, por ejemplo:</p>
+<p>-<span class="math inline">\((a_n) = a_1, a_2, a_3, \dots\)</span></p>
+<p>-<span class="math inline">\((a_k)_{k=1}^m = a_1, a_2, a_3, \dots, a_m\)</span></p>
+<p>-<span class="math inline">\(\{a_n\}_{n \in \mathbb{N}} = a_1, a_2, a_3, \dots\)</span></p>
+</div>
+<div id="tipos-de-sucesiones" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Tipos de sucesiones</h3>
+<p>La sucesión anterior es un ejemplo muy sencillo y poco útil en la modelación ecológica, pero es un punto de partida para entender la notación y el concepto. Existen sucesiones, sin embargo, que tienen implicaciones importantes para el desarrollo de modelos dinámicos, como las <strong>sucesiones por recurrencia</strong>.</p>
+<div id="sucesiones-recurrentes" class="section level4" number="5.1.2.1">
+<h4><span class="header-section-number">5.1.2.1</span> Sucesiones recurrentes</h4>
+<p>En estas sucesiones, la regla de correspondencia indica algún tipo de operación con elementos de <span class="math inline">\(n\)</span> en posiciones previas. Así por ejemplo, la sucesión:</p>
+<p><span class="math display" id="eq:fibonacci">\[\begin{equation}
+\{a_n\} = a_{n-1} + a_{n-2} \tag{5.2}
+\end{equation}\]</span></p>
+<p>se conoce como sucesión de Fibonacci, en la que, el elemento <span class="math inline">\(n\)</span> se obtiene sumando los elementos <span class="math inline">\(n-1\)</span> y <span class="math inline">\(n-2\)</span> de la secuencia <span class="math inline">\(\{a_n\}\)</span>.</p>
+<table>
+<caption><span id="tab:fibo-tabla">Tabla 5.1: </span>Secuencia de Fibonacci para los diez primeros números naturales.</caption>
+<thead>
+<tr class="header">
+<th align="right">n</th>
+<th align="right">a</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">21</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">55</td>
+</tr>
+</tbody>
+</table>
+<p>La secuencia de finonacci, tiene un comportamiento parecido a la función exponencial, en el sentido de que el crecimiento de <span class="math inline">\(a\)</span> es más rápido conforme los valores de <span class="math inline">\(a\)</span> son mayores.</p>
+<div class="figure" style="text-align: center"><span id="fig:fibo-fig"></span>
+<img src="Mod-mat-ECO_files/figure-html/fibo-fig-1.png" alt="Representación gráfica de la secuencia de Fibonacci." width="480" />
+<p class="caption">
+Figura 5.1: Representación gráfica de la secuencia de Fibonacci.
+</p>
+</div>
+</div>
+<div id="sucesiones-recurrentes-más-avanzadas" class="section level4" number="5.1.2.2">
+<h4><span class="header-section-number">5.1.2.2</span> Sucesiones recurrentes más avanzadas</h4>
+<p>Las sucesiones recurrentes pueden ser también concebidas como modelos dinámicos en tiempo discreto, donde el tiempo está representado por el conjunto de los números naturales, así, por ejemplo, el crecimiento de una población lo podemos representar como:</p>
+<p><span class="math display" id="eq:susc-crec">\[\begin{equation}
+    N_{t} = r N_{t-1} \tag{5.3}
+\end{equation}\]</span></p>
+<p>Como podemos ver, en <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:susc-crec">(5.3)</a>, el crecimiento por unidad de tiempo es lineal con respecto del número de individuos en el periodo de tiempo inmediatamente previo (<span class="math inline">\(rN_{t-1}\)</span>).</p>
+<div class="figure" style="text-align: center"><span id="fig:susc-crec"></span>
+<img src="Mod-mat-ECO_files/figure-html/susc-crec-1.png" alt="Simulación de la sucesión de crecimiento poblacional en tiempo discreto, para 10 unidades de tiempo, con r = 1.5, y una población inicial de N = 1." width="480" />
+<p class="caption">
+Figura 5.2: Simulación de la sucesión de crecimiento poblacional en tiempo discreto, para 10 unidades de tiempo, con r = 1.5, y una población inicial de N = 1.
+</p>
+</div>
+<p>La sucesión descrita por la ecuación <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:susc-crec">(5.3)</a> es fácil de simular con una computadora, con aplicaciones tan populares como las hojas de cáculo como excel.</p>
+<p>Con este tipo de sucesiones, es posible comenzar a utilizar conceptos básicos de cálculo. Podemos por ejemplo, tomar la misma sucesión de la ecuación <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:susc-crec">(5.3)</a>, con una población inicial de <span class="math inline">\(N = 50\)</span>, y <span class="math inline">\(r = 0.6\)</span>, y simular por un periodo de tiempo de 20, para ver hacia qué valor se aproxima <span class="math inline">\(N_t\)</span> (<a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:susc-decrec">5.3</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:susc-decrec"></span>
+<img src="Mod-mat-ECO_files/figure-html/susc-decrec-1.png" alt="Simulación para un valor inicial de N = 50, por 20 unidades de tiempo, y r = 0.6" width="480" />
+<p class="caption">
+Figura 5.3: Simulación para un valor inicial de N = 50, por 20 unidades de tiempo, y r = 0.6
+</p>
+</div>
+<p>En cada simulación, <span class="math inline">\(N_t\)</span> cambia de acuerdo con el valor de <span class="math inline">\(N_{t-1}\)</span>. Como es evidente, si <span class="math inline">\(r &gt; 1\)</span>, <span class="math inline">\(N_t\)</span> crece, y mientras <span class="math inline">\(t \rightarrow \infty\)</span>, <span class="math inline">\(N_t \rightarrow \infty\)</span>. En el caso contrario, cuando <span class="math inline">\(r &lt; 1\)</span> y <span class="math inline">\(t \rightarrow \infty\)</span>, <span class="math inline">\(N_t \rightarrow 0\)</span></p>
+<p>En estos casos, decimos que por ejemplo para <span class="math inline">\(r &lt; 1\)</span>, <span class="math inline">\(N\)</span> está acotada por <span class="math inline">\(0\)</span>. Hay otras sucesiones, por ejemplo la de crecimiento logístico, que está acotada por la capacidad de carga, incluso si <span class="math inline">\(r &gt; 0\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:susc-logis"></span>
+<img src="Mod-mat-ECO_files/figure-html/susc-logis-1.png" alt="Simulación para un valor inicial de N = 1, por 50 unidades de tiempo, r = 0.5, y capacidad de carga K = 50" width="480" />
+<p class="caption">
+Figura 5.4: Simulación para un valor inicial de N = 1, por 50 unidades de tiempo, r = 0.5, y capacidad de carga K = 50
+</p>
+</div>
+<p>La sucesión para el crecimiento logístico en tiempo discreto es:</p>
+<p><span class="math display" id="eq:susc-logis">\[\begin{equation}
+N_{t} = N_{t-1} + r N_{t-1} \left(1 - \frac{N_{t-1}}{K} \right) \tag{5.4}
+\end{equation}\]</span></p>
+</div>
+<div id="ejercicio-1" class="section level4" number="5.1.2.3">
+<h4><span class="header-section-number">5.1.2.3</span> Ejercicio</h4>
+<p>Utilizando la hoja de cálculo para la sucesión de crecimiento poblacional en tiempo discreto, adaptala para simular el crecimiento poblacional probando los valores de <span class="math inline">\(r\)</span> dese 0.5 hasta 3.5 en incrementos de 0.25, y grafícalos. ¿Qué pasa con <span class="math inline">\(N_t\)</span> con los valores de <span class="math inline">\(r\)</span> probados?</p>
+</div>
+</div>
+</div>
+<div id="continuidad-y-límites" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Continuidad y límites</h2>
+<p>La continuidad y los límites son la puerta de entrada a la derivación y por lo tanto a las ecuaciones diferenciales. Cuando decimos que una función es contínua en un intervalo definido del dominio <span class="math inline">\((x_1, x_2)\)</span>, quiere decir que <span class="math inline">\(f(x)\)</span> está definida para todos y cada uno de los posibles valores de <span class="math inline">\(x\)</span> en ese intervalo. Existen muchas funciones que no son contínuas, por ejemplo:</p>
+<p><span class="math display" id="eq:disc-1">\[\begin{equation}
+    f(x) = \frac{x - 1}{x - 1} \tag{5.5}
+\end{equation}\]</span></p>
+<p>Como es evidente, dicha ecuación está definida para todos los valores posibles de <span class="math inline">\(x\)</span>, excepto <span class="math inline">\(x = 1\)</span>, porque <span class="math inline">\(f(1) = \frac{1 - 1}{1-1} = \frac{0}{0}\)</span>, lo cual es una indeterminación, no existe.</p>
+<div class="figure" style="text-align: center"><span id="fig:discont"></span>
+<img src="Unidad-III/Func-discont.png" alt="Ejemplo de función con discontinuidad." width="1500" />
+<p class="caption">
+Figura 5.5: Ejemplo de función con discontinuidad.
+</p>
+</div>
+<p>Hay funciones con discontinuidades, gráficamente más evidentes que <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:disc-1">(5.5)</a>, como la hipérbola, <span class="math inline">\(f(x) = 1/x\)</span> (figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:hiperb">5.6</a>) o <span class="math inline">\(g(x) = |x|/x\)</span>, o aquellas con condicionales.</p>
+<div class="figure" style="text-align: center"><span id="fig:hiperb"></span>
+<img src="Unidad-III/Hiperbola.png" alt="La hipérbola." width="1500" />
+<p class="caption">
+Figura 5.6: La hipérbola.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:absol"></span>
+<img src="Unidad-III/Deriv-absol.png" alt="Cociente de valor absoluto." width="1500" />
+<p class="caption">
+Figura 5.7: Cociente de valor absoluto.
+</p>
+</div>
+<p>Como resulta geométricamente evidente, todas estas funciones son discontínuas para algún valor de <span class="math inline">\(x\)</span>, sin embargo existe una diferencia muy importante entre ellas y es que el valor que pueden tomar en torno al punto en que son discontínuas depende de qué lado nos acerquemos a este punto. Para la equación <span class="math inline">\(f(x) = \frac{x-1}{x-1}\)</span>, resulta claro que si nos acercamos a <span class="math inline">\(f(1)\)</span> desde un valor <span class="math inline">\(x&gt;1\)</span>, llegamos a un valor similar de <span class="math inline">\(f\)</span> que si nos acercamos a <span class="math inline">\(f(1)\)</span> por medio de un valor de <span class="math inline">\(x &lt; 1\)</span>. Esto no sucede con las función <span class="math inline">\(g(x) = |x|/x\)</span> puesto que si nos acercamos a <span class="math inline">\(g(0)\)</span> por el lado positivo de <span class="math inline">\(x\)</span> nos acercamos a <span class="math inline">\(g = 1\)</span>, mientras que, por el lado negativo, nos acercamos a <span class="math inline">\(g = -1\)</span>.</p>
+<p>En este momento entonces es necesario comenzar a hablar del concepto de <strong>límite</strong>.</p>
+<div id="el-límite" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> El límite</h3>
+<p>En el sentido estricto de la palabra, límite es el valor al que se acerca una función para un valor específico del dominio. En matemáticas, existe una notación específica para decir esto:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{x \rightarrow a} x + 1
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(\lim\)</span> indica que necesitamos estimar el límite de la función, cuando su dominio <span class="math inline">\(x\)</span> toma valores cada vez más cercanos a algún valor específico <span class="math inline">\(a\)</span> (<span class="math inline">\(x \rightarrow a\)</span>). Aquí es necesario especificar que cuando hablamos de límites <strong>siempre</strong> nos acercamos al valor de interés <span class="math inline">\(a\)</span> tanto por medio de valores de <span class="math inline">\(x&gt;a\)</span> como <span class="math inline">\(x&lt;a\)</span>, es decir alrededor de un intervalo de valores de <span class="math inline">\(x\)</span> que comunmente se denomina como <span class="math inline">\(a \pm \delta\)</span>. Entonces, el límite de <span class="math inline">\(f(x)\)</span> existe si todos los valores de <span class="math inline">\(f(a \pm \delta)\)</span> convergen alrededor de un mismo punto.</p>
+<p>Revisa la aplicación de Geogebra <a href="https://www.geogebra.org/classic/b76f7gpx">Límites</a> para visualizar este fenómeno. Juega con los valores de <span class="math inline">\(\delta\)</span> y <span class="math inline">\(a\)</span> para ver cómo están definidos los valores de la función alrededor de <span class="math inline">\(a\)</span> para la función de la línea recta. Posteriormente, cambia la ecuación por:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(x) = \frac{|x|}{x}\)</span></li>
+<li><span class="math inline">\(f(x)= \frac{1}{x}\)</span></li>
+</ol>
+<p>para examinar qué pasa con <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x \rightarrow 0\)</span></p>
+<p>En los casos en que los valores de <span class="math inline">\(f(x)\)</span> tienden a un valor único para <span class="math inline">\(f(a + \delta)\)</span> y <span class="math inline">\(f(a - \delta)\)</span>, el límite de la función sí existe (figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:discont">5.5</a>). En cambio, como ocurre para funciones como <span class="math inline">\(1/x\)</span> y <span class="math inline">\(|x|/x\)</span>, existe más de un valor al que ambas funciones se aproximan (figuras <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:hiperb">5.6</a> y <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:absol">5.7</a>) dependiendo se si se evalúa <span class="math inline">\(f(a + \delta)\)</span> ó <span class="math inline">\(f(a - \delta)\)</span>, el límite no existe.</p>
+<div class="figure" style="text-align: center"><span id="fig:limite-def"></span>
+<img src="Unidad-III/Limite-x.png" alt="Ejemplo gráfico de una función con límite definido para cualquier valor de $x$. El valor $a$ al que $x$ se aproxima está marcado en el eje $x$ con una cruz roja, y el tamaño de ð alrededor de $a$ está delimitado con las marcas rosas. Nota cómo todos los valores posibles de $f(x)$ alrededor de $f(a)$ convergen en el mismo punto correspondiente a $f(a)$." width="770" />
+<p class="caption">
+Figura 5.8: Ejemplo gráfico de una función con límite definido para cualquier valor de <span class="math inline">\(x\)</span>. El valor <span class="math inline">\(a\)</span> al que <span class="math inline">\(x\)</span> se aproxima está marcado en el eje <span class="math inline">\(x\)</span> con una cruz roja, y el tamaño de ð alrededor de <span class="math inline">\(a\)</span> está delimitado con las marcas rosas. Nota cómo todos los valores posibles de <span class="math inline">\(f(x)\)</span> alrededor de <span class="math inline">\(f(a)\)</span> convergen en el mismo punto correspondiente a <span class="math inline">\(f(a)\)</span>.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:limite-indef"></span>
+<img src="Unidad-III/Limite-abs-x.png" alt="Ejemplo gráfico de una función sin límite definido cuando x→0 (equis tiende a cero). Nota cómo hay dos valores posibles a los que la función se acerca cuando x→0, ya sea cuando uno se acerca a 0 por el lado positivo de $x$ o el lado negativo de $x$." width="692" />
+<p class="caption">
+Figura 5.9: Ejemplo gráfico de una función sin límite definido cuando x→0 (equis tiende a cero). Nota cómo hay dos valores posibles a los que la función se acerca cuando x→0, ya sea cuando uno se acerca a 0 por el lado positivo de <span class="math inline">\(x\)</span> o el lado negativo de <span class="math inline">\(x\)</span>.
+</p>
+</div>
+<p>Aún cuando estas funciones no satisfacen la definición estricta de límite, es posible encontrar los límites de la función para <span class="math inline">\(f(a)\)</span>, dependiendo del lado por el que <span class="math inline">\(x \rightarrow a\)</span>. Veamos el ejemplo de <span class="math inline">\(f(x) = |x|/x\)</span> dado en la figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:limite-indef">5.9</a>. El límite que nos interesa es</p>
+<p><span class="math display">\[ \lim \limits_{x \rightarrow 0} \frac{|x|}{x}\]</span>
+Por lo que sabemos hay dos maneras que acercarnos a <span class="math inline">\(0\)</span>, una por el lado positivo, <span class="math inline">\(x \rightarrow 0^{+}\)</span>, y otra por el lado negativo <span class="math inline">\(x \rightarrow 0^-\)</span>. Así entonces podemos establecer dos límites:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lim \limits_{x \rightarrow 0^+} \frac{|x|}{x} = 1\)</span></li>
+<li><span class="math inline">\(\lim \limits_{x \rightarrow 0^-} \frac{|x|}{x} = -1\)</span></li>
+</ol>
+<div id="cómo-se-encuentran-los-límites" class="section level4" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> ¿Cómo se encuentran los límites?</h4>
+<p>Enncontrar límites puede ser problemático, por lo que existe una variedad de estrategias cuyo uso depende del tipo de expresión que estemos evaluando. Por lo general, si tenemos <span class="math inline">\(\lim\limits_{x \rightarrow a} f(x)\)</span> se puede comenzar por evaluar <span class="math inline">\(f(a)\)</span>, con lo que tenemos tres posibilidades:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(a) = \frac{b}{0}, b \neq 0\)</span> (una asíntota vertical como en <span class="math inline">\(1/x\)</span>)</li>
+<li><span class="math inline">\(f(a) = b\)</span> (límite encontrado)</li>
+<li><span class="math inline">\(f(a) = \frac{0}{0}\)</span> (indeterminación)</li>
+</ol>
+<p>En el caso <strong>1</strong>, es probable que el límite no exista, lo cual depende de que <span class="math inline">\(\lim\limits_{x \rightarrow a^-} f(x) = \lim\limits_{x \rightarrow a^+} f(x)\)</span>. Para el caso <strong>2</strong>, el límite está claramente definido y no hay mayor problema. En el caso <strong>3</strong>, es necesario encontrar una manera equivalente de representar a <span class="math inline">\(f(a)\)</span>.</p>
+</div>
+<div id="representación-equivalente-de-las-funciones" class="section level4" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> Representación equivalente de las funciones</h4>
+<p>Las tres estrategias más comunes para resolver límites donde <span class="math inline">\(f(a) = \frac{0}{0}\)</span> son:</p>
+<ol style="list-style-type: decimal">
+<li>Factorizar <span class="math inline">\(f(a)\)</span></li>
+<li>Conjugar <span class="math inline">\(f(a)\)</span></li>
+<li>Usar identidades trigonométricas</li>
+</ol>
+<p>Cabe aclarar que muchas de las transformaciones aquí descritas surten efecto bajo el supuesto de que <span class="math inline">\(x \neq a\)</span>, aunque una vez transformadas las funciones en efecto las evaluamos asumiendo que <span class="math inline">\(x = a\)</span>. Con esto en mente veamos un ejemplo para cada estrategia.</p>
+<div id="factorización" class="section level5" number="5.2.1.2.1">
+<h5><span class="header-section-number">5.2.1.2.1</span> Factorización</h5>
+<p>Factorizar consiste en representar un polinomio como una serie de productos de binomios (generalmente). Así, por ejemplo:</p>
+<p><span class="math display">\[\begin{equation}
+    \lim \limits_{x \rightarrow -3} \frac{x^2 + x -6}{x + 3}
+\end{equation}\]</span></p>
+<p>por sustitución directa tenemos que</p>
+<p><span class="math display">\[\begin{equation}
+\frac{(-3)^2 - 3 - 6}{-3 + 3} = \frac{0}{0}
+\end{equation}\]</span></p>
+<p>Y una vez factorizado, asumiendo que <span class="math inline">\(x \neq 3\)</span> tenemos</p>
+<p><span class="math display">\[\begin{equation}
+ \frac{x^2 + x - 6}{x + 3} = \frac{(x + 3)(x - 2)}{x + 3} = x-2
+ \end{equation}\]</span></p>
+<p>por lo tanto, utilizando sustitución directa en la forma factorizada tenemos que:</p>
+<p><span class="math display">\[\begin{equation}
+ \lim\limits_{x \rightarrow 3} x - 2 = - 3 - 2 = -5
+\end{equation}\]</span></p>
+</div>
+<div id="conjugación-racional" class="section level5" number="5.2.1.2.2">
+<h5><span class="header-section-number">5.2.1.2.2</span> Conjugación racional</h5>
+<p>Una expresión conjugada de un binomio está basada en la identidad:</p>
+<p><span class="math display">\[ a^2 - b^2 =(a + b)(a - b)\]</span></p>
+<p>Esta identidad se puede extender a los radicales:</p>
+<p><span class="math display">\[ a - b = (\sqrt{a} + \sqrt{b})(\sqrt{a} - \sqrt{b})\]</span></p>
+<p>De modod que el conjugado de <span class="math inline">\(a + b\)</span> es <span class="math inline">\(a-b\)</span>, y el de <span class="math inline">\(\sqrt{a} + \sqrt{b}\)</span> es <span class="math inline">\(\sqrt{a} - \sqrt{b}\)</span>.</p>
+<p>La aplicación de conjugados entonces es particularmente útil cuando queremos evaluar un el límite de una funcion racional con radicales. Por ejemplo en:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{x \rightarrow 0} \frac{\sqrt{1 + x}-1}{x}
+\end{equation}\]</span></p>
+<p>por sustitución directa obtenemos , pero no es posible factorizar el numerador, por lo tanto podemos utilizar el conjugado de <span class="math inline">\(\sqrt{1 + x} - 1\)</span>. La manera de hacerlo es, primero identificar el cojugado como:</p>
+<p><span class="math display">\[\begin{equation}
+    \sqrt{1 + x} + 1
+\end{equation}\]</span></p>
+<p>Y multiplicar tanto el nuemerados como denominador por el conjugado:</p>
+<p><span class="math display">\[\begin{equation}
+  \frac{\sqrt{1 + x}-1}{x} \cdot  \frac{\sqrt{1 + x} + 1}{\sqrt{1 + x} + 1} = \frac{1 + x-1}{x(\sqrt{1 + x} + 1)} = \frac{1}{\sqrt{1 + x} + 1}
+\end{equation}\]</span></p>
+<p>Con lo que ya podemos evaluar:</p>
+<p><span class="math display">\[\begin{equation}
+\lim\limits_{x \rightarrow 0} \frac{1}{\sqrt{1 + x} + 1} = \frac{1}{1 + 1} = \frac{1}{2}
+\end{equation}\]</span></p>
+</div>
+<div id="identidades-trigonométricas" class="section level5" number="5.2.1.2.3">
+<h5><span class="header-section-number">5.2.1.2.3</span> Identidades trigonométricas</h5>
+<p>Cuano es necesario evaluar el límite de una función trigonométrica, es útil echar mano de las identidades, además de las ya bien conocidas, las pitagóricas:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathrm{sen}^2 \theta + \cos^2 \theta = 1\)</span></li>
+<li><span class="math inline">\(\sec^2 \theta - \tan^2 \theta = 1\)</span></li>
+<li><span class="math inline">\(\csc^2 \theta - \cot^2 \theta = 1\)</span></li>
+</ol>
+<p>Comencemos por ver un ejemplo basado en las identidades basadas en los cocientes.</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{x \rightarrow 0} \frac{3x \tan x}{\mathrm{sen}x}
+\end{equation}\]</span></p>
+<p>por sustitución directa tenemos que:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{3(0)\tan 0}{\mathrm{sen} 0} = \frac{0}{0}
+\end{equation}\]</span></p>
+<p>lo que indica que necesitamos representar a la función de una manera alternativa, echando mano de las identidades. Sabemos que:</p>
+<p><span class="math display">\[\begin{equation}
+\tan \theta = \frac{\mathrm{sen} \theta}{\cos \theta}
+\end{equation}\]</span></p>
+<p>por lo tanto podemos representar la función como:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{3x \tan x}{\mathrm{sen}x} = \frac{3x \mathrm{sen} x}{\cos^2 x} = \frac{3x}{\cos x}
+\end{equation}\]</span></p>
+<p>Entonces, tenemos el límite que puede ser evaluado por sustitución directa:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{x \rightarrow 0} \frac{3x}{\cos x} = \frac{3(0)}{\cos 0} = \frac{0}{1} = 0
+\end{equation}\]</span></p>
+</div>
+</div>
+<div id="equivalencias-de-límites" class="section level4" number="5.2.1.3">
+<h4><span class="header-section-number">5.2.1.3</span> Equivalencias de límites</h4>
+<p>Los límites, como hemos visto, son números reales, por lo que todos los axiomas que ya conocemos aplican a los números reales:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\lim \limits_{x \rightarrow a} f(x) + g(x) = \lim \limits_{x \rightarrow a} f(x) + \lim \limits_{x \rightarrow a} g(x)\)</span></p></li>
+<li><p><span class="math inline">\(\lim \limits_{x \rightarrow a} f(x) \cdot g(x) = \lim \limits_{x \rightarrow a} f(x) \cdot \lim \limits_{x \rightarrow a} g(x)\)</span></p></li>
+<li><p><span class="math inline">\(\lim \limits_{x \rightarrow a} \frac{f(x)}{g(x)} = \frac{\lim \limits_{x \rightarrow a} f(x) }{ \lim \limits_{x \rightarrow a} g(x)}\)</span></p></li>
+<li><p><span class="math inline">\(\lim \limits_{x \rightarrow a} c f(x) = c \lim \limits_{x \rightarrow a} f(x)\)</span></p></li>
+<li><p><span class="math inline">\(\lim \limits_{x \rightarrow a} f(x)^2 = \left( \lim \limits_{x \rightarrow a} f(x) \right)^2\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="derivación" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Derivación</h2>
+<p>Hasta el momento hemos mencionado en repetidas ocasiones una serie de conceptos relacionados muy íntimamente con la derivación. En esencia, en cálculo, el proceso de derivación se utiliza para estimar la pendiente de una recta tangente a un punto cualquiera que forma parte de una función (Figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:deriv">5.10</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:deriv"></span>
+<img src="Mod-mat-ECO_files/figure-html/deriv-1.png" alt="Representación gráfica de la tangente a un punto en la curva exponencial." width="480" />
+<p class="caption">
+Figura 5.10: Representación gráfica de la tangente a un punto en la curva exponencial.
+</p>
+</div>
+<p>El proceso de estimar la pendiente de una tangente a la función en un punto <span class="math inline">\((x, f(x))\)</span> consiste en estimar el límite:</p>
+<p><span class="math display" id="eq:derivada">\[\begin{equation}
+\lim \limits_{h \rightarrow 0} \frac{f(x + h) - f(x)}{x - (x + h)} \tag{5.6}
+\end{equation}\]</span></p>
+<p>Resolverlo no requiere de un conocimiento profundo para encontrar que por sustitución directa de <span class="math inline">\(h = 0\)</span>, se obtiene una undeterminación (<span class="math inline">\(0/0\)</span>). Sin embargo para entender mejor de qué se trata el límite de la ecuación <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:derivada">(5.6)</a> podemos explorarlo con la <a href="https://www.geogebra.org/classic/rjttr8kq">aplicación para derivadas</a>.</p>
+<div id="ejemplos-2" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Ejemplos</h3>
+<div id="ecuación-cuadrática" class="section level4" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Ecuación cuadrática:</h4>
+<p><span class="math display">\[ y = x^2\]</span>
+Con lo que la derivada sería:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{h \rightarrow 0} \frac{(x + h)^2 - x^2}{(x+h) - x}
+\end{equation}\]</span></p>
+<p>Utilizando las técnicas para resolver límites podemos que con este último se puede utilizar factorización para obtener:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{h \rightarrow 0} \frac{(x + h)^2 - x^2}{(x+h) - x} = \lim \limits_{h \rightarrow 0} \frac{((x + h) - x)((x + h) - x)}{(x + h) + x} = \lim \limits_{h \rightarrow 0} (x + h) + x = \lim \limits_{h \rightarrow 0} 2x + h
+\end{equation}\]</span></p>
+<p>Con este resultado podemos ahora sí sustituir <span class="math inline">\(h\)</span> directamente para ver que la derivada <span class="math inline">\(y&#39; = 2x\)</span>.</p>
+</div>
+<div id="hiperbola" class="section level4" number="5.3.1.2">
+<h4><span class="header-section-number">5.3.1.2</span> Hiperbola</h4>
+<p><span class="math display">\[ y = \frac{1}{x}\]</span>
+Derivada:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{h \rightarrow 0} \frac{\frac{1}{x + h} - \frac{1}{x}}{(x+h) - x}
+\end{equation}\]</span></p>
+<p>Podemos comenzar por simplificar las fracciones:</p>
+<p><span class="math display">\[\begin{equation}
+\lim \limits_{h \rightarrow 0} \frac{\frac{x - (x + h)}{x(x + h)}}{h} = \lim \limits - \frac{h}{x^2 + xh} \frac{1}{h} = \lim \limits_{h \rightarrow 0} -\frac{1}{x^2}
+\end{equation}\]</span></p>
+<p>Por lo tanto <span class="math inline">\(y&#39; = \frac{1}{x^2}\)</span></p>
+</div>
+</div>
+<div id="notación" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Notación</h3>
+<p>La técnica de derivación se le atribuye a dos científicos, Isaac Newton y Gottfried Leibniz. La notación que se tradicionalmente enseña para comenzar con cáculo es la de Newton:</p>
+<p><span class="math display" id="eq:Newton">\[\begin{equation}
+f&#39;(x) = \lim \limits_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h} \tag{5.7}
+\end{equation}\]</span></p>
+<p>la cual adolece de claridad, pues a menos que uno conozca bien la fórmula de la derivada no especifica el significado de <span class="math inline">\(f&#39;(x)\)</span>. La notación de Leibniz en cambio, sí lo especifica:</p>
+<p><span class="math display" id="eq:Leibniz">\[\begin{equation}
+\frac{df}{dx} = f&#39;(x) \tag{5.8}
+\end{equation}\]</span></p>
+<p>donde el numerador <span class="math inline">\(df = \Delta f = f(x + h) - f(x)\)</span> y el denominador <span class="math inline">\(dx = \Delta x = (x+h) - x = h\)</span>. La letra <span class="math inline">\(d\)</span> se utiliza en lugar de <span class="math inline">\(\Delta\)</span> para indicar que se trata de un cambio contínuo, en lugar de discreto, el uso tradicional de <span class="math inline">\(\Delta\)</span>.</p>
+</div>
+<div id="reglas-de-derivación" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Reglas de derivación</h3>
+<div id="potencias" class="section level4" number="5.3.3.1">
+<h4><span class="header-section-number">5.3.3.1</span> Potencias</h4>
+<p>Como ya se habrán dado cuenta, la primera regla de la derivación está relacionada con los exponentes. Por ejemplo, la derivadas de <span class="math inline">\(f(x) = x^2\)</span> y <span class="math inline">\(f(x) = \frac{1}{x}\)</span>, son <span class="math inline">\(\frac{df}{dx} = 2x\)</span> y <span class="math inline">\(\frac{df}{dx} = - \frac{1}{x^2}\)</span> respectivamente. Nota, que en ambos casos, los exponentes de cada <span class="math inline">\(x\)</span>, se convirtieron en coeficientes en <span class="math inline">\(\frac{df}{dx}\)</span>, y que restamos <span class="math inline">\(1\)</span> a cada exponente de <span class="math inline">\(x\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x^2 \rightarrow 2x^{2-1} = 2x^1 = 2x\)</span></li>
+<li><span class="math inline">\(1/x = x^{-1} \rightarrow -1x^{-1-1} = -x^{-2} = - 1/x^2\)</span></li>
+</ol>
+<p>Entonces la primera regla de la derivación, se puede aplicar a muchas funciones. Si $f(x) = x^n $, $ = nx^{n-1} $.</p>
+<p>En casos donde <span class="math inline">\(x\)</span> aparece más de una vez, se considera que:</p>
+<p><span class="math display">\[f(x) = f_1(x) + f_2{x} + \dots + f_n(x)\]</span></p>
+<p>Y dado que la derivada es un límite, sabemos que <span class="math inline">\(f&#39;(x) = f&#39;_1(x) + f&#39;_2(x) + \dots + f&#39;_n(x)\)</span>.</p>
+<p>Por ejemplo, si tenemos la función</p>
+<p><span class="math display">\[y = a + bx + cx^2 + dx^3 = ax^0 + bx^1 + cx^2 + dx^3\]</span></p>
+<p>su derivada será</p>
+<p><span class="math display">\[ \frac{dy}{dx} = 0ax^{0-1} + bx^{1-1} + 2cx^{2-1} + 3dx^{3-1}= b + 2cx + 3dx^2\]</span></p>
+</div>
+<div id="productos" class="section level4" number="5.3.3.2">
+<h4><span class="header-section-number">5.3.3.2</span> Productos</h4>
+<p>Si <span class="math inline">\(h(x) = f(x)g(x)\)</span> entonces:
+<span class="math display">\[h&#39;(x) = f&#39;(x)g(x) + f(x)g&#39;(x)\]</span></p>
+</div>
+<div id="cocientes" class="section level4" number="5.3.3.3">
+<h4><span class="header-section-number">5.3.3.3</span> Cocientes</h4>
+<p>Si <span class="math inline">\(h(x) = \frac{f(x)}{g(x)}\)</span>, entonces:</p>
+<p><span class="math display">\[h&#39;(x) = \frac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g(x)^2}\]</span></p>
+</div>
+<div id="funciones-en-cadena" class="section level4" number="5.3.3.4">
+<h4><span class="header-section-number">5.3.3.4</span> Funciones en cadena</h4>
+<p>Una función en cadena es aquella en que <span class="math inline">\(h(x) = (f \circ g)(x) = f(g(x))\)</span>, entonces:</p>
+<p><span class="math display">\[h&#39;(x) = f&#39;(g(x))g&#39;(x) = (f \circ g)&#39;(x) g&#39;(x)\]</span></p>
+<p>Aquí es preciso dar un ejemplo:</p>
+<p><span class="math display">\[h(x) = (3x-1)^2\]</span></p>
+<p>donde está claro que <span class="math inline">\(g(x) = 3x^2-1\)</span> y que <span class="math inline">\(f(u) = u^2\)</span>. Por lo tanto si evaluamos <span class="math inline">\(f&#39;(u)\)</span> cuando <span class="math inline">\(u = 3x^2-1\)</span>, entonces <span class="math inline">\(f&#39;(u) = 2(3x^2-1)\)</span>. Por el otro lado, tenemos que, aplicando la regla de las potnecias, <span class="math inline">\(g&#39;(x) = 6x\)</span>. Entonces:</p>
+<p><span class="math display">\[h&#39;(x) = 2(3x^2-1)6x\]</span></p>
+</div>
+</div>
+<div id="representación-geométrica-de-la-derivada" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Representación geométrica de la derivada</h3>
+<p>Como resultado del proceso de derivación de una función <span class="math inline">\(f(x)\)</span> se obtiene una segunda función <span class="math inline">\(f&#39;(x)\)</span> ó <span class="math inline">\(\frac{d}{dx}f\)</span> cufo valor corresponde a la pendiente de una tangente para cada par de valores <span class="math inline">\((x, f(x))\)</span>.</p>
+<p>La aplicación <a href="https://www.geogebra.org/classic/w3spjhc7">Interpretación de la derivada</a>, muestra ambas funciones y la recta tangente a <span class="math inline">\((x,f(x))\)</span>. Observa la pendiente de esta tangente y las coordenadas <span class="math inline">\((x, f&#39;(x))\)</span>.</p>
+</div>
+<div id="aplicaciones" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Aplicaciones</h3>
+<p>Uno de los modelos más generalizables que se utilizan en ecología es el de crecimiento exponencial:</p>
+<p><span class="math display">\[N(t) = e^{rt}\]</span></p>
+<p>Como vimos anteriormente, este modelo se puede linealizar utilizando el logaritmo:</p>
+<p><span class="math display" id="eq:log-N">\[\begin{equation}
+\ln N(t) = rt \tag{5.9}
+\end{equation}\]</span></p>
+<p>y si resolvemos para <span class="math inline">\(r\)</span>, obtenemos que:</p>
+<p><span class="math display">\[r = \frac{\ln N}{t}\]</span></p>
+<p>la pendiente, o tasa de crecimiento de una poblaciones equivalente a <span class="math inline">\(\ln N/t\)</span>, para cualquier período de tiempo. Volvamos sin embargo a la ecuación <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:log-N">(5.9)</a>, diferenciándola. Para esto utilizaremos la diferenciación implícita, pues necesitamos conocer:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\frac{d}{dt}rt = r\)</span></li>
+<li><span class="math inline">\(\frac{d}{dt}N(t) \ln N = \frac{d}{dt} \frac{1}{N}\)</span></li>
+</ol>
+<p>por lo tanto:</p>
+<p><span class="math display">\[\frac{dN}{dt} \frac{1}{N} = t\]</span></p>
+<p>Con lo que obtenemos la siguiente ecuación diferencial:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN}{dt} = rN
+\end{equation}\]</span></p>
+<p>De este modo podemos ver que, el crecimiento instantáneo de una población durante el intervalo <span class="math inline">\(dt\)</span> es equivalente a la tasa de crecimiento exponencial <span class="math inline">\(r\)</span>. Más adelante veremos por qué <span class="math inline">\(f(x) = \ln x\)</span>, <span class="math inline">\(f&#39;(x) = 1/x\)</span>, por el momento esta equivalencia nos sirve para ver que si <span class="math inline">\(N(t) = e^{rt}\)</span>:</p>
+<p><span class="math display">\[\frac{dN}{dt} = e^{rt} = rN\]</span>
+Y si separamos ambos lados <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>, tenemos:</p>
+<p><span class="math display">\[\frac{dN}{N} = r \cdot dt\]</span></p>
+<p>Por lo tanto, la derivada nos sirve para estudiar de cerca la tasa de crecimiento en relación al cambio de población <span class="math inline">\(dN\)</span> y de tiempo <span class="math inline">\(dt\)</span>, con un modelo lineal.</p>
+</div>
+</div>
+<div id="integración" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Integración</h2>
+<p>La integración es el proceso de estimación del área bajo la curva de una función, y para nosotros como ecólogxs es muyimportante, pues la mayoría de los modelos dinámicos se formulan como ecuaciones diferenciales, los cuales debemos integrar para obtener las soluciones.</p>
+<p>Al igual que con límites y derivadas, hay toda una notación particular de la integración:</p>
+<p><span class="math display">\[\begin{equation}
+    \int_a^b \!f(x) dx
+\end{equation}\]</span></p>
+<p>Y se lee, la integral de <span class="math inline">\(f(x)\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>. <span class="math inline">\([a, b]\)</span> corresponde a dos valores, mínimo (<span class="math inline">\(a\)</span>) y máximo (<span class="math inline">\(b\)</span>), de <span class="math inline">\(x\)</span> entre los cuales se evaluará el área. El símbolo <span class="math inline">\(\int\)</span>, es una “S,” e indica la suma de valores contínuos. Al igual que en la derivada, el signo <span class="math inline">\(d\)</span> es la versión contínua de <span class="math inline">\(\Delta\)</span>, en las integrales <span class="math inline">\(\int\)</span> es la versión contínua de <span class="math inline">\(\sum\)</span>.</p>
+<p>Otra similitud entre la dericada y la integral es que est última es un límite:</p>
+<p><span class="math display" id="eq:integ-limite">\[\begin{equation}
+    \int_a^b \!f(x) dx = \lim \limits_{n \rightarrow \infty} \sum_{i = 1}^n f(x_i) \Delta x; \Delta x = \frac{b-a}{n} \tag{5.10}
+\end{equation}\]</span></p>
+<p>Para comprederla, enfoquémonos en el lado derecho, que comenzando con el operador de sumatoria <span class="math inline">\(\sum\)</span> indica que para cada valor <span class="math inline">\(x_i\)</span>, se evalúa la función <span class="math inline">\(f\)</span>, y se multiplica por la distancia que hay entre <span class="math inline">\(x_i\)</span> y <span class="math inline">\(x_{i-1}\)</span> (<span class="math inline">\(\Delta x\)</span>). Si pensamos esto en el plano cartesiano, <span class="math inline">\(f(x_i)\)</span> es la distancia entre <span class="math inline">\(0\)</span> y el valor de <span class="math inline">\(y\)</span> en <span class="math inline">\(f(x_i)\)</span>, por lo que al multiplicarlo por <span class="math inline">\(\Delta x\)</span> estamos obteniendo el área de un rectángulo con lados de longitud <span class="math inline">\(\Delta x\)</span> y <span class="math inline">\(f(x_i)\)</span>. Nota que conforme <span class="math inline">\(n \rightarrow \infty\)</span>, la longiud de <span class="math inline">\(\Delta x\)</span> disminuye tanto, que el número de rectángulos con área <span class="math inline">\(\Delta x \times f(x_i)\)</span> tiende a infinito.</p>
+<div class="figure" style="text-align: center"><span id="fig:La-integral"></span>
+<img src="Unidad-III/Esquema-integral.png" alt="Representación esquemática de la integral. Nota quq utilizando los rectángulos, es posible aproximar el valor de una integral con rectángulos que pasen por arriba o abajo de la curva." width="446" />
+<p class="caption">
+Figura 5.11: Representación esquemática de la integral. Nota quq utilizando los rectángulos, es posible aproximar el valor de una integral con rectángulos que pasen por arriba o abajo de la curva.
+</p>
+</div>
+<p>Puedes explorar estos conceptos con la <a href="https://www.geogebra.org/classic/wmpqmr4a">aplicación para el área bajo una recta de Geogebra</a>.</p>
+<div id="área-bajo-una-recta" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Área bajo una recta</h3>
+<p>Un ejemplo clásico de integración es el área bajo una recta con pendiente <span class="math inline">\(m \neq 0\)</span> e intercepto <span class="math inline">\(0\)</span>, la cual corresponde al área de un triángulo (figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:Area-recta">5.12</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:Area-recta"></span>
+<img src="Unidad-III/Area-bajo-recta.png" alt="Área bajo la recta f(x) = x, entre el punto 0 y a = 1." width="916" />
+<p class="caption">
+Figura 5.12: Área bajo la recta f(x) = x, entre el punto 0 y a = 1.
+</p>
+</div>
+<p>Utilizando el método de los rectángulos tenemos que el área sombreada en la figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:Area-recta">5.12</a> entre los puntos <span class="math inline">\(0\)</span> y <span class="math inline">\(a\)</span> se puede aproximar sumando rectángulos con altura <span class="math inline">\(f(x)\)</span> y ancho <span class="math inline">\(\Delta x\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Recta-area-rect"></span>
+<img src="Unidad-III/Rectangulos.png" alt="Método de los rectángulos para calcular área bajo curva" width="578" />
+<p class="caption">
+Figura 5.13: Método de los rectángulos para calcular área bajo curva
+</p>
+</div>
+<p>Para automatizar este proceso y encontrar todos los valores de <span class="math inline">\(x\)</span> en el intervalo <span class="math inline">\(0, a\)</span>, podemos comenzar por tomar en cuenta el número de rectángulos, como en la figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:Recta-area-rect">5.13</a>, cuantos más rectángulos tenemos el error de cálculo será menor.</p>
+<p>La siguiente consideración será si tomaremos en cuenta el punto inferior o superior del intervalo (figura <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#fig:La-integral">5.11</a>). Si tomamos en cuenta el punto inferior del intervalo, la altura del primer rectángulo será <span class="math inline">\(f(0)\)</span>, y el ancho será <span class="math inline">\(\Delta x = a/n\)</span>. Por otra parte, tenemos que los valores de <span class="math inline">\(x\)</span> en que evaluaremos <span class="math inline">\(f(x)\)</span> corresponden a los valores de <span class="math inline">\(x: 0, a/n, 2a/n, 3a/n, \dots, (n-1)a/n, a\)</span>, Si comenzamos con <span class="math inline">\(n = 10\)</span>, y <span class="math inline">\(a = 1\)</span> tenemos que evaluar <span class="math inline">\(f(x)\)</span> en los valores:</p>
+<p><span class="math display">\[x = \left \{ 0, \frac{1}{10}, \frac{1}{10}, \dots, \frac{9}{10}, 1 \right \}\]</span></p>
+<p>Estas integrales se comoces como de Riemann. Por muchos años los matemáticos se dieron a la tarea de encontrar las funciones que resultaban de incremetar el número de rectángulos bajo la curva de diversas funciones. No fue sino hasta que Newton y Leibniz acuñaron el teorema fundamental del cálculo que se obtuvieron las herramientas necesarias para estimar <em>fácilmente</em> el ára bajo la curva de cualquier función.</p>
+<p><strong>De aquí en adelante está en construcción, no usar!</strong></p>
+</div>
+<div id="el-teorema-funamental-del-cálculo" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> El teorema funamental del cálculo</h3>
+<p>Este teorema establece, en términos muy generales que</p>
+<p><span class="math display">\[\begin{equation}
+\int \frac{d}{dx}f = f(x)
+\end{equation}\]</span></p>
+<p>la integral de una derivada es la función misma con la que se obtuvo la derivada. Así, llegamos a la antiderivada.</p>
+<div id="antiderivadas-de-funciones" class="section level4" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> Antiderivadas de funciones</h4>
+<p>Bajo la regla de las potencias, que si <span class="math inline">\(f(x) = ax^n\)</span>, <span class="math inline">\(\int f(x) = \frac{ax^{n+1}}{n+1}\)</span>. Si derivamos <span class="math inline">\(\int f(x)\)</span>, veremos que <span class="math inline">\(f(x) = ax^n\)</span>.</p>
+<p>Esta sencillísima técnica es efectiva para funciones sin constantes, puesto que la derivada de una constante es 0. Sin embargo debido a que al integrar una función no tenemos ningún conocimiento sobre la existencia o ausencia de una constante (p. ej. <span class="math inline">\(y = a + bx\)</span>), es necesario asumir su existencia, de modo que:</p>
+<p><span class="math display">\[\begin{equation}
+\int f(x) = \frac{ax^{n+1}}{n+1} + c
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(c\)</span> es la constante de integración.</p>
+</div>
+</div>
+<div id="aplicaciones-de-la-integración" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Aplicaciones de la integración</h3>
+<div id="cambio-acumulativo" class="section level4" number="5.4.3.1">
+<h4><span class="header-section-number">5.4.3.1</span> Cambio acumulativo</h4>
+<p>El modelo de crecimiento exponencial, basado en la ecuación:</p>
+<p><span class="math display" id="eq:ExponN">\[\begin{equation}
+    N(t) = e^{rt} \tag{5.11}
+\end{equation}\]</span></p>
+<p>es la base de un gran número de modelos en ecología. Cuando transformamos este modelo en una ecuación diferencial, toma una apariencia un tanto diferente. Comencemos por recordar que si <span class="math inline">\(f(x) = e^x\)</span>, entonces <span class="math inline">\(f&#39;(x) = e^x\)</span>. Si agregamos un parámetro <span class="math inline">\(r\)</span> como coeficiente de <span class="math inline">\(x\)</span>, tenemos que <span class="math inline">\(f(x)= e^{rx}\)</span>, resultando exactamente en el modelo <a href="unidad-iii-introducción-al-cálculo-diferencial-e-integral.html#eq:ExponN">(5.11)</a>.</p>
+<p>Para derivar este modelo necesitamos recordar que:</p>
+<p><span class="math display">\[\frac{d}{dx}(f \circ g)(x) = (f \circ g)&#39;(x)g&#39;(x)\]</span>
+y por analogía <span class="math inline">\((f \circ g)(x) = e^{rt}\)</span> y <span class="math inline">\(g(x) = rt\)</span>, por lo tanto:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN}{dt} = r e^{rt}
+\end{equation}\]</span></p>
+<p>donde podemos sustituir <span class="math inline">\(e^{rt}\)</span> por <span class="math inline">\(N\)</span>, para obtener:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN}{dt} = r N
+\end{equation}\]</span></p>
+<p>que el cambio inmediato en el número de individuos de la población <span class="math inline">\(N\)</span>, es proporcional a <span class="math inline">\(rN\)</span>. La integral <span class="math inline">\(\int_{0}^{t} \frac{dN}{dt}\)</span> es entonces equivalente al número de individuos en ese momento <span class="math inline">\(t\)</span>, mientras que <span class="math inline">\(\int_{0}^{t} N(t)\)</span> corresponde al número total de individuos que hay y ha habido en esa población!</p>
+</div>
+<div id="integración-analítica-vs-numérica" class="section level4" number="5.4.3.2">
+<h4><span class="header-section-number">5.4.3.2</span> Integración analítica vs numérica</h4>
+<p>En matemáticas, el término <em>analítico</em> se utiliza para describir el proceso de encontrar con herramientas formales de las matemáticas una solución exacta a un problema. Por ejemplo la antiderivación, aplicando a la inversa las relgas de la derivación es la integración analítica. Hay modelos sin embargo que no se pueden resolver con herramientas analíticas, típicamente, aquellos en que no podemos separar las variables dependientes e independientes. En esos casos hacemos integración <em>numérica</em>, que consiste en aproximaciones al valor de la función pero nunca representan las soluciones exactas que se obtienen con integración analítica.</p>
+<p>Veamos la ecuación diferencial:</p>
+<p><span class="math display" id="eq:dif-1">\[\begin{equation}
+\frac{dN}{dt} = rN \tag{5.12}
+\end{equation}\]</span></p>
+<p>corresponde a una función que conocemos como <span class="math inline">\(N = e^{rt}\)</span>, sin embargo podríamos aproximarnos recursivamente a los valores que prediciría <span class="math inline">\(e^{rt}\)</span> utilizando la definición de la derivada. Sabemos que la derivada es la pendiente de una recta, por lo tanto podríamos comenzar por dibujar una recta con pendiente <span class="math inline">\(rN\)</span> partiendo desde <span class="math inline">\(t = 0\)</span>, hasta un punto <span class="math inline">\(0+dx\)</span>. El cambio absoluto de <span class="math inline">\(N\)</span> (<span class="math inline">\(dN\)</span>) sería entonces <span class="math inline">\(rN \times dt\)</span>, cuyo valorr utilizaremos como punto de partida. Mencioné anteriormente que este método es una aproximación, y esto es porque resulta en un error que se va acumulando entre la función verdadera <span class="math inline">\(N = e^{rt}\)</span> y la que aproximamos revirtiendo secuencialmente la derivada (figura ).</p>
+<div class="figure" style="text-align: center"><span id="fig:integ-numer"></span>
+<img src="Mod-mat-ECO_files/figure-html/integ-numer-1.png" alt="Diferencias entre integración analítica vs integración numérica, para r = 0.1, dt = 1, y población inicial de N = 1." width="576" />
+<p class="caption">
+Figura 5.14: Diferencias entre integración analítica vs integración numérica, para r = 0.1, dt = 1, y población inicial de N = 1.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unidad-ii-introducción-a-los-modelos-determinísticos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-iv-modelos-deterministas-basados-en-ecuaciones-diferenciales-ordinarias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

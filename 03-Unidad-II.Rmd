@@ -1,0 +1,44 @@
+# Unidad II: Introducción a los modelos determinísticos
+
+## La línea recta
+
+```{r echo = F, child="Unidad-II/Recta.Rmd"}
+
+```
+
+## La parábola
+
+```{r echo = F, child = "Unidad-II/Parabola.Rmd"}
+
+```
+
+## Cónicas
+
+```{r echo = F, child = "Unidad-II/Conicas.Rmd"}
+
+```
+
+## La curva normal
+
+```{r echo = F, child = "Unidad-II/Curva-normal.Rmd"}
+
+```
+
+## Funciones trigonométricas
+
+```{r echo = F, child = "Unidad-II/Trigonometricas.Rmd"}
+
+```
+
+## La recta como modelo "universal" y sus transformaciones
+
+```{r echo = F, child = "Unidad-II/Recta-modelo-univ.Rmd"}
+
+```
+
+## Representación de las funciones en 3 dimensiones
+
+```{r echo = F, child="Unidad-II/3D.Rmd"}
+
+```
+
