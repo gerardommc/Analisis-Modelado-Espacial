@@ -1,7 +1,8 @@
-fig:unnamed-chunk-5
 fig:unnamed-chunk-6
 fig:unnamed-chunk-7
 fig:unnamed-chunk-8
+fig:unnamed-chunk-9
+fig:Serie-temporal
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -21,7 +22,11 @@ cómo-puedo-conseguir-un-sig
 modelado-espacial
 datos-vectoriales
 ráster
-unidad-ii
+puntos-1
+lecciones
+la-estructura-espacial
+unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos
+correlación-y-regresión-espacial
 unidad-iii
 unidad-iv
 unidad-v

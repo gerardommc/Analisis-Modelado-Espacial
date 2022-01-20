@@ -15,3 +15,25 @@ El típico análisis de imágenes ráster es el desarrollo de mapas de uso de su
 
 ![Estimación de densidad poblacional combinando imágenes satelitales y vectoriales](https://www.worldpop.org/img/methods2/populations/thumbnail_peanutButter_overview3.jpg)
 
+### Puntos
+
+Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo
+
+![Registros de ocurrencia de la serpiente venenosa *Bungarus caeruleus* y su abundancia potencial estimada en la isla de Sri Lanka](Unidad-I/Bungarus_caeruleus-points.png)
+
+### Lecciones
+
+El modelado espacial se distingue de otros tipos de modelación en que, mientras los datos pueden representar mediciones de variables no espaciales (temperatura, tamaño de población, tipo de cobertura vegetal), los datos están descritos por su ubicación espacial y tipo de representación en el espacio. En ocasiones es necesario tomar en cuenta dichas descripciones sobre la situación espacial para hacer el análisis debido a la primera ley de la geografía:
+
+"**Los objetos cercanos son más similares entre sí**"
+
+A este fenómeno se le conoce como autocorrelación espacial, es decir que una variable con **estructura espacial** estará correlacionada consigo misma (casi siempre). Por ejemplo en la base de datos de cancer labial, podemos ver que los distritos vecinos tienen niveles de enfermedad más parecidos entre sí.
+
+#### La estructura espacial
+
+Cuando decimos que una base de datos está estructurada quiere decir que cada observación tiene un lugar exacto dentro de la base. El ejemplo más sencillo es de una serie temporal, donde los datos están ordenados en relación al tiempo en que fueron colectados, y sus valores también dependen del tiempo (\@ref(fig:Serie-temporal))
+
+```{r Serie-temporal, echo = F, fig.align='center', fig.cap="Estructura temporal de una base de datos"}
+knitr::include_graphics("Estructura-temporal.png")
+```
+

@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-01-19" />
+<meta name="date" content="2022-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="encuadre-de-la-materia.html"/>
-<link rel="next" href="unidad-ii.html"/>
+<link rel="next" href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -94,9 +94,14 @@
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#datos-vectoriales"><i class="fa fa-check"></i><b>3.2.1</b> Datos vectoriales</a></li>
 <li class="chapter" data-level="3.2.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#ráster"><i class="fa fa-check"></i><b>3.2.2</b> Ráster</a></li>
+<li class="chapter" data-level="3.2.3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#puntos-1"><i class="fa fa-check"></i><b>3.2.3</b> Puntos</a></li>
+<li class="chapter" data-level="3.2.4" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#lecciones"><i class="fa fa-check"></i><b>3.2.4</b> Lecciones</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="unidad-ii.html"><a href="unidad-ii.html"><i class="fa fa-check"></i><b>4</b> Unidad II</a></li>
+<li class="chapter" data-level="4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><i class="fa fa-check"></i><b>4</b> Unidad II - Análisis de la asociación espacial entre varios fenómenos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
 <li class="chapter" data-level="6" data-path="unidad-iv.html"><a href="unidad-iv.html"><i class="fa fa-check"></i><b>6</b> Unidad IV</a></li>
 <li class="chapter" data-level="7" data-path="unidad-v.html"><a href="unidad-v.html"><i class="fa fa-check"></i><b>7</b> Unidad V</a></li>
@@ -148,7 +153,7 @@
 <div id="imágenes-ráster" class="section level4" number="3.1.3.1">
 <h4><span class="header-section-number">3.1.3.1</span> Imágenes ráster</h4>
 <p>Consisten de píxeles que representan valores con alguna paleta de colores</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="Unidad-I/Rho-snakebites.png" alt="Ejemplo de capa ráster de algún atributo ambiental de la isla de Sri Lanka. Cada píxel mide 5 x 5 km." width="488" />
 <p class="caption">
 Figura 3.1: Ejemplo de capa ráster de algún atributo ambiental de la isla de Sri Lanka. Cada píxel mide 5 x 5 km.
@@ -163,8 +168,8 @@ Figura 3.1: Ejemplo de capa ráster de algún atributo ambiental de la isla de S
 ## with 25 features
 ## It has 14 fields
 ## Integer64 fields read as strings:  ID_0 ID_1 CCN_1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
-<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-6-1.png" alt="Polígono vectorial muestra la isla de Sri Lanka y su división política en distritos." width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-7-1.png" alt="Polígono vectorial muestra la isla de Sri Lanka y su división política en distritos." width="384" />
 <p class="caption">
 Figura 3.2: Polígono vectorial muestra la isla de Sri Lanka y su división política en distritos.
 </p>
@@ -173,8 +178,8 @@ Figura 3.2: Polígono vectorial muestra la isla de Sri Lanka y su división pol�
 ## Source: &quot;/home/gerardo/Documentos/Cosas ENES/Materias/LCA/Analisis-Modelado-Espacial/Unidad-I/Roads/LKA_roads.shp&quot;, layer: &quot;LKA_roads&quot;
 ## with 500 features
 ## It has 5 fields</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
-<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-7-1.png" alt="Capa lineal muestra la red de carreteras principales de la isla de Sri Lanka." width="384" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-8-1.png" alt="Capa lineal muestra la red de carreteras principales de la isla de Sri Lanka." width="384" />
 <p class="caption">
 Figura 3.3: Capa lineal muestra la red de carreteras principales de la isla de Sri Lanka.
 </p>
@@ -183,7 +188,7 @@ Figura 3.3: Capa lineal muestra la red de carreteras principales de la isla de S
 <div id="puntos" class="section level4" number="3.1.3.3">
 <h4><span class="header-section-number">3.1.3.3</span> Puntos</h4>
 <p>Son conjuntos de coordenadas geográficas (<span class="math inline">\(x, y\)</span>) cartesianas para identificar la localización de un objeto en el espacio.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="Unidad-I/Survey-residuals-snakebites.png" alt="Puntos muestran el valor de una medición de alguna variable ambiental en la isla de Sri Lanka." width="377" />
 <p class="caption">
 Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambiental en la isla de Sri Lanka.
@@ -220,7 +225,31 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
 <img src="https://www.worldpop.org/img/methods2/populations/thumbnail_peanutButter_overview3.jpg" alt="" />
 <p class="caption">Estimación de densidad poblacional combinando imágenes satelitales y vectoriales</p>
 </div>
+</div>
+<div id="puntos-1" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Puntos</h3>
+<p>Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo</p>
+<div class="figure">
+<img src="Unidad-I/Bungarus_caeruleus-points.png" alt="" />
+<p class="caption">Registros de ocurrencia de la serpiente venenosa <em>Bungarus caeruleus</em> y su abundancia potencial estimada en la isla de Sri Lanka</p>
+</div>
+</div>
+<div id="lecciones" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Lecciones</h3>
+<p>El modelado espacial se distingue de otros tipos de modelación en que, mientras los datos pueden representar mediciones de variables no espaciales (temperatura, tamaño de población, tipo de cobertura vegetal), los datos están descritos por su ubicación espacial y tipo de representación en el espacio. En ocasiones es necesario tomar en cuenta dichas descripciones sobre la situación espacial para hacer el análisis debido a la primera ley de la geografía:</p>
+<p>“<strong>Los objetos cercanos son más similares entre sí</strong>”</p>
+<p>A este fenómeno se le conoce como autocorrelación espacial, es decir que una variable con <strong>estructura espacial</strong> estará correlacionada consigo misma (casi siempre). Por ejemplo en la base de datos de cancer labial, podemos ver que los distritos vecinos tienen niveles de enfermedad más parecidos entre sí.</p>
+<div id="la-estructura-espacial" class="section level4" number="3.2.4.1">
+<h4><span class="header-section-number">3.2.4.1</span> La estructura espacial</h4>
+<p>Cuando decimos que una base de datos está estructurada quiere decir que cada observación tiene un lugar exacto dentro de la base. El ejemplo más sencillo es de una serie temporal, donde los datos están ordenados en relación al tiempo en que fueron colectados, y sus valores también dependen del tiempo (<a href="unidad-i-introducción-al-modelado-espacial.html#fig:Serie-temporal">3.5</a>)</p>
+<div class="figure" style="text-align: center"><span id="fig:Serie-temporal"></span>
+<img src="Estructura-temporal.png" alt="Estructura temporal de una base de datos"  />
+<p class="caption">
+Figura 3.5: Estructura temporal de una base de datos
+</p>
+</div>
 
+</div>
 </div>
 </div>
 </div>
@@ -230,7 +259,7 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
         </div>
       </div>
 <a href="encuadre-de-la-materia.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="unidad-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

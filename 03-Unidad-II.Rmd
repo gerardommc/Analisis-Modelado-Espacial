@@ -1,1 +1,10 @@
-# Unidad II
+# Unidad II - Análisis de la asociación espacial entre varios fenómenos
+
+La asociación espacial es el pilar del análisis espacial, y consiste principalmente en medir el grado de dependencia entre dos variables con estructura espacial.
+
+## Correlación y regresión espacial
+
+```{r echo = F, child = "Unidad-II/Corr-reg-esp.Rmd"}
+
+```
+
