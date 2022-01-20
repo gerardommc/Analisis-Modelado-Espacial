@@ -1,0 +1,62 @@
+
+### Introducción
+
+En el mundo moderno hay una gran cantidad de procesos y servicios que utilizan información espacial. Más allá de las aplicaciones comerciales que ya todxs conocemos hoy por hoy, los sistemas de información geográficas (SIG) son altamente necesarios para planear muchas de las actividades de las sociedades, por ejemplo para identificar áreas:
+
+- donde se permitirá la urbanización
+- prioritarias de conservación
+- donde se puede practicar la agricultura
+- donde se puede producir energías renovables
+- que se pueden ver afectadas por desastres naturales
+
+Además de identificación de zonas relevantes, también sirven para la cuantificación tanto de superficies como de poblaciones humanas. En ciencas ambientales, nos interesaría aprender a utilizar los SIG para solventar problemáticas ambientales sobretodo aquellas resultado de las actividades del ser humano. Las soluciones ambientales requieren tanto de la identificación espacial como del monitoreo, manejo y mitigación, cuyo éxito puede depender en gran medida de la disponibilidad de información geográfica.
+
+### Ejercicio
+
+Visita la página del [Socioeconomic Data and Applications Center](https://sedac.ciesin.columbia.edu/) y navega por los diferentes apartados temáticos que cubren, haciendo una lista con descripciones de mapas que te parezcan interesantes o relevantes.
+
+### ¿Qué son los SIG?
+
+Los SIG son programas de computadora especializados en el manejo, análisis y visualización de datos geográficos. Estos últimos a grandes rasgos con una descripción numerica o cualitativa que esté georreferenciada, o bien, que represente la forma o algún atributo de un objeto cuya localización se conoce. Los sistemas de información geográfica por lo general utilizan distintos tipo de datos.
+
+#### Imágenes ráster
+
+Consisten de píxeles que representan valores con alguna paleta de colores
+
+```{r echo=F, fig.align='center', fig.cap="Ejemplo de capa ráster de algún atributo ambiental de la isla de Sri Lanka. Cada píxel mide 5 x 5 km.", fig.height=6, fig.width=4}
+knitr::include_graphics("Unidad-I/Rho-snakebites.png")
+```
+
+#### Capas vectoriales
+
+Pueden representar tanto polígonos como líneas. Los polígonos son utilizados para representar entidades políticas como los países o estados. Las capas vectoriales de líneas pueden utilizarse para representar ríos o caminos
+
+```{r echo=F, fig.align='center', fig.cap="Polígono vectorial muestra la isla de Sri Lanka y su división política en distritos.", fig.height=6, fig.width=4, warning = FALSE, message = FALSE}
+library(rgdal)
+m1 <- readOGR("SL-1/LKA_adm1.shp")
+plot(m1)
+```
+
+```{r echo=F, fig.align='center', fig.cap="Capa lineal muestra la red de carreteras principales de la isla de Sri Lanka.", fig.height=6, fig.width=4, warning = FALSE, message = FALSE}
+m2 <- readOGR("Roads/LKA_roads.shp")
+plot(m2)
+```
+
+#### Puntos
+
+Son conjuntos de coordenadas geográficas ($x, y$) cartesianas para identificar la localización de un objeto en el espacio.
+
+
+```{r echo=F, fig.align='center', fig.cap="Puntos muestran el valor de una medición de alguna variable ambiental en la isla de Sri Lanka.", fig.height=6, fig.width=4}
+knitr::include_graphics("Unidad-I/Survey-residuals-snakebites.png")
+```
+
+#### Ejercicio
+
+Vuelve a visitar el [Socioeconomic Data and Applications Center](https://sedac.ciesin.columbia.edu/) y clasifica los mapas que seleccionaste anteriormente de acuerdo con el tipo de datos que consideres que contiene cada uno.
+
+### ¿Cómo puedo conseguir un SIG?
+
+Al igual que con los sistemas operativos (Windows, Mac) y las suites de ofimática (Google Docs, MS Office, Libre Office), existen alternativas tanto comerciales (de pago y código cerrado) como libres (tanto de pago --gratis-- como de código fuente). Uno de los SIG más completos que existen es ArcGIS, sin embargo costo de la licencia es bastante alto. PAra evitar la necesidad de pagar licencias, en este curso, utilizaremos QGIS (Quantum GIS), Saga y R, pues son gratuitos y cubren todas las necesidades del curso y muchas más. De hecho, estas herramientas son sumamente competentes tanto para estudiantes como para profesionales que requieren de aplicaciones sofisticadas, por lo que la relación costo-beneficio es insuperable.
+
+Para instalar QGIS visita la [página web](https://qgis.org/es/site/) y sigue las instrucciones de instalación para tu sistema operativo. Los demás programas los instalaremos en otra ocasión.

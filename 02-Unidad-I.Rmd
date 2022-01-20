@@ -1,1 +1,15 @@
 # Unidad I: Introducción al modelado espacial
+
+## Análisis utilizando sistemas de información geográfica
+
+```{r echo = F, child="Unidad-I/Analisis-SIG.Rmd"}
+
+```
+
+## Modelado espacial
+
+```{r echo = F, child="Unidad-I/Modelado-espacial.Rmd"}
+
+```
+
+

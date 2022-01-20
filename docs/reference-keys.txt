@@ -1,3 +1,7 @@
+fig:unnamed-chunk-5
+fig:unnamed-chunk-6
+fig:unnamed-chunk-7
+fig:unnamed-chunk-8
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -5,6 +9,18 @@ cómo-se-darán-las-clases
 reglas-del-salón
 contacto
 unidad-i-introducción-al-modelado-espacial
+análisis-utilizando-sistemas-de-información-geográfica
+introducción
+ejercicio
+qué-son-los-sig
+imágenes-ráster
+capas-vectoriales
+puntos
+ejercicio-1
+cómo-puedo-conseguir-un-sig
+modelado-espacial
+datos-vectoriales
+ráster
 unidad-ii
 unidad-iii
 unidad-iv

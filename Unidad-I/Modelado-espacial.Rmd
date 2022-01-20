@@ -1,0 +1,17 @@
+
+El modelado y análisis espacial puede ser tan variado como los tipos de datos y variables que se pueden representar en el espacio.
+
+Es posible modelar datos vectoriales, puntos y hasta ráster.
+
+### Datos vectoriales
+
+Ejemplos clásicos abundan en la literatura médica, donde típicamente se analiza el número de casos por polígono de alguna enfermedad.
+
+![Casos de cancer labial en Escocia](https://www.multibugs.org/documentation/latest/spatial/maps2.bmp)
+
+### Ráster
+
+El típico análisis de imágenes ráster es el desarrollo de mapas de uso de suelo. Sin embargo existen otras aplicaciones como la estimación de densidad poblacional de humanos a partir de imágenes satelitales.
+
+![Estimación de densidad poblacional combinando imágenes satelitales y vectoriales](https://www.worldpop.org/img/methods2/populations/thumbnail_peanutButter_overview3.jpg)
+
