@@ -1,5 +1,5 @@
 --- 
-title: "Modelado y Análisis Espacial"
+title: "Análisis y Modelado Espacial"
 author: "Gerardo Martín"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
