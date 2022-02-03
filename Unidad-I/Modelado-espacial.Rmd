@@ -1,23 +1,25 @@
 
-El modelado y análisis espacial puede ser tan variado como los tipos de datos y variables que se pueden representar en el espacio.
+El modelado y análisis espacial puede ser tan variado como los tipos de datos y variables que se pueden representar en el espacio. De manera resumida, el modelado espacial es el desarrollo de representaciones espaciales de añgún fenómeno. Los modelos espaciales pueden ser sencillos, producto de operaciones aritméticas entre distintas variables espacializadas, ó de complejos análisis estadísticos. En este curso veremos aplicaciones de ambas, aunque por su utilidad nos enfocaremos más en los análisis estadísticos.
 
-Es posible modelar datos vectoriales, puntos y hasta ráster.
+Los modelos espaciales pueden estar basados en, o utilizar, datos geográficos de cualquier naturaleza: vectores, puntos o ráster. Los productos de estas diferentes naturalezas, utilizados para construir modelos espaciales pueden provenir de muchas fuentes, incluso ser colectados por nosotrxs mismxs. Las fuentes de información para construir los modelos espaciales dependerán de muchos factores como la extensión geográfica. Para regiones pequeñas es perfectamente factible hacerlo nosotrxs mismos, pero para estudios a mayor escala, debemos utilizar repositorios públicos de información que veremos más adelante. A continuación se muestran algunos ejemplos de procesamiento estadístico.
 
 ### Datos vectoriales
 
-Ejemplos clásicos abundan en la literatura médica, donde típicamente se analiza el número de casos por polígono de alguna enfermedad.
+Ejemplos clásicos abundan en la literatura médica, donde típicamente se analiza el número de casos por polígono de alguna enfermedad. Estos análisis consisten, en esencia, de una regresión lineal, donde la variable de respuesta está medida para cada uno de los polígonos de la capa vectorial, y van acompañados de mediciones de alguna(s) variables de respuesta. El ejemplo de abajo, sin embargo es un poco más complicado pues toma en cuenta la similitud entre polígonos vecinos.
+
+La escala de colores indica el número de casos por unidad espacial, y esta representación se llama *coropleta*.
 
 ![Casos de cancer labial en Escocia](https://www.multibugs.org/documentation/latest/spatial/maps2.bmp)
 
 ### Ráster
 
-El típico análisis de imágenes ráster es el desarrollo de mapas de uso de suelo. Sin embargo existen otras aplicaciones como la estimación de densidad poblacional de humanos a partir de imágenes satelitales.
+Un tipo de análisis de imágenes ráster muy útil es el desarrollo de mapas de uso de suelo. También existen otras aplicaciones como la estimación de densidad poblacional de humanos a partir de imágenes satelitales.
 
 ![Estimación de densidad poblacional combinando imágenes satelitales y vectoriales](https://www.worldpop.org/img/methods2/populations/thumbnail_peanutButter_overview3.jpg)
 
 ### Puntos
 
-Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo
+Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo.
 
 ![Registros de ocurrencia de la serpiente venenosa *Bungarus caeruleus* y su abundancia potencial estimada en la isla de Sri Lanka](Unidad-I/Bungarus_caeruleus-points.png)
 

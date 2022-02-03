@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-01-31" />
+<meta name="date" content="2022-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,11 +208,11 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
 </div>
 <div id="modelado-espacial" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Modelado espacial</h2>
-<p>El modelado y análisis espacial puede ser tan variado como los tipos de datos y variables que se pueden representar en el espacio.</p>
-<p>Es posible modelar datos vectoriales, puntos y hasta ráster.</p>
+<p>El modelado y análisis espacial puede ser tan variado como los tipos de datos y variables que se pueden representar en el espacio. De manera resumida, el modelado espacial es el desarrollo de representaciones espaciales de añgún fenómeno. Los modelos espaciales pueden ser sencillos, producto de operaciones aritméticas entre distintas variables espacializadas, ó de complejos análisis estadísticos. En este curso veremos aplicaciones de ambas, aunque por su utilidad nos enfocaremos más en los análisis estadísticos.</p>
+<p>Los modelos espaciales pueden estar basados en, o utilizar, datos geográficos de cualquier naturaleza: vectores, puntos o ráster. Los productos de estas diferentes naturalezas, utilizados para construir modelos espaciales pueden provenir de muchas fuentes, incluso ser colectados por nosotrxs mismxs. Las fuentes de información para construir los modelos espaciales dependerán de muchos factores como la extensión geográfica. Para regiones pequeñas es perfectamente factible hacerlo nosotrxs mismos, pero para estudios a mayor escala, debemos utilizar repositorios públicos de información que veremos más adelante. A continuación se muestran algunos ejemplos de procesamiento estadístico.</p>
 <div id="datos-vectoriales" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Datos vectoriales</h3>
-<p>Ejemplos clásicos abundan en la literatura médica, donde típicamente se analiza el número de casos por polígono de alguna enfermedad.</p>
+<p>Ejemplos clásicos abundan en la literatura médica, donde típicamente se analiza el número de casos por polígono de alguna enfermedad. Estos análisis consisten, en esencia, de una regresión lineal, donde la variable de respuesta está medida para cada uno de los polígonos de la capa vectorial, y van acompañados de mediciones de alguna(s) variables de respuesta. El ejemplo de abajo, sin embargo es un poco más complicado pues toma en cuenta la similitud entre polígonos vecinos.</p>
 <div class="figure">
 <img src="https://www.multibugs.org/documentation/latest/spatial/maps2.bmp" alt="" />
 <p class="caption">Casos de cancer labial en Escocia</p>
@@ -220,7 +220,7 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
 </div>
 <div id="ráster" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Ráster</h3>
-<p>El típico análisis de imágenes ráster es el desarrollo de mapas de uso de suelo. Sin embargo existen otras aplicaciones como la estimación de densidad poblacional de humanos a partir de imágenes satelitales.</p>
+<p>Un tipo de análisis de imágenes ráster muy útil es el desarrollo de mapas de uso de suelo. También existen otras aplicaciones como la estimación de densidad poblacional de humanos a partir de imágenes satelitales.</p>
 <div class="figure">
 <img src="https://www.worldpop.org/img/methods2/populations/thumbnail_peanutButter_overview3.jpg" alt="" />
 <p class="caption">Estimación de densidad poblacional combinando imágenes satelitales y vectoriales</p>
@@ -228,7 +228,7 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
 </div>
 <div id="puntos-1" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Puntos</h3>
-<p>Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo</p>
+<p>Un ejemplo de este tipo de análisis es el modelado de nichos ecológicos y áreas de distribución, y consiste en utilizar los datos de puntos para generar un ráster que representa la favorabilidad ambiental para un organismo.</p>
 <div class="figure">
 <img src="Unidad-I/Bungarus_caeruleus-points.png" alt="" />
 <p class="caption">Registros de ocurrencia de la serpiente venenosa <em>Bungarus caeruleus</em> y su abundancia potencial estimada en la isla de Sri Lanka</p>
