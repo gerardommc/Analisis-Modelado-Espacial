@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,7 +100,11 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><i class="fa fa-check"></i><b>4</b> Unidad II - Análisis de la asociación espacial entre varios fenómenos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a></li>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial"><i class="fa fa-check"></i><b>4.1.1</b> Correlación espacial</a></li>
+<li class="chapter" data-level="4.1.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión"><i class="fa fa-check"></i><b>4.1.2</b> Regresión</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a></li>
 <li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a></li>
 </ul></li>
@@ -134,25 +138,39 @@
 <p>La asociación espacial es el pilar del análisis espacial, y consiste principalmente en medir el grado de dependencia entre dos variables con estructura espacial.</p>
 <div id="correlación-y-regresión-espacial" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Correlación y regresión espacial</h2>
+<div id="correlación-espacial" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Correlación espacial</h3>
 <p>La correlación mide la similitud entre dos variables aleatorias, comparando sus varianzas respectivas. Es una prueba muy sencilla, pero que tiene muchas fallas, por ejemplo, no podemos saber si la correlación es causal. Veamos dos ejemplos de correlación entre dos variables ambientales, uno donde hay una alta correlación y otro donde no la hay.</p>
 <p><img src="Unidad-II/Correlated.png" width="580" /></p>
-<div class="figure"><span id="fig:unnamed-chunk-11"></span>
-<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-11-1.png" alt="Variables altamente correlacionadas. Los mapas muestran los valores de dos capas ráster, y la gráfica de dispersión contiene los valores de cada píxel, en el eje *x*, la variable de la izquieda, y el eje *y* la variable de la derecha." width="432" />
+<div class="figure"><span id="fig:Alta-corr"></span>
+<img src="Mod-mat-ECO_files/figure-html/Alta-corr-1.png" alt="Variables altamente correlacionadas. Los mapas muestran los valores de dos capas ráster, y la gráfica de dispersión contiene los valores de cada píxel, en el eje *x*, la variable de la izquieda, y el eje *y* la variable de la derecha." width="432" />
 <p class="caption">
 Figura 4.1: Variables altamente correlacionadas. Los mapas muestran los valores de dos capas ráster, y la gráfica de dispersión contiene los valores de cada píxel, en el eje <em>x</em>, la variable de la izquieda, y el eje <em>y</em> la variable de la derecha.
 </p>
 </div>
-<div class="figure"><span id="fig:unnamed-chunk-12-1"></span>
-<img src="Unidad-II/Uncorrelated.png" alt="Variables pobremente correlacionadas." width="580" />
+<p><img src="Unidad-II/Uncorrelated.png" width="580" /></p>
+<div class="figure"><span id="fig:Baja-corr"></span>
+<img src="Mod-mat-ECO_files/figure-html/Baja-corr-1.png" alt="Variables pobremente correlacionadas." width="432" />
 <p class="caption">
 Figura 4.2: Variables pobremente correlacionadas.
 </p>
 </div>
-<div class="figure"><span id="fig:unnamed-chunk-12-2"></span>
-<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-12-2.png" alt="Variables pobremente correlacionadas." width="432" />
-<p class="caption">
-Figura 4.3: Variables pobremente correlacionadas.
-</p>
+<p>Claramente en el ejemplo de la figura <a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Alta-corr">4.1</a>, una de las variables predice a la otra, pero no sabemos cuál produce a cuál, o si ambas sor producidas por otra variable que no se ha medido. En resumidas cuentas, la correlación no se puede utilizar para analizar causalidad, lo cual es común a todos los análisis estadísticos.</p>
+<div id="breve-recordatorio-del-cálculo-de-la-correlación" class="section level4" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Breve recordatorio del cálculo de la correlación</h4>
+<p>Como ya han de saber, la correlación es una prueba de estadística frecuentista paramétrica. Como tal, consiste en una serie de cáculos aritméticos para obtener un parámetro <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> son las dos variables, cuya correlación queremos medir. Esta prueba de correlación se llama de <strong>Pearson</strong>, y existen algunas modificaciones para datos de otra naturaleza como los ordinales, para lo cual se utiliza la correlación de <strong>Spearman</strong>. El coeficiente de correlación de esta última se denota con <span class="math inline">\(\rho\)</span>.</p>
+<p>La correlación de Spearman es menos sensible que la de Pearson a correlaciones no lineales, por lo que si la gráfica de las variables <span class="math inline">\(x_1, x_2\)</span> no forma una línea recta como en <a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Alta-corr">4.1</a>, se puede probar con la correlación de Spearman.</p>
+</div>
+<div id="section" class="section level4" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> </h4>
+</div>
+</div>
+<div id="regresión" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Regresión</h3>
 </div>
 </div>
 <div id="análisis-de-asociación-espacial" class="section level2" number="4.2">

@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,7 +100,11 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><i class="fa fa-check"></i><b>4</b> Unidad II - Análisis de la asociación espacial entre varios fenómenos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a></li>
+<li class="chapter" data-level="4.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial"><i class="fa fa-check"></i><b>4.1.1</b> Correlación espacial</a></li>
+<li class="chapter" data-level="4.1.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión"><i class="fa fa-check"></i><b>4.1.2</b> Regresión</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a></li>
 <li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a></li>
 </ul></li>
@@ -246,11 +250,19 @@ Figura 3.4: Puntos muestran el valor de una medición de alguna variable ambient
 <h4><span class="header-section-number">3.2.4.1</span> La estructura espacial</h4>
 <p>Cuando decimos que una base de datos está estructurada quiere decir que cada observación tiene un lugar exacto dentro de la base. El ejemplo más sencillo es de una serie temporal, donde los datos están ordenados en relación al tiempo en que fueron colectados, y sus valores también dependen del tiempo (<a href="unidad-i-introducción-al-modelado-espacial.html#fig:Serie-temporal">3.5</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:Serie-temporal"></span>
-<img src="Unidad-II/Estructura-temporal.png" alt="Estructura temporal de una base de datos"  />
+<img src="Unidad-I/Estructura-temporal.png" alt="Estructura temporal de una base de datos" width="548" />
 <p class="caption">
 Figura 3.5: Estructura temporal de una base de datos
 </p>
 </div>
+<p>La repercusión estadística de la estructuración temporal o espacial de los datos es que las observaciones cercanas en el tiempo o espacio no son independientes entre sí. Las observaciones independientes deberían poder tener cualquiera de los valores posibles en la distribución de la variable, pero las observaciones más cercanas tienen valores más parecidos. Por lo tanto es necesario, en muchas ocasiones, utilizar métodos estadísticos que permitan separar esos efectos de la proximidad espacial o temporal de los efectos de otras variables (temperatura, vegetación, etc.). A este fenómeno se le conoce como <strong>Autocorrelación</strong> espacial o temporal, es decir, que una variable está correlacionada consigo misma.</p>
+<div class="figure" style="text-align: center"><span id="fig:Autocorrelación"></span>
+<img src="Mod-mat-ECO_files/figure-html/Autocorrelaci%C3%B3n-1.png" alt="Ejemplos de capas ráster con y sin autocorrelación." width="960" />
+<p class="caption">
+Figura 3.6: Ejemplos de capas ráster con y sin autocorrelación.
+</p>
+</div>
+<p>Los métodos que combinan la modelación estadística y aquellos utilizados para medir y estimar la autocorrelación, son lo que distigue a la modelación estadística de la modelación espacial.</p>
 
 </div>
 </div>

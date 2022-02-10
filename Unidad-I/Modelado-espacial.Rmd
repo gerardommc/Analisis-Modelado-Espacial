@@ -36,6 +36,65 @@ A este fenómeno se le conoce como autocorrelación espacial, es decir que una v
 Cuando decimos que una base de datos está estructurada quiere decir que cada observación tiene un lugar exacto dentro de la base. El ejemplo más sencillo es de una serie temporal, donde los datos están ordenados en relación al tiempo en que fueron colectados, y sus valores también dependen del tiempo (\@ref(fig:Serie-temporal)).
 
 ```{r Serie-temporal, echo = F, fig.align='center', fig.cap="Estructura temporal de una base de datos"}
-knitr::include_graphics("Unidad-II/Estructura-temporal.png")
+knitr::include_graphics("Unidad-I/Estructura-temporal.png")
 ```
 
+La repercusión estadística de la estructuración temporal o espacial de los datos es que las observaciones cercanas en el tiempo o espacio no son independientes entre sí. Las observaciones independientes deberían poder tener cualquiera de los valores posibles en la distribución de la variable, pero las observaciones más cercanas tienen valores más parecidos. Por lo tanto es necesario, en muchas ocasiones, utilizar métodos estadísticos que permitan separar esos efectos de la proximidad espacial o temporal de los efectos de otras variables (temperatura, vegetación, etc.). A este fenómeno se le conoce como **Autocorrelación** espacial o temporal, es decir, que una variable está correlacionada consigo misma.
+
+```{r Autocorrelación, echo = F, fig.align='center', fig.cap="Ejemplos de capas ráster con y sin autocorrelación.", fig.width=10, fig.height=5}
+library(mvtnorm)   # Simulate multivariate distributions
+library(raster)    # Handle raster objects
+
+#The function to estimate the distance from one spatial unit to the rest
+mat.distances <- function(len)
+{
+      coords.row <- rep(1:len, times=len)
+      coords.col <- rep(1:len, each=len)
+      row.col <- data.frame(coords.row, coords.col)
+      D <- dist(row.col, method="euclidean", diag=TRUE, upper=TRUE)
+      D <- as.matrix(D)
+      return(D)
+}
+
+#Establecemos la función que va a simular las variables (Sólamente traducida al español de la original de Petr Keil)
+
+corr.surf <- function(len, global.mean, lambda, sigma){
+      
+      require(mvtnorm)
+      
+      D <- mat.distances(len)
+      # Aquí se escala la matríz por la función exponencial (puede ser otra función!)
+      #Este es el efecto del espacio, las celdas vecinas se parecen más entre si
+      SIGMA <- sigma^2 * exp(-lambda*D)
+      mu <- rep(global.mean, times=len*len)
+      # Aquí generamos el contenido de la matriz que después será un objeto ráster
+      # El contenido será generado con una distribución normal multivariada
+      M <- matrix(nrow=len, ncol=len)
+      M[] <- rmvnorm(1, mu, SIGMA)
+      return(M)
+}
+
+mat.to.rast <- function(mat, ext){
+      require(raster)
+      
+      rast <- raster(mat)
+      rast@extent@xmax <- ext
+      rast@extent@ymax <- ext
+      return(rast)
+}
+
+set.seed(1973)
+
+len <- 10 #Tamaño de las capas ráster
+dists <- mat.distances(len = len)
+
+r <- mat.to.rast(mat = matrix(runif(100, -1 , 1), 10, 10), ext = len)
+
+m1 <- corr.surf(len = len, global.mean = 0, 
+                       lambda = 0.1, sigma = 1)
+r1 <- mat.to.rast(m1, ext = len)
+par(mfrow = c(1, 2))
+plot(r, main = "Sin autocorrelación")
+plot(r1, main = "Con autocorrelación")
+```
+Los métodos que combinan la modelación estadística y aquellos utilizados para medir y estimar la autocorrelación, son lo que distigue a la modelación estadística de la modelación espacial.

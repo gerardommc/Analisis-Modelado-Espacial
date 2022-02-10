@@ -3,9 +3,9 @@ fig:unnamed-chunk-7
 fig:unnamed-chunk-8
 fig:unnamed-chunk-9
 fig:Serie-temporal
-fig:unnamed-chunk-11
-fig:unnamed-chunk-12-1
-fig:unnamed-chunk-12-2
+fig:Autocorrelación
+fig:Alta-corr
+fig:Baja-corr
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -30,6 +30,10 @@ lecciones
 la-estructura-espacial
 unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos
 correlación-y-regresión-espacial
+correlación-espacial
+breve-recordatorio-del-cálculo-de-la-correlación
+section
+regresión
 análisis-de-asociación-espacial
 interpolación
 unidad-iii
