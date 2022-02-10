@@ -8,3 +8,6 @@ La asociación espacial es el pilar del análisis espacial, y consiste principal
 
 ```
 
+## Análisis de asociación espacial
+
+## Interpolación
