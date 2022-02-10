@@ -97,4 +97,20 @@ par(mfrow = c(1, 2))
 plot(r, main = "Sin autocorrelación")
 plot(r1, main = "Con autocorrelación")
 ```
-Los métodos que combinan la modelación estadística y aquellos utilizados para medir y estimar la autocorrelación, son lo que distigue a la modelación estadística de la modelación espacial.
+Los métodos que combinan la modelación estadística y aquellos utilizados para medir y estimar la autocorrelación, son lo que distingue a la modelación estadística de la modelación espacial.
+
+### Repositorios públicos gratuitos
+
+- [Áreas administrativas del mundo](https://gadm.org/)
+- [Clima multidécadas CHELSA](https://chelsa-climate.org/)
+- [Clima multidécadas WorldClim](https://worldclim.org/data/index.html)
+- [Población y demografía del mundo](https://www.worldpop.org/)
+- [Socio-economía y aplicaciones](https://sedac.ciesin.columbia.edu/)
+- [Uso de suelo Copernicus (Agencia espacial europea)](https://land.copernicus.eu/global/products/lc)
+- [Características del suelo](https://soilgrids.org/)
+- [Ocurrencia de especies GBIF](https://www.gbif.org/)
+- [Ocurrencia de especies VertNet](http://vertnet.org/)
+- [Ocurrencia de especies Naturalista](https://www.naturalista.mx/)
+- [Distribución de reptiles y anfibios](http://www.gardinitiative.org/)
+- [Sensores remotos](https://worldview.earthdata.nasa.gov/)
+

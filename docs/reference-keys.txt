@@ -28,6 +28,7 @@ ráster
 puntos-1
 lecciones
 la-estructura-espacial
+repositorios-públicos-gratuitos
 unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos
 correlación-y-regresión-espacial
 correlación-espacial
