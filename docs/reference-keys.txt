@@ -33,7 +33,7 @@ unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos
 correlación-y-regresión-espacial
 correlación-espacial
 breve-recordatorio-del-cálculo-de-la-correlación
-section
+correlación-en-r
 regresión
 análisis-de-asociación-espacial
 interpolación

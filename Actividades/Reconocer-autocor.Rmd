@@ -1,0 +1,110 @@
+---
+title: "Reconociendo la autocorrelación"
+author: "Gerardo Martín"
+date: "11/2/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#
+
+```{r echo = F las funciones, echo = F}
+library(mvtnorm)   # Simulate multivariate distributions
+library(raster)    # Handle raster objects
+
+#The function to estimate the distance from one spatial unit to the rest
+mat.distances <- function(len)
+{
+      coords.row <- rep(1:len, times=len)
+      coords.col <- rep(1:len, each=len)
+      row.col <- data.frame(coords.row, coords.col)
+      D <- dist(row.col, method="euclidean", diag=TRUE, upper=TRUE)
+      D <- as.matrix(D)
+      return(D)
+}
+
+#Establecemos la función que va a simular las variables (Sólamente traducida al español de la original de Petr Keil)
+
+corr.surf <- function(len, global.mean, lambda, sigma){
+      
+      require(mvtnorm)
+      
+      D <- mat.distances(len)
+      # Aquí se escala la matríz por la función exponencial (puede ser otra función!)
+      #Este es el efecto del espacio, las celdas vecinas se parecen más entre si
+      SIGMA <- sigma^2 * exp(-lambda*D)
+      mu <- rep(global.mean, times=len*len)
+      # Aquí generamos el contenido de la matriz que después será un objeto ráster
+      # El contenido será generado con una distribución normal multivariada
+      M <- matrix(nrow=len, ncol=len)
+      M[] <- rmvnorm(1, mu, SIGMA)
+      return(M)
+}
+
+mat.to.rast <- function(mat, ext){
+      require(raster)
+      
+      rast <- raster(mat)
+      rast@extent@xmax <- ext
+      rast@extent@ymax <- ext
+      return(rast)
+}
+```
+
+# Identifica las capas que están autocorrelacionadas
+
+```{r fig.height=9, fig.width=6}
+set.seed(34912)
+
+len <- 10 #Tamaño de las capas ráster
+dists <- mat.distances(len = len)
+
+r1 <- mat.to.rast(mat = matrix(runif(100, -1 , 1), 10, 10), ext = len)
+r2 <- mat.to.rast(mat = matrix(rnorm(100), 10, 10), ext = len)
+r3 <- mat.to.rast(mat = matrix(rnorm(100, 5, 5), 10, 10), ext = len)
+
+m4 <- corr.surf(len = len, global.mean = 0, 
+                       lambda = 0.1, sigma = 1)
+m5 <- corr.surf(len = len, global.mean = 20, 
+                       lambda = 1, sigma = 20)
+m6 <- corr.surf(len = len, global.mean = 100, 
+                       lambda = 0.5, sigma = 20)
+r4 <- mat.to.rast(m4, ext = len)
+r5 <- mat.to.rast(m5, ext = len)
+r6 <- mat.to.rast(m6, ext = len)
+
+par(mfrow = c(3, 2))
+plot(r1, main = ""); plot(r5, main = "")
+plot(r4, main = ""); plot(r2, main = "")
+plot(r3, main = ""); plot(r6, main = "")
+```
+
+```{r echo = F, message = F, warning=FALSE}
+library(rgdal); library(ggplot2); library(viridis)
+
+edos <- readOGR("gadm36_MEX_shp/gadm36_MEX_1.shp")
+edos$ID <- seq(1.1, 32.1, by = 1.0)
+edos$NAME_1
+
+p1 <- ggplot(edos) +
+        geom_polygon(aes(x = long, y = lat, 
+                         group = group, fill = edos$ID), 
+                     colour = "grey50") +
+        coord_equal() +
+        labs(x = "x", y = "y", title = "", fill = "") +
+        theme_minimal()
+
+p2 <- ggplot(edos) +
+        geom_polygon(aes(x = long, y = lat, 
+                         group = group, fill = "NAME_1"),
+                     colour = "grey50") +
+        coord_equal() +
+        labs(x = "x", y = "y", title = "", fill = "") +
+        theme_minimal() + 
+        theme(legend.position = "none")
+p2
+```
+

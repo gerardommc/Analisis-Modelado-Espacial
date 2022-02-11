@@ -35,12 +35,57 @@ Como ya han de saber, la correlación es una prueba de estadística frecuentista
 r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
 \end{equation}
 
-donde $x_1$ y $x_2$ son las dos variables, cuya correlación queremos medir. Esta prueba de correlación se llama de **Pearson**, y existen algunas modificaciones para datos de otra naturaleza como los ordinales, para lo cual se utiliza la correlación de **Spearman**. El coeficiente de correlación de esta última se denota con $\rho$.
+donde $x_1$ y $x_2$ son las dos variables centradas (variable menos la media aritmética), cuya correlación queremos medir. Esta prueba de correlación se llama de **Pearson**, y existen algunas modificaciones para datos de otra naturaleza como los ordinales, para lo cual se utiliza la correlación de **Spearman**. El coeficiente de correlación de esta última se denota con $\rho$.
 
 La correlación de Spearman es menos sensible que la de Pearson a correlaciones no lineales, por lo que si la gráfica de las variables $x_1, x_2$ no forma una línea recta como en \@ref(fig:Alta-corr), se puede probar con la correlación de Spearman.
 
-#### 
+#### Correlación en R
 
+Medir la correlación entre dos variables espaciales en **R** es muy fácil, aunque antes de proseguir, debemos aprender a manejar los datos espaciales en **R**. Como ya han de saber, cuando no podemos hacer algo en R básico, hay que echar un vistazo a las librerías. Las más potentes para manejar datos espaciales son `raster` y `rgdal`. La primera, como su nommbre indica, sirve principalmente para imágenes, la segunda, para vectores y puntos. Ambas son compatibles, es decir se pueden hacer procesos espaciales combinando los objetos de **R** que ambos paquetes utilizan.
+
+Vamos a leer un raster con la paquetería `raster` y la función del mismo nombre:
+
+```{r echo = T}
+library(raster)
+r <- raster("Capas-ejemplo/bio1.tif")
+```
+
+El nombre del achivo es `bio1.tif` y está contenido en la carpeta "Capas ejemplo". Para hacer una prueba de correlación, necesitamos leer otra capa:
+
+```{r echo = T}
+r1 <- raster("Capas-ejemplo/bio11.tif")
+```
+
+y las vamos a agrupar en un objeto para hacer la prueba de correlación con la función `pairs` del mismo paquete `raster`:
+
+```{r echo = T, fig.height=4.5, fig.width=4.5}
+st <- stack(r, r1)
+pairs(st)
+```
+
+Como podemos ver, la función `pairs` hace un gráfica con los histogramas de cada variable (en verde), el gráfico de dispersión, y el coeficiente de correlación de Pearson. Vamos a ver entonces qué está haciedo la función `pairs`
+
+Vamos a transformar sl objeto `st` en una tabla con dos columnas para las coordenadas geográficas de cada píxel y otras dos para los valores de cada variable:
+
+```{r echo = T}
+t1 <- rasterToPoints(st)
+t1 <- data.frame(t1)
+knitr::kable(head(t1))
+```
+
+Como sabemos el coeficiente de correlación de Pearson utiliza dos cálculos, $\sum x_1 x_2$ y $\sqrt{\sum x_1^2 \sum x_2^2}$. Vamos a hacerlos a continuación:
+
+```{r echo = T}
+x1 <- t1$bio1; x2 <- t1$bio11
+
+x1 <- x1-mean(x1); x2 <- x2-mean(x2)
+
+calc.1 <- sum(x1 * x2)
+calc.2 <- sqrt(sum(x1^2) * sum(x2^2))
+
+coef.pearson <- calc.1/calc.2
+coef.pearson
+```
 
 ### Regresión
 
