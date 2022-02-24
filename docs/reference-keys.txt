@@ -1,7 +1,7 @@
-fig:unnamed-chunk-6
 fig:unnamed-chunk-7
 fig:unnamed-chunk-8
 fig:unnamed-chunk-9
+fig:unnamed-chunk-10
 fig:Serie-temporal
 fig:Autocorrelación
 fig:Alta-corr
@@ -36,6 +36,8 @@ breve-recordatorio-del-cálculo-de-la-correlación
 correlación-en-r
 regresión
 análisis-de-asociación-espacial
+índice-de-moran-para-rasters-en-r
+índice-de-moran-para-puntos
 interpolación
 unidad-iii
 unidad-iv

@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-11" />
+<meta name="date" content="2022-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -170,7 +170,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial"><i class="fa fa-check"></i><b>4.1.1</b> Correlación espacial</a></li>
 <li class="chapter" data-level="4.1.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión"><i class="fa fa-check"></i><b>4.1.2</b> Regresión</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-rasters-en-r"><i class="fa fa-check"></i><b>4.2.1</b> Índice de Moran para rasters en R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos"><i class="fa fa-check"></i><b>4.2.2</b> Índice de Moran para puntos</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
@@ -241,7 +245,7 @@ r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
 <p>y las vamos a agrupar en un objeto para hacer la prueba de correlación con la función <code>pairs</code> del mismo paquete <code>raster</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">stack</span>(r, r1)</span>
 <span id="cb5-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(st)</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-14-1.png" width="432" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-15-1.png" width="432" /></p>
 <p>Como podemos ver, la función <code>pairs</code> hace un gráfica con los histogramas de cada variable (en verde), el gráfico de dispersión, y el coeficiente de correlación de Pearson. Vamos a ver entonces qué está haciedo la función <code>pairs</code></p>
 <p>Vamos a transformar sl objeto <code>st</code> en una tabla con dos columnas para las coordenadas geográficas de cada píxel y otras dos para los valores de cada variable:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">rasterToPoints</span>(st)</span>
@@ -310,10 +314,96 @@ r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
 </div>
 <div id="regresión" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Regresión</h3>
+<p>La regresión lineal es un procedimiento relativamente similar a la correlación, aunque la principal diferencia está en que la regresión estima parámetros de una ecuación lineal que se puede usar para <em>predicción</em>, y para identificar variables que explican el comportamiento de los datos que hemos colectado o generado. En contraste la correlación sólo nos sirve para ver si dos variables aleatorias se predicen mutuamente, con qué grado de precisión (coeficiente de correlación), y el sentido (positivo o negativo).</p>
+<p>En una regresión lineal, estimamos una serie de parámetros que corresponden con las constantes de una ecuación lineal:</p>
+<p><span class="math display">\[
+y(x) = \alpha + \beta x
+\]</span>
+donde <span class="math inline">\(\alpha\)</span> es el intercepto o el valor de <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x=0\)</span>, y <span class="math inline">\(\beta\)</span> es la pendiente de <span class="math inline">\(y\)</span> con respecto de <span class="math inline">\(x\)</span>, es decir cuánto cambia <span class="math inline">\(y\)</span> si <span class="math inline">\(x\)</span> aumenta en una unidad.</p>
+<p>Otro parámetro importante que estimamos en una regresión lineal es <span class="math inline">\(r^2\)</span>, y como su nombre lo indica es el cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>.</p>
+<p>Cuando hacemos modelación estadística, es importante estar al tanto de algunos supuestos. En regresión lineal, estos son algunos importantes:</p>
+<ol style="list-style-type: decimal">
+<li>Las observaciones de <span class="math inline">\(y\)</span> son independientes entre sí</li>
+<li>La relación entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> es lineal</li>
+<li><span class="math inline">\(y\)</span> tiene una distribución unimodal y con varianza homogénea (igual por arriba y abajo de la media).</li>
+</ol>
 </div>
 </div>
 <div id="análisis-de-asociación-espacial" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Análisis de asociación espacial</h2>
+<p>A diferencia de las dos secciones anteriores, donde vimos cómo se puede estimar el grado de asociación entre dos procesos espaciales, aquí veremos cómo medir la asociación de una sola variable con el espacio, es decir si ésta variable tiene estructura espacial (autocorrelación).</p>
+<p>Igual que como hicimos con la prueba de correlación, veamos la fórmula del índice de autocorrelación <strong>Moran’s I</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+    I = N \times W \times \sum \sum w_{ij} {(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
+\end{equation}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(N\)</span> es el número total de unidades espaciales indizadas por <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(W\)</span> es la suma de $w_{ij}</li>
+<li><span class="math inline">\(x\)</span> es la variable de interés</li>
+<li><span class="math inline">\(\bar{x}\)</span> es la media de <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(w_{ij}\)</span> es una matriz de pesos espaciales</li>
+</ul>
+<p>El índice de Moran toma valores de <span class="math inline">\(-1 &gt; I &lt; 1\)</span>, y su interpretación es <em>similar</em> a la del índice de correlación <em>r</em>. De acuerdo con <a href="https://www.statology.org/morans-i/">statology</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = 0\)</span> significa que la variable espacial tiene una dispersión aleatoria en el espacio:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani1.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = -1\)</span>, la variable espacial tiene una dispesión perfecta en el espacio:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani2.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = 1\)</span>, la variable espacial tiene una agregación espacial perfecta:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani3.png" /></p>
+<div id="índice-de-moran-para-rasters-en-r" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Índice de Moran para rasters en R</h3>
+<p>Existen muchas implementaciones del índice de autocorrelación de Moran, el que utilizaremos está en el paquete <code>raster</code>, y utilizaremos una de las capas de las dos clases pasadas, y otras dos que representarán los casos 2 y 3 de arriba.</p>
+<p>Comenzaremos cargando la capa de la variable ambiental:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb9-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/Var-1.tif&quot;</span>)</span>
+<span id="cb9-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Moran-1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moran</span>(r)</span></code></pre></div>
+<pre><code>## [1] 0.78433</code></pre>
+<p>Como podemos ver la capa <code>Var-1</code> está altamente autocorrelacionada, tanto de manera visible, como estadísticamente. Ahora veamos un caso distinto, creando una capa nueva con valores completamente aleatorios:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> r <span class="co">#Creando el objeto nuevo</span></span>
+<span id="cb12-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-2" aria-hidden="true" tabindex="-1"></a>r1[] <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fu">ncell</span>(r)) <span class="co">#Reemplazando los valores con unos generados aleatoriamente con una distribución uniforme entre 0 y 1</span></span>
+<span id="cb12-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r1)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Moran-2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moran</span>(r1)</span></code></pre></div>
+<pre><code>## [1] -0.01185495</code></pre>
+</div>
+<div id="índice-de-moran-para-puntos" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Índice de Moran para puntos</h3>
+<p>También es posible estimar el índice de Moran para datos de puntos o vectoriales, aunque es necesario construir la matriz de adyacencias espaciales. Haremos este análisis para los datos del primer ejercicio de regresión que hicimos en clase. La matriz de adyacencias es una representación de quién es vecino de quién. Por ejemplo, en la figura <a href="#fig:Moran-2"><strong>??</strong></a> el píxel de la esquina superior izquierda es la observación <span class="math inline">\(x_{1, 1}\)</span>, y sus vecinas son <span class="math inline">\(x_{1, 2}\)</span> y <span class="math inline">\(x_{2, 1}\)</span>, donde <span class="math inline">\(i\)</span> es la fila y <span class="math inline">\(j\)</span> es la columna. Para puntos (figura <a href="#fig:Puntos-moran"><strong>??</strong></a>), obtendremos la matriz de adyacencia con base en distancia, de modo que consideraremos vecinos a puntos que estén dentro de una distancia predeterminada.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Datos-ejercicio.csv&quot;</span>)</span>
+<span id="cb15-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-2" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>reg <span class="ot">&lt;-</span> <span class="fu">with</span>(datos, (Mediciones <span class="sc">-</span> <span class="fu">min</span>(Mediciones))<span class="sc">/</span>(<span class="fu">max</span>(Mediciones) <span class="sc">-</span> <span class="fu">min</span>(Mediciones)) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb15-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(Longitud, Latitud, <span class="at">cex =</span> reg))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Puntos-moran-1.png" width="480" style="display: block; margin: auto;" />
+La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por <em>Spatial Dependence</em>, o dependencia espacial). Para puntos con valores asociados a sus coordenadas geográficas, requiere un par de pasos más:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span></code></pre></div>
+<pre><code>## Loading required package: spData</code></pre>
+<pre><code>## To access larger datasets in this package, install the spDataLarge
+## package with: `install.packages(&#39;spDataLarge&#39;,
+## repos=&#39;https://nowosad.github.io/drat/&#39;, type=&#39;source&#39;)`</code></pre>
+<pre><code>## Loading required package: sf</code></pre>
+<pre><code>## Linking to GEOS 3.9.0, GDAL 3.2.2, PROJ 7.2.1</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-1" aria-hidden="true" tabindex="-1"></a>vecindad <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]), <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">250</span>, <span class="at">longlat =</span> T)</span>
+<span id="cb21-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-2" aria-hidden="true" tabindex="-1"></a>vec.listw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(vecindad)</span>
+<span id="cb21-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-3" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">nb2mat</span>(vecindad))</span>
+<span id="cb21-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-5" aria-hidden="true" tabindex="-1"></a>I.puntos <span class="ot">&lt;-</span> <span class="fu">moran</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">S0 =</span> <span class="dv">100</span>)</span>
+<span id="cb21-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-6" aria-hidden="true" tabindex="-1"></a>I.puntos</span></code></pre></div>
+<pre><code>## $I
+## [1] 0.002703908
+## 
+## $K
+## [1] 2.852204</code></pre>
+<p>Brevemente, la función <code>dnearneigh</code> crea un objeto que contiene: el número de vecinos de cada punto, con base en el criterio de distancia (0 - 250 km), y la identidad de los vecinos de cada punto (punto 1, 2, 3, etc.). Por alguna razón, este objeto tenemos que representarlo como una lista, que no es otra cosa que una colección de objetos de distinta naturaleza y tamaño, para lo que utilizamos <code>nb2listw</code> (<em>neighbourhood to weights list</em>). Y la última pieza de información que necesitamos es la suma total de pesos espaciales, la cual obtenemos con la suma de los elementos de la matriz con la función <code>nb2mat</code> (<em>neighbourhood to matrix</em>). Finalmente utilizamos la functión <code>moran</code> (del paquete <code>spdep</code>) para obtener el valor del estadístico I. Nota que para rasters utilizamos la función <code>Moran</code> del paquete <code>raster</code>.</p>
+</div>
 </div>
 <div id="interpolación" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Interpolación</h2>

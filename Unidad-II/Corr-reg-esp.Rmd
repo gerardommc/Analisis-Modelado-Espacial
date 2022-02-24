@@ -89,9 +89,19 @@ coef.pearson
 
 ### Regresión
 
+La regresión lineal es un procedimiento relativamente similar a la correlación, aunque la principal diferencia está en que la regresión estima parámetros de una ecuación lineal que se puede usar para *predicción*, y para identificar variables que explican el comportamiento de los datos que hemos colectado o generado. En contraste la correlación sólo nos sirve para ver si dos variables aleatorias se predicen mutuamente, con qué grado de precisión (coeficiente de correlación), y el sentido (positivo o negativo).
 
+En una regresión lineal, estimamos una serie de parámetros que corresponden con las constantes de una ecuación lineal:
 
+$$
+y(x) = \alpha + \beta x
+$$
+donde $\alpha$ es el intercepto o el valor de $y$ cuando $x=0$, y $\beta$ es la pendiente de $y$ con respecto de $x$, es decir cuánto cambia $y$ si $x$ aumenta en una unidad.
 
+Otro parámetro importante que estimamos en una regresión lineal es $r^2$, y como su nombre lo indica es el cuadrado del coeficiente de correlación $r$.
 
+Cuando hacemos modelación estadística, es importante estar al tanto de algunos supuestos. En regresión lineal, estos son algunos importantes:
 
-
+1. Las observaciones de $y$ son independientes entre sí
+2. La relación entre $x$ y $y$ es lineal
+3. $y$ tiene una distribución unimodal y con varianza homogénea (igual por arriba y abajo de la media).
