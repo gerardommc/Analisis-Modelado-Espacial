@@ -61,7 +61,7 @@ with(datos, plot(Longitud, Latitud, cex = reg))
 ```
 La matriz de adyacencia podemos obtenerla con el paquete `spdep`(por *Spatial Dependence*, o dependencia espacial). Para puntos con valores asociados a sus coordenadas geográficas, requiere un par de pasos más:
 
-```{r echo = T}
+```{r echo = T, message=FALSE, warning = F}
 library(spdep)
 
 vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0, d2 = 250, longlat = T)
