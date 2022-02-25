@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-24" />
+<meta name="date" content="2022-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -174,6 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-rasters-en-r"><i class="fa fa-check"></i><b>4.2.1</b> Índice de Moran para rasters en R</a></li>
 <li class="chapter" data-level="4.2.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos"><i class="fa fa-check"></i><b>4.2.2</b> Índice de Moran para puntos</a></li>
+<li class="chapter" data-level="4.2.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#ejemplo-de-aplicación-para-análisis-de-residuales"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de aplicación para análisis de residuales</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a></li>
 </ul></li>
@@ -245,7 +246,7 @@ r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
 <p>y las vamos a agrupar en un objeto para hacer la prueba de correlación con la función <code>pairs</code> del mismo paquete <code>raster</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">stack</span>(r, r1)</span>
 <span id="cb5-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(st)</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-15-1.png" width="432" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-16-1.png" width="432" /></p>
 <p>Como podemos ver, la función <code>pairs</code> hace un gráfica con los histogramas de cada variable (en verde), el gráfico de dispersión, y el coeficiente de correlación de Pearson. Vamos a ver entonces qué está haciedo la función <code>pairs</code></p>
 <p>Vamos a transformar sl objeto <code>st</code> en una tabla con dos columnas para las coordenadas geográficas de cada píxel y otras dos para los valores de cada variable:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">rasterToPoints</span>(st)</span>
@@ -334,12 +335,12 @@ donde <span class="math inline">\(\alpha\)</span> es el intercepto o el valor de
 <p>A diferencia de las dos secciones anteriores, donde vimos cómo se puede estimar el grado de asociación entre dos procesos espaciales, aquí veremos cómo medir la asociación de una sola variable con el espacio, es decir si ésta variable tiene estructura espacial (autocorrelación).</p>
 <p>Igual que como hicimos con la prueba de correlación, veamos la fórmula del índice de autocorrelación <strong>Moran’s I</strong>:</p>
 <p><span class="math display">\[\begin{equation}
-    I = N \times W \times \sum \sum w_{ij} {(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
+    I = N \times W \times \sum_{i = 1}^n \sum_{j = 1}^n w_{ij} \frac{(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
 \end{equation}\]</span></p>
 <p>donde:</p>
 <ul>
 <li><span class="math inline">\(N\)</span> es el número total de unidades espaciales indizadas por <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span></li>
-<li><span class="math inline">\(W\)</span> es la suma de $w_{ij}</li>
+<li><span class="math inline">\(W\)</span> es la suma de pesos <span class="math inline">\(w_{ij}\)</span></li>
 <li><span class="math inline">\(x\)</span> es la variable de interés</li>
 <li><span class="math inline">\(\bar{x}\)</span> es la media de <span class="math inline">\(x\)</span></li>
 <li><span class="math inline">\(w_{ij}\)</span> es una matriz de pesos espaciales</li>
@@ -399,9 +400,71 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 ## [1] 2.852204</code></pre>
 <p>Brevemente, la función <code>dnearneigh</code> crea un objeto que contiene: el número de vecinos de cada punto, con base en el criterio de distancia (0 - 250 km), y la identidad de los vecinos de cada punto (punto 1, 2, 3, etc.). Por alguna razón, este objeto tenemos que representarlo como una lista, que no es otra cosa que una colección de objetos de distinta naturaleza y tamaño, para lo que utilizamos <code>nb2listw</code> (<em>neighbourhood to weights list</em>). Y la última pieza de información que necesitamos es la suma total de pesos espaciales, la cual obtenemos con la suma de los elementos de la matriz con la función <code>nb2mat</code> (<em>neighbourhood to matrix</em>). Finalmente utilizamos la functión <code>moran</code> (del paquete <code>spdep</code>) para obtener el valor del estadístico I. Nota que para rasters utilizamos la función <code>Moran</code> del paquete <code>raster</code>.</p>
 </div>
+<div id="ejemplo-de-aplicación-para-análisis-de-residuales" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Ejemplo de aplicación para análisis de residuales</h3>
+<p>Como se mencionó en el análisis de regresión, el análisis de residuales es esencial en el modelado espacial, pues nos indican si los datos analizados cumplen con el supuesto de independencia.</p>
+<p>Comenzaremos con el análisis de regresión, cargando los datos obtenidos en campo:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(string)</span>
+<span id="cb18-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(Longitud, Latitud, <span class="at">cex =</span> Mediciones))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-21-1.png" width="480" /></p>
+<p>y las variables raster para analizar los datos colectados en campo:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb19-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">stack</span>(<span class="fu">paste0</span>(<span class="st">&quot;Capas-ejemplo/Var-&quot;</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="st">&quot;.tif&quot;</span>))</span>
+<span id="cb19-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-22-1.png" width="960" /></p>
+<p>Una vez cargados lo datos, extraemos los valores de ambas variables con las coordenadas donde obtuvimos las mediciones en campo:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>r.extract <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">extract</span>(r, datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]))</span>
+<span id="cb20-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(datos, r.extract)</span></code></pre></div>
+<p>Como pueden ver, los datos extraídos los incorporamos al mismo <code>data.frame</code> donde teníamos los datos obtenidos en campo. Este paso, facilitará mucho el manejo de los datos y el llamado de las distintas funciones de <strong>R</strong>, como la regresión lineal:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(Mediciones <span class="sc">~</span> Var<span class="fl">.2</span>, <span class="at">data =</span> datos)</span>
+<span id="cb21-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo<span class="fl">.1</span>)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Mediciones ~ Var.2, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.5996 -0.5276  0.2858  0.8551  1.9831 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 15.120815   1.115281   13.56   &lt;2e-16 ***
+## Var.2       -0.100829   0.009265  -10.88   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.216 on 98 degrees of freedom
+## Multiple R-squared:  0.5472, Adjusted R-squared:  0.5426 
+## F-statistic: 118.4 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Estos resultados ya los conocemos, y muestran que la variable <code>Var.2</code>afecta significativamente a las mediciones que obtuvimos en campo. Ahora entonces tenemos que ver si los residuales se comportan de manera adecuada, primero extrayéndolos y después estimando su asociación con el espacio:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb23-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Residuales <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo<span class="fl">.1</span>)</span></code></pre></div>
+<p>Y proseguimos con el índice de Moran como lo hicimos anteriormente, tanto con las mediciones como con los residuales</p>
+<pre><code>## [1] 0.007691526</code></pre>
+<pre><code>## [1] 0.008521393</code></pre>
+<p>Lo que sugiere que los residuales tienden a la dispersión aleatoria. El valor obtenido de I para los residuales cambia la conclusión a la que habíamos llegado por medio del análisis visual de los residuales. Sin embargo, !los residuales están más agregados que los datos crudos! El índice de Moran no es una prueba perfecta, más aún con datos de puntos para los cuales el concepto de “vecino” es más ambiguo que con rásters y polígonos.</p>
+</div>
 </div>
 <div id="interpolación" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Interpolación</h2>
+<p>La interpolación es el proceso de aproximación de los valores en un intervalo en el que sólo conocemos los extremos inferior y superior. Así por ejemplo en el conjunto ordenado de valores:</p>
+<p><span class="math display">\[
+1, 3, 5, 7
+\]</span></p>
+<p>es posible inferir que los valores intermedios son:</p>
+<p><span class="math display">\[
+2, 4, 6
+\]</span></p>
+<p>asumiendo que entre cada observación <span class="math inline">\(1, 3, 5, 7\)</span>, los valores intermedios se pueda aproximar linealmente.</p>
+<p>En modelado espacial, la interpolación se utiliza muy frecuentemente para generar capas ráster a partir de mediciones en puntos, como aquellas que utilizamos en correlación y regresión. El fin último de la interpolación es la predecir la variación espacial de los valores de la variable que medimos.</p>
+<p>Así como rellenamos los valores intermedios en la secuencia <span class="math inline">\(1, 3, 5, 7\)</span> asumiento linealidad, hay muchos otros métodos para predicción de valores ordenados de manera más compleja y en dos dimensiones.</p>
+<p>Algunas de las técnicas más comunes para predicción espacial son:</p>
+<ol style="list-style-type: decimal">
+<li>Inverso de la distancia</li>
+<li>Vecino más próximo</li>
+<li>Regresión sobre las coordenadas</li>
+<li>Splines</li>
+</ol>
+<p>A continuación veremos algunas de las diferencias entre ellas y como se pueden hacer tanto en R como en QGIS.</p>
 
 </div>
 </div>

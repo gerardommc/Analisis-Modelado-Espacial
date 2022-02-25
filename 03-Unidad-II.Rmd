@@ -15,3 +15,8 @@ La asociación espacial es el pilar del análisis espacial, y consiste principal
 ```
 
 ## Interpolación
+
+```{r echo = F, child="Unidad-II/Interpolacion.Rmd"}
+
+```
+

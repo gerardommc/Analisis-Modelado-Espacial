@@ -1,0 +1,26 @@
+La interpolación es el proceso de aproximación de los valores en un intervalo en el que sólo conocemos los extremos inferior y superior. Así por ejemplo en el conjunto ordenado de valores:
+
+$$
+1, 3, 5, 7
+$$
+
+es posible inferir que los valores intermedios son:
+
+$$
+2, 4, 6
+$$
+
+asumiendo que entre cada observación $1, 3, 5, 7$, los valores intermedios se pueda aproximar linealmente.
+
+En modelado espacial, la interpolación se utiliza muy frecuentemente para generar capas ráster a partir de mediciones en puntos, como aquellas que utilizamos en correlación y regresión. El fin último de la interpolación es la predecir la variación espacial de los valores de la variable que medimos.
+
+Así como rellenamos los valores intermedios en la secuencia $1, 3, 5, 7$ asumiento linealidad, hay muchos otros métodos para predicción de valores ordenados de manera más compleja y en dos dimensiones.
+
+Algunas de las técnicas más comunes para predicción espacial son:
+
+1. Inverso de la distancia
+2. Vecino más próximo
+3. Regresión sobre las coordenadas
+4. Splines
+
+A continuación veremos algunas de las diferencias entre ellas y como se pueden hacer tanto en R como en QGIS.

@@ -1,7 +1,7 @@
-fig:unnamed-chunk-7
 fig:unnamed-chunk-8
 fig:unnamed-chunk-9
 fig:unnamed-chunk-10
+fig:unnamed-chunk-11
 fig:Serie-temporal
 fig:Autocorrelación
 fig:Alta-corr
@@ -38,6 +38,7 @@ regresión
 análisis-de-asociación-espacial
 índice-de-moran-para-rasters-en-r
 índice-de-moran-para-puntos
+ejemplo-de-aplicación-para-análisis-de-residuales
 interpolación
 unidad-iii
 unidad-iv

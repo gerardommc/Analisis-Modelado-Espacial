@@ -3,13 +3,13 @@ A diferencia de las dos secciones anteriores, donde vimos cómo se puede estimar
 Igual que como hicimos con la prueba de correlación, veamos la fórmula del índice de autocorrelación **Moran's I**:
 
 \begin{equation}
-    I = N \times W \times \sum \sum w_{ij} {(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
+    I = N \times W \times \sum_{i = 1}^n \sum_{j = 1}^n w_{ij} \frac{(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
 \end{equation}
 
 donde:
 
 - $N$ es el número total de unidades espaciales indizadas por $i$ y $j$
-- $W$ es la suma de $w_{ij}
+- $W$ es la suma de pesos $w_{ij}$
 - $x$ es la variable de interés
 - $\bar{x}$ es la media de $x$
 - $w_{ij}$ es una matriz de pesos espaciales
@@ -74,3 +74,64 @@ I.puntos
 
 Brevemente, la función `dnearneigh` crea un objeto que contiene: el número de vecinos de cada punto, con base en el criterio de distancia (0 - 250 km), y la identidad de los vecinos de cada punto (punto 1, 2, 3, etc.).  Por alguna razón, este objeto tenemos que representarlo como una lista, que no es otra cosa que una colección de objetos de distinta naturaleza y tamaño, para lo que utilizamos `nb2listw` (*neighbourhood to weights list*). Y la última pieza de información que necesitamos es la suma total de pesos espaciales, la cual obtenemos con la suma de los elementos de la matriz con la función `nb2mat` (*neighbourhood to matrix*). Finalmente utilizamos la functión `moran` (del paquete `spdep`) para obtener el valor del estadístico I. Nota que para rasters utilizamos la función `Moran` del paquete `raster`.
 
+### Ejemplo de aplicación para análisis de residuales
+
+Como se mencionó en el análisis de regresión, el análisis de residuales es esencial en el modelado espacial, pues nos indican si los datos analizados cumplen con el supuesto de independencia. 
+
+Comenzaremos con el análisis de regresión, cargando los datos obtenidos en campo:
+
+```{r echo = F}
+string <- "Datos-ejercicio-tarea.csv"
+```
+
+
+```{r echo=T, fig.height=5, fig.width=5}
+datos <- read.csv(string)
+with(datos, plot(Longitud, Latitud, cex = Mediciones))
+```
+
+y las variables raster para analizar los datos colectados en campo:
+
+```{r echo=T, fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
+library(raster)
+r <- stack(paste0("Capas-ejemplo/Var-", c(1, 2), ".tif"))
+plot(r)
+```
+
+Una vez cargados lo datos, extraemos los valores de ambas variables con las coordenadas donde obtuvimos las mediciones en campo:
+
+```{r echo = T}
+r.extract <- data.frame(extract(r, datos[, c("Longitud", "Latitud")]))
+datos <- data.frame(datos, r.extract)
+```
+
+Como pueden ver, los datos extraídos los incorporamos al mismo `data.frame` donde teníamos los datos obtenidos en campo. Este paso, facilitará mucho el manejo de los datos y el llamado de las distintas funciones de **R**, como la regresión lineal:
+
+```{r echo = T}
+modelo.1 <- lm(Mediciones ~ Var.2, data = datos)
+summary(modelo.1)
+```
+
+Estos resultados ya los conocemos, y muestran que la variable `Var.2`afecta significativamente a las mediciones que obtuvimos en campo. Ahora entonces tenemos que ver si los residuales se comportan de manera adecuada, primero extrayéndolos y después estimando su asociación con el espacio:
+
+```{r echo = T}
+datos$Residuales <- residuals(modelo.1)
+```
+
+Y proseguimos con el índice de Moran como lo hicimos anteriormente, tanto con las mediciones como con los residuales
+
+```{r}
+library(spdep)
+
+vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0, d2 = 75, longlat = T)
+vec.listw <- nb2listw(vecindad)
+S0 <- sum(nb2mat(vecindad))
+
+I.meds <- moran(x = datos$Mediciones, listw = vec.listw, n = 1, S0 = S0)
+
+I.res <- moran(x = datos$Residuales, listw = vec.listw, n = 1, S0 = S0)
+I.meds$I
+I.res$I
+```
+
+Lo que sugiere que los residuales tienden a la dispersión aleatoria. El valor obtenido de I para los residuales cambia la conclusión a la que habíamos llegado por medio del análisis visual de los residuales. Sin embargo, !los residuales están más agregados que los datos crudos! El índice de Moran no es una prueba perfecta, más aún con datos de puntos para los cuales el concepto de "vecino" es más ambiguo que con rásters y polígonos. 
