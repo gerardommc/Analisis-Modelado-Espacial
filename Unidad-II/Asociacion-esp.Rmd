@@ -120,7 +120,7 @@ datos$Residuales <- residuals(modelo.1)
 
 Y proseguimos con el índice de Moran como lo hicimos anteriormente, tanto con las mediciones como con los residuales
 
-```{r}
+```{r echo = T}
 library(spdep)
 
 vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0, d2 = 75, longlat = T)
