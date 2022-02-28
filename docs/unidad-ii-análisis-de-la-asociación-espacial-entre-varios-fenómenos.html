@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-25" />
+<meta name="date" content="2022-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -176,7 +176,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos"><i class="fa fa-check"></i><b>4.2.2</b> Índice de Moran para puntos</a></li>
 <li class="chapter" data-level="4.2.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#ejemplo-de-aplicación-para-análisis-de-residuales"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de aplicación para análisis de residuales</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés"><i class="fa fa-check"></i><b>4.3.1</b> Inverso de la distancia (IDW en inglés)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.2</b> Vecino más próximo</a></li>
+<li class="chapter" data-level="4.3.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas"><i class="fa fa-check"></i><b>4.3.3</b> Regresión sobre las coordenadas</a></li>
+<li class="chapter" data-level="4.3.4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines"><i class="fa fa-check"></i><b>4.3.4</b> Splines</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
 <li class="chapter" data-level="6" data-path="unidad-iv.html"><a href="unidad-iv.html"><i class="fa fa-check"></i><b>6</b> Unidad IV</a></li>
@@ -475,8 +481,27 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 <li>Regresión sobre las coordenadas</li>
 <li>Splines</li>
 </ol>
-<p>A continuación veremos algunas de las diferencias entre ellas y como se pueden hacer tanto en R como en QGIS.</p>
+<div id="inverso-de-la-distancia-idw-en-inglés" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Inverso de la distancia (IDW en inglés)</h3>
+<p>Este método asume que los valores de la variable interpolada entre los puntos de referencia cambia en relación directa con la distancia entre los puntos. Por ejemplo, Si tenemos dos mediciones de temperatura separadas físicamente 10 km, y queremos estimar la temperatura en los puntos intermedios con una precisión de 1 km, la temperatura de éstos será proporcional a la diferencie entre las mediciones.</p>
+<div class="figure" style="text-align: center"><span id="fig:Interp-dist"></span>
+<img src="Unidad-II/Interp-distancia.png" alt="Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación." width="908" />
+<p class="caption">
+Figura 4.3: Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación.
+</p>
+</div>
+</div>
+<div id="vecino-más-próximo" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Vecino más próximo</h3>
+<p>Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.</p>
+</div>
+<div id="regresión-sobre-las-coordenadas" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Regresión sobre las coordenadas</h3>
+</div>
+<div id="splines" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Splines</h3>
 
+</div>
 </div>
 </div>
             </section>

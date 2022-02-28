@@ -23,4 +23,22 @@ Algunas de las técnicas más comunes para predicción espacial son:
 3. Regresión sobre las coordenadas
 4. Splines
 
-A continuación veremos algunas de las diferencias entre ellas y como se pueden hacer tanto en R como en QGIS.
+### Inverso de la distancia (IDW en inglés)
+
+Este método asume que los valores de la variable interpolada entre los puntos de referencia cambia en relación directa con la distancia entre los puntos. Por ejemplo, Si tenemos dos mediciones de temperatura separadas físicamente 10 km, y queremos estimar la temperatura en los puntos intermedios con una precisión de 1 km, la temperatura de éstos será proporcional a la diferencie entre las mediciones.
+
+```{r Interp-dist, echo = F, fig.align='center', fig.cap="Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación."}
+
+knitr::include_graphics("Unidad-II/Interp-distancia.png")
+```
+
+### Vecino más próximo
+
+Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.
+
+### Regresión sobre las coordenadas
+
+### Splines
+
+### Implementación
+

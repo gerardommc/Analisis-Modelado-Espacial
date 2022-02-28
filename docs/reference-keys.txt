@@ -6,6 +6,7 @@ fig:Serie-temporal
 fig:Autocorrelación
 fig:Alta-corr
 fig:Baja-corr
+fig:Interp-dist
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -40,6 +41,10 @@ análisis-de-asociación-espacial
 índice-de-moran-para-puntos
 ejemplo-de-aplicación-para-análisis-de-residuales
 interpolación
+inverso-de-la-distancia-idw-en-inglés
+vecino-más-próximo
+regresión-sobre-las-coordenadas
+splines
 unidad-iii
 unidad-iv
 unidad-v
