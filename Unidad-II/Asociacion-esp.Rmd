@@ -144,5 +144,4 @@ I.meds
 I.res
 ```
 
-
-Lo que sugiere que los residuales tienden a la dispersión aleatoria. El valor obtenido de I para los residuales cambia la conclusión a la que habíamos llegado por medio del análisis visual de los residuales. Sin embargo, !los residuales están más agregados que los datos crudos! El índice de Moran no es una prueba perfecta, más aún con datos de puntos para los cuales el concepto de "vecino" es más ambiguo que con rásters y polígonos. 
+Lo que sugiere que los residuales están muy agregados.
