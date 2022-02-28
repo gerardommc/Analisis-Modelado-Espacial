@@ -64,11 +64,11 @@ La matriz de adyacencia podemos obtenerla con el paquete `spdep`(por *Spatial De
 ```{r echo = T, message=FALSE, warning = F}
 library(spdep)
 
-vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0, d2 = 250, longlat = T)
+vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0, d2 = 75, longlat = T)
 vec.listw <- nb2listw(vecindad)
 S0 <- sum(nb2mat(vecindad))
 
-I.puntos <- moran(x = datos$Mediciones, listw = vec.listw, n = 1, S0 = 100)
+I.puntos <- moran.test(x = datos$Mediciones, listw = vec.listw)
 I.puntos
 ```
 
@@ -127,11 +127,22 @@ vecindad <- dnearneigh(x = as.matrix(datos[, c("Longitud", "Latitud")]), d1 = 0,
 vec.listw <- nb2listw(vecindad)
 S0 <- sum(nb2mat(vecindad))
 
-I.meds <- moran(x = datos$Mediciones, listw = vec.listw, n = 1, S0 = S0)
+I.meds <- moran.test(x = datos$Mediciones, listw = vec.listw)
 
-I.res <- moran(x = datos$Residuales, listw = vec.listw, n = 1, S0 = S0)
-I.meds$I
-I.res$I
+I.res <- moran.test(x = datos$Residuales, listw = vec.listw)
 ```
+
+Índice de Moran para las mediciones
+
+```{r}
+I.meds
+```
+
+Índice de Moran para los residuales
+
+```{r}
+I.res
+```
+
 
 Lo que sugiere que los residuales tienden a la dispersión aleatoria. El valor obtenido de I para los residuales cambia la conclusión a la que habíamos llegado por medio del análisis visual de los residuales. Sin embargo, !los residuales están más agregados que los datos crudos! El índice de Moran no es una prueba perfecta, más aún con datos de puntos para los cuales el concepto de "vecino" es más ambiguo que con rásters y polígonos. 

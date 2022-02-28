@@ -182,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.2</b> Vecino más próximo</a></li>
 <li class="chapter" data-level="4.3.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas"><i class="fa fa-check"></i><b>4.3.3</b> Regresión sobre las coordenadas</a></li>
 <li class="chapter" data-level="4.3.4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines"><i class="fa fa-check"></i><b>4.3.4</b> Splines</a></li>
+<li class="chapter" data-level="4.3.5" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#implementación"><i class="fa fa-check"></i><b>4.3.5</b> Implementación</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
@@ -393,17 +394,23 @@ donde <span class="math inline">\(\alpha\)</span> es el intercepto o el valor de
 La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por <em>Spatial Dependence</em>, o dependencia espacial). Para puntos con valores asociados a sus coordenadas geográficas, requiere un par de pasos más:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span>
 <span id="cb16-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-3" aria-hidden="true" tabindex="-1"></a>vecindad <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]), <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">250</span>, <span class="at">longlat =</span> T)</span>
+<span id="cb16-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-3" aria-hidden="true" tabindex="-1"></a>vecindad <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]), <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">75</span>, <span class="at">longlat =</span> T)</span>
 <span id="cb16-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-4" aria-hidden="true" tabindex="-1"></a>vec.listw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(vecindad)</span>
 <span id="cb16-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-5" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">nb2mat</span>(vecindad))</span>
 <span id="cb16-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-7" aria-hidden="true" tabindex="-1"></a>I.puntos <span class="ot">&lt;-</span> <span class="fu">moran</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">S0 =</span> <span class="dv">100</span>)</span>
+<span id="cb16-7"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-7" aria-hidden="true" tabindex="-1"></a>I.puntos <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw)</span>
 <span id="cb16-8"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-8" aria-hidden="true" tabindex="-1"></a>I.puntos</span></code></pre></div>
-<pre><code>## $I
-## [1] 0.002703908
+<pre><code>## 
+##  Moran I test under randomisation
 ## 
-## $K
-## [1] 2.852204</code></pre>
+## data:  datos$Mediciones  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 9.7604, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.556186118      -0.010101010       0.003366211</code></pre>
 <p>Brevemente, la función <code>dnearneigh</code> crea un objeto que contiene: el número de vecinos de cada punto, con base en el criterio de distancia (0 - 250 km), y la identidad de los vecinos de cada punto (punto 1, 2, 3, etc.). Por alguna razón, este objeto tenemos que representarlo como una lista, que no es otra cosa que una colección de objetos de distinta naturaleza y tamaño, para lo que utilizamos <code>nb2listw</code> (<em>neighbourhood to weights list</em>). Y la última pieza de información que necesitamos es la suma total de pesos espaciales, la cual obtenemos con la suma de los elementos de la matriz con la función <code>nb2mat</code> (<em>neighbourhood to matrix</em>). Finalmente utilizamos la functión <code>moran</code> (del paquete <code>spdep</code>) para obtener el valor del estadístico I. Nota que para rasters utilizamos la función <code>Moran</code> del paquete <code>raster</code>.</p>
 </div>
 <div id="ejemplo-de-aplicación-para-análisis-de-residuales" class="section level3" number="4.2.3">
@@ -451,13 +458,33 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 <span id="cb24-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-4" aria-hidden="true" tabindex="-1"></a>vec.listw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(vecindad)</span>
 <span id="cb24-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-5" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">nb2mat</span>(vecindad))</span>
 <span id="cb24-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-7" aria-hidden="true" tabindex="-1"></a>I.meds <span class="ot">&lt;-</span> <span class="fu">moran</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">S0 =</span> S0)</span>
+<span id="cb24-7"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-7" aria-hidden="true" tabindex="-1"></a>I.meds <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw)</span>
 <span id="cb24-8"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-9" aria-hidden="true" tabindex="-1"></a>I.res <span class="ot">&lt;-</span> <span class="fu">moran</span>(<span class="at">x =</span> datos<span class="sc">$</span>Residuales, <span class="at">listw =</span> vec.listw, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">S0 =</span> S0)</span>
-<span id="cb24-10"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-10" aria-hidden="true" tabindex="-1"></a>I.meds<span class="sc">$</span>I</span></code></pre></div>
-<pre><code>## [1] 0.007691526</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb26-1" aria-hidden="true" tabindex="-1"></a>I.res<span class="sc">$</span>I</span></code></pre></div>
-<pre><code>## [1] 0.008521393</code></pre>
+<span id="cb24-9"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-9" aria-hidden="true" tabindex="-1"></a>I.res <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Residuales, <span class="at">listw =</span> vec.listw)</span></code></pre></div>
+<p>Índice de Moran para las mediciones</p>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  datos$Mediciones  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 14.18, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.769152627      -0.010101010       0.003020113</code></pre>
+<p>Índice de Moran para los residuales</p>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  datos$Residuales  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 15.7, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.852139315      -0.010101010       0.003016244</code></pre>
 <p>Lo que sugiere que los residuales tienden a la dispersión aleatoria. El valor obtenido de I para los residuales cambia la conclusión a la que habíamos llegado por medio del análisis visual de los residuales. Sin embargo, !los residuales están más agregados que los datos crudos! El índice de Moran no es una prueba perfecta, más aún con datos de puntos para los cuales el concepto de “vecino” es más ambiguo que con rásters y polígonos.</p>
 </div>
 </div>
@@ -500,6 +527,9 @@ Figura 4.3: Interpolación por distancia, los extremos representan los puntos do
 </div>
 <div id="splines" class="section level3" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> Splines</h3>
+</div>
+<div id="implementación" class="section level3" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Implementación</h3>
 
 </div>
 </div>
