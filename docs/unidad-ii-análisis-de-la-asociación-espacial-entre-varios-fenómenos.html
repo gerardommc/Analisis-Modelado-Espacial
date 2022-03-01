@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-02-28" />
+<meta name="date" content="2022-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -524,9 +524,21 @@ Figura 4.3: Interpolación por distancia, los extremos representan los puntos do
 </div>
 <div id="regresión-sobre-las-coordenadas" class="section level3" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Regresión sobre las coordenadas</h3>
+<p>Es un método sencillo pero efectivo si la variable que queremos interpolar tiene un gradiente a lo largo de la longitud y/o latitud que se puede aproximar por medio de un modelo lineal. La idea es que la variable de respuesta (<span class="math inline">\(y\)</span>), sea una función lineal de las coordenadas (<span class="math inline">\(x_1, x_2\)</span>):</p>
+<p><span class="math display">\[ y(Lat, Lon) = \alpha + \beta_1 Lat + \beta_2 Lon\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:Gradientes"></span>
+<img src="Mod-mat-ECO_files/figure-html/Gradientes-1.png" alt="Ejemplos de gradientes lineales con las coordenadas." width="960" />
+<p class="caption">
+Figura 4.4: Ejemplos de gradientes lineales con las coordenadas.
+</p>
+</div>
+<p>Al igual que con los modelos lineales, este tipo de interpolación puede ser muy flexible, aunque cuando la variable dependiente <span class="math inline">\(y\)</span> es poco lineal con respecto de la latitud y longitud se recomienda usar <strong>Splines</strong></p>
 </div>
 <div id="splines" class="section level3" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> Splines</h3>
+<p>Son una metodología muy similar a la regresión por coordenadas pero no asume ningún tipo de relación funcional entre la latitud y longitud y la variable de respuesta. La manera en que funcionan las splines es ajustando líneas de regresión con un polinomio de 2o o 3er grado a porciones específicas de cada variable independiente. El resultado de usar splines pueden ser curvas complejas con un contorno suave.</p>
+<p><img src="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1" /></p>
+<p><a href="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1">Ejemplo de regresión con splines por Arthur Charpentier</a></p>
 </div>
 <div id="implementación" class="section level3" number="4.3.5">
 <h3><span class="header-section-number">4.3.5</span> Implementación</h3>
