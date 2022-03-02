@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-03-01" />
+<meta name="date" content="2022-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -178,11 +178,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés"><i class="fa fa-check"></i><b>4.3.1</b> Inverso de la distancia (IDW en inglés)</a></li>
-<li class="chapter" data-level="4.3.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.2</b> Vecino más próximo</a></li>
+<li class="chapter" data-level="4.3.1" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.1</b> Vecino más próximo</a></li>
+<li class="chapter" data-level="4.3.2" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés"><i class="fa fa-check"></i><b>4.3.2</b> Inverso de la distancia (IDW en inglés)</a></li>
 <li class="chapter" data-level="4.3.3" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas"><i class="fa fa-check"></i><b>4.3.3</b> Regresión sobre las coordenadas</a></li>
 <li class="chapter" data-level="4.3.4" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines"><i class="fa fa-check"></i><b>4.3.4</b> Splines</a></li>
-<li class="chapter" data-level="4.3.5" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#implementación"><i class="fa fa-check"></i><b>4.3.5</b> Implementación</a></li>
+<li class="chapter" data-level="4.3.5" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#tutorial-de-interpolación-en-r"><i class="fa fa-check"></i><b>4.3.5</b> Tutorial de interpolación en R</a></li>
+<li class="chapter" data-level="4.3.6" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-de-las-coordenadas-con-splines"><i class="fa fa-check"></i><b>4.3.6</b> Regresión de las coordenadas con splines</a></li>
+<li class="chapter" data-level="4.3.7" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#otros-tipos-de-interpolación"><i class="fa fa-check"></i><b>4.3.7</b> Otros tipos de interpolación</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
@@ -503,13 +505,17 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 <p>Así como rellenamos los valores intermedios en la secuencia <span class="math inline">\(1, 3, 5, 7\)</span> asumiento linealidad, hay muchos otros métodos para predicción de valores ordenados de manera más compleja y en dos dimensiones.</p>
 <p>Algunas de las técnicas más comunes para predicción espacial son:</p>
 <ol style="list-style-type: decimal">
-<li>Inverso de la distancia</li>
 <li>Vecino más próximo</li>
+<li>Inverso de la distancia</li>
 <li>Regresión sobre las coordenadas</li>
 <li>Splines</li>
 </ol>
-<div id="inverso-de-la-distancia-idw-en-inglés" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Inverso de la distancia (IDW en inglés)</h3>
+<div id="vecino-más-próximo" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Vecino más próximo</h3>
+<p>Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.</p>
+</div>
+<div id="inverso-de-la-distancia-idw-en-inglés" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Inverso de la distancia (IDW en inglés)</h3>
 <p>Este método asume que los valores de la variable interpolada entre los puntos de referencia cambia en relación directa con la distancia entre los puntos. Por ejemplo, Si tenemos dos mediciones de temperatura separadas físicamente 10 km, y queremos estimar la temperatura en los puntos intermedios con una precisión de 1 km, la temperatura de éstos será proporcional a la diferencie entre las mediciones.</p>
 <div class="figure" style="text-align: center"><span id="fig:Interp-dist"></span>
 <img src="Unidad-II/Interp-distancia.png" alt="Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación." width="908" />
@@ -517,10 +523,6 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 Figura 4.3: Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación.
 </p>
 </div>
-</div>
-<div id="vecino-más-próximo" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Vecino más próximo</h3>
-<p>Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.</p>
 </div>
 <div id="regresión-sobre-las-coordenadas" class="section level3" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Regresión sobre las coordenadas</h3>
@@ -540,8 +542,123 @@ Figura 4.4: Ejemplos de gradientes lineales con las coordenadas.
 <p><img src="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1" /></p>
 <p><a href="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1">Ejemplo de regresión con splines por Arthur Charpentier</a></p>
 </div>
-<div id="implementación" class="section level3" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Implementación</h3>
+<div id="tutorial-de-interpolación-en-r" class="section level3" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Tutorial de interpolación en R</h3>
+<div id="vecino-más-cercano" class="section level4" number="4.3.5.1">
+<h4><span class="header-section-number">4.3.5.1</span> Vecino más cercano</h4>
+<p>Para interpolar con este método necesitamos primero identificar los píxeles más cercanos a los puntos donde tenemos mediciones, para ello, tenemos que crear un teselado de Voronoi en formato vectorial. Comencemos por cargar los datos con las mediciones, y la capa ráster que usaremos de referencia de resolución espacial:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb27-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-3" aria-hidden="true" tabindex="-1"></a>r  <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/Var-1.tif&quot;</span>)</span>
+<span id="cb27-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-4" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Datos-ejercicio.csv&quot;</span>)</span></code></pre></div>
+<p>Y proseguimos creando el teselado con la función <code>voronoi</code> del paquete <code>dismo</code>. Debido a que <code>voronoi</code> es la única función de dicho paquete que vamos a usar, evitaremos cargar todo el paquete usando la sintaxis <code>paquete::función</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-1" aria-hidden="true" tabindex="-1"></a>vo <span class="ot">&lt;-</span> dismo<span class="sc">::</span><span class="fu">voronoi</span>(datos)</span>
+<span id="cb28-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">main =</span> <span class="st">&quot;Teselado de Voronoi&quot;</span>)</span>
+<span id="cb28-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Voro"></span>
+<img src="Mod-mat-ECO_files/figure-html/Voro-1.png" alt="Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cómo hay un polígono del teselado para cada punto, las vecindades se establecen con base en los polígonos que comparten frontera." width="480" />
+<p class="caption">
+Figura 4.5: Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cómo hay un polígono del teselado para cada punto, las vecindades se establecen con base en los polígonos que comparten frontera.
+</p>
+</div>
+<p>Después, para obtener el raster interpolado, tenemos que asignar el valor de cada punto a los polígonos del teselado, y rasterizarlo a la resolución del ráster de referencia. Comenzamos creando un ráster con valores de cero (<span class="math inline">\(0\)</span>), que usaremos para acotar el teselado, pues tiene una extensión mayor a la que nos interesa:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-1" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.0</span> <span class="ot">&lt;-</span>r</span>
+<span id="cb29-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-2" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.0</span>[] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb29-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-3" aria-hidden="true" tabindex="-1"></a>r.vec <span class="ot">&lt;-</span> <span class="fu">rasterToPolygons</span>(r<span class="fl">.0</span>, <span class="at">dissolve =</span> T)</span></code></pre></div>
+<pre><code>## Loading required namespace: rgeos</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-1" aria-hidden="true" tabindex="-1"></a>vo <span class="ot">&lt;-</span> <span class="fu">intersect</span>(vo, r.vec) <span class="co">#Recorte del teselado</span></span>
+<span id="cb31-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">main =</span> <span class="st">&quot;Teselado recortado&quot;</span>)</span>
+<span id="cb31-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Ahora, asignamos los valores de las mediciones a cada polígono y lo rasterizamos asignando a los píxeles del raster de referencia los valores de cada polígono:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>vo<span class="sc">$</span>Mediciones <span class="ot">&lt;-</span> datos<span class="sc">$</span>Mediciones</span>
+<span id="cb32-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-2" aria-hidden="true" tabindex="-1"></a>r.ngb <span class="ot">&lt;-</span> <span class="fu">rasterize</span>(vo, r<span class="fl">.0</span>, <span class="at">field =</span> <span class="st">&quot;Mediciones&quot;</span>)</span>
+<span id="cb32-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.ngb, <span class="at">main =</span> <span class="st">&quot;Mediciones interpoladas&quot;</span>)</span>
+<span id="cb32-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">add =</span> T)</span>
+<span id="cb32-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Ngb"></span>
+<img src="Mod-mat-ECO_files/figure-html/Ngb-1.png" alt="Resultado de la interpolación por vecino más cercano. En este procedimiento asignamos a todos los píxeles que quedan dentro de cada polígono el mismo valor." width="480" />
+<p class="caption">
+Figura 4.6: Resultado de la interpolación por vecino más cercano. En este procedimiento asignamos a todos los píxeles que quedan dentro de cada polígono el mismo valor.
+</p>
+</div>
+</div>
+<div id="inverso-de-la-distancia" class="section level4" number="4.3.5.2">
+<h4><span class="header-section-number">4.3.5.2</span> Inverso de la distancia</h4>
+<p>La función básica de interpolación en R es <code>interpolate</code> del paquete <code>raster</code>. Para aprender a utilizarla podemos hacer una búsqueda rápida en la ayuda de <strong>R</strong>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb33-1" aria-hidden="true" tabindex="-1"></a>?raster<span class="sc">::</span>interpolate</span></code></pre></div>
+<p>Y vemos que los argumentos mínimos que necesitamos son:</p>
+<ol style="list-style-type: decimal">
+<li>Objeto raster</li>
+<li>Modelo</li>
+</ol>
+<p>El <em>Objeto raster</em> se refiere a una capa que será utilizada como referencia de resolución y extensión espacial para interpolar, y <em>Modelo</em> es el procedimiento de interpolación que se utilizará (vecino más cercano, etc.). La mayoría de los modelos de interpolación podemos encontrarlos en el paquete <code>gstat</code>. Para interpolar utilizaremos las mismas bases de datos de antes.</p>
+<p>Antes de la interpolación, es necesario formatear de manera especial los datos. La base que contiene la localidades de muestreo y las mediciones, tenemos que transformarla en un objeto reconocible por el paquete <code>sp</code>, de modo que sepa qué columnas contienen las coordenadas <span class="math inline">\(x, y\)</span>, y cuáles los datos:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
+<span id="cb34-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-3" aria-hidden="true" tabindex="-1"></a>datos.sp <span class="ot">&lt;-</span> datos</span>
+<span id="cb34-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(datos.sp) <span class="ot">&lt;-</span> <span class="er">~</span> Longitud <span class="sc">+</span> Latitud</span>
+<span id="cb34-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">proj4string</span>(datos.sp) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="fu">proj4string</span>(r<span class="fl">.0</span>))</span></code></pre></div>
+<p>Y hacemos lo mismo con el ráster de referencia, primero transformándolo en <code>data.frame</code> y luego en <code>SpatialPointsDataFrame</code>:</p>
+<p>Nota que en ambos casos anteriores tuvimos que especificar qué sistema de coordenadas se usó, en este caso fue el datum WGS84 con número de identificación EPSG 4326.</p>
+<p>Y ahora sí, corremos la rutina de interpolación con la función <code>idw</code> (inverse distance weighted) de <code>gstat</code>.</p>
+<pre><code>## [inverse distance weighted interpolation]</code></pre>
+<p>El objeto que produce la función <code>idw</code> es un <code>SpatialPolygonsDataFrame</code> (vector poligonal), donde cada celda corresponde a un píxel. Para transformar a raster utilizaremos las coordenadas de <code>new.data</code>y los valores interpolados con la función <code>rasterFromXYZ</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-1" aria-hidden="true" tabindex="-1"></a>r.idw <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), inv.dist<span class="sc">$</span>var1.pred))</span>
+<span id="cb36-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Gráfica</span></span>
+<span id="cb36-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb36-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.idw, <span class="at">main =</span> <span class="st">&quot;Inverso de la distancia&quot;</span>)</span>
+<span id="cb36-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.idw)</span>
+<span id="cb36-7"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Idw"></span>
+<img src="Mod-mat-ECO_files/figure-html/Idw-1.png" alt="Interpolación por inverso de la distancia." width="480" />
+<p class="caption">
+Figura 4.7: Interpolación por inverso de la distancia.
+</p>
+</div>
+<p>Como podemos ver el resultado de la interpolación con vecino más cercano es muy diferente de inverso de la distancia. ¿Qué artefacto puedes detectar?</p>
+</div>
+</div>
+<div id="regresión-de-las-coordenadas-con-splines" class="section level3" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Regresión de las coordenadas con splines</h3>
+<p>En esta ocasión nos retringiremos a revisar estos métodos en conjunto pues las ocasiones en que podríamos detectar gradientes perfectos como en la figura <a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Gradientes">4.4</a> son muy escasos. En la inmensa mayoría existirán estructuras topográficas en el espacio que harán que las relaciones entre lo que medimos y las coordenadas geográficas sean no lineales. Por lo tanto, la herramienta más útil son los splines. La implementación más sencilla de splines para usar en R son los modelos lineales aditivos.</p>
+<p>Para estos análisis podemos utilizar todos los objetos que ya formateamos hasta ahora. Las funciones para ajustar modelos lineales aditivos están en el paquete <code>mgcv</code>, instalado por defecto con <strong>R</strong>, en la función <code>gam</code> (generalised additive model). Por defecto, las fórmulas que se usan en <code>gam</code> son idénticas a las que se usan en <code>lm</code> (modelo lineal). Para que una variable pueda incorporar no-linealidades, necesitamos espacificar el tipo de splines que se utilizarán con otras funciones. Veamos:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span></code></pre></div>
+<pre><code>## Loading required package: nlme</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nlme&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:raster&#39;:
+## 
+##     getData</code></pre>
+<pre><code>## This is mgcv 1.8-34. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb42-1" aria-hidden="true" tabindex="-1"></a>spl <span class="ot">&lt;-</span> <span class="fu">gam</span>(Mediciones <span class="sc">~</span> <span class="fu">s</span>(Longitud, Latitud, <span class="at">k =</span> <span class="dv">25</span>), <span class="at">data =</span> datos)</span></code></pre></div>
+<p>donde <code>s</code> es la función suavizadora o spline, y <code>k</code> es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 – -101, un parámetro, y otro para -101 – -102.</p>
+<p>Para ver las predicciones de <code>gam</code>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-1" aria-hidden="true" tabindex="-1"></a>spl.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(spl, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data)))</span>
+<span id="cb43-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-3" aria-hidden="true" tabindex="-1"></a>r.spl <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), spl.pred))</span>
+<span id="cb43-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.spl, <span class="at">main =</span> <span class="st">&quot;Interpolalción con splines&quot;</span>)</span>
+<span id="cb43-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:Splines"></span>
+<img src="Mod-mat-ECO_files/figure-html/Splines-1.png" alt="Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas" width="480" />
+<p class="caption">
+Figura 4.8: Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas
+</p>
+</div>
+<p>Otra implementaciín de splines, incluso más adecuada para la interpolación espacial, se llama <em>Thin Plate Spline</em>, disponible con la función <code>Tps</code> en el paquete <code>fields</code>.</p>
+</div>
+<div id="otros-tipos-de-interpolación" class="section level3" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> Otros tipos de interpolación</h3>
+<ol style="list-style-type: decimal">
+<li>Bicúbico</li>
+<li>Bilineal</li>
+<li>Kriging</li>
+<li>Regresión-Kriging</li>
+</ol>
 
 </div>
 </div>

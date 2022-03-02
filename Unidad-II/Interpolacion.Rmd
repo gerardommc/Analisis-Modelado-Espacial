@@ -18,10 +18,14 @@ Así como rellenamos los valores intermedios en la secuencia $1, 3, 5, 7$ asumie
 
 Algunas de las técnicas más comunes para predicción espacial son:
 
-1. Inverso de la distancia
-2. Vecino más próximo
+1. Vecino más próximo
+2. Inverso de la distancia
 3. Regresión sobre las coordenadas
 4. Splines
+
+### Vecino más próximo
+
+Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.
 
 ### Inverso de la distancia (IDW en inglés)
 
@@ -31,10 +35,6 @@ Este método asume que los valores de la variable interpolada entre los puntos d
 
 knitr::include_graphics("Unidad-II/Interp-distancia.png")
 ```
-
-### Vecino más próximo
-
-Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.
 
 ### Regresión sobre las coordenadas
 
@@ -82,6 +82,137 @@ Son una metodología muy similar a la regresión por coordenadas pero no asume n
 
 ### Tutorial de interpolación en R
 
+#### Vecino más cercano
 
+Para interpolar con este método necesitamos primero identificar los píxeles más cercanos a los puntos donde tenemos mediciones, para ello, tenemos que crear un teselado de Voronoi en formato vectorial. Comencemos por cargar los datos con las mediciones, y la capa ráster que usaremos de referencia de resolución espacial:
+
+```{r echo = T, message=F, warning = F}
+library(raster)
+
+r  <- raster("Capas-ejemplo/Var-1.tif")
+datos <- read.csv("Datos-ejercicio.csv")
+```
+
+Y proseguimos creando el teselado con la función `voronoi` del paquete `dismo`. Debido a que `voronoi` es la única función de dicho paquete que vamos a usar, evitaremos cargar todo el paquete usando la sintaxis `paquete::función`.
+
+```{r Voro, echo = T, fig.align='center', fig.cap  = "Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cómo hay un polígono del teselado para cada punto, las vecindades se establecen con base en los polígonos que comparten frontera.", fig.height=5, fig.width=5}
+vo <- dismo::voronoi(datos)
+
+plot(vo, main = "Teselado de Voronoi")
+points(datos$Longitud, datos$Latitud, pch = 20, col = "red")
+```
+
+Después, para obtener el raster interpolado, tenemos que asignar el valor de cada punto a los polígonos del teselado, y rasterizarlo a la resolución del ráster de referencia. Comenzamos creando un ráster con valores de cero ($0$), que usaremos para acotar el teselado, pues tiene una extensión mayor a la que nos interesa:
+
+```{r echo = T}
+r.0 <-r
+r.0[] <- 0
+r.vec <- rasterToPolygons(r.0, dissolve = T)
+
+vo <- intersect(vo, r.vec) #Recorte del teselado
+plot(vo, main = "Teselado recortado")
+points(datos$Longitud, datos$Latitud, pch = 20, col = "red")
+```
+
+Ahora, asignamos los valores de las mediciones a cada polígono y lo rasterizamos asignando a los píxeles del raster de referencia los valores de cada polígono:
+
+```{r Ngb, echo=T, fig.height=5, fig.width=5, fig.align='center', fig.cap="Resultado de la interpolación por vecino más cercano. En este procedimiento asignamos a todos los píxeles que quedan dentro de cada polígono el mismo valor."}
+vo$Mediciones <- datos$Mediciones
+r.ngb <- rasterize(vo, r.0, field = "Mediciones")
+
+plot(r.ngb, main = "Mediciones interpoladas")
+plot(vo, add = T)
+points(datos$Longitud, datos$Latitud, pch = 20, col = "red")
+```
+
+#### Inverso de la distancia
+
+La función básica de interpolación en R es `interpolate` del paquete `raster`. Para aprender a utilizarla podemos hacer una búsqueda rápida en la ayuda de **R**:
+
+```{r echo = T}
+?raster::interpolate
+```
+
+Y vemos que los argumentos mínimos que necesitamos son:
+
+1. Objeto raster
+2. Modelo
+
+El *Objeto raster* se refiere a una capa que será utilizada como referencia de resolución y extensión espacial para interpolar, y *Modelo* es el procedimiento de interpolación que se utilizará (vecino más cercano, etc.). La mayoría de los modelos de interpolación podemos encontrarlos en el paquete `gstat`. Para interpolar utilizaremos las mismas bases de datos de antes.
+
+Antes de la interpolación, es necesario formatear de manera especial los datos. La base que contiene la localidades de muestreo y las mediciones, tenemos que transformarla en un objeto reconocible por el paquete `sp`, de modo que sepa qué columnas contienen las coordenadas $x, y$, y cuáles los datos:
+
+```{r echo = T}
+library(gstat)
+
+datos.sp <- datos
+coordinates(datos.sp) <- ~ Longitud + Latitud
+proj4string(datos.sp) <- CRS(proj4string(r.0))
+```
+
+Y hacemos lo mismo con el ráster de referencia, primero transformándolo en `data.frame` y luego en `SpatialPointsDataFrame`:
+
+```{r}
+new.data <- data.frame(rasterToPoints(r.0))[, 1:2]
+names(new.data) <- c("Longitud", "Latitud")
+coordinates(new.data) <- ~ Longitud + Latitud
+proj4string(new.data) <- CRS(proj4string(r.0))
+```
+
+Nota que en ambos casos anteriores tuvimos que especificar qué sistema de coordenadas se usó, en este caso fue el datum WGS84 con número de identificación EPSG 4326.
+
+Y ahora sí, corremos la rutina de interpolación con la función `idw` (inverse distance weighted) de `gstat`.
+
+```{r}
+inv.dist <- idw(formula = Mediciones ~ 1, locations = datos.sp, newdata = new.data)
+```
+
+El objeto que produce la función `idw` es un `SpatialPolygonsDataFrame` (vector poligonal), donde cada celda corresponde a un píxel. Para transformar a raster utilizaremos las coordenadas de `new.data`y los valores interpolados con la función `rasterFromXYZ`:
+
+```{r Idw, echo = T, fig.height=5, fig.width=5, fig.cap="Interpolación por inverso de la distancia.", fig.align='center'}
+r.idw <- rasterFromXYZ(data.frame(coordinates(new.data), inv.dist$var1.pred))
+
+#Gráfica
+par(mfrow = c(1, 2))
+plot(r.idw, main = "Inverso de la distancia")
+plot(r.idw)
+points(datos.sp, pch = 20, col = "red", cex = 0.5)
+```
+
+Como podemos ver el resultado de la interpolación con vecino más cercano es muy diferente de inverso de la distancia. ¿Qué artefacto puedes detectar?
+
+### Regresión de las coordenadas con splines
+
+En esta ocasión nos retringiremos a revisar estos métodos en conjunto pues las ocasiones en que podríamos detectar gradientes perfectos como en la figura \@ref(fig:Gradientes) son muy escasos. En la inmensa mayoría existirán estructuras topográficas en el espacio que harán que las relaciones entre lo que medimos y las coordenadas geográficas sean no lineales. Por lo tanto, la herramienta más útil son los splines. La implementación más sencilla de splines para usar en R son los modelos lineales aditivos.
+
+Para estos análisis podemos utilizar todos los objetos que ya formateamos hasta ahora. Las funciones para ajustar modelos lineales aditivos están en el paquete `mgcv`, instalado por defecto con **R**, en la función `gam` (generalised additive model). Por defecto, las fórmulas que se usan en `gam` son idénticas a las que se usan en `lm` (modelo lineal). Para que una variable pueda incorporar no-linealidades, necesitamos espacificar el tipo de splines que se utilizarán con otras funciones. Veamos:
+
+```{r echo = T}
+library(mgcv)
+
+spl <- gam(Mediciones ~ s(Longitud, Latitud, k = 25), data = datos)
+```
+
+donde `s` es la función suavizadora o spline, y `k` es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 -- -101, un parámetro, y otro para -101 -- -102.
+
+Para ver las predicciones de `gam`:
+
+```{r Splines, echo=T, fig.height=5, fig.width=5, fig.align='center', fig.cap= "Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas"}
+spl.pred <- predict(spl, newdata = data.frame(coordinates(new.data)))
+
+r.spl <- rasterFromXYZ(data.frame(coordinates(new.data), spl.pred))
+
+plot(r.spl, main = "Interpolalción con splines")
+points(datos.sp, pch = 20, col = "red", cex = 0.5)
+```
+
+Otra implementaciín de splines, incluso más adecuada para la interpolación espacial, se llama *Thin Plate Spline*, disponible con la función `Tps` en el paquete `fields`.
+
+### Otros tipos de interpolación
+
+1. Bicúbico
+2. Bilineal
+3. Kriging
+4. Regresión-Kriging
 
 
