@@ -169,7 +169,7 @@ inv.dist <- idw(formula = Mediciones ~ 1, locations = datos.sp, newdata = new.da
 
 El objeto que produce la función `idw` es un `SpatialPolygonsDataFrame` (vector poligonal), donde cada celda corresponde a un píxel. Para transformar a raster utilizaremos las coordenadas de `new.data`y los valores interpolados con la función `rasterFromXYZ`:
 
-```{r Idw, echo = T, fig.height=5, fig.width=5, fig.cap="Interpolación por inverso de la distancia.", fig.align='center'}
+```{r Idw, echo = T, fig.height=5, fig.width=10, fig.cap="Interpolación por inverso de la distancia.", fig.align='center'}
 r.idw <- rasterFromXYZ(data.frame(coordinates(new.data), inv.dist$var1.pred))
 
 #Gráfica
