@@ -152,7 +152,7 @@ proj4string(datos.sp) <- CRS(proj4string(r.0))
 
 Y hacemos lo mismo con el ráster de referencia, primero transformándolo en `data.frame` y luego en `SpatialPointsDataFrame`:
 
-```{r}
+```{r echo = T}
 new.data <- data.frame(rasterToPoints(r.0))[, 1:2]
 names(new.data) <- c("Longitud", "Latitud")
 coordinates(new.data) <- ~ Longitud + Latitud
@@ -163,7 +163,7 @@ Nota que en ambos casos anteriores tuvimos que especificar qué sistema de coord
 
 Y ahora sí, corremos la rutina de interpolación con la función `idw` (inverse distance weighted) de `gstat`.
 
-```{r}
+```{r echo = T}
 inv.dist <- idw(formula = Mediciones ~ 1, locations = datos.sp, newdata = new.data)
 ```
 
