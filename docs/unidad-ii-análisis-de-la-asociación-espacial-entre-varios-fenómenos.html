@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -631,23 +631,17 @@ Figura 4.7: Interpolación por inverso de la distancia.
 <h3><span class="header-section-number">4.3.6</span> Regresión de las coordenadas con splines</h3>
 <p>En esta ocasión nos retringiremos a revisar estos métodos en conjunto pues las ocasiones en que podríamos detectar gradientes perfectos como en la figura <a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Gradientes">4.4</a> son muy escasos. En la inmensa mayoría existirán estructuras topográficas en el espacio que harán que las relaciones entre lo que medimos y las coordenadas geográficas sean no lineales. Por lo tanto, la herramienta más útil son los splines. La implementación más sencilla de splines para usar en R son los modelos lineales aditivos.</p>
 <p>Para estos análisis podemos utilizar todos los objetos que ya formateamos hasta ahora. Las funciones para ajustar modelos lineales aditivos están en el paquete <code>mgcv</code>, instalado por defecto con <strong>R</strong>, en la función <code>gam</code> (generalised additive model). Por defecto, las fórmulas que se usan en <code>gam</code> son idénticas a las que se usan en <code>lm</code> (modelo lineal). Para que una variable pueda incorporar no-linealidades, necesitamos espacificar el tipo de splines que se utilizarán con otras funciones. Veamos:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span></code></pre></div>
-<pre><code>## Loading required package: nlme</code></pre>
-<pre><code>## 
-## Attaching package: &#39;nlme&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:raster&#39;:
-## 
-##     getData</code></pre>
-<pre><code>## This is mgcv 1.8-34. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb44-1" aria-hidden="true" tabindex="-1"></a>spl <span class="ot">&lt;-</span> <span class="fu">gam</span>(Mediciones <span class="sc">~</span> <span class="fu">s</span>(Longitud, Latitud, <span class="at">k =</span> <span class="dv">25</span>), <span class="at">data =</span> datos)</span></code></pre></div>
-<p>donde <code>s</code> es la función suavizadora o spline, y <code>k</code> es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 – -101, un parámetro, y otro para -101 – -102.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb39-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-3" aria-hidden="true" tabindex="-1"></a>spl <span class="ot">&lt;-</span> <span class="fu">gam</span>(Mediciones <span class="sc">~</span> <span class="fu">s</span>(Longitud, Latitud, <span class="at">k =</span> <span class="dv">25</span>), <span class="at">data =</span> datos)</span></code></pre></div>
+<p>donde <code>s</code> es la función <em>suavizadora</em> o spline, y <code>k</code> es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 – -101, un parámetro, y otro para -101 – -102.</p>
 <p>Para ver las predicciones de <code>gam</code>:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-1" aria-hidden="true" tabindex="-1"></a>spl.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(spl, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data)))</span>
-<span id="cb45-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-3" aria-hidden="true" tabindex="-1"></a>r.spl <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), spl.pred))</span>
-<span id="cb45-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.spl, <span class="at">main =</span> <span class="st">&quot;Interpolalción con splines&quot;</span>)</span>
-<span id="cb45-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-1" aria-hidden="true" tabindex="-1"></a>spl.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(spl, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data)))</span>
+<span id="cb40-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-3" aria-hidden="true" tabindex="-1"></a>r.spl <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), spl.pred))</span>
+<span id="cb40-4"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.spl, <span class="at">main =</span> <span class="st">&quot;Interpolalción con splines&quot;</span>)</span>
+<span id="cb40-6"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:Splines"></span>
 <img src="Mod-mat-ECO_files/figure-html/Splines-1.png" alt="Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas" width="480" />
 <p class="caption">

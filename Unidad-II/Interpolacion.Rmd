@@ -187,13 +187,13 @@ En esta ocasión nos retringiremos a revisar estos métodos en conjunto pues las
 
 Para estos análisis podemos utilizar todos los objetos que ya formateamos hasta ahora. Las funciones para ajustar modelos lineales aditivos están en el paquete `mgcv`, instalado por defecto con **R**, en la función `gam` (generalised additive model). Por defecto, las fórmulas que se usan en `gam` son idénticas a las que se usan en `lm` (modelo lineal). Para que una variable pueda incorporar no-linealidades, necesitamos espacificar el tipo de splines que se utilizarán con otras funciones. Veamos:
 
-```{r echo = T}
+```{r echo = T, message=F, warning = F}
 library(mgcv)
 
 spl <- gam(Mediciones ~ s(Longitud, Latitud, k = 25), data = datos)
 ```
 
-donde `s` es la función suavizadora o spline, y `k` es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 -- -101, un parámetro, y otro para -101 -- -102.
+donde `s` es la función *suavizadora* o spline, y `k` es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 -- -101, un parámetro, y otro para -101 -- -102.
 
 Para ver las predicciones de `gam`:
 
