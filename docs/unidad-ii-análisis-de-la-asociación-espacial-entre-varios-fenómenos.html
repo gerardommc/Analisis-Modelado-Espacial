@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-03-07" />
+<meta name="date" content="2022-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="unidad-i-introducción-al-modelado-espacial.html"/>
-<link rel="next" href="unidad-iii.html"/>
+<link rel="next" href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -187,7 +187,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.7" data-path="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#otros-tipos-de-interpolación"><i class="fa fa-check"></i><b>4.3.7</b> Otros tipos de interpolación</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="unidad-iii.html"><a href="unidad-iii.html"><i class="fa fa-check"></i><b>5</b> Unidad III</a></li>
+<li class="chapter" data-level="5" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><i class="fa fa-check"></i><b>5</b> Unidad III - Aplicaciones del modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#desarrollo-de-un-modelo-digital-de-elevación"><i class="fa fa-check"></i><b>5.1</b> Desarrollo de un modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#tutorial-de-desarrollo-de-mde"><i class="fa fa-check"></i><b>5.1.1</b> Tutorial de desarrollo de MDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos"><i class="fa fa-check"></i><b>5.2</b> Cálculo de parámetros morfométricos</a></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="unidad-iv.html"><a href="unidad-iv.html"><i class="fa fa-check"></i><b>6</b> Unidad IV</a></li>
 <li class="chapter" data-level="7" data-path="unidad-v.html"><a href="unidad-v.html"><i class="fa fa-check"></i><b>7</b> Unidad V</a></li>
 <li class="chapter" data-level="8" data-path="unidad-vi.html"><a href="unidad-vi.html"><i class="fa fa-check"></i><b>8</b> Unidad VI</a></li>
@@ -255,7 +263,7 @@ r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
 <p>y las vamos a agrupar en un objeto para hacer la prueba de correlación con la función <code>pairs</code> del mismo paquete <code>raster</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">stack</span>(r, r1)</span>
 <span id="cb5-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(st)</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-16-1.png" width="432" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-18-1.png" width="432" /></p>
 <p>Como podemos ver, la función <code>pairs</code> hace un gráfica con los histogramas de cada variable (en verde), el gráfico de dispersión, y el coeficiente de correlación de Pearson. Vamos a ver entonces qué está haciedo la función <code>pairs</code></p>
 <p>Vamos a transformar sl objeto <code>st</code> en una tabla con dos columnas para las coordenadas geográficas de cada píxel y otras dos para los valores de cada variable:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">rasterToPoints</span>(st)</span>
@@ -421,12 +429,12 @@ La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por 
 <p>Comenzaremos con el análisis de regresión, cargando los datos obtenidos en campo:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(string)</span>
 <span id="cb18-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(Longitud, Latitud, <span class="at">cex =</span> Mediciones))</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-21-1.png" width="480" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-23-1.png" width="480" /></p>
 <p>y las variables raster para analizar los datos colectados en campo:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
 <span id="cb19-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">stack</span>(<span class="fu">paste0</span>(<span class="st">&quot;Capas-ejemplo/Var-&quot;</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="st">&quot;.tif&quot;</span>))</span>
 <span id="cb19-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-22-1.png" width="960" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-24-1.png" width="960" /></p>
 <p>Una vez cargados lo datos, extraemos los valores de ambas variables con las coordenadas donde obtuvimos las mediciones en campo:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>r.extract <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">extract</span>(r, datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]))</span>
 <span id="cb20-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(datos, r.extract)</span></code></pre></div>
@@ -570,7 +578,7 @@ Figura 4.5: Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cóm
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-1" aria-hidden="true" tabindex="-1"></a>vo <span class="ot">&lt;-</span> <span class="fu">intersect</span>(vo, r.vec) <span class="co">#Recorte del teselado</span></span>
 <span id="cb31-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">main =</span> <span class="st">&quot;Teselado recortado&quot;</span>)</span>
 <span id="cb31-3"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Ahora, asignamos los valores de las mediciones a cada polígono y lo rasterizamos asignando a los píxeles del raster de referencia los valores de cada polígono:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>vo<span class="sc">$</span>Mediciones <span class="ot">&lt;-</span> datos<span class="sc">$</span>Mediciones</span>
 <span id="cb32-2"><a href="unidad-ii-análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-2" aria-hidden="true" tabindex="-1"></a>r.ngb <span class="ot">&lt;-</span> <span class="fu">rasterize</span>(vo, r<span class="fl">.0</span>, <span class="at">field =</span> <span class="st">&quot;Mediciones&quot;</span>)</span>
@@ -668,7 +676,7 @@ Figura 4.8: Resultado de la interpolación con splines en un modelo aditivo gene
         </div>
       </div>
 <a href="unidad-i-introducción-al-modelado-espacial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="unidad-iii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,7 +1,7 @@
-fig:unnamed-chunk-8
-fig:unnamed-chunk-9
 fig:unnamed-chunk-10
 fig:unnamed-chunk-11
+fig:unnamed-chunk-12
+fig:unnamed-chunk-13
 fig:Serie-temporal
 fig:Autocorrelación
 fig:Alta-corr
@@ -12,6 +12,7 @@ fig:Voro
 fig:Ngb
 fig:Idw
 fig:Splines
+fig:unnamed-chunk-38
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -55,7 +56,11 @@ vecino-más-cercano
 inverso-de-la-distancia
 regresión-de-las-coordenadas-con-splines
 otros-tipos-de-interpolación
-unidad-iii
+unidad-iii---aplicaciones-del-modelo-digital-de-elevación
+desarrollo-de-un-modelo-digital-de-elevación
+tutorial-de-desarrollo-de-mde
+cálculo-de-parámetros-morfométricos
+modelado-hidrológico
 unidad-iv
 unidad-v
 unidad-vi

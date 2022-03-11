@@ -1,0 +1,37 @@
+Un modelo digital de elevación es un ráster que contien información sobre la elevación sobre el nivel del mar. Información sobre la elevación es de gran importancia para el análisis de muchos procesos como los climáticos, topográficos e hidrológicos. En climatología, la elevación está muy relacionada con las temperaturas y las lluvias. En topografía, la elevación se puede utiizar para encontrar la inclinación o pendiente de un terreno, el aspecto, o dirección de la inclinación y capacidad para almacenar agua. En hidrología la elevación se puede utilizar para estimar el tamaño potencial de los cuerpos de agua, la velocidad o fuerza con que puede descender el agua de una montaña, identificar ríos y zonas inundables. La aplicaciones del modelo digital de elevación en topografía e hidrología se conoce como **Geomorfología**.
+
+```{r echo = F, fig.align='center', fig.cap="Modelo digital de elevación", message=F, warning = F, fig.width=7, fig.height=7}
+
+library(raster)
+
+dem <- raster("srtm.tif")
+plot(dem, main = "Modelo digital de elevación del centro de México")
+```
+
+Los modelos digitales de elevación, además de contener explícitamente información sobre la altura promedio por píxel, contienen información sobre elementos del paisaje, como la presencia de ríos. De hecho para el desarrollo de modelos digitales de elevación puede llegar a utilizarse dicha información. Los modelos digitales de elevación pueden ser desarrollados tanto por medio de interpolación, como por el análisis y procesamiento de imágenes satelitales.
+
+El sensor remoto utilizado para los modelos digitales de elevación es el *Shuttle Radar Topography Mission* (SRTM), y sus productos están disponbles libres de costo al público en general con una resolución de 30m (¡treinta metros!).
+
+Para la creación de modelos digitales de elevación de mayor resolución se necesita utilizar otras metodologías, combinando interpolación de puntos y datos vectoriales (de ríos, viviendas p. ej.).
+
+### Tutorial de desarrollo de MDE
+
+Este tutorial consiste de la interpolación de unos puntos con mediciones de elevación en QGIS [el tutorial original es parte de una capacitaicón en QGIS](https://giscrack.com/building-a-qgis-3-digital-elevation-model/). Además de la interpolación, vamos a utilizar una capa de ríos para dotar de información topográfica a las interpolaciones. Los datos del tutorial los encuentras en [esta liga](Unidad-III/datos_mde.zip).
+
+Los datos disponibles son:
+
+1. Puntos con mediciones de altura
+2. Líneas de ríos/riachuelos
+3. Líneas de ruptura-contorno
+
+El modelo de interpolación que permite interpolar a partir de estas estructuras se llama TIN (triangular irregular networks).
+
+Comencemos abriendo todas las capas en QGIS (todas en la misma ventana). En el panel de Caja de procesos, buscamos **TIN**, y damos doble click para ver la siguiente ventana:
+
+![](https://i0.wp.com/giscrack.com/wp-content/uploads/2019/02/TIN-Interpolation.jpg?w=544&ssl=1)
+
+vamos a comenzar simplemente interpolando las mediciones de elevación de los puntos. Y después interpolaremos con las curvas y finalmente con los ríos, para comparar los resultados.
+
+Para interpolar con los puntos, líneas o curvas, seleccionamos la capa que utiizaremos para interpolar del menú *Capa Vector*, y luego la columna de datos de esa capa que interpolaremos. En la caja de abajo, tenemos que añadir si la capa se utilizará como puntos, líneas de estructura o de ruptura, o como todas ellas. Posteriormente seleccionamos si el método de interpolación será lineal o Clough-Toucher (produce cambios más suaves que lineal). Finalmete seleccionamos la extensión espacial a partir de una de las capas vectoriales que tenemos abiertas y la resolución (no de píxeles en filas y columnas).
+
+
