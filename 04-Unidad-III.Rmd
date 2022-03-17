@@ -8,7 +8,7 @@
 
 ## Cálculo de parámetros morfométricos
 
-```{r echo = F, hild = "Unidad-III/Calculo-morfometricos.Rmd"}
+```{r echo = F, child = "Unidad-III/Calculo-morfometricos.Rmd"}
 
 ```
 

@@ -1,0 +1,73 @@
+La geomorfometría comprende una serie de análisis para describir la topografía de la superficie terrestre, generalmente a partir de un modelo digital de elevación. Los cálculos morfométricos básicos del terreno son:
+
+1. Pendiente
+2. Superficie
+3. Aspecto
+4. Área
+5. Sombreado
+
+Estas características del terreno (superficie terrestre) tienen una base matemática sólida en el cálculo y geometría diferencial. En este sentido matemático, el terreno es concebido matemáticamente como una superfice con tres dimensiones $x$ o longitud, $y$ o latitud y $z$ o elevación. La mayoría de los cálculos entonces se basan en los cambios de $z$ con respecto de $x$ y $y$.
+
+A diferencia del cálculo de dos variables, para la geomorfometría se utiliza el cálculo para tres variables, lo que resulta en derivadas parciales ($\partial z / \partial x$), pues sólo es posible derivar una variable con respecto de otra, no con respecto de dos variables simultáneamente.
+
+Aunque los cálculos nos puedan parece complicados, no es necesario poderlos ejecutar a mano, pues ya están implementados en el poderosísimo paquete `raster`.
+
+### Pendiente 
+
+Es la inclinación del terreno, o el cambio de altura entre los vecinos de ese píxel. Debido a que los cambios de inclinación ocurren en dos dimensiones $x$ y $y$, tradicionalmente la pendiente es el máximo de $\left(\frac{\partial z}{\partial x}, \frac{\partial z }{\partial y}\right)$
+
+### Superficie
+
+Como hemos visto anteriormente los píxeles tienen un tamaño fijo, por ejemplo de $1 \times 1$ km. Sin embargo, la superficie real está determinada por las características del terreno (rugosidad, inclinación, p. ej.). Un terreno inclinado tendrá mayo superficie al píxel que lo contiene, mientras que un terreno sin pendiente tendrá la misma superficie.
+
+### Aspecto
+
+Es el ángulo medido en radianes ($\pi = 180°$) en dirección antihorario formado por la inclinación del terreno y el norte geográfico
+
+### Sombreado
+
+Son el conjunto de sombras topográficas proyectadas por la luz solar sobre el terreno con un ángulo (hora del día) e inclinación determinadas. A diferencia de los cálculos morfométricos anteriores no tienen tantas aplicaciones técnicas en hidrología, sin embargo el sombreado de relieve es un parámetro visual importante en cartografía.
+
+### Cálculo de los parámetros morfométricos en R
+
+Todos los parámetros básicos que se han descrito hasta este momento, se llaman de primera derivada, pues utilizan la primera derivada de $z$ con respecto de $x$ y $y$. Algunos de ellos se pueden calcular con la función `terrain` del paquete `raster`. Otros, son derivados de los parámetros calculados con `terrain`. Lo primero que necesitamos es un modelo digital de elevación, el cual pueden descargar [aquí](Unidad-III/srtm.tif). Ahora ya conocemos el procedimiento para cargar los datos en el espacio de trabajo de **R**, por lo que nos lo podemos saltar e ir directo al cálculo de los parámetros.
+
+```{r DEM, echo = F, fig.cap="Modelo digital de elevación para México central", fig.height=5, fig.width=6}
+library(raster)
+
+dem <- raster("srtm.tif")
+plot(dem)
+```
+
+Para la pendiente:
+
+```{r Pendiente, echo=T, fig.height=5, fig.width=6}
+pendiente <- terrain(dem, opt="slope", unit="degrees")
+plot(pendiente, main = "Pendiente")
+```
+
+Para el aspecto:
+
+```{r Aspecto, echo=T, fig.height=5, fig.width=6}
+aspecto <- terrain(dem, opt = "aspect", unit = "degrees")
+plot(aspecto, main = "Aspecto")
+```
+
+La superfice se puede obtener con la pediente y el área del píxel, el cual en este caso es de 1 $\mathrm{km}^2$:
+
+```{r Sup, echo=T, fig.height=5, fig.width=6}
+superficie <- 1/cos(pendiente*(pi/180))
+plot(superficie, main = "Superficie")
+```
+
+Para el sombreado, necesitamos la pendiente y aspecto, con la función `hillShade`:
+
+```{r shade, echo = T, fig.height=5, fig.width=6}
+sombra <- hillShade(slope = pendiente,
+                    aspect = aspecto, 
+                    angle = 135,
+                    direction = 315, 
+                    normalize = F)
+plot(sombra, main = "Sombra de relieve", col=grey(30:100/100))
+```
+

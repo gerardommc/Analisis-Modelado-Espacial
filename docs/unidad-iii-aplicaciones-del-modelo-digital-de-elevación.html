@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-03-14" />
+<meta name="date" content="2022-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,7 +193,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#tutorial-de-desarrollo-de-mde"><i class="fa fa-check"></i><b>5.1.1</b> Tutorial de desarrollo de MDE</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos"><i class="fa fa-check"></i><b>5.2</b> Cálculo de parámetros morfométricos</a></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos"><i class="fa fa-check"></i><b>5.2</b> Cálculo de parámetros morfométricos</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#pendiente"><i class="fa fa-check"></i><b>5.2.1</b> Pendiente</a></li>
+<li class="chapter" data-level="5.2.2" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#superficie"><i class="fa fa-check"></i><b>5.2.2</b> Superficie</a></li>
+<li class="chapter" data-level="5.2.3" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#aspecto"><i class="fa fa-check"></i><b>5.2.3</b> Aspecto</a></li>
+<li class="chapter" data-level="5.2.4" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#sombreado"><i class="fa fa-check"></i><b>5.2.4</b> Sombreado</a></li>
+<li class="chapter" data-level="5.2.5" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-los-parámetros-morfométricos-en-r"><i class="fa fa-check"></i><b>5.2.5</b> Cálculo de los parámetros morfométricos en R</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unidad-iv.html"><a href="unidad-iv.html"><i class="fa fa-check"></i><b>6</b> Unidad IV</a></li>
@@ -252,6 +259,63 @@ Figura 5.1: Modelo digital de elevación
 </div>
 <div id="cálculo-de-parámetros-morfométricos" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Cálculo de parámetros morfométricos</h2>
+<p>La geomorfometría comprende una serie de análisis para describir la topografía de la superficie terrestre, generalmente a partir de un modelo digital de elevación. Los cálculos morfométricos básicos del terreno son:</p>
+<ol style="list-style-type: decimal">
+<li>Pendiente</li>
+<li>Superficie</li>
+<li>Aspecto</li>
+<li>Área</li>
+<li>Sombreado</li>
+</ol>
+<p>Estas características del terreno (superficie terrestre) tienen una base matemática sólida en el cálculo y geometría diferencial. En este sentido matemático, el terreno es concebido matemáticamente como una superfice con tres dimensiones <span class="math inline">\(x\)</span> o longitud, <span class="math inline">\(y\)</span> o latitud y <span class="math inline">\(z\)</span> o elevación. La mayoría de los cálculos entonces se basan en los cambios de <span class="math inline">\(z\)</span> con respecto de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>.</p>
+<p>A diferencia del cálculo de dos variables, para la geomorfometría se utiliza el cálculo para tres variables, lo que resulta en derivadas parciales (<span class="math inline">\(\partial z / \partial x\)</span>), pues sólo es posible derivar una variable con respecto de otra, no con respecto de dos variables simultáneamente.</p>
+<p>Aunque los cálculos nos puedan parece complicados, no es necesario poderlos ejecutar a mano, pues ya están implementados en el poderosísimo paquete <code>raster</code>.</p>
+<div id="pendiente" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Pendiente</h3>
+<p>Es la inclinación del terreno, o el cambio de altura entre los vecinos de ese píxel. Debido a que los cambios de inclinación ocurren en dos dimensiones <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>, tradicionalmente la pendiente es el máximo de <span class="math inline">\(\left(\frac{\partial z}{\partial x}, \frac{\partial z }{\partial y}\right)\)</span></p>
+</div>
+<div id="superficie" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Superficie</h3>
+<p>Como hemos visto anteriormente los píxeles tienen un tamaño fijo, por ejemplo de <span class="math inline">\(1 \times 1\)</span> km. Sin embargo, la superficie real está determinada por las características del terreno (rugosidad, inclinación, p. ej.). Un terreno inclinado tendrá mayo superficie al píxel que lo contiene, mientras que un terreno sin pendiente tendrá la misma superficie.</p>
+</div>
+<div id="aspecto" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Aspecto</h3>
+<p>Es el ángulo medido en radianes (<span class="math inline">\(\pi = 180°\)</span>) en dirección antihorario formado por la inclinación del terreno y el norte geográfico</p>
+</div>
+<div id="sombreado" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Sombreado</h3>
+<p>Son el conjunto de sombras topográficas proyectadas por la luz solar sobre el terreno con un ángulo (hora del día) e inclinación determinadas. A diferencia de los cálculos morfométricos anteriores no tienen tantas aplicaciones técnicas en hidrología, sin embargo el sombreado de relieve es un parámetro visual importante en cartografía.</p>
+</div>
+<div id="cálculo-de-los-parámetros-morfométricos-en-r" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Cálculo de los parámetros morfométricos en R</h3>
+<p>Todos los parámetros básicos que se han descrito hasta este momento, se llaman de primera derivada, pues utilizan la primera derivada de <span class="math inline">\(z\)</span> con respecto de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>. Algunos de ellos se pueden calcular con la función <code>terrain</code> del paquete <code>raster</code>. Otros, son derivados de los parámetros calculados con <code>terrain</code>. Lo primero que necesitamos es un modelo digital de elevación, el cual pueden descargar <a href="Unidad-III/srtm.tif">aquí</a>. Ahora ya conocemos el procedimiento para cargar los datos en el espacio de trabajo de <strong>R</strong>, por lo que nos lo podemos saltar e ir directo al cálculo de los parámetros.</p>
+<div class="figure"><span id="fig:DEM"></span>
+<img src="Mod-mat-ECO_files/figure-html/DEM-1.png" alt="Modelo digital de elevación para México central" width="576" />
+<p class="caption">
+Figura 5.2: Modelo digital de elevación para México central
+</p>
+</div>
+<p>Para la pendiente:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb41-1" aria-hidden="true" tabindex="-1"></a>pendiente <span class="ot">&lt;-</span> <span class="fu">terrain</span>(dem, <span class="at">opt=</span><span class="st">&quot;slope&quot;</span>, <span class="at">unit=</span><span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb41-2"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pendiente, <span class="at">main =</span> <span class="st">&quot;Pendiente&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Pendiente-1.png" width="576" /></p>
+<p>Para el aspecto:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb42-1" aria-hidden="true" tabindex="-1"></a>aspecto <span class="ot">&lt;-</span> <span class="fu">terrain</span>(dem, <span class="at">opt =</span> <span class="st">&quot;aspect&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb42-2"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aspecto, <span class="at">main =</span> <span class="st">&quot;Aspecto&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Aspecto-1.png" width="576" /></p>
+<p>La superfice se puede obtener con la pediente y el área del píxel, el cual en este caso es de 1 <span class="math inline">\(\mathrm{km}^2\)</span>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb43-1" aria-hidden="true" tabindex="-1"></a>superficie <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">cos</span>(pendiente<span class="sc">*</span>(pi<span class="sc">/</span><span class="dv">180</span>))</span>
+<span id="cb43-2"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(superficie, <span class="at">main =</span> <span class="st">&quot;Superficie&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Sup-1.png" width="576" /></p>
+<p>Para el sombreado, necesitamos la pendiente y aspecto, con la función <code>hillShade</code>:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-1" aria-hidden="true" tabindex="-1"></a>sombra <span class="ot">&lt;-</span> <span class="fu">hillShade</span>(<span class="at">slope =</span> pendiente,</span>
+<span id="cb44-2"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">aspect =</span> aspecto, </span>
+<span id="cb44-3"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">angle =</span> <span class="dv">135</span>,</span>
+<span id="cb44-4"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">direction =</span> <span class="dv">315</span>, </span>
+<span id="cb44-5"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">normalize =</span> F)</span>
+<span id="cb44-6"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sombra, <span class="at">main =</span> <span class="st">&quot;Sombra de relieve&quot;</span>, <span class="at">col=</span><span class="fu">grey</span>(<span class="dv">30</span><span class="sc">:</span><span class="dv">100</span><span class="sc">/</span><span class="dv">100</span>))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/shade-1.png" width="576" /></p>
+</div>
 </div>
 <div id="modelado-hidrológico" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Modelado hidrológico</h2>

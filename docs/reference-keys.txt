@@ -13,6 +13,7 @@ fig:Ngb
 fig:Idw
 fig:Splines
 fig:unnamed-chunk-38
+fig:DEM
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -60,6 +61,11 @@ unidad-iii---aplicaciones-del-modelo-digital-de-elevación
 desarrollo-de-un-modelo-digital-de-elevación
 tutorial-de-desarrollo-de-mde
 cálculo-de-parámetros-morfométricos
+pendiente
+superficie
+aspecto
+sombreado
+cálculo-de-los-parámetros-morfométricos-en-r
 modelado-hidrológico
 unidad-iv
 unidad-v
