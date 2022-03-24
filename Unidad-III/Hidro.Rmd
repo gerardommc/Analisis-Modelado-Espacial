@@ -1,0 +1,20 @@
+El cálculo de paramétros hidrológicos se basa en el cálculo de parámetros morfométricos como los que hicimos anteriormente. Los parámetros hidrológicos describen cómo se comporta el agua en la superficie terrestre con base características topográficas. Con el modelado hidrológico se puede:
+
+1. Identificar áreas inundables
+2. Estimar la velocidad de descenso del agua por laderas de montañas
+3. Estimar la cantidad de agua que potencialmente se acumula en un área
+4. Identificar las rutas hacia las áreas de captación
+
+Para estimar estos parámetros morfométricos hidrológicos necesitamos datos adicionales sobre los cuerpos de agua existentes. Estos datos se pueden obtener de repositorios públicos. Para México, el más completo y actualizado de los repositorios es el de [INEGI](https://www.inegi.org.mx/temas/hidrografia/#Descargas). Existen otros repositorios con datos globales de menor precisión y relativamente obsoletos como [Diva GIS](https://www.diva-gis.org/gdata). La decisión del repositorio a utilizar dependerá de la escala a que querramos hacer el análisis. A escalas pequeñas necesitamos alta precisión, por lo que INEGI será la mejor opción. Para los tutoriales de esta clase utilizaremos los datos de [Diva GIS para México](Unidad-III/MEX_wat.zip).
+
+### Modelado hidrológico en QGIS
+
+Los métodos de modelado hidrológico disponibles en QGIS están implementados en el módulo de SAGA. En mi experiencia, es más fácil usar SAGA por medio de QGIS, aunque también existe un paquete de **R** llamado `RSAGA` que permite usar SAGA desde **R**. Este último, me parece solamente conveniente si tenemos que combinar simultáneamente los análisis de SAGA con otros que se deban hacer en **R**.
+
+Comenzaremos por estimar el **Indice de Humedad Topográfica** (Topographic Wettness Index, TWI). Los parámetros morfométricos, derivados del MDE, que necesitamos son:
+
+1. Pendiente (Slope)
+2. Áreas de captación (Catchment Areas)
+3. Transmisividad (Transmissivity, es opcional)
+
+

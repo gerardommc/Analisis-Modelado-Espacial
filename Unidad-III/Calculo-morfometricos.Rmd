@@ -71,3 +71,4 @@ sombra <- hillShade(slope = pendiente,
 plot(sombra, main = "Sombra de relieve", col=grey(30:100/100))
 ```
 
+

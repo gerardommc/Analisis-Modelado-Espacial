@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,7 +201,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#sombreado"><i class="fa fa-check"></i><b>5.2.4</b> Sombreado</a></li>
 <li class="chapter" data-level="5.2.5" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-los-parámetros-morfométricos-en-r"><i class="fa fa-check"></i><b>5.2.5</b> Cálculo de los parámetros morfométricos en R</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico-en-qgis"><i class="fa fa-check"></i><b>5.3.1</b> Modelado hidrológico en QGIS</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="unidad-iv.html"><a href="unidad-iv.html"><i class="fa fa-check"></i><b>6</b> Unidad IV</a></li>
 <li class="chapter" data-level="7" data-path="unidad-v.html"><a href="unidad-v.html"><i class="fa fa-check"></i><b>7</b> Unidad V</a></li>
@@ -232,8 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="desarrollo-de-un-modelo-digital-de-elevación" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Desarrollo de un modelo digital de elevación</h2>
 <p>Un modelo digital de elevación es un a representación ráster de la elevación sobre el nivel del mar de la superficie terrestre. La información sobre la elevación es muy importante para el análisis del clima, topografía e hidroligía. En climatología, la elevación está muy relacionada con las temperaturas y las lluvias. En topografía, la elevación se puede utiizar para encontrar la inclinación o pendiente de un terreno, el aspecto, o dirección de la inclinación y capacidad para almacenar agua. En hidrología la elevación se puede utilizar para estimar el tamaño potencial de los cuerpos de agua, la velocidad o fuerza con que puede descender el agua de una montaña, identificar ríos y zonas inundables. La aplicaciones del modelo digital de elevación en topografía e hidrología se conoce como <strong>Geomorfología</strong>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
-<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-38-1.png" alt="Modelo digital de elevación" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-39-1.png" alt="Modelo digital de elevación" width="672" />
 <p class="caption">
 Figura 5.1: Modelo digital de elevación
 </p>
@@ -319,7 +322,25 @@ Figura 5.2: Modelo digital de elevación para México central
 </div>
 <div id="modelado-hidrológico" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Modelado hidrológico</h2>
+<p>El cálculo de paramétros hidrológicos se basa en el cálculo de parámetros morfométricos como los que hicimos anteriormente. Los parámetros hidrológicos describen cómo se comporta el agua en la superficie terrestre con base características topográficas. Con el modelado hidrológico se puede:</p>
+<ol style="list-style-type: decimal">
+<li>Identificar áreas inundables</li>
+<li>Estimar la velocidad de descenso del agua por laderas de montañas</li>
+<li>Estimar la cantidad de agua que potencialmente se acumula en un área</li>
+<li>Identificar las rutas hacia las áreas de captación</li>
+</ol>
+<p>Para estimar estos parámetros morfométricos hidrológicos necesitamos datos adicionales sobre los cuerpos de agua existentes. Estos datos se pueden obtener de repositorios públicos. Para México, el más completo y actualizado de los repositorios es el de <a href="https://www.inegi.org.mx/temas/hidrografia/#Descargas">INEGI</a>. Existen otros repositorios con datos globales de menor precisión y relativamente obsoletos como <a href="https://www.diva-gis.org/gdata">Diva GIS</a>. La decisión del repositorio a utilizar dependerá de la escala a que querramos hacer el análisis. A escalas pequeñas necesitamos alta precisión, por lo que INEGI será la mejor opción. Para los tutoriales de esta clase utilizaremos los datos de <a href="Unidad-III/MEX_wat.zip">Diva GIS para México</a>.</p>
+<div id="modelado-hidrológico-en-qgis" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Modelado hidrológico en QGIS</h3>
+<p>Los métodos de modelado hidrológico disponibles en QGIS están implementados en el módulo de SAGA. En mi experiencia, es más fácil usar SAGA por medio de QGIS, aunque también existe un paquete de <strong>R</strong> llamado <code>RSAGA</code> que permite usar SAGA desde <strong>R</strong>. Este último, me parece solamente conveniente si tenemos que combinar simultáneamente los análisis de SAGA con otros que se deban hacer en <strong>R</strong>.</p>
+<p>Comenzaremos por estimar el <strong>Indice de Humedad Topográfica</strong> (Topographic Wettness Index, TWI). Los parámetros morfométricos, derivados del MDE, que necesitamos son:</p>
+<ol style="list-style-type: decimal">
+<li>Pendiente (Slope)</li>
+<li>Áreas de captación (Catchment Areas)</li>
+<li>Transmisividad (Transmissivity, es opcional)</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>
