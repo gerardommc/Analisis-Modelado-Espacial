@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Análisis y Modelado Espacial</title>
+  <title> 6 Unidad IV - Análisis multicriterio | Análisis y Modelado Espacial</title>
   <meta name="description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Análisis y Modelado Espacial" />
+  <meta property="og:title" content=" 6 Unidad IV - Análisis multicriterio | Análisis y Modelado Espacial" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Análisis y Modelado Espacial" />
+  <meta name="twitter:title" content=" 6 Unidad IV - Análisis multicriterio | Análisis y Modelado Espacial" />
   
   <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="encuadre-de-la-materia.html"/>
+<link rel="prev" href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html"/>
+<link rel="next" href="unidad-v.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,24 +234,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Análisis y Modelado Espacial</h1>
-<p class="author"><em>Gerardo Martín</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2022-03-25</em></p>
+<div id="unidad-iv---análisis-multicriterio" class="section level1" number="6">
+<h1><span class="header-section-number"> 6</span> Unidad IV - Análisis multicriterio</h1>
+<p>El análisis multicriterio es una técnica para la síntesis del conocimiento e integración de diferentes tipos de información para ayudar a la toma de decisiones. En SIG y ciencias ambientales se usa principalmente para la gestión territorial. El nombre multicriterio, se debe a que se basa en la modificación de un conjunto de variables (en SIG generalmente son raster), cada una con criterio específico, por ejemplo aplicar un umbral &lt; 1000 msnm a un modelo digital de elevación. Cuando se diseña una diversidad de criterios a aplicar al conjunto de variables que se combinarán para identificar las zonas que cumplen con los diferentes criterios, el producto se puede usar para tomar decisiones informadas.</p>
+<div id="dimensiones-espaciales-del-análisis-multicriterio" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Dimensiones espaciales del análisis multicriterio</h2>
+<p>El uso de análisis de multicriterio con sistemas de información geográfica se basa en operaciones aplicadas a datos espaciales (generalmente raster), para aplicar los criterios y combinarlos. Los criterios se refieren a valores umbral que se aplicarán, por ejemplo:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathrm{Temp} &gt; 5 \mathrm{°C}\)</span></li>
+<li><span class="math inline">\(\mathrm{Elev} \geq 500 \mathrm{\ msnm}\)</span></li>
+<li><span class="math inline">\(0 &gt; \mathrm{Población} \mathrm{\ km^{-2}} \leq 1000\)</span></li>
+<li><span class="math inline">\(\mathrm{Precipitación\ anual} \approx 1000 \mathrm{\ mm}\)</span></li>
+</ol>
+<p>Cada uno de los criterios que se tomen en cuenta <strong>siempre</strong> deben de responder a algún aspecto relevante del proceso sobre el cual se deben de tomar decisiones sobre gestión territorial.</p>
+<p>Posteriormente al diseño de criterios a aplicar a cada variable, se diseña el modelo para combinarlos. El resultado de aplicar los criterios son variables raster binarias (valores de 0 y 1), donde 0 representa ausencia del criterio, y 1 su presencia (Figura <a href="unidad-iv-análisis-multicriterio.html#fig:criterio-1">6.1</a>).</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="unidad-iv-análisis-multicriterio.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb45-2"><a href="unidad-iv-análisis-multicriterio.html#cb45-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Unidad-II/Capas-ejemplo/bio1.tif&quot;</span>)</span>
+<span id="cb45-3"><a href="unidad-iv-análisis-multicriterio.html#cb45-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> r <span class="sc">&gt;</span> <span class="dv">150</span> <span class="co">#aplicación del criterio</span></span>
+<span id="cb45-4"><a href="unidad-iv-análisis-multicriterio.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb45-5"><a href="unidad-iv-análisis-multicriterio.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r); <span class="fu">plot</span>(r1)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:criterio-1"></span>
+<img src="Mod-mat-ECO_files/figure-html/criterio-1-1.png" alt="Ejemplo de criterio de temperatura &gt; 15 °C (derecha) a una capa de temperatura anual promedio para norte américa (izquierda). En verde se muestran todas las zons que cumplen con el criterio aplicado, y en gris las zonas que no lo cumplen." width="768" />
+<p class="caption">
+Figura 6.1: Ejemplo de criterio de temperatura &gt; 15 °C (derecha) a una capa de temperatura anual promedio para norte américa (izquierda). En verde se muestran todas las zons que cumplen con el criterio aplicado, y en gris las zonas que no lo cumplen.
+</p>
 </div>
-<div id="preámbulo" class="section level1" number="1">
-<h1><span class="header-section-number"> 1</span> Preámbulo</h1>
-<p><img src="logo.png" width="217" style="display: block; margin: auto;" /></p>
-<p>En el curso <strong>Modelado y Análisis Espacial</strong> aprenderemos a utilizar algunas herramientas para aprender a usar herramientas geográficas para analizar y representar procesos ambientales en el espacio. Los contenidos del índice se apegan al <a href="Programa-curso.pdf">programa completo del curso</a>, el cual se impartirá en los <a href="Horario.pdf">horarios normales establecidos</a>. Para conocer cuándo, cómo y qué temas se se impartirán puedes consultar la <a href="Estrategia-docente.pdf">estrategia docente</a>.</p>
+<p>Debido a que los raster son en su mayoría, representaciones geográficas de variables cuantitativas, existe un gran número de operaciones que podemos realizar con ellos. Por ejemplo, si multiplicamos los raster de la figura <a href="unidad-iv-análisis-multicriterio.html#fig:criterio-1">6.1</a>, obtenemos:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="unidad-iv-análisis-multicriterio.html#cb46-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> r <span class="sc">*</span> r1</span>
+<span id="cb46-2"><a href="unidad-iv-análisis-multicriterio.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r2)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:criterio-2"></span>
+<img src="Mod-mat-ECO_files/figure-html/criterio-2-1.png" alt="Producto de rasters muestra la temperatura de las regiones únicamente con temperatura promedio mayor a 15 °C." width="384" />
+<p class="caption">
+Figura 6.2: Producto de rasters muestra la temperatura de las regiones únicamente con temperatura promedio mayor a 15 °C.
+</p>
+</div>
+<p>Ahora, para ver la suma de criterios, necesitaríamos importar otra variable, pues no tendría sentido añadirle <span class="math inline">\(1 \mathrm{°C}\)</span> a la temperatura anual promedio. Acá, importamos el rango anual de temperatura (máxima promedio - mínima promedio), y aplicamos el criterio de <span class="math inline">\(\geq 15\mathrm{°C}\)</span>, para encontrar las zonas donde la diferencia entre las temperaturas máximas y mínimas promedio es mayor ó igual a 15°C.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="unidad-iv-análisis-multicriterio.html#cb47-1" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Unidad-II/Capas-ejemplo/bio2.tif&quot;</span>)</span>
+<span id="cb47-2"><a href="unidad-iv-análisis-multicriterio.html#cb47-2" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.12</span> <span class="ot">&lt;-</span> r<span class="fl">.1</span> <span class="sc">&gt;=</span> <span class="dv">150</span></span>
+<span id="cb47-3"><a href="unidad-iv-análisis-multicriterio.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb47-4"><a href="unidad-iv-análisis-multicriterio.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r<span class="fl">.1</span>); <span class="fu">plot</span>(r<span class="fl">.12</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-42-1.png" alt="Criterio de rango de temperatura mayor o igual a 15°C." width="768" />
+<p class="caption">
+Figura 6.3: Criterio de rango de temperatura mayor o igual a 15°C.
+</p>
+</div>
+<p>Entonces, ahora sí, podemos identificar las zonas que cumplen con uno o dos de los criterios, temperatura anual promedio mayor a 15°C y rango de temperatura mayor o igual a 15°C:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="unidad-iv-análisis-multicriterio.html#cb48-1" aria-hidden="true" tabindex="-1"></a>suma.crit <span class="ot">&lt;-</span> r1 <span class="sc">+</span> r<span class="fl">.12</span></span>
+<span id="cb48-2"><a href="unidad-iv-análisis-multicriterio.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(suma.crit)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-43-1.png" alt="Las zonas grises indican que no se cumple ninguno de los criterios, las amarillas son aquellas donde spolo se cumple uno de los criterios y en las verdes se cumplen ambos." width="384" />
+<p class="caption">
+Figura 6.4: Las zonas grises indican que no se cumple ninguno de los criterios, las amarillas son aquellas donde spolo se cumple uno de los criterios y en las verdes se cumplen ambos.
+</p>
+</div>
+<p>En lugar, si hacemos multiplicación de criterios, obtenemos</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="unidad-iv-análisis-multicriterio.html#cb49-1" aria-hidden="true" tabindex="-1"></a>prod.crit <span class="ot">&lt;-</span> r1 <span class="sc">*</span> r<span class="fl">.12</span></span>
+<span id="cb49-2"><a href="unidad-iv-análisis-multicriterio.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prod.crit)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-44-1.png" alt="Multiplicación de criterios resulta únicamente en las áreas que cumplen con ambos criterios" width="384" />
+<p class="caption">
+Figura 6.5: Multiplicación de criterios resulta únicamente en las áreas que cumplen con ambos criterios
+</p>
+</div>
+<p>las áreas que cumplen tanto con el criterio 1 como con el criterio 2. La sustracción por el contrario:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="unidad-iv-análisis-multicriterio.html#cb50-1" aria-hidden="true" tabindex="-1"></a>resta.crit <span class="ot">&lt;-</span> r1 <span class="sc">-</span> r<span class="fl">.12</span></span>
+<span id="cb50-2"><a href="unidad-iv-análisis-multicriterio.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(resta.crit)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-45-1.png" alt="Sustracción de criterio 1 menos criterio 2" width="384" />
+<p class="caption">
+Figura 6.6: Sustracción de criterio 1 menos criterio 2
+</p>
+</div>
+<p>representa:</p>
+<ol style="list-style-type: decimal">
+<li>Verde: Zonas donde la temperatura anual promedio es <span class="math inline">\(&gt; 15 \mathrm{°C}\)</span>.</li>
+<li>Gris: Zonas donde la temperatura anual promedio es <span class="math inline">\(&gt; 15\mathrm{°C}\)</span> y el rango de temperatura es <span class="math inline">\(\leq 15\mathrm{°C}\)</span></li>
+<li>Amarillo: Zonas donde la temperatura anual promedio es <span class="math inline">\(&gt; 15\mathrm{°C}\)</span> y el rango de temperatura es <span class="math inline">\(\geq 15\mathrm{°C}\)</span> y zonas donde la temperatura anual promedio es <span class="math inline">\(&lt; 15\mathrm{°C}\)</span> y el rango de temperatura es <span class="math inline">\(\leq 15\mathrm{°C}\)</span></li>
+</ol>
+<p>### Conclusión</p>
+<p>Es de suma importancia identificar las operaciones aritméticas que se harán entre criterios para que el resultado final sea consistente con los objetivos planteados del análisis multicriterio. Por lo tanto, los objetivos deben ser planteados a priori y deben permitir identificar las variables espaciales que se necesitan para llevarlo a cabo. Aquí se mostró un análisis multicriterio sumamente sencillo utilizando únicamente datos raster. En la práctica quizás nos veamos en la necesidad de combinar puntos, líneas vectoriales, polígonos y raster. Por lo tanto hay que aprender también cómo se puede combinar los diferentes tipos de datos espaciales.</p>
+</div>
+<div id="aplicaciones-en-la-gestión-del-territorio" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Aplicaciones en la gestión del territorio</h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="encuadre-de-la-materia.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unidad-iii-aplicaciones-del-modelo-digital-de-elevación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-v.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

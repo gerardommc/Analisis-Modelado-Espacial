@@ -1,1 +1,16 @@
-# Unidad IV
+# Unidad IV - Análisis multicriterio
+
+El análisis multicriterio es una técnica para la síntesis del conocimiento e integración de diferentes tipos de información para ayudar a la toma de decisiones. En SIG y ciencias ambientales se usa principalmente para la gestión territorial. El nombre multicriterio, se debe a que se basa en la modificación de un conjunto de variables (en SIG generalmente son raster), cada una con criterio específico, por ejemplo aplicar un umbral < 1000 msnm a un modelo digital de elevación. Cuando se diseña una diversidad de criterios a aplicar al conjunto de variables que se combinarán para identificar las zonas que cumplen con los diferentes criterios, el producto se puede usar para tomar decisiones informadas.
+
+## Dimensiones espaciales del análisis multicriterio
+
+```{r echo = F, child = "Unidad-IV/Dimensiones.Rmd"}
+
+```
+
+## Aplicaciones en la gestión del territorio
+
+```{r echo = F, child = "Unidad-IV/Aplicaciones.Rmd"}
+
+```
+
