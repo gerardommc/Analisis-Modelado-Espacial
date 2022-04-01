@@ -1,1 +1,13 @@
-# Unidad V
+# Unidad V - Evaluación de la calidad de datos
+
+## Evaluación de la fiabilidad de datos temáticos
+
+```{r echo = F, child="Unidad-V/Fiabilidad-tematicos.Rmd"}
+
+```
+
+## Evaluación del error de datos continuos
+
+
+
+## Propagación del error

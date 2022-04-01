@@ -20,6 +20,10 @@ fig:unnamed-chunk-42
 fig:unnamed-chunk-43
 fig:unnamed-chunk-44
 fig:unnamed-chunk-45
+fig:Referencia
+fig:Tema-psic
+fig:Tema-torn
+fig:Tema-pobl
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -76,6 +80,8 @@ modelado-hidrológico
 modelado-hidrológico-en-qgis
 unidad-iv---análisis-multicriterio
 dimensiones-espaciales-del-análisis-multicriterio
-aplicaciones-en-la-gestión-del-territorio
-unidad-v
+unidad-v---evaluación-de-la-calidad-de-datos
+evaluación-de-la-fiabilidad-de-datos-temáticos
+evaluación-del-error-de-datos-continuos
+propagación-del-error
 unidad-vi

@@ -8,9 +8,3 @@ El análisis multicriterio es una técnica para la síntesis del conocimiento e 
 
 ```
 
-## Aplicaciones en la gestión del territorio
-
-```{r echo = F, child = "Unidad-IV/Aplicaciones.Rmd"}
-
-```
-

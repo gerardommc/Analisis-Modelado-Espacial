@@ -1,0 +1,43 @@
+Un mapa temático es una representación geográfica de una variable o un conjunto de variables que tienen características en común. Tal y como se ha visto en estadística las variables pueden ser tanto cuantitativas como cualitativas. Los mapas temáticos pueden estar basados también en diferentes tipos de información geográfica como vectores y rasters. Los mapas tradicionales de uso cotidiano como Open Street Maps **no** son temáticos, estos reciben el nombre de *mapas de referencia* (figura \@ref(fig:Referencia)).
+
+```{r Referencia, echo = F, fig.align='center', fig.cap="Ejemplo de mapa de referencia de Open Street Maps"}
+knitr::include_graphics("Unidad-V/Mapa-referencia.png")
+```
+
+Los mapas temáticos se utilizan para comunicar características específicas del espacio que no son directamente observables, en contraste con los mapas de referencia donde se puede claramente identificar a las estructuras presentes. Por ejemplo, un mapa temático puede representar el estado de bienestar psicológico general de un conjunto de ciudades (figura \@ref(fig:Tema-psic)).
+
+```{r Tema-psic, echo = F, fig.align='center', fig.cap="Mapa temático del bienestar psicológico en Estados Unidos (Dent et al. 2009)."}
+knitr::include_graphics("Unidad-V/Mapa-tematico-1.png")
+```
+
+En los mapas temáticos, los valores, magnitud o cualidades de la variable de interés suele representarse por medio de colores o formas, dependiendo de la naturaleza. Por ejemplo, los valores asociados a puntos pueden representarse tanto con un gradiente de colores como con el tamaño de los puntos (figura \@ref(fig:Tema-torn)). 
+
+```{r Tema-torn, echo = F, fig.align='center', fig.cap="Mapa temático del número de tornados reportados por condado en Oklahoma, EU (Dent et al. 2009)."}
+knitr::include_graphics("Unidad-V/Mapa-tematico-2.png")
+```
+
+Las variables contínuas también se pueden representar en polígonos vectoriales con paletas de colores. Estos mapas reciben el nombre de coropletas y son muy comunes en algunos campos de conocimiento como la demografía y salud pública, donde las divisiones políticas son de suma importancia.
+
+```{r Tema-pobl, echo = F, fig.align='center', fig.cap="Mapa temático del número de habitantes por milla cuadrada (densidad poblaiconal) por condado del estado de Minnesota, EU (Dent et al. 2009)"}
+knitr::include_graphics("Unidad-V/Mapa-tematico-3.png")
+```
+
+Los datos temáticos representados en los mapas de las figuras \@ref(fig:Tema-psic) - \@ref(fig:Tema-pobl) son producto de un proceso de observación, y por lo tanto tienen un grado de error y limitaciones importantes. Los errores de las mediciones pueden tener un origen diverso:
+
+- Modo de uso y calibración de instrumentos
+- Registro de datos
+- Redondeo
+- Etiquetado erróneo
+- Unidades de medición
+- Error humano
+- Falta de experiencia
+
+Además de todos estos factores hay que tomar en cuenta que las variables que estamos representando en el espacio son en realidad descripciones puntuales (que pueden ocurrir en un espacio pequeño), aplicadas a un área muy grande con una heterogeneidad importante. Es decir, que cada unidad espacial representada en el mapa (los condado en figura \@ref(fig:Tema-pobl), p. ej.) puede ser dividida en unidades más pequeñas que serán diferentes entre sí. Por lo tanto, es deseable que en la mayoría de los casos se tome en cuenta la incertidumbre de las mediciones.
+
+Hay muchas maneras en que puede medirse la incertidumbre de los datos temáticos:
+
+1. Mediciones previas del grado de error de los instrumentos y/u operadores
+2. Incertidumbre medida en el modelo estadístico (en caso de tratarse de un modelo estadístico)
+3. Estimación de desempeño predictivo
+
+Las mediciones del grado de error pueden a su vez ser representadas espacialmente para cotejar con el mapeo temático y poder visualizar el grado de error esperado.
