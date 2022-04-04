@@ -31,6 +31,7 @@ Los datos temáticos representados en los mapas de las figuras \@ref(fig:Tema-ps
 - Unidades de medición
 - Error humano
 - Falta de experiencia
+- Método estadístico (interpolación, p. ej.)
 
 Además de todos estos factores hay que tomar en cuenta que las variables que estamos representando en el espacio son en realidad descripciones puntuales (que pueden ocurrir en un espacio pequeño), aplicadas a un área muy grande con una heterogeneidad importante. Es decir, que cada unidad espacial representada en el mapa (los condado en figura \@ref(fig:Tema-pobl), p. ej.) puede ser dividida en unidades más pequeñas que serán diferentes entre sí. Por lo tanto, es deseable que en la mayoría de los casos se tome en cuenta la incertidumbre de las mediciones.
 
@@ -41,3 +42,34 @@ Hay muchas maneras en que puede medirse la incertidumbre de los datos temáticos
 3. Estimación de desempeño predictivo
 
 Las mediciones del grado de error pueden a su vez ser representadas espacialmente para cotejar con el mapeo temático y poder visualizar el grado de error esperado.
+
+### Ejemplos
+
+En un ejercicio de interolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.
+
+Para hacer la comparación debemos abrir la capa interpolada y el MDE (el estado verdadero del terreno), y sustraer a la capa interpolada la verdader. El resultado será la diferencia entre e estado verdadero y el aproximado en metros. Aquellas regiones con valores negativos corresponderán con regiones donde la aproximación sub-estima la elevación, y los valores positivos son las regiones donde estima mayor altitud de la verdadera:
+
+```{r echo = T, fig.align='center', fig.width=4, fig.height=4}
+mde.int <- raster("../Actividades/Analisis-multicriterio/Elevacion.tif")
+mde <- raster("../Actividades/Analisis-multicriterio/Elevacion-srtm.tif")
+
+mde <- resample(mde, mde.int)
+
+error <- mde.int - mde
+
+plot(error)
+```
+
+Para tener una idea de la magnitud de las desviaciones en relación a la elevación promedio del terreno, podemos dividir el error entre la desviación estándar. Si recuerdan, $\mu \pm \sigma$ representa la región donde se encuentra el 69% de los datos, de modo que si dividimos el error entre su desviación estándar podemos ver cuántas desviaciones estándar por arriba o abajo de la media se desvían las aproximaciones:
+
+```{r echo = T, fig.align='center', fig.width=4, fig.height=4}
+desvest <- cellStats(error, sd)
+plot(error/desvest)
+```
+ Una medida del error total de la aproximación es el "Root Mean Squared Error" o RMSE, y se calcula como la raíz cuadrada del cuadrado del error. Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:
+
+```{r echo = T}
+rmse <- cellStats(sqrt((mde - mde.int)^2), mean)
+rmse
+```
+

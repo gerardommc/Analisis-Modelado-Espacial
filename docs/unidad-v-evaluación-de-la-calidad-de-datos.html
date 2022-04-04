@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-04-01" />
+<meta name="date" content="2022-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html"><i class="fa fa-check"></i><b>7</b> Unidad V - Evaluación de la calidad de datos</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#evaluación-de-la-fiabilidad-de-datos-temáticos"><i class="fa fa-check"></i><b>7.1</b> Evaluación de la fiabilidad de datos temáticos</a></li>
+<li class="chapter" data-level="7.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#evaluación-de-la-fiabilidad-de-datos-temáticos"><i class="fa fa-check"></i><b>7.1</b> Evaluación de la fiabilidad de datos temáticos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#ejemplos"><i class="fa fa-check"></i><b>7.1.1</b> Ejemplos</a></li>
+</ul></li>
 <li class="chapter" data-level="7.2" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#evaluación-del-error-de-datos-continuos"><i class="fa fa-check"></i><b>7.2</b> Evaluación del error de datos continuos</a></li>
 <li class="chapter" data-level="7.3" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#propagación-del-error"><i class="fa fa-check"></i><b>7.3</b> Propagación del error</a></li>
 </ul></li>
@@ -279,6 +282,7 @@ Figura 7.4: Mapa temático del número de habitantes por milla cuadrada (densida
 <li>Unidades de medición</li>
 <li>Error humano</li>
 <li>Falta de experiencia</li>
+<li>Método estadístico (interpolación, p. ej.)</li>
 </ul>
 <p>Además de todos estos factores hay que tomar en cuenta que las variables que estamos representando en el espacio son en realidad descripciones puntuales (que pueden ocurrir en un espacio pequeño), aplicadas a un área muy grande con una heterogeneidad importante. Es decir, que cada unidad espacial representada en el mapa (los condado en figura <a href="unidad-v-evaluación-de-la-calidad-de-datos.html#fig:Tema-pobl">7.4</a>, p. ej.) puede ser dividida en unidades más pequeñas que serán diferentes entre sí. Por lo tanto, es deseable que en la mayoría de los casos se tome en cuenta la incertidumbre de las mediciones.</p>
 <p>Hay muchas maneras en que puede medirse la incertidumbre de los datos temáticos:</p>
@@ -288,6 +292,28 @@ Figura 7.4: Mapa temático del número de habitantes por milla cuadrada (densida
 <li>Estimación de desempeño predictivo</li>
 </ol>
 <p>Las mediciones del grado de error pueden a su vez ser representadas espacialmente para cotejar con el mapeo temático y poder visualizar el grado de error esperado.</p>
+<div id="ejemplos" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Ejemplos</h3>
+<p>En un ejercicio de interolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.</p>
+<p>Para hacer la comparación debemos abrir la capa interpolada y el MDE (el estado verdadero del terreno), y sustraer a la capa interpolada la verdader. El resultado será la diferencia entre e estado verdadero y el aproximado en metros. Aquellas regiones con valores negativos corresponderán con regiones donde la aproximación sub-estima la elevación, y los valores positivos son las regiones donde estima mayor altitud de la verdadera:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mde.int <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Actividades/Analisis-multicriterio/Elevacion.tif&quot;</span>)</span>
+<span id="cb51-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-2" aria-hidden="true" tabindex="-1"></a>mde <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Actividades/Analisis-multicriterio/Elevacion-srtm.tif&quot;</span>)</span>
+<span id="cb51-3"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-4" aria-hidden="true" tabindex="-1"></a>mde <span class="ot">&lt;-</span> <span class="fu">resample</span>(mde, mde.int)</span>
+<span id="cb51-5"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-6" aria-hidden="true" tabindex="-1"></a>error <span class="ot">&lt;-</span> mde.int <span class="sc">-</span> mde</span>
+<span id="cb51-7"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(error)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-46-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Para tener una idea de la magnitud de las desviaciones en relación a la elevación promedio del terreno, podemos dividir el error entre la desviación estándar. Si recuerdan, <span class="math inline">\(\mu \pm \sigma\)</span> representa la región donde se encuentra el 69% de los datos, de modo que si dividimos el error entre su desviación estándar podemos ver cuántas desviaciones estándar por arriba o abajo de la media se desvían las aproximaciones:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb52-1" aria-hidden="true" tabindex="-1"></a>desvest <span class="ot">&lt;-</span> <span class="fu">cellStats</span>(error, sd)</span>
+<span id="cb52-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(error<span class="sc">/</span>desvest)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-47-1.png" width="384" style="display: block; margin: auto;" />
+Una medida del error total de la aproximación es el “Root Mean Squared Error” o RMSE, y se calcula como la raíz cuadrada del cuadrado del error. Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-1" aria-hidden="true" tabindex="-1"></a>rmse <span class="ot">&lt;-</span> <span class="fu">cellStats</span>(<span class="fu">sqrt</span>((mde <span class="sc">-</span> mde.int)<span class="sc">^</span><span class="dv">2</span>), mean)</span>
+<span id="cb53-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-2" aria-hidden="true" tabindex="-1"></a>rmse</span></code></pre></div>
+<pre><code>## [1] 37.32274</code></pre>
+</div>
 </div>
 <div id="evaluación-del-error-de-datos-continuos" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Evaluación del error de datos continuos</h2>

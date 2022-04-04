@@ -82,6 +82,7 @@ unidad-iv---análisis-multicriterio
 dimensiones-espaciales-del-análisis-multicriterio
 unidad-v---evaluación-de-la-calidad-de-datos
 evaluación-de-la-fiabilidad-de-datos-temáticos
+ejemplos
 evaluación-del-error-de-datos-continuos
 propagación-del-error
 unidad-vi
