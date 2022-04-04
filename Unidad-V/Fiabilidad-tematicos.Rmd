@@ -66,7 +66,15 @@ Para tener una idea de la magnitud de las desviaciones en relación a la elevaci
 desvest <- cellStats(error, sd)
 plot(error/desvest)
 ```
- Una medida del error total de la aproximación es el "Root Mean Squared Error" o RMSE, y se calcula como la raíz cuadrada del cuadrado del error. Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:
+ Una medida del error total de la aproximación es el "Root Mean Squared Error" o RMSE, y se calcula como el promedio de la raíz cuadrada del cuadrado del error:
+ 
+$$
+\mathrm{RMSE} = \sum \frac{\sqrt{(X' - X)^2}}{n}
+$$
+ 
+donde $X'$ es la aproximación, $X$ es el estado verdadero y $n$ es el número total de aproximaciones o predicciones.
+
+Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:
 
 ```{r echo = T}
 rmse <- cellStats(sqrt((mde - mde.int)^2), mean)

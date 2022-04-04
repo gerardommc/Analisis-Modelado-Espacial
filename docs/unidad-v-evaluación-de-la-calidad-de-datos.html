@@ -309,7 +309,12 @@ Figura 7.4: Mapa temático del número de habitantes por milla cuadrada (densida
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb52-1" aria-hidden="true" tabindex="-1"></a>desvest <span class="ot">&lt;-</span> <span class="fu">cellStats</span>(error, sd)</span>
 <span id="cb52-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(error<span class="sc">/</span>desvest)</span></code></pre></div>
 <p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-47-1.png" width="384" style="display: block; margin: auto;" />
-Una medida del error total de la aproximación es el “Root Mean Squared Error” o RMSE, y se calcula como la raíz cuadrada del cuadrado del error. Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:</p>
+Una medida del error total de la aproximación es el “Root Mean Squared Error” o RMSE, y se calcula como el promedio de la raíz cuadrada del cuadrado del error:</p>
+<p><span class="math display">\[
+\mathrm{RMSE} = \sum \frac{\sqrt{(X&#39; - X)^2}}{n}
+\]</span></p>
+<p>donde <span class="math inline">\(X&#39;\)</span> es la aproximación, <span class="math inline">\(X\)</span> es el estado verdadero y <span class="math inline">\(n\)</span> es el número total de aproximaciones o predicciones.</p>
+<p>Las unidades de RMSE son las mismas que analizamos, de modo que nos indicará por cuántos metros en promedio falló la aproximación:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-1" aria-hidden="true" tabindex="-1"></a>rmse <span class="ot">&lt;-</span> <span class="fu">cellStats</span>(<span class="fu">sqrt</span>((mde <span class="sc">-</span> mde.int)<span class="sc">^</span><span class="dv">2</span>), mean)</span>
 <span id="cb53-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-2" aria-hidden="true" tabindex="-1"></a>rmse</span></code></pre></div>
 <pre><code>## [1] 37.32274</code></pre>
