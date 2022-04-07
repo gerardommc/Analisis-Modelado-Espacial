@@ -24,7 +24,7 @@
 <meta name="author" content="Gerardo Martín" />
 
 
-<meta name="date" content="2022-04-04" />
+<meta name="date" content="2022-04-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -214,7 +214,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#evaluación-de-la-fiabilidad-de-datos-temáticos"><i class="fa fa-check"></i><b>7.1</b> Evaluación de la fiabilidad de datos temáticos</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#ejemplos"><i class="fa fa-check"></i><b>7.1.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#tipos-de-errores"><i class="fa fa-check"></i><b>7.1.1</b> Tipos de errores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#ejemplo-de-errores-de-atibutos-y-de-linaje"><i class="fa fa-check"></i><b>7.1.2</b> Ejemplo de errores de atibutos y de linaje</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#errores-de-fiabilidad-posicional-y-topológicos"><i class="fa fa-check"></i><b>7.1.3</b> Errores de fiabilidad posicional y topológicos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#importancia-de-los-errores"><i class="fa fa-check"></i><b>7.1.4</b> Importancia de los errores</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#evaluación-del-error-de-datos-continuos"><i class="fa fa-check"></i><b>7.2</b> Evaluación del error de datos continuos</a></li>
 <li class="chapter" data-level="7.3" data-path="unidad-v-evaluación-de-la-calidad-de-datos.html"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#propagación-del-error"><i class="fa fa-check"></i><b>7.3</b> Propagación del error</a></li>
@@ -292,9 +295,20 @@ Figura 7.4: Mapa temático del número de habitantes por milla cuadrada (densida
 <li>Estimación de desempeño predictivo</li>
 </ol>
 <p>Las mediciones del grado de error pueden a su vez ser representadas espacialmente para cotejar con el mapeo temático y poder visualizar el grado de error esperado.</p>
-<div id="ejemplos" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Ejemplos</h3>
-<p>En un ejercicio de interolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.</p>
+<div id="tipos-de-errores" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Tipos de errores</h3>
+<p>Las fuentes de error descritas arriba, resultan en errores de distinta naturaleza que se pueden clasificar en errores de (<a href="https://gistbok.ucgis.org/bok-topics/thematic-accuracy-assessment">Zhang 2020</a>):</p>
+<ol style="list-style-type: decimal">
+<li><strong>Linaje</strong> Son los errores relacionados con la reproducibilidad de las estimaciones de los datos temáticos</li>
+<li><strong>Fiabilidad posicional</strong> Son los errores relacionados con los cambios posiionales que degradarán la calidad de las comparaciones subsecuentes</li>
+<li><strong>Fiabilidad de atributos</strong> Se refiere a los errores de clasificación a partir de imágenes de sensores remotos</li>
+<li><strong>Completitud</strong> Se refiere a qué tan completa es la clasificación de los diferentes tipos posibles a partir de imágenes de sensores remotos</li>
+<li><strong>Fiabilidad temporal</strong> Se refiere a que la cobertura temporal de los datos esté reportada adecuadamente</li>
+</ol>
+</div>
+<div id="ejemplo-de-errores-de-atibutos-y-de-linaje" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Ejemplo de errores de atibutos y de linaje</h3>
+<p>En un ejercicio de interpolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.</p>
 <p>Para hacer la comparación debemos abrir la capa interpolada y el MDE (el estado verdadero del terreno), y sustraer a la capa interpolada la verdader. El resultado será la diferencia entre e estado verdadero y el aproximado en metros. Aquellas regiones con valores negativos corresponderán con regiones donde la aproximación sub-estima la elevación, y los valores positivos son las regiones donde estima mayor altitud de la verdadera:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-1" aria-hidden="true" tabindex="-1"></a>mde.int <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Actividades/Analisis-multicriterio/Elevacion.tif&quot;</span>)</span>
 <span id="cb51-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb51-2" aria-hidden="true" tabindex="-1"></a>mde <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;../Actividades/Analisis-multicriterio/Elevacion-srtm.tif&quot;</span>)</span>
@@ -318,6 +332,29 @@ Una medida del error total de la aproximación es el “Root Mean Squared Error�
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-1" aria-hidden="true" tabindex="-1"></a>rmse <span class="ot">&lt;-</span> <span class="fu">cellStats</span>(<span class="fu">sqrt</span>((mde <span class="sc">-</span> mde.int)<span class="sc">^</span><span class="dv">2</span>), mean)</span>
 <span id="cb53-2"><a href="unidad-v-evaluación-de-la-calidad-de-datos.html#cb53-2" aria-hidden="true" tabindex="-1"></a>rmse</span></code></pre></div>
 <pre><code>## [1] 37.32274</code></pre>
+</div>
+<div id="errores-de-fiabilidad-posicional-y-topológicos" class="section level3" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Errores de fiabilidad posicional y topológicos</h3>
+<p>La fiabilidad de los datos temáticos no sólo se mide en relación a la incertidumbre en torno al proceso que se representa en el espacio, sino por la precisión con que se representa en el espacio. Por ejemplo, en los mapas de referencia vial, son frecuentes los errores de reprsentación de los caminos, señalamientos viales o edificios. En los datos temáticos este tipo de errores también están presentes, tanto en datos vectoriales como raster. En polígonos, las fronteras de entidades políticas pueden tener errores sustanciales, estructuras lineales pueden tener quiebres o discontinuidades que no están presentes en la realidad <a href="unidad-v-evaluación-de-la-calidad-de-datos.html#fig:Topologicos">7.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Topologicos"></span>
+<img src="Unidad-V/types-digitizing-GIS-errors.webp" alt="Ejemplos de errores topológicos y de fiabilidad posicional. [Crédito a GIS lounge](https://www.gislounge.com/gis-data-a-look-at-accuracy-precision-and-types-of-errors/)"  />
+<p class="caption">
+Figura 7.5: Ejemplos de errores topológicos y de fiabilidad posicional. <a href="https://www.gislounge.com/gis-data-a-look-at-accuracy-precision-and-types-of-errors/">Crédito a GIS lounge</a>
+</p>
+</div>
+</div>
+<div id="importancia-de-los-errores" class="section level3" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Importancia de los errores</h3>
+<p>Cuando trabajamos con distintas fuentes de error, es inevitable contaminar nuestros análisis con errores de todas las naturalezas posibles. El producto final, entonces debe reconocer las debilidades de cada uno de los insumos para el producto final y cómo éstos afectan su fiabilidad (propagación del error). Muchas bases de datos cumplen con los estándares mínimos para establecer la fidelidad por medio de metadatos, conteniendo información como:</p>
+<ol style="list-style-type: decimal">
+<li>Fecha de publicación de la última versión</li>
+<li>Área de cobertura</li>
+<li>Escala</li>
+<li>Sistema de proyección</li>
+<li>Exactitud y precisión</li>
+<li>Formato</li>
+<li>Cobertura temporal (período en que fueron colectados los datos para generarla)</li>
+</ol>
 </div>
 </div>
 <div id="evaluación-del-error-de-datos-continuos" class="section level2" number="7.2">

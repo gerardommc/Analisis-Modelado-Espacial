@@ -24,6 +24,7 @@ fig:Referencia
 fig:Tema-psic
 fig:Tema-torn
 fig:Tema-pobl
+fig:Topologicos
 preámbulo
 encuadre-de-la-materia
 criterios-de-evaluación
@@ -82,7 +83,10 @@ unidad-iv---análisis-multicriterio
 dimensiones-espaciales-del-análisis-multicriterio
 unidad-v---evaluación-de-la-calidad-de-datos
 evaluación-de-la-fiabilidad-de-datos-temáticos
-ejemplos
+tipos-de-errores
+ejemplo-de-errores-de-atibutos-y-de-linaje
+errores-de-fiabilidad-posicional-y-topológicos
+importancia-de-los-errores
 evaluación-del-error-de-datos-continuos
 propagación-del-error
 unidad-vi

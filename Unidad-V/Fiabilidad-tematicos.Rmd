@@ -43,9 +43,19 @@ Hay muchas maneras en que puede medirse la incertidumbre de los datos temáticos
 
 Las mediciones del grado de error pueden a su vez ser representadas espacialmente para cotejar con el mapeo temático y poder visualizar el grado de error esperado.
 
-### Ejemplos
+### Tipos de errores
 
-En un ejercicio de interolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.
+Las fuentes de error descritas arriba, resultan en errores de distinta naturaleza que se pueden clasificar en errores de ([Zhang 2020](https://gistbok.ucgis.org/bok-topics/thematic-accuracy-assessment)):
+
+1. **Linaje** Son los errores relacionados con la reproducibilidad de las estimaciones de los datos temáticos
+2. **Fiabilidad posicional** Son los errores relacionados con los cambios posiionales que degradarán la calidad de las comparaciones subsecuentes
+3. **Fiabilidad de atributos** Se refiere a los errores de clasificación a partir de imágenes de sensores remotos
+4. **Completitud** Se refiere a qué tan completa es la clasificación de los diferentes tipos posibles a partir de imágenes de sensores remotos
+5. **Fiabilidad temporal** Se refiere a que la cobertura temporal de los datos esté reportada adecuadamente
+
+### Ejemplo de errores de atibutos y de linaje
+
+En un ejercicio de interpolación, se creó una capa raster de elevación del terreno. Esta capa raster es una aproximación al estado real del terreno, por lo que se puede comparar con un modelo digital de elevación. Es una situación poco usual puesto que en caso de existir on MDE real no habría la necesidad de hacer una interpolación, sin embargo, el ejercicio puede ser muy revelador.
 
 Para hacer la comparación debemos abrir la capa interpolada y el MDE (el estado verdadero del terreno), y sustraer a la capa interpolada la verdader. El resultado será la diferencia entre e estado verdadero y el aproximado en metros. Aquellas regiones con valores negativos corresponderán con regiones donde la aproximación sub-estima la elevación, y los valores positivos son las regiones donde estima mayor altitud de la verdadera:
 
@@ -81,3 +91,22 @@ rmse <- cellStats(sqrt((mde - mde.int)^2), mean)
 rmse
 ```
 
+### Errores de fiabilidad posicional y topológicos
+
+La fiabilidad de los datos temáticos no sólo se mide en relación a la incertidumbre en torno al proceso que se representa en el espacio, sino por la precisión con que se representa en el espacio. Por ejemplo, en los mapas de referencia vial, son frecuentes los errores de reprsentación de los caminos, señalamientos viales o edificios. En los datos temáticos este tipo de errores también están presentes, tanto en datos vectoriales como raster. En polígonos, las fronteras de entidades políticas pueden tener errores sustanciales, estructuras lineales pueden tener quiebres o discontinuidades que no están presentes en la realidad \@ref(fig:Topologicos).
+
+```{r Topologicos, echo = F, fig.align='center', fig.cap="Ejemplos de errores topológicos y de fiabilidad posicional. [Crédito a GIS lounge](https://www.gislounge.com/gis-data-a-look-at-accuracy-precision-and-types-of-errors/)"}
+knitr::include_graphics("Unidad-V/types-digitizing-GIS-errors.webp")
+```
+
+### Importancia de los errores
+
+Cuando trabajamos con distintas fuentes de error, es inevitable contaminar nuestros análisis con errores de todas las naturalezas posibles. El producto final, entonces debe reconocer las debilidades de cada uno de los insumos para el producto final y cómo éstos afectan su fiabilidad (propagación del error). Muchas bases de datos cumplen con los estándares mínimos para establecer la fidelidad por medio de metadatos, conteniendo información como:
+
+1. Fecha de publicación de la última versión
+2. Área de cobertura 
+3. Escala 
+4. Sistema de proyección
+5. Exactitud y precisión
+6. Formato
+7. Cobertura temporal (período en que fueron colectados los datos para generarla)
