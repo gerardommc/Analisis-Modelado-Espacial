@@ -1,0 +1,11 @@
+La cobertura de la superficie de la tierra es dinámica, cambia con el tiempo. Por un lado existen cambios naturales independientes de las actividades humanas, producto del cambio de ecosistemas ante variación climática o el movimiento de placas tectónicas. Las actividades humanas, sin embargo alteran la cobertura a una velocidad mucho mayor que los procesos mencionados. Por lo tanto, el monitoreo de los cambios de cobertura son necesarios para gestionar los recursos en relación a las necesidades de las poblaciones presentes y futuras.
+
+Para analizar los cambios, es necesario contar con una serie temporal de cobertura, de modo que se pueda observar las transiciones entre los distintos tipos. Algunas coberturas son más susceptibles de cambiar a otros tipos. Por ejemplo, dependiendo de la escala temporal del análisis podemos asumir que la cobertura urbana siempre permanecerá así, mientras que los bosques pueden pasar por un proceso de perturbación gradual. De este modo, que el análisis de los cambios de cobertura consiste del monitoreo de las transiciones entre diferentes años, por ejemplo:
+
+1. Urbano $\rightarrow$ Urbano
+2. Bosque conservado $\rightarrow$ Bosque perturado
+3. Bosque conservado $\rightarrow$ Agricultura
+4. Bosque perturbado $\rightarrow$ Agricultura
+5. Agricultura $\rightarrow$ Urbano
+
+Algunas medidas importantes de cambio son el proporción de cada tipo cobertura a lo largo del tiempo. De este modo se puede tener una idea del declive en los ecosistemas nativos en relación a otras coberturas relacionadas con las actividades humanas.

@@ -1,0 +1,20 @@
+A añadir al sitio:
+
+1. El error en datos contínuos
+2. La propagación del error
+	2.1. A partir del error en las mediciones
+	2.2. Error que se propaga entre diferentes fuentes de información
+
+VI - Modelación de nichos y distribuciones
+
+1. La diferencia entre nicho y distribución
+	1.1 Tolerancia fisiológica
+	1.2 Tolerancia fis, el clima y la geografía (Hutchinson et al. 1957)
+	1.3 Clima, interacciones y áreas de accesibilidad
+2. Inferir tolerancia a partir del clima
+	2.1 Métodos de labo
+	2.2 Métodos estadísticos
+		2.2.1 Regresión - Maxent et al.
+		2.2.2 Estadística multivariada
+	
+3. Ejercicio de modelación con Maxent y centroides

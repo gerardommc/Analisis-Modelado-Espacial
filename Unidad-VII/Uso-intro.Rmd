@@ -1,0 +1,34 @@
+Para comenzar tenemos que entender las diferencias entre cobertura y uso. La cobertura es una clasificación de las estructuras, generalmente de comunidades vegetales, ecosistemas y construcciones humanas, que se encuentran en la superficie de la tierra. El uso, por otro lado, se refiere a las actividades socioeconómicas que se desarrollan en las diferentes regiones. Ejemplos de cobertura pueden ser:
+
+1. Selva
+2. Bosque nativo
+3. Ecosistema
+4. Agricultura
+5. Cultivo de maíz
+6. Pastizal
+7. Matorral xerófilo
+8. Urbano
+9. Rural
+
+Mientras que ejemplos de uso son:
+
+1. Tierras ceremoniales
+2. Áreas para ecoturismo
+3. Zonas de conservación de fauna
+4. Industria
+5. Áreas de comercio
+
+```{r Cobertura, echo = F, fig.align='center', fig.cap="Ejemplo de un modelo de uso de suelo en seis categorías para la isla de Sri Lanka. Ubano en verde, Bosque degradado en naranja, Bosque conservado en morado, Cultivo de té en rosa, Agricultura en aqua, y Agua en blanco (Martin et al. 2021)."}
+knitr::include_graphics("Unidad-VII/Uso-Sri-Lanka.jpg")
+```
+
+La clasificación del terreno en estas categorías es un proceso complejo, porque requiere del análisis exhaustivo de una gran cantidad de información correspondiente a la extensión de las zonas que se pretende clasificar.
+
+Es por ello que uno de los métodos más comunes para modelar la cobertura es el análisis de imágenes de sensores remotos. Las imágenes de sensores remotos son productos desarrollados a partir de las diferentes bandas del espectro de luz visible y no visible que emite el sol y la tierra refleja. Uno de los productos más frecuentemente analizados son los índices de vegetación que representan una medición de la actividad fotosintética, y por lo tanto están relacionados con la densidad de la vegetación. Otra variable muy importante es la densidad poblacional, que también puede ser estimada a partir de imágenes satelitales.
+
+Las metodologías para analizar las imágenes de sensores remotos pueden ser clasificadas en dos:
+
+1. **Métodos supervisados**. Consisten del análisis de una serie de observaciones de áreas clasificadas con antelación por el usuario. Una vez hecho el análisis para obtener un modelo estadístico que predice bien la clasificación, este se utiliza para predecir las cobertura de las regiones donde no se ha hecho la clasificación. Ejemplos: Árboles de regresión, Bosques aleatorios (Random Forest).
+2. **Métodos no supervisados**. Consisten del análisis, generalmente multivariado, de una colección de imágenes de sensores remotos para encontrar grupos de datos que tienen características en común. Posteriormente a cada grupo de datos se le asigna un tipo de cobertura. Ejemplos: Análisis de componentes principales, Análisis de cluster.
+
+Independientemente de la técnica de modelación utilizada, se deben medir sus debilidades y fortalezas, por ejemplo calculando el porcentaje de unidades espaciales mal clasificadas, globalmente o por tipo de cobertura.

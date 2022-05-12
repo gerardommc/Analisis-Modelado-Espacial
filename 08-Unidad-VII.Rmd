@@ -1,0 +1,26 @@
+# Unidad VII - Modelación de cobertura y cambio de uso de suelo
+
+## Introducción
+
+```{r echo = F, child="Unidad-VII/Uso-intro.Rmd"}
+
+```
+
+## Monitoreo de los cambios
+
+```{r echo = F, child="Unidad-VII/Cambios.Rmd"}
+
+```
+
+## Análisis de los cambios
+
+```{r echo = F, child = "Unidad-VII/Analisis-cambios.Rmd"}
+
+```
+
+## Modelación prospectiva
+
+```{r echo = F, child = "Unidad-VII/Prospectiva.Rmd"}
+
+```
+

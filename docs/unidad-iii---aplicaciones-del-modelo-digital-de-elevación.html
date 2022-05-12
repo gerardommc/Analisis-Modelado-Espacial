@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 5 Unidad III - Aplicaciones del modelo digital de elevación | Análisis y Modelado Espacial</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 5 Unidad III - Aplicaciones del modelo digital de elevación | Análisis y Modelado Espacial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 5 Unidad III - Aplicaciones del modelo digital de elevación | Análisis y Modelado Espacial" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2022-05-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"/>
+<link rel="next" href="unidad-iv---análisis-multicriterio.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis y Modelado Espacial I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción al modelado espacial</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#análisis-utilizando-sistemas-de-información-geográfica"><i class="fa fa-check"></i><b>3.1</b> Análisis utilizando sistemas de información geográfica</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#introducción"><i class="fa fa-check"></i><b>3.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.1.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#ejercicio"><i class="fa fa-check"></i><b>3.1.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.1.3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#qué-son-los-sig"><i class="fa fa-check"></i><b>3.1.3</b> ¿Qué son los SIG?</a></li>
+<li class="chapter" data-level="3.1.4" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#cómo-puedo-conseguir-un-sig"><i class="fa fa-check"></i><b>3.1.4</b> ¿Cómo puedo conseguir un SIG?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#modelado-espacial"><i class="fa fa-check"></i><b>3.2</b> Modelado espacial</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#datos-vectoriales"><i class="fa fa-check"></i><b>3.2.1</b> Datos vectoriales</a></li>
+<li class="chapter" data-level="3.2.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#ráster"><i class="fa fa-check"></i><b>3.2.2</b> Ráster</a></li>
+<li class="chapter" data-level="3.2.3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#puntos-1"><i class="fa fa-check"></i><b>3.2.3</b> Puntos</a></li>
+<li class="chapter" data-level="3.2.4" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#lecciones"><i class="fa fa-check"></i><b>3.2.4</b> Lecciones</a></li>
+<li class="chapter" data-level="3.2.5" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#repositorios-públicos-gratuitos"><i class="fa fa-check"></i><b>3.2.5</b> Repositorios públicos gratuitos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><i class="fa fa-check"></i><b>4</b> Unidad II - Análisis de la asociación espacial entre varios fenómenos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial"><i class="fa fa-check"></i><b>4.1.1</b> Correlación espacial</a></li>
+<li class="chapter" data-level="4.1.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión"><i class="fa fa-check"></i><b>4.1.2</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-rasters-en-r"><i class="fa fa-check"></i><b>4.2.1</b> Índice de Moran para rasters en R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos"><i class="fa fa-check"></i><b>4.2.2</b> Índice de Moran para puntos</a></li>
+<li class="chapter" data-level="4.2.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#ejemplo-de-aplicación-para-análisis-de-residuales"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de aplicación para análisis de residuales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.1</b> Vecino más próximo</a></li>
+<li class="chapter" data-level="4.3.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés"><i class="fa fa-check"></i><b>4.3.2</b> Inverso de la distancia (IDW en inglés)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas"><i class="fa fa-check"></i><b>4.3.3</b> Regresión sobre las coordenadas</a></li>
+<li class="chapter" data-level="4.3.4" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines"><i class="fa fa-check"></i><b>4.3.4</b> Splines</a></li>
+<li class="chapter" data-level="4.3.5" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#tutorial-de-interpolación-en-r"><i class="fa fa-check"></i><b>4.3.5</b> Tutorial de interpolación en R</a></li>
+<li class="chapter" data-level="4.3.6" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-de-las-coordenadas-con-splines"><i class="fa fa-check"></i><b>4.3.6</b> Regresión de las coordenadas con splines</a></li>
+<li class="chapter" data-level="4.3.7" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#otros-tipos-de-interpolación"><i class="fa fa-check"></i><b>4.3.7</b> Otros tipos de interpolación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><i class="fa fa-check"></i><b>5</b> Unidad III - Aplicaciones del modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#desarrollo-de-un-modelo-digital-de-elevación"><i class="fa fa-check"></i><b>5.1</b> Desarrollo de un modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#tutorial-de-desarrollo-de-mde"><i class="fa fa-check"></i><b>5.1.1</b> Tutorial de desarrollo de MDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos"><i class="fa fa-check"></i><b>5.2</b> Cálculo de parámetros morfométricos</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#pendiente"><i class="fa fa-check"></i><b>5.2.1</b> Pendiente</a></li>
+<li class="chapter" data-level="5.2.2" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#superficie"><i class="fa fa-check"></i><b>5.2.2</b> Superficie</a></li>
+<li class="chapter" data-level="5.2.3" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#aspecto"><i class="fa fa-check"></i><b>5.2.3</b> Aspecto</a></li>
+<li class="chapter" data-level="5.2.4" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#sombreado"><i class="fa fa-check"></i><b>5.2.4</b> Sombreado</a></li>
+<li class="chapter" data-level="5.2.5" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-los-parámetros-morfométricos-en-r"><i class="fa fa-check"></i><b>5.2.5</b> Cálculo de los parámetros morfométricos en R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico-en-qgis"><i class="fa fa-check"></i><b>5.3.1</b> Modelado hidrológico en QGIS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv---análisis-multicriterio.html"><a href="unidad-iv---análisis-multicriterio.html"><i class="fa fa-check"></i><b>6</b> Unidad IV - Análisis multicriterio</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv---análisis-multicriterio.html"><a href="unidad-iv---análisis-multicriterio.html#dimensiones-espaciales-del-análisis-multicriterio"><i class="fa fa-check"></i><b>6.1</b> Dimensiones espaciales del análisis multicriterio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html"><i class="fa fa-check"></i><b>7</b> Unidad V - Evaluación de la calidad de datos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#evaluación-de-la-fiabilidad-de-datos-temáticos"><i class="fa fa-check"></i><b>7.1</b> Evaluación de la fiabilidad de datos temáticos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#tipos-de-errores"><i class="fa fa-check"></i><b>7.1.1</b> Tipos de errores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#ejemplo-de-errores-de-atibutos-y-de-linaje"><i class="fa fa-check"></i><b>7.1.2</b> Ejemplo de errores de atibutos y de linaje</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#errores-de-fiabilidad-posicional-y-topológicos"><i class="fa fa-check"></i><b>7.1.3</b> Errores de fiabilidad posicional y topológicos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#importancia-de-los-errores"><i class="fa fa-check"></i><b>7.1.4</b> Importancia de los errores</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#evaluación-del-error-de-datos-continuos"><i class="fa fa-check"></i><b>7.2</b> Evaluación del error de datos continuos</a></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#propagación-del-error"><i class="fa fa-check"></i><b>7.3</b> Propagación del error</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><a href="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><i class="fa fa-check"></i><b>8</b> Unidad VI - Modelación de nichos ecológicos y áreas de distribución</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><a href="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html#nichos-vs-distribuciones-geográficas"><i class="fa fa-check"></i><b>8.1</b> Nichos vs distribuciones geográficas</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><i class="fa fa-check"></i><b>9</b> Unidad VII - Modelación de cobertura y cambio de uso de suelo</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#introducción-1"><i class="fa fa-check"></i><b>9.1</b> Introducción</a></li>
+<li class="chapter" data-level="9.2" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#monitoreo-de-los-cambios"><i class="fa fa-check"></i><b>9.2</b> Monitoreo de los cambios</a></li>
+<li class="chapter" data-level="9.3" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#análisis-de-los-cambios"><i class="fa fa-check"></i><b>9.3</b> Análisis de los cambios</a></li>
+<li class="chapter" data-level="9.4" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#modelación-prospectiva"><i class="fa fa-check"></i><b>9.4</b> Modelación prospectiva</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gerardommc.github.io" target="blank">Regresar al labo</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis y Modelado Espacial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-iii---aplicaciones-del-modelo-digital-de-elevación" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number"> 5</span> Unidad III - Aplicaciones del modelo digital de elevación<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#unidad-iii---aplicaciones-del-modelo-digital-de-elevación" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="desarrollo-de-un-modelo-digital-de-elevación" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Desarrollo de un modelo digital de elevación<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#desarrollo-de-un-modelo-digital-de-elevación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un modelo digital de elevación es un a representación ráster de la elevación sobre el nivel del mar de la superficie terrestre. La información sobre la elevación es muy importante para el análisis del clima, topografía e hidroligía. En climatología, la elevación está muy relacionada con las temperaturas y las lluvias. En topografía, la elevación se puede utiizar para encontrar la inclinación o pendiente de un terreno, el aspecto, o dirección de la inclinación y capacidad para almacenar agua. En hidrología la elevación se puede utilizar para estimar el tamaño potencial de los cuerpos de agua, la velocidad o fuerza con que puede descender el agua de una montaña, identificar ríos y zonas inundables. La aplicaciones del modelo digital de elevación en topografía e hidrología se conoce como <strong>Geomorfología</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-46-1.png" alt="Modelo digital de elevación" width="672" />
+<p class="caption">
+Figura 5.1: Modelo digital de elevación
+</p>
+</div>
+<p>Los modelos digitales de elevación, además de contener explícitamente información sobre la altura promedio por píxel, contienen información sobre elementos del paisaje, como la presencia de ríos. De hecho para el desarrollo de modelos digitales de elevación puede llegar a utilizarse dicha información. Los modelos digitales de elevación pueden ser desarrollados tanto por medio de interpolación, como por el análisis y procesamiento de imágenes satelitales.</p>
+<p>El sensor remoto utilizado para los modelos digitales de elevación es el <em>Shuttle Radar Topography Mission</em> (SRTM), y sus productos están disponbles libres de costo al público en general con una resolución de 30m (¡treinta metros!).</p>
+<p>Para la creación de modelos digitales de elevación de mayor resolución se necesita utilizar otras metodologías, combinando interpolación de puntos y datos vectoriales (de ríos, viviendas p. ej.).</p>
+<div id="tutorial-de-desarrollo-de-mde" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Tutorial de desarrollo de MDE<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#tutorial-de-desarrollo-de-mde" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Este tutorial consiste de la interpolación de unos puntos con mediciones de elevación en QGIS (<a href="https://giscrack.com/building-a-qgis-3-digital-elevation-model/">el tutorial original es parte de una capacitaicón en QGIS</a>). Además de la interpolación, vamos a utilizar una capa de ríos para dotar de información topográfica a las interpolaciones. Los datos del tutorial los encuentras en <a href="Unidad-III/datos_mde.zip">esta liga</a>.</p>
+<p>Los datos disponibles son:</p>
+<ol style="list-style-type: decimal">
+<li>Puntos con mediciones de altura</li>
+<li>Líneas de ríos/riachuelos</li>
+<li>Líneas de ruptura-contorno</li>
+</ol>
+<p>El modelo de interpolación que permite interpolar a partir de estas estructuras se llama TIN (triangular irregular networks).</p>
+<p>Comencemos abriendo todas las capas en QGIS (todas en la misma ventana). En el panel de Caja de procesos, buscamos <strong>TIN</strong>, y damos doble click para ver la siguiente ventana:</p>
+<p><img src="https://i0.wp.com/giscrack.com/wp-content/uploads/2019/02/TIN-Interpolation.jpg?w=544&amp;ssl=1" /></p>
+<p>vamos a comenzar simplemente interpolando las mediciones de elevación de los puntos. Y después interpolaremos con las curvas y finalmente con los ríos, para comparar los resultados.</p>
+<p>Para interpolar con los puntos, líneas o curvas, seleccionamos la capa que utiizaremos para interpolar del menú <em>Capa Vector</em>, y luego la columna de datos de esa capa que interpolaremos. En la caja de abajo, tenemos que añadir si la capa se utilizará como puntos, líneas de estructura o de ruptura, o como todas ellas. Posteriormente seleccionamos si el método de interpolación será lineal o Clough-Toucher (produce cambios más suaves que lineal). Finalmete seleccionamos la extensión espacial a partir de una de las capas vectoriales que tenemos abiertas y la resolución (no de píxeles en filas y columnas).</p>
+</div>
+</div>
+<div id="cálculo-de-parámetros-morfométricos" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Cálculo de parámetros morfométricos<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La geomorfometría comprende una serie de análisis para describir la topografía de la superficie terrestre, generalmente a partir de un modelo digital de elevación. Los cálculos morfométricos básicos del terreno son:</p>
+<ol style="list-style-type: decimal">
+<li>Pendiente</li>
+<li>Superficie</li>
+<li>Aspecto</li>
+<li>Área</li>
+<li>Sombreado</li>
+</ol>
+<p>Estas características del terreno (superficie terrestre) tienen una base matemática sólida en el cálculo y geometría diferencial. En este sentido matemático, el terreno es concebido matemáticamente como una superfice con tres dimensiones <span class="math inline">\(x\)</span> o longitud, <span class="math inline">\(y\)</span> o latitud y <span class="math inline">\(z\)</span> o elevación. La mayoría de los cálculos entonces se basan en los cambios de <span class="math inline">\(z\)</span> con respecto de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>.</p>
+<p>A diferencia del cálculo de dos variables, para la geomorfometría se utiliza el cálculo para tres variables, lo que resulta en derivadas parciales (<span class="math inline">\(\partial z / \partial x\)</span>), pues sólo es posible derivar una variable con respecto de otra, no con respecto de dos variables simultáneamente.</p>
+<p>Aunque los cálculos nos puedan parece complicados, no es necesario poderlos ejecutar a mano, pues ya están implementados en el poderosísimo paquete <code>raster</code>.</p>
+<div id="pendiente" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Pendiente<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#pendiente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es la inclinación del terreno, o el cambio de altura entre los vecinos de ese píxel. Debido a que los cambios de inclinación ocurren en dos dimensiones <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>, tradicionalmente la pendiente es el máximo de <span class="math inline">\(\left(\frac{\partial z}{\partial x}, \frac{\partial z }{\partial y}\right)\)</span></p>
+</div>
+<div id="superficie" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Superficie<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#superficie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como hemos visto anteriormente los píxeles tienen un tamaño fijo, por ejemplo de <span class="math inline">\(1 \times 1\)</span> km. Sin embargo, la superficie real está determinada por las características del terreno (rugosidad, inclinación, p. ej.). Un terreno inclinado tendrá mayo superficie al píxel que lo contiene, mientras que un terreno sin pendiente tendrá la misma superficie.</p>
+</div>
+<div id="aspecto" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Aspecto<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#aspecto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es el ángulo medido en radianes (<span class="math inline">\(\pi = 180°\)</span>) en dirección antihorario formado por la inclinación del terreno y el norte geográfico</p>
+</div>
+<div id="sombreado" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Sombreado<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#sombreado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Son el conjunto de sombras topográficas proyectadas por la luz solar sobre el terreno con un ángulo (hora del día) e inclinación determinadas. A diferencia de los cálculos morfométricos anteriores no tienen tantas aplicaciones técnicas en hidrología, sin embargo el sombreado de relieve es un parámetro visual importante en cartografía.</p>
+</div>
+<div id="cálculo-de-los-parámetros-morfométricos-en-r" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Cálculo de los parámetros morfométricos en R<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-los-parámetros-morfométricos-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Todos los parámetros básicos que se han descrito hasta este momento, se llaman de primera derivada, pues utilizan la primera derivada de <span class="math inline">\(z\)</span> con respecto de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span>. Algunos de ellos se pueden calcular con la función <code>terrain</code> del paquete <code>raster</code>. Otros, son derivados de los parámetros calculados con <code>terrain</code>. Lo primero que necesitamos es un modelo digital de elevación, el cual pueden descargar <a href="Unidad-III/srtm.tif">aquí</a>. Ahora ya conocemos el procedimiento para cargar los datos en el espacio de trabajo de <strong>R</strong>, por lo que nos lo podemos saltar e ir directo al cálculo de los parámetros.</p>
+<div class="figure"><span style="display:block;" id="fig:DEM"></span>
+<img src="Mod-mat-ECO_files/figure-html/DEM-1.png" alt="Modelo digital de elevación para México central" width="576" />
+<p class="caption">
+Figura 5.2: Modelo digital de elevación para México central
+</p>
+</div>
+<p>Para la pendiente:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb41-1" aria-hidden="true" tabindex="-1"></a>pendiente <span class="ot">&lt;-</span> <span class="fu">terrain</span>(dem, <span class="at">opt=</span><span class="st">&quot;slope&quot;</span>, <span class="at">unit=</span><span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb41-2"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pendiente, <span class="at">main =</span> <span class="st">&quot;Pendiente&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Pendiente-1.png" width="576" /></p>
+<p>Para el aspecto:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb42-1" aria-hidden="true" tabindex="-1"></a>aspecto <span class="ot">&lt;-</span> <span class="fu">terrain</span>(dem, <span class="at">opt =</span> <span class="st">&quot;aspect&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb42-2"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aspecto, <span class="at">main =</span> <span class="st">&quot;Aspecto&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Aspecto-1.png" width="576" /></p>
+<p>La superfice se puede obtener con la pediente y el área del píxel, el cual en este caso es de 1 <span class="math inline">\(\mathrm{km}^2\)</span>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb43-1" aria-hidden="true" tabindex="-1"></a>superficie <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="fu">cos</span>(pendiente<span class="sc">*</span>(pi<span class="sc">/</span><span class="dv">180</span>))</span>
+<span id="cb43-2"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(superficie, <span class="at">main =</span> <span class="st">&quot;Superficie&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Sup-1.png" width="576" /></p>
+<p>Para el sombreado, necesitamos la pendiente y aspecto, con la función <code>hillShade</code>:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-1" aria-hidden="true" tabindex="-1"></a>sombra <span class="ot">&lt;-</span> <span class="fu">hillShade</span>(<span class="at">slope =</span> pendiente,</span>
+<span id="cb44-2"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">aspect =</span> aspecto, </span>
+<span id="cb44-3"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">angle =</span> <span class="dv">135</span>,</span>
+<span id="cb44-4"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">direction =</span> <span class="dv">315</span>, </span>
+<span id="cb44-5"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">normalize =</span> F)</span>
+<span id="cb44-6"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sombra, <span class="at">main =</span> <span class="st">&quot;Sombra de relieve&quot;</span>, <span class="at">col=</span><span class="fu">grey</span>(<span class="dv">30</span><span class="sc">:</span><span class="dv">100</span><span class="sc">/</span><span class="dv">100</span>))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/shade-1.png" width="576" /></p>
+</div>
+</div>
+<div id="modelado-hidrológico" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Modelado hidrológico<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El cálculo de paramétros hidrológicos se basa en el cálculo de parámetros morfométricos como los que hicimos anteriormente. Los parámetros hidrológicos describen cómo se comporta el agua en la superficie terrestre con base características topográficas. Con el modelado hidrológico se puede:</p>
+<ol style="list-style-type: decimal">
+<li>Identificar áreas inundables</li>
+<li>Estimar la velocidad de descenso del agua por laderas de montañas</li>
+<li>Estimar la cantidad de agua que potencialmente se acumula en un área</li>
+<li>Identificar las rutas hacia las áreas de captación</li>
+</ol>
+<p>Para estimar estos parámetros morfométricos hidrológicos necesitamos datos adicionales sobre los cuerpos de agua existentes. Estos datos se pueden obtener de repositorios públicos. Para México, el más completo y actualizado de los repositorios es el de <a href="https://www.inegi.org.mx/temas/hidrografia/#Descargas">INEGI</a>. Existen otros repositorios con datos globales de menor precisión y relativamente obsoletos como <a href="https://www.diva-gis.org/gdata">Diva GIS</a>. La decisión del repositorio a utilizar dependerá de la escala a que querramos hacer el análisis. A escalas pequeñas necesitamos alta precisión, por lo que INEGI será la mejor opción. Para los tutoriales de esta clase utilizaremos los datos de <a href="Unidad-III/MEX_wat.zip">Diva GIS para México</a>.</p>
+<div id="modelado-hidrológico-en-qgis" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Modelado hidrológico en QGIS<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico-en-qgis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los métodos de modelado hidrológico disponibles en QGIS están implementados en el módulo de SAGA. En mi experiencia, es más fácil usar SAGA por medio de QGIS, aunque también existe un paquete de <strong>R</strong> llamado <code>RSAGA</code> que permite usar SAGA desde <strong>R</strong>. Este último, me parece solamente conveniente si tenemos que combinar simultáneamente los análisis de SAGA con otros que se deban hacer en <strong>R</strong>.</p>
+<p>Comenzaremos por estimar el <strong>Indice de Humedad Topográfica</strong> (Topographic Wettness Index, TWI). Los parámetros morfométricos, derivados del MDE, que necesitamos son:</p>
+<ol style="list-style-type: decimal">
+<li>Pendiente (Slope)</li>
+<li>Áreas de captación (Catchment Areas)</li>
+<li>Transmisividad (Transmissivity, es opcional)</li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-iv---análisis-multicriterio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

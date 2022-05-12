@@ -1,1 +1,8 @@
-# Unidad VI
+# Unidad VI - Modelación de nichos ecológicos y áreas de distribución
+
+## Nichos vs distribuciones geográficas
+
+```{r echo = F, child="Unidad-VI/Nichos-distribuciones.Rmd"}
+
+```
+

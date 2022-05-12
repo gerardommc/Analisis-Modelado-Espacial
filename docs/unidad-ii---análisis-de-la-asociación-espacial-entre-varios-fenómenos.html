@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 4 Unidad II - Análisis de la asociación espacial entre varios fenómenos | Análisis y Modelado Espacial</title>
+  <meta name="description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 4 Unidad II - Análisis de la asociación espacial entre varios fenómenos | Análisis y Modelado Espacial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 4 Unidad II - Análisis de la asociación espacial entre varios fenómenos | Análisis y Modelado Espacial" />
+  
+  <meta name="twitter:description" content="Sitio del curso de la Licenciatura en Ciencias Ambientales | ENES unidad Mérida" />
+  
+
+<meta name="author" content="Gerardo Martín" />
+
+
+<meta name="date" content="2022-05-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unidad-i-introducción-al-modelado-espacial.html"/>
+<link rel="next" href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Análisis y Modelado Espacial I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preámbulo</a></li>
+<li class="chapter" data-level="2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html"><i class="fa fa-check"></i><b>2</b> Encuadre de la materia</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#criterios-de-evaluación"><i class="fa fa-check"></i><b>2.1</b> Criterios de evaluación</a></li>
+<li class="chapter" data-level="2.2" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#cómo-se-darán-las-clases"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo se darán las clases?</a></li>
+<li class="chapter" data-level="2.3" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#reglas-del-salón"><i class="fa fa-check"></i><b>2.3</b> Reglas del salón</a></li>
+<li class="chapter" data-level="2.4" data-path="encuadre-de-la-materia.html"><a href="encuadre-de-la-materia.html#contacto"><i class="fa fa-check"></i><b>2.4</b> Contacto</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html"><i class="fa fa-check"></i><b>3</b> Unidad I: Introducción al modelado espacial</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#análisis-utilizando-sistemas-de-información-geográfica"><i class="fa fa-check"></i><b>3.1</b> Análisis utilizando sistemas de información geográfica</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#introducción"><i class="fa fa-check"></i><b>3.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.1.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#ejercicio"><i class="fa fa-check"></i><b>3.1.2</b> Ejercicio</a></li>
+<li class="chapter" data-level="3.1.3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#qué-son-los-sig"><i class="fa fa-check"></i><b>3.1.3</b> ¿Qué son los SIG?</a></li>
+<li class="chapter" data-level="3.1.4" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#cómo-puedo-conseguir-un-sig"><i class="fa fa-check"></i><b>3.1.4</b> ¿Cómo puedo conseguir un SIG?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#modelado-espacial"><i class="fa fa-check"></i><b>3.2</b> Modelado espacial</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#datos-vectoriales"><i class="fa fa-check"></i><b>3.2.1</b> Datos vectoriales</a></li>
+<li class="chapter" data-level="3.2.2" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#ráster"><i class="fa fa-check"></i><b>3.2.2</b> Ráster</a></li>
+<li class="chapter" data-level="3.2.3" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#puntos-1"><i class="fa fa-check"></i><b>3.2.3</b> Puntos</a></li>
+<li class="chapter" data-level="3.2.4" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#lecciones"><i class="fa fa-check"></i><b>3.2.4</b> Lecciones</a></li>
+<li class="chapter" data-level="3.2.5" data-path="unidad-i-introducción-al-modelado-espacial.html"><a href="unidad-i-introducción-al-modelado-espacial.html#repositorios-públicos-gratuitos"><i class="fa fa-check"></i><b>3.2.5</b> Repositorios públicos gratuitos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><i class="fa fa-check"></i><b>4</b> Unidad II - Análisis de la asociación espacial entre varios fenómenos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial"><i class="fa fa-check"></i><b>4.1</b> Correlación y regresión espacial</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial"><i class="fa fa-check"></i><b>4.1.1</b> Correlación espacial</a></li>
+<li class="chapter" data-level="4.1.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión"><i class="fa fa-check"></i><b>4.1.2</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial"><i class="fa fa-check"></i><b>4.2</b> Análisis de asociación espacial</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-rasters-en-r"><i class="fa fa-check"></i><b>4.2.1</b> Índice de Moran para rasters en R</a></li>
+<li class="chapter" data-level="4.2.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos"><i class="fa fa-check"></i><b>4.2.2</b> Índice de Moran para puntos</a></li>
+<li class="chapter" data-level="4.2.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#ejemplo-de-aplicación-para-análisis-de-residuales"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de aplicación para análisis de residuales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación"><i class="fa fa-check"></i><b>4.3</b> Interpolación</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo"><i class="fa fa-check"></i><b>4.3.1</b> Vecino más próximo</a></li>
+<li class="chapter" data-level="4.3.2" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés"><i class="fa fa-check"></i><b>4.3.2</b> Inverso de la distancia (IDW en inglés)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas"><i class="fa fa-check"></i><b>4.3.3</b> Regresión sobre las coordenadas</a></li>
+<li class="chapter" data-level="4.3.4" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines"><i class="fa fa-check"></i><b>4.3.4</b> Splines</a></li>
+<li class="chapter" data-level="4.3.5" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#tutorial-de-interpolación-en-r"><i class="fa fa-check"></i><b>4.3.5</b> Tutorial de interpolación en R</a></li>
+<li class="chapter" data-level="4.3.6" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-de-las-coordenadas-con-splines"><i class="fa fa-check"></i><b>4.3.6</b> Regresión de las coordenadas con splines</a></li>
+<li class="chapter" data-level="4.3.7" data-path="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#otros-tipos-de-interpolación"><i class="fa fa-check"></i><b>4.3.7</b> Otros tipos de interpolación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><i class="fa fa-check"></i><b>5</b> Unidad III - Aplicaciones del modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#desarrollo-de-un-modelo-digital-de-elevación"><i class="fa fa-check"></i><b>5.1</b> Desarrollo de un modelo digital de elevación</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#tutorial-de-desarrollo-de-mde"><i class="fa fa-check"></i><b>5.1.1</b> Tutorial de desarrollo de MDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-parámetros-morfométricos"><i class="fa fa-check"></i><b>5.2</b> Cálculo de parámetros morfométricos</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#pendiente"><i class="fa fa-check"></i><b>5.2.1</b> Pendiente</a></li>
+<li class="chapter" data-level="5.2.2" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#superficie"><i class="fa fa-check"></i><b>5.2.2</b> Superficie</a></li>
+<li class="chapter" data-level="5.2.3" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#aspecto"><i class="fa fa-check"></i><b>5.2.3</b> Aspecto</a></li>
+<li class="chapter" data-level="5.2.4" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#sombreado"><i class="fa fa-check"></i><b>5.2.4</b> Sombreado</a></li>
+<li class="chapter" data-level="5.2.5" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#cálculo-de-los-parámetros-morfométricos-en-r"><i class="fa fa-check"></i><b>5.2.5</b> Cálculo de los parámetros morfométricos en R</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico"><i class="fa fa-check"></i><b>5.3</b> Modelado hidrológico</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html"><a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html#modelado-hidrológico-en-qgis"><i class="fa fa-check"></i><b>5.3.1</b> Modelado hidrológico en QGIS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="unidad-iv---análisis-multicriterio.html"><a href="unidad-iv---análisis-multicriterio.html"><i class="fa fa-check"></i><b>6</b> Unidad IV - Análisis multicriterio</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-iv---análisis-multicriterio.html"><a href="unidad-iv---análisis-multicriterio.html#dimensiones-espaciales-del-análisis-multicriterio"><i class="fa fa-check"></i><b>6.1</b> Dimensiones espaciales del análisis multicriterio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html"><i class="fa fa-check"></i><b>7</b> Unidad V - Evaluación de la calidad de datos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#evaluación-de-la-fiabilidad-de-datos-temáticos"><i class="fa fa-check"></i><b>7.1</b> Evaluación de la fiabilidad de datos temáticos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#tipos-de-errores"><i class="fa fa-check"></i><b>7.1.1</b> Tipos de errores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#ejemplo-de-errores-de-atibutos-y-de-linaje"><i class="fa fa-check"></i><b>7.1.2</b> Ejemplo de errores de atibutos y de linaje</a></li>
+<li class="chapter" data-level="7.1.3" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#errores-de-fiabilidad-posicional-y-topológicos"><i class="fa fa-check"></i><b>7.1.3</b> Errores de fiabilidad posicional y topológicos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#importancia-de-los-errores"><i class="fa fa-check"></i><b>7.1.4</b> Importancia de los errores</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#evaluación-del-error-de-datos-continuos"><i class="fa fa-check"></i><b>7.2</b> Evaluación del error de datos continuos</a></li>
+<li class="chapter" data-level="7.3" data-path="unidad-v---evaluación-de-la-calidad-de-datos.html"><a href="unidad-v---evaluación-de-la-calidad-de-datos.html#propagación-del-error"><i class="fa fa-check"></i><b>7.3</b> Propagación del error</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><a href="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><i class="fa fa-check"></i><b>8</b> Unidad VI - Modelación de nichos ecológicos y áreas de distribución</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html"><a href="unidad-vi---modelación-de-nichos-ecológicos-y-áreas-de-distribución.html#nichos-vs-distribuciones-geográficas"><i class="fa fa-check"></i><b>8.1</b> Nichos vs distribuciones geográficas</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><i class="fa fa-check"></i><b>9</b> Unidad VII - Modelación de cobertura y cambio de uso de suelo</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#introducción-1"><i class="fa fa-check"></i><b>9.1</b> Introducción</a></li>
+<li class="chapter" data-level="9.2" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#monitoreo-de-los-cambios"><i class="fa fa-check"></i><b>9.2</b> Monitoreo de los cambios</a></li>
+<li class="chapter" data-level="9.3" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#análisis-de-los-cambios"><i class="fa fa-check"></i><b>9.3</b> Análisis de los cambios</a></li>
+<li class="chapter" data-level="9.4" data-path="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html"><a href="unidad-vii---modelación-de-cobertura-y-cambio-de-uso-de-suelo.html#modelación-prospectiva"><i class="fa fa-check"></i><b>9.4</b> Modelación prospectiva</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gerardommc.github.io" target="blank">Regresar al labo</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis y Modelado Espacial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number"> 4</span> Unidad II - Análisis de la asociación espacial entre varios fenómenos<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>La asociación espacial es el pilar del análisis espacial, y consiste principalmente en medir el grado de dependencia entre dos variables con estructura espacial.</p>
+<div id="correlación-y-regresión-espacial" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Correlación y regresión espacial<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-y-regresión-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="correlación-espacial" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Correlación espacial<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La correlación mide la similitud entre dos variables aleatorias, comparando sus varianzas respectivas. Es una prueba muy sencilla, pero que tiene muchas fallas, por ejemplo, no podemos saber si la correlación es causal. Veamos dos ejemplos de correlación entre dos variables ambientales, uno donde hay una alta correlación y otro donde no la hay.</p>
+<p><img src="Unidad-II/Correlated.png" width="580" /></p>
+<div class="figure"><span style="display:block;" id="fig:Alta-corr"></span>
+<img src="Mod-mat-ECO_files/figure-html/Alta-corr-1.png" alt="Variables altamente correlacionadas. Los mapas muestran los valores de dos capas ráster, y la gráfica de dispersión contiene los valores de cada píxel, en el eje *x*, la variable de la izquieda, y el eje *y* la variable de la derecha." width="432" />
+<p class="caption">
+Figura 4.1: Variables altamente correlacionadas. Los mapas muestran los valores de dos capas ráster, y la gráfica de dispersión contiene los valores de cada píxel, en el eje <em>x</em>, la variable de la izquieda, y el eje <em>y</em> la variable de la derecha.
+</p>
+</div>
+<p><img src="Unidad-II/Uncorrelated.png" width="580" /></p>
+<div class="figure"><span style="display:block;" id="fig:Baja-corr"></span>
+<img src="Mod-mat-ECO_files/figure-html/Baja-corr-1.png" alt="Variables pobremente correlacionadas." width="432" />
+<p class="caption">
+Figura 4.2: Variables pobremente correlacionadas.
+</p>
+</div>
+<p>Claramente en el ejemplo de la figura <a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Alta-corr">4.1</a>, una de las variables predice a la otra, pero no sabemos cuál produce a cuál, o si ambas sor producidas por otra variable que no se ha medido. En resumidas cuentas, la correlación no se puede utilizar para analizar causalidad, lo cual es común a todos los análisis estadísticos.</p>
+<div id="breve-recordatorio-del-cálculo-de-la-correlación" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Breve recordatorio del cálculo de la correlación<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#breve-recordatorio-del-cálculo-de-la-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como ya han de saber, la correlación es una prueba de estadística frecuentista paramétrica. Como tal, consiste en una serie de cáculos aritméticos para obtener un parámetro <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{\sum x_1 x_2}{\sqrt{\sum x_1^2 \sum x_2^2}}
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> son las dos variables centradas (variable menos la media aritmética), cuya correlación queremos medir. Esta prueba de correlación se llama de <strong>Pearson</strong>, y existen algunas modificaciones para datos de otra naturaleza como los ordinales, para lo cual se utiliza la correlación de <strong>Spearman</strong>. El coeficiente de correlación de esta última se denota con <span class="math inline">\(\rho\)</span>.</p>
+<p>La correlación de Spearman es menos sensible que la de Pearson a correlaciones no lineales, por lo que si la gráfica de las variables <span class="math inline">\(x_1, x_2\)</span> no forma una línea recta como en <a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Alta-corr">4.1</a>, se puede probar con la correlación de Spearman.</p>
+</div>
+<div id="correlación-en-r" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Correlación en R<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#correlación-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Medir la correlación entre dos variables espaciales en <strong>R</strong> es muy fácil, aunque antes de proseguir, debemos aprender a manejar los datos espaciales en <strong>R</strong>. Como ya han de saber, cuando no podemos hacer algo en R básico, hay que echar un vistazo a las librerías. Las más potentes para manejar datos espaciales son <code>raster</code> y <code>rgdal</code>. La primera, como su nommbre indica, sirve principalmente para imágenes, la segunda, para vectores y puntos. Ambas son compatibles, es decir se pueden hacer procesos espaciales combinando los objetos de <strong>R</strong> que ambos paquetes utilizan.</p>
+<p>Vamos a leer un raster con la paquetería <code>raster</code> y la función del mismo nombre:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb3-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb3-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/bio1.tif&quot;</span>)</span></code></pre></div>
+<p>El nombre del achivo es <code>bio1.tif</code> y está contenido en la carpeta “Capas ejemplo”. Para hacer una prueba de correlación, necesitamos leer otra capa:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb4-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/bio11.tif&quot;</span>)</span></code></pre></div>
+<p>y las vamos a agrupar en un objeto para hacer la prueba de correlación con la función <code>pairs</code> del mismo paquete <code>raster</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">stack</span>(r, r1)</span>
+<span id="cb5-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(st)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-26-1.png" width="432" /></p>
+<p>Como podemos ver, la función <code>pairs</code> hace un gráfica con los histogramas de cada variable (en verde), el gráfico de dispersión, y el coeficiente de correlación de Pearson. Vamos a ver entonces qué está haciedo la función <code>pairs</code></p>
+<p>Vamos a transformar sl objeto <code>st</code> en una tabla con dos columnas para las coordenadas geográficas de cada píxel y otras dos para los valores de cada variable:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">rasterToPoints</span>(st)</span>
+<span id="cb6-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-2" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(t1)</span>
+<span id="cb6-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb6-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(t1))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">x</th>
+<th align="right">y</th>
+<th align="right">bio1</th>
+<th align="right">bio11</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">-126.1714</td>
+<td align="right">59.93903</td>
+<td align="right">-34</td>
+<td align="right">-208</td>
+</tr>
+<tr class="even">
+<td align="right">-126.0047</td>
+<td align="right">59.93903</td>
+<td align="right">-40</td>
+<td align="right">-206</td>
+</tr>
+<tr class="odd">
+<td align="right">-125.8380</td>
+<td align="right">59.93903</td>
+<td align="right">-43</td>
+<td align="right">-204</td>
+</tr>
+<tr class="even">
+<td align="right">-125.6714</td>
+<td align="right">59.93903</td>
+<td align="right">-41</td>
+<td align="right">-202</td>
+</tr>
+<tr class="odd">
+<td align="right">-125.5047</td>
+<td align="right">59.93903</td>
+<td align="right">-42</td>
+<td align="right">-201</td>
+</tr>
+<tr class="even">
+<td align="right">-125.3380</td>
+<td align="right">59.93903</td>
+<td align="right">-42</td>
+<td align="right">-200</td>
+</tr>
+</tbody>
+</table>
+<p>Como sabemos el coeficiente de correlación de Pearson utiliza dos cálculos, <span class="math inline">\(\sum x_1 x_2\)</span> y <span class="math inline">\(\sqrt{\sum x_1^2 \sum x_2^2}\)</span>. Vamos a hacerlos a continuación:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> t1<span class="sc">$</span>bio1; x2 <span class="ot">&lt;-</span> t1<span class="sc">$</span>bio11</span>
+<span id="cb7-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> x1<span class="sc">-</span><span class="fu">mean</span>(x1); x2 <span class="ot">&lt;-</span> x2<span class="sc">-</span><span class="fu">mean</span>(x2)</span>
+<span id="cb7-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-5" aria-hidden="true" tabindex="-1"></a>calc<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">sum</span>(x1 <span class="sc">*</span> x2)</span>
+<span id="cb7-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-6" aria-hidden="true" tabindex="-1"></a>calc<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(x1<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>(x2<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb7-7"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-8" aria-hidden="true" tabindex="-1"></a>coef.pearson <span class="ot">&lt;-</span> calc<span class="fl">.1</span><span class="sc">/</span>calc<span class="fl">.2</span></span>
+<span id="cb7-9"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb7-9" aria-hidden="true" tabindex="-1"></a>coef.pearson</span></code></pre></div>
+<pre><code>## [1] 0.9689097</code></pre>
+</div>
+</div>
+<div id="regresión" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Regresión<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La regresión lineal es un procedimiento relativamente similar a la correlación, aunque la principal diferencia está en que la regresión estima parámetros de una ecuación lineal que se puede usar para <em>predicción</em>, y para identificar variables que explican el comportamiento de los datos que hemos colectado o generado. En contraste la correlación sólo nos sirve para ver si dos variables aleatorias se predicen mutuamente, con qué grado de precisión (coeficiente de correlación), y el sentido (positivo o negativo).</p>
+<p>En una regresión lineal, estimamos una serie de parámetros que corresponden con las constantes de una ecuación lineal:</p>
+<p><span class="math display">\[
+y(x) = \alpha + \beta x
+\]</span>
+donde <span class="math inline">\(\alpha\)</span> es el intercepto o el valor de <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x=0\)</span>, y <span class="math inline">\(\beta\)</span> es la pendiente de <span class="math inline">\(y\)</span> con respecto de <span class="math inline">\(x\)</span>, es decir cuánto cambia <span class="math inline">\(y\)</span> si <span class="math inline">\(x\)</span> aumenta en una unidad.</p>
+<p>Otro parámetro importante que estimamos en una regresión lineal es <span class="math inline">\(r^2\)</span>, y como su nombre lo indica es el cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>.</p>
+<p>Cuando hacemos modelación estadística, es importante estar al tanto de algunos supuestos. En regresión lineal, estos son algunos importantes:</p>
+<ol style="list-style-type: decimal">
+<li>Las observaciones de <span class="math inline">\(y\)</span> son independientes entre sí</li>
+<li>La relación entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> es lineal</li>
+<li><span class="math inline">\(y\)</span> tiene una distribución unimodal y con varianza homogénea (igual por arriba y abajo de la media).</li>
+</ol>
+</div>
+</div>
+<div id="análisis-de-asociación-espacial" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Análisis de asociación espacial<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#análisis-de-asociación-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A diferencia de las dos secciones anteriores, donde vimos cómo se puede estimar el grado de asociación entre dos procesos espaciales, aquí veremos cómo medir la asociación de una sola variable con el espacio, es decir si ésta variable tiene estructura espacial (autocorrelación).</p>
+<p>Igual que como hicimos con la prueba de correlación, veamos la fórmula del índice de autocorrelación <strong>Moran’s I</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+    I = N \times W \times \sum_{i = 1}^n \sum_{j = 1}^n w_{ij} \frac{(x_i - \bar{x})(x_j - \bar{x})}{\sum (x_i - \bar{x})^2}
+\end{equation}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(N\)</span> es el número total de unidades espaciales indizadas por <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(W\)</span> es la suma de pesos <span class="math inline">\(w_{ij}\)</span></li>
+<li><span class="math inline">\(x\)</span> es la variable de interés</li>
+<li><span class="math inline">\(\bar{x}\)</span> es la media de <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(w_{ij}\)</span> es una matriz de pesos espaciales</li>
+</ul>
+<p>El índice de Moran toma valores de <span class="math inline">\(-1 &gt; I &lt; 1\)</span>, y su interpretación es <em>similar</em> a la del índice de correlación <em>r</em>. De acuerdo con <a href="https://www.statology.org/morans-i/">statology</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = 0\)</span> significa que la variable espacial tiene una dispersión aleatoria en el espacio:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani1.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = -1\)</span>, la variable espacial tiene una dispesión perfecta en el espacio:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani2.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Cuando <span class="math inline">\(I = 1\)</span>, la variable espacial tiene una agregación espacial perfecta:</li>
+</ol>
+<p><img src="https://www.statology.org/wp-content/uploads/2021/01/morani3.png" /></p>
+<div id="índice-de-moran-para-rasters-en-r" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Índice de Moran para rasters en R<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-rasters-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Existen muchas implementaciones del índice de autocorrelación de Moran, el que utilizaremos está en el paquete <code>raster</code>, y utilizaremos una de las capas de las dos clases pasadas, y otras dos que representarán los casos 2 y 3 de arriba.</p>
+<p>Comenzaremos cargando la capa de la variable ambiental:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb9-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/Var-1.tif&quot;</span>)</span>
+<span id="cb9-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Moran-1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moran</span>(r)</span></code></pre></div>
+<pre><code>## [1] 0.78433</code></pre>
+<p>Como podemos ver la capa <code>Var-1</code> está altamente autocorrelacionada, tanto de manera visible, como estadísticamente. Ahora veamos un caso distinto, creando una capa nueva con valores completamente aleatorios:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> r <span class="co">#Creando el objeto nuevo</span></span>
+<span id="cb12-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-2" aria-hidden="true" tabindex="-1"></a>r1[] <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fu">ncell</span>(r)) <span class="co">#Reemplazando los valores con unos generados aleatoriamente con una distribución uniforme entre 0 y 1</span></span>
+<span id="cb12-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r1)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Moran-2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Moran</span>(r1)</span></code></pre></div>
+<pre><code>## [1] -0.01185495</code></pre>
+</div>
+<div id="índice-de-moran-para-puntos" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Índice de Moran para puntos<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#índice-de-moran-para-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>También es posible estimar el índice de Moran para datos de puntos o vectoriales, aunque es necesario construir la matriz de adyacencias espaciales. Haremos este análisis para los datos del primer ejercicio de regresión que hicimos en clase. La matriz de adyacencias es una representación de quién es vecino de quién. Por ejemplo, en la figura <a href="#fig:Moran-2"><strong>??</strong></a> el píxel de la esquina superior izquierda es la observación <span class="math inline">\(x_{1, 1}\)</span>, y sus vecinas son <span class="math inline">\(x_{1, 2}\)</span> y <span class="math inline">\(x_{2, 1}\)</span>, donde <span class="math inline">\(i\)</span> es la fila y <span class="math inline">\(j\)</span> es la columna. Para puntos (figura <a href="#fig:Puntos-moran"><strong>??</strong></a>), obtendremos la matriz de adyacencia con base en distancia, de modo que consideraremos vecinos a puntos que estén dentro de una distancia predeterminada.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Datos-ejercicio.csv&quot;</span>)</span>
+<span id="cb15-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-2" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>reg <span class="ot">&lt;-</span> <span class="fu">with</span>(datos, (Mediciones <span class="sc">-</span> <span class="fu">min</span>(Mediciones))<span class="sc">/</span>(<span class="fu">max</span>(Mediciones) <span class="sc">-</span> <span class="fu">min</span>(Mediciones)) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb15-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(Longitud, Latitud, <span class="at">cex =</span> reg))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/Puntos-moran-1.png" width="480" style="display: block; margin: auto;" />
+La matriz de adyacencia podemos obtenerla con el paquete <code>spdep</code>(por <em>Spatial Dependence</em>, o dependencia espacial). Para puntos con valores asociados a sus coordenadas geográficas, requiere un par de pasos más:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span>
+<span id="cb16-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-3" aria-hidden="true" tabindex="-1"></a>vecindad <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]), <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">75</span>, <span class="at">longlat =</span> T)</span>
+<span id="cb16-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-4" aria-hidden="true" tabindex="-1"></a>vec.listw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(vecindad)</span>
+<span id="cb16-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-5" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">nb2mat</span>(vecindad))</span>
+<span id="cb16-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-7" aria-hidden="true" tabindex="-1"></a>I.puntos <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw)</span>
+<span id="cb16-8"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb16-8" aria-hidden="true" tabindex="-1"></a>I.puntos</span></code></pre></div>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  datos$Mediciones  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 9.7604, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.556186118      -0.010101010       0.003366211</code></pre>
+<p>Brevemente, la función <code>dnearneigh</code> crea un objeto que contiene: el número de vecinos de cada punto, con base en el criterio de distancia (0 - 250 km), y la identidad de los vecinos de cada punto (punto 1, 2, 3, etc.). Por alguna razón, este objeto tenemos que representarlo como una lista, que no es otra cosa que una colección de objetos de distinta naturaleza y tamaño, para lo que utilizamos <code>nb2listw</code> (<em>neighbourhood to weights list</em>). Y la última pieza de información que necesitamos es la suma total de pesos espaciales, la cual obtenemos con la suma de los elementos de la matriz con la función <code>nb2mat</code> (<em>neighbourhood to matrix</em>). Finalmente utilizamos la functión <code>moran</code> (del paquete <code>spdep</code>) para obtener el valor del estadístico I. Nota que para rasters utilizamos la función <code>Moran</code> del paquete <code>raster</code>.</p>
+</div>
+<div id="ejemplo-de-aplicación-para-análisis-de-residuales" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Ejemplo de aplicación para análisis de residuales<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#ejemplo-de-aplicación-para-análisis-de-residuales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como se mencionó en el análisis de regresión, el análisis de residuales es esencial en el modelado espacial, pues nos indican si los datos analizados cumplen con el supuesto de independencia.</p>
+<p>Comenzaremos con el análisis de regresión, cargando los datos obtenidos en campo:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(string)</span>
+<span id="cb18-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, <span class="fu">plot</span>(Longitud, Latitud, <span class="at">cex =</span> Mediciones))</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-31-1.png" width="480" /></p>
+<p>y las variables raster para analizar los datos colectados en campo:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb19-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">stack</span>(<span class="fu">paste0</span>(<span class="st">&quot;Capas-ejemplo/Var-&quot;</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="st">&quot;.tif&quot;</span>))</span>
+<span id="cb19-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-32-1.png" width="960" /></p>
+<p>Una vez cargados lo datos, extraemos los valores de ambas variables con las coordenadas donde obtuvimos las mediciones en campo:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>r.extract <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">extract</span>(r, datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]))</span>
+<span id="cb20-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb20-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(datos, r.extract)</span></code></pre></div>
+<p>Como pueden ver, los datos extraídos los incorporamos al mismo <code>data.frame</code> donde teníamos los datos obtenidos en campo. Este paso, facilitará mucho el manejo de los datos y el llamado de las distintas funciones de <strong>R</strong>, como la regresión lineal:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>(Mediciones <span class="sc">~</span> Var<span class="fl">.2</span>, <span class="at">data =</span> datos)</span>
+<span id="cb21-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo<span class="fl">.1</span>)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Mediciones ~ Var.2, data = datos)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.5996 -0.5276  0.2858  0.8551  1.9831 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 15.120815   1.115281   13.56   &lt;2e-16 ***
+## Var.2       -0.100829   0.009265  -10.88   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.216 on 98 degrees of freedom
+## Multiple R-squared:  0.5472, Adjusted R-squared:  0.5426 
+## F-statistic: 118.4 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Estos resultados ya los conocemos, y muestran que la variable <code>Var.2</code>afecta significativamente a las mediciones que obtuvimos en campo. Ahora entonces tenemos que ver si los residuales se comportan de manera adecuada, primero extrayéndolos y después estimando su asociación con el espacio:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb23-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Residuales <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo<span class="fl">.1</span>)</span></code></pre></div>
+<p>Y proseguimos con el índice de Moran como lo hicimos anteriormente, tanto con las mediciones como con los residuales</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span>
+<span id="cb24-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-3" aria-hidden="true" tabindex="-1"></a>vecindad <span class="ot">&lt;-</span> <span class="fu">dnearneigh</span>(<span class="at">x =</span> <span class="fu">as.matrix</span>(datos[, <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)]), <span class="at">d1 =</span> <span class="dv">0</span>, <span class="at">d2 =</span> <span class="dv">75</span>, <span class="at">longlat =</span> T)</span>
+<span id="cb24-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-4" aria-hidden="true" tabindex="-1"></a>vec.listw <span class="ot">&lt;-</span> <span class="fu">nb2listw</span>(vecindad)</span>
+<span id="cb24-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-5" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">nb2mat</span>(vecindad))</span>
+<span id="cb24-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-7" aria-hidden="true" tabindex="-1"></a>I.meds <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Mediciones, <span class="at">listw =</span> vec.listw)</span>
+<span id="cb24-8"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb24-9" aria-hidden="true" tabindex="-1"></a>I.res <span class="ot">&lt;-</span> <span class="fu">moran.test</span>(<span class="at">x =</span> datos<span class="sc">$</span>Residuales, <span class="at">listw =</span> vec.listw)</span></code></pre></div>
+<p>Índice de Moran para las mediciones</p>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  datos$Mediciones  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 14.18, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.769152627      -0.010101010       0.003020113</code></pre>
+<p>Índice de Moran para los residuales</p>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  datos$Residuales  
+## weights: vec.listw    
+## 
+## Moran I statistic standard deviate = 15.7, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.852139315      -0.010101010       0.003016244</code></pre>
+<p>Lo que sugiere que los residuales están muy agregados.</p>
+</div>
+</div>
+<div id="interpolación" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Interpolación<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#interpolación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La interpolación es el proceso de aproximación de los valores en un intervalo en el que sólo conocemos los extremos inferior y superior. Así por ejemplo en el conjunto ordenado de valores:</p>
+<p><span class="math display">\[
+1, 3, 5, 7
+\]</span></p>
+<p>es posible inferir que los valores intermedios son:</p>
+<p><span class="math display">\[
+2, 4, 6
+\]</span></p>
+<p>asumiendo que entre cada observación <span class="math inline">\(1, 3, 5, 7\)</span>, los valores intermedios se pueda aproximar linealmente.</p>
+<p>En modelado espacial, la interpolación se utiliza muy frecuentemente para generar capas ráster a partir de mediciones en puntos, como aquellas que utilizamos en correlación y regresión. El fin último de la interpolación es la predecir la variación espacial de los valores de la variable que medimos.</p>
+<p>Así como rellenamos los valores intermedios en la secuencia <span class="math inline">\(1, 3, 5, 7\)</span> asumiento linealidad, hay muchos otros métodos para predicción de valores ordenados de manera más compleja y en dos dimensiones.</p>
+<p>Algunas de las técnicas más comunes para predicción espacial son:</p>
+<ol style="list-style-type: decimal">
+<li>Vecino más próximo</li>
+<li>Inverso de la distancia</li>
+<li>Regresión sobre las coordenadas</li>
+<li>Splines</li>
+</ol>
+<div id="vecino-más-próximo" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Vecino más próximo<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-próximo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Este es el método de interpolación más sencillo que existe y consiste en asumir que el valor de los píxeles intermedios es equivalente al mismo valor del píxel más cercano.</p>
+</div>
+<div id="inverso-de-la-distancia-idw-en-inglés" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Inverso de la distancia (IDW en inglés)<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia-idw-en-inglés" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Este método asume que los valores de la variable interpolada entre los puntos de referencia cambia en relación directa con la distancia entre los puntos. Por ejemplo, Si tenemos dos mediciones de temperatura separadas físicamente 10 km, y queremos estimar la temperatura en los puntos intermedios con una precisión de 1 km, la temperatura de éstos será proporcional a la diferencie entre las mediciones.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Interp-dist"></span>
+<img src="Unidad-II/Interp-distancia.png" alt="Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación." width="908" />
+<p class="caption">
+Figura 4.3: Interpolación por distancia, los extremos representan los puntos donde fueron obtenidas las mediciones, y los píxeles intermedios fueron rellenados por interpolación.
+</p>
+</div>
+</div>
+<div id="regresión-sobre-las-coordenadas" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Regresión sobre las coordenadas<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-sobre-las-coordenadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es un método sencillo pero efectivo si la variable que queremos interpolar tiene un gradiente a lo largo de la longitud y/o latitud que se puede aproximar por medio de un modelo lineal. La idea es que la variable de respuesta (<span class="math inline">\(y\)</span>), sea una función lineal de las coordenadas (<span class="math inline">\(x_1, x_2\)</span>):</p>
+<p><span class="math display">\[ y(Lat, Lon) = \alpha + \beta_1 Lat + \beta_2 Lon\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Gradientes"></span>
+<img src="Mod-mat-ECO_files/figure-html/Gradientes-1.png" alt="Ejemplos de gradientes lineales con las coordenadas." width="960" />
+<p class="caption">
+Figura 4.4: Ejemplos de gradientes lineales con las coordenadas.
+</p>
+</div>
+<p>Al igual que con los modelos lineales, este tipo de interpolación puede ser muy flexible, aunque cuando la variable dependiente <span class="math inline">\(y\)</span> es poco lineal con respecto de la latitud y longitud se recomienda usar <strong>Splines</strong></p>
+</div>
+<div id="splines" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Splines<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#splines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Son una metodología muy similar a la regresión por coordenadas pero no asume ningún tipo de relación funcional entre la latitud y longitud y la variable de respuesta. La manera en que funcionan las splines es ajustando líneas de regresión con un polinomio de 2o o 3er grado a porciones específicas de cada variable independiente. El resultado de usar splines pueden ser curvas complejas con un contorno suave.</p>
+<p><img src="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1" /></p>
+<p><a href="https://i0.wp.com/freakonometrics.hypotheses.org/files/2016/01/splines03.png?w=578&amp;ssl=1">Ejemplo de regresión con splines por Arthur Charpentier</a></p>
+</div>
+<div id="tutorial-de-interpolación-en-r" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Tutorial de interpolación en R<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#tutorial-de-interpolación-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="vecino-más-cercano" class="section level4 hasAnchor" number="4.3.5.1">
+<h4><span class="header-section-number">4.3.5.1</span> Vecino más cercano<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#vecino-más-cercano" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para interpolar con este método necesitamos primero identificar los píxeles más cercanos a los puntos donde tenemos mediciones, para ello, tenemos que crear un teselado de Voronoi en formato vectorial. Comencemos por cargar los datos con las mediciones, y la capa ráster que usaremos de referencia de resolución espacial:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb27-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-3" aria-hidden="true" tabindex="-1"></a>r  <span class="ot">&lt;-</span> <span class="fu">raster</span>(<span class="st">&quot;Capas-ejemplo/Var-1.tif&quot;</span>)</span>
+<span id="cb27-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb27-4" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Datos-ejercicio.csv&quot;</span>)</span></code></pre></div>
+<p>Y proseguimos creando el teselado con la función <code>voronoi</code> del paquete <code>dismo</code>. Debido a que <code>voronoi</code> es la única función de dicho paquete que vamos a usar, evitaremos cargar todo el paquete usando la sintaxis <code>paquete::función</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-1" aria-hidden="true" tabindex="-1"></a>vo <span class="ot">&lt;-</span> dismo<span class="sc">::</span><span class="fu">voronoi</span>(datos)</span>
+<span id="cb28-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">main =</span> <span class="st">&quot;Teselado de Voronoi&quot;</span>)</span>
+<span id="cb28-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Voro"></span>
+<img src="Mod-mat-ECO_files/figure-html/Voro-1.png" alt="Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cómo hay un polígono del teselado para cada punto, las vecindades se establecen con base en los polígonos que comparten frontera." width="480" />
+<p class="caption">
+Figura 4.5: Teselado de Voronoi para los puntos de muestreo (en rojo). Nota cómo hay un polígono del teselado para cada punto, las vecindades se establecen con base en los polígonos que comparten frontera.
+</p>
+</div>
+<p>Después, para obtener el raster interpolado, tenemos que asignar el valor de cada punto a los polígonos del teselado, y rasterizarlo a la resolución del ráster de referencia. Comenzamos creando un ráster con valores de cero (<span class="math inline">\(0\)</span>), que usaremos para acotar el teselado, pues tiene una extensión mayor a la que nos interesa:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-1" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.0</span> <span class="ot">&lt;-</span>r</span>
+<span id="cb29-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-2" aria-hidden="true" tabindex="-1"></a>r<span class="fl">.0</span>[] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb29-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb29-3" aria-hidden="true" tabindex="-1"></a>r.vec <span class="ot">&lt;-</span> <span class="fu">rasterToPolygons</span>(r<span class="fl">.0</span>, <span class="at">dissolve =</span> T)</span></code></pre></div>
+<pre><code>## Loading required namespace: rgeos</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-1" aria-hidden="true" tabindex="-1"></a>vo <span class="ot">&lt;-</span> <span class="fu">intersect</span>(vo, r.vec) <span class="co">#Recorte del teselado</span></span>
+<span id="cb31-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">main =</span> <span class="st">&quot;Teselado recortado&quot;</span>)</span>
+<span id="cb31-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="Mod-mat-ECO_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p>Ahora, asignamos los valores de las mediciones a cada polígono y lo rasterizamos asignando a los píxeles del raster de referencia los valores de cada polígono:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>vo<span class="sc">$</span>Mediciones <span class="ot">&lt;-</span> datos<span class="sc">$</span>Mediciones</span>
+<span id="cb32-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-2" aria-hidden="true" tabindex="-1"></a>r.ngb <span class="ot">&lt;-</span> <span class="fu">rasterize</span>(vo, r<span class="fl">.0</span>, <span class="at">field =</span> <span class="st">&quot;Mediciones&quot;</span>)</span>
+<span id="cb32-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.ngb, <span class="at">main =</span> <span class="st">&quot;Mediciones interpoladas&quot;</span>)</span>
+<span id="cb32-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vo, <span class="at">add =</span> T)</span>
+<span id="cb32-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos<span class="sc">$</span>Longitud, datos<span class="sc">$</span>Latitud, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Ngb"></span>
+<img src="Mod-mat-ECO_files/figure-html/Ngb-1.png" alt="Resultado de la interpolación por vecino más cercano. En este procedimiento asignamos a todos los píxeles que quedan dentro de cada polígono el mismo valor." width="480" />
+<p class="caption">
+Figura 4.6: Resultado de la interpolación por vecino más cercano. En este procedimiento asignamos a todos los píxeles que quedan dentro de cada polígono el mismo valor.
+</p>
+</div>
+</div>
+<div id="inverso-de-la-distancia" class="section level4 hasAnchor" number="4.3.5.2">
+<h4><span class="header-section-number">4.3.5.2</span> Inverso de la distancia<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#inverso-de-la-distancia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La función básica de interpolación en R es <code>interpolate</code> del paquete <code>raster</code>. Para aprender a utilizarla podemos hacer una búsqueda rápida en la ayuda de <strong>R</strong>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb33-1" aria-hidden="true" tabindex="-1"></a>?raster<span class="sc">::</span>interpolate</span></code></pre></div>
+<p>Y vemos que los argumentos mínimos que necesitamos son:</p>
+<ol style="list-style-type: decimal">
+<li>Objeto raster</li>
+<li>Modelo</li>
+</ol>
+<p>El <em>Objeto raster</em> se refiere a una capa que será utilizada como referencia de resolución y extensión espacial para interpolar, y <em>Modelo</em> es el procedimiento de interpolación que se utilizará (vecino más cercano, etc.). La mayoría de los modelos de interpolación podemos encontrarlos en el paquete <code>gstat</code>. Para interpolar utilizaremos las mismas bases de datos de antes.</p>
+<p>Antes de la interpolación, es necesario formatear de manera especial los datos. La base que contiene la localidades de muestreo y las mediciones, tenemos que transformarla en un objeto reconocible por el paquete <code>sp</code>, de modo que sepa qué columnas contienen las coordenadas <span class="math inline">\(x, y\)</span>, y cuáles los datos:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gstat)</span>
+<span id="cb34-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-3" aria-hidden="true" tabindex="-1"></a>datos.sp <span class="ot">&lt;-</span> datos</span>
+<span id="cb34-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(datos.sp) <span class="ot">&lt;-</span> <span class="er">~</span> Longitud <span class="sc">+</span> Latitud</span>
+<span id="cb34-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">proj4string</span>(datos.sp) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="fu">proj4string</span>(r<span class="fl">.0</span>))</span></code></pre></div>
+<p>Y hacemos lo mismo con el ráster de referencia, primero transformándolo en <code>data.frame</code> y luego en <code>SpatialPointsDataFrame</code>:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb35-1" aria-hidden="true" tabindex="-1"></a>new.data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">rasterToPoints</span>(r<span class="fl">.0</span>))[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb35-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(new.data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Longitud&quot;</span>, <span class="st">&quot;Latitud&quot;</span>)</span>
+<span id="cb35-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(new.data) <span class="ot">&lt;-</span> <span class="er">~</span> Longitud <span class="sc">+</span> Latitud</span>
+<span id="cb35-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">proj4string</span>(new.data) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="fu">proj4string</span>(r<span class="fl">.0</span>))</span></code></pre></div>
+<p>Nota que en ambos casos anteriores tuvimos que especificar qué sistema de coordenadas se usó, en este caso fue el datum WGS84 con número de identificación EPSG 4326.</p>
+<p>Y ahora sí, corremos la rutina de interpolación con la función <code>idw</code> (inverse distance weighted) de <code>gstat</code>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb36-1" aria-hidden="true" tabindex="-1"></a>inv.dist <span class="ot">&lt;-</span> <span class="fu">idw</span>(<span class="at">formula =</span> Mediciones <span class="sc">~</span> <span class="dv">1</span>, <span class="at">locations =</span> datos.sp, <span class="at">newdata =</span> new.data)</span></code></pre></div>
+<pre><code>## [inverse distance weighted interpolation]</code></pre>
+<p>El objeto que produce la función <code>idw</code> es un <code>SpatialPolygonsDataFrame</code> (vector poligonal), donde cada celda corresponde a un píxel. Para transformar a raster utilizaremos las coordenadas de <code>new.data</code>y los valores interpolados con la función <code>rasterFromXYZ</code>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-1" aria-hidden="true" tabindex="-1"></a>r.idw <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), inv.dist<span class="sc">$</span>var1.pred))</span>
+<span id="cb38-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Gráfica</span></span>
+<span id="cb38-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb38-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.idw, <span class="at">main =</span> <span class="st">&quot;Inverso de la distancia&quot;</span>)</span>
+<span id="cb38-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.idw)</span>
+<span id="cb38-7"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Idw"></span>
+<img src="Mod-mat-ECO_files/figure-html/Idw-1.png" alt="Interpolación por inverso de la distancia." width="960" />
+<p class="caption">
+Figura 4.7: Interpolación por inverso de la distancia.
+</p>
+</div>
+<p>Como podemos ver el resultado de la interpolación con vecino más cercano es muy diferente de inverso de la distancia. ¿Qué artefacto puedes detectar?</p>
+</div>
+</div>
+<div id="regresión-de-las-coordenadas-con-splines" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Regresión de las coordenadas con splines<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#regresión-de-las-coordenadas-con-splines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En esta ocasión nos retringiremos a revisar estos métodos en conjunto pues las ocasiones en que podríamos detectar gradientes perfectos como en la figura <a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#fig:Gradientes">4.4</a> son muy escasos. En la inmensa mayoría existirán estructuras topográficas en el espacio que harán que las relaciones entre lo que medimos y las coordenadas geográficas sean no lineales. Por lo tanto, la herramienta más útil son los splines. La implementación más sencilla de splines para usar en R son los modelos lineales aditivos.</p>
+<p>Para estos análisis podemos utilizar todos los objetos que ya formateamos hasta ahora. Las funciones para ajustar modelos lineales aditivos están en el paquete <code>mgcv</code>, instalado por defecto con <strong>R</strong>, en la función <code>gam</code> (generalised additive model). Por defecto, las fórmulas que se usan en <code>gam</code> son idénticas a las que se usan en <code>lm</code> (modelo lineal). Para que una variable pueda incorporar no-linealidades, necesitamos espacificar el tipo de splines que se utilizarán con otras funciones. Veamos:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb39-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb39-3" aria-hidden="true" tabindex="-1"></a>spl <span class="ot">&lt;-</span> <span class="fu">gam</span>(Mediciones <span class="sc">~</span> <span class="fu">s</span>(Longitud, Latitud, <span class="at">k =</span> <span class="dv">25</span>), <span class="at">data =</span> datos)</span></code></pre></div>
+<p>donde <code>s</code> es la función <em>suavizadora</em> o spline, y <code>k</code> es el número de nodos que habrá en cada variable. Yo decidí arbitrariamente utilizar 25 nodos, pero en realidad puede haber objetivamente más o menos nodos. Los nodos son puntos igualmente espaciados en el rango de valores de cada variable en los cuales se estimarán parámetros del spline. Por ejemplo, para Longitud -100 – -101, un parámetro, y otro para -101 – -102.</p>
+<p>Para ver las predicciones de <code>gam</code>:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-1" aria-hidden="true" tabindex="-1"></a>spl.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(spl, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data)))</span>
+<span id="cb40-2"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-3" aria-hidden="true" tabindex="-1"></a>r.spl <span class="ot">&lt;-</span> <span class="fu">rasterFromXYZ</span>(<span class="fu">data.frame</span>(<span class="fu">coordinates</span>(new.data), spl.pred))</span>
+<span id="cb40-4"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r.spl, <span class="at">main =</span> <span class="st">&quot;Interpolalción con splines&quot;</span>)</span>
+<span id="cb40-6"><a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(datos.sp, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Splines"></span>
+<img src="Mod-mat-ECO_files/figure-html/Splines-1.png" alt="Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas" width="480" />
+<p class="caption">
+Figura 4.8: Resultado de la interpolación con splines en un modelo aditivo generalizado, haciendo regresión sobre las coordenadas
+</p>
+</div>
+<p>Otra implementaciín de splines, incluso más adecuada para la interpolación espacial, se llama <em>Thin Plate Spline</em>, disponible con la función <code>Tps</code> en el paquete <code>fields</code>.</p>
+</div>
+<div id="otros-tipos-de-interpolación" class="section level3 hasAnchor" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> Otros tipos de interpolación<a href="unidad-ii---análisis-de-la-asociación-espacial-entre-varios-fenómenos.html#otros-tipos-de-interpolación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Bicúbico</li>
+<li>Bilineal</li>
+<li>Kriging</li>
+<li>Regresión-Kriging</li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unidad-i-introducción-al-modelado-espacial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-iii---aplicaciones-del-modelo-digital-de-elevación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Mod-mat-ECO.pdf", "Mod-mat-ECO.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
